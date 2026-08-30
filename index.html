@@ -2,30 +2,235 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#070402">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
   <meta name="google" content="notranslate">
-  <meta name="description" content="PRO-MAX Académie Insurance School — multilingual professional insurance education.">
+
+  <meta
+    name="description"
+    content="PRO-MAX Académie Insurance School — multilingual professional insurance education."
+  >
+
   <title>PRO-MAX Académie | Insurance School</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
+
   <header class="topbar">
-    <a class="brand" href="#home"><b class="brand-mark">PM</b><span><strong>PRO-MAX ACADÉMIE</strong><small>INSURANCE SCHOOL</small></span></a>
-    <nav><a href="#home" data-t="navHome">Home</a><a href="#programs" data-t="navPrograms">Programs</a><a href="#roadmap" data-t="navRoadmap">Roadmap</a><a href="#portal" data-t="navPortal">Student Portal</a></nav>
-    <div class="langs" aria-label="Language selector"><button data-lang="en" class="active">ENG</button><button data-lang="fr">FRA</button><button data-lang="ht">KRE</button></div>
+
+    <a class="brand" href="#home">
+      <b class="brand-mark">PM</b>
+
+      <span>
+        <strong>PRO-MAX ACADÉMIE</strong>
+        <small>INSURANCE SCHOOL</small>
+      </span>
+    </a>
+
+    <nav>
+      <a href="#home" data-t="navHome">Home</a>
+      <a href="#programs" data-t="navPrograms">Programs</a>
+      <a href="#roadmap" data-t="navRoadmap">Roadmap</a>
+      <a href="#portal" data-t="navPortal">Student Portal</a>
+    </nav>
+
+    <div class="langs" aria-label="Language selector">
+      <button type="button" data-lang="en" class="active">ENG</button>
+      <button type="button" data-lang="fr">FRA</button>
+      <button type="button" data-lang="ht">KRE</button>
+    </div>
+
   </header>
+
   <main>
+
     <section class="hero" id="home">
-      <div class="hero-copy"><p class="kicker" data-t="eyebrow">PRO-MAX ACADÉMIE • INSURANCE SCHOOL</p><h1><b data-t="titleA">Build the knowledge.</b><span data-t="titleB">Earn the confidence.</span></h1><p class="intro" data-t="intro"></p><div class="actions"><a class="primary" href="#programs" data-t="explore">Explore Programs</a><a class="secondary" href="#portal" data-t="portal">Student Portal</a></div></div>
-      <div class="logo-video-wrap"><video class="logo-video" autoplay muted loop playsinline preload="auto" aria-label="Animated PRO-MAX Académie Insurance School logo"><source src="insurance-school-logo-animated.mp4" type="video/mp4"></video></div>
+
+      <div class="hero-copy">
+
+        <p class="kicker" data-t="eyebrow">
+          PRO-MAX ACADÉMIE • INSURANCE SCHOOL
+        </p>
+
+        <h1>
+          <b data-t="titleA">Build the knowledge.</b>
+          <span data-t="titleB">Earn the confidence.</span>
+        </h1>
+
+        <p class="intro" data-t="intro">
+          A focused, multilingual learning path for future insurance
+          professionals. Study the fundamentals, track your progress,
+          prepare for the final exam, and move forward with purpose.
+        </p>
+
+        <div class="actions">
+
+          <a class="primary" href="#programs" data-t="explore">
+            Explore Programs
+          </a>
+
+          <a class="secondary" href="#portal" data-t="portal">
+            Student Portal
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="official-logo-wrap">
+
+        <img
+          class="official-logo"
+          src="./insurance-school-logo.png"
+          alt="PRO-MAX Académie Insurance School — Orlando, Florida — 100% Online"
+        >
+
+      </div>
+
     </section>
-    <section class="section" id="programs"><p class="kicker">01 — PROGRAMS</p><h2 data-t="programTitle">Core study programs</h2><p class="section-lead" data-t="programSub"></p><div class="grid" id="courseGrid"></div></section>
-    <section class="section dark" id="roadmap"><p class="kicker">02 — ROADMAP</p><h2 data-t="journey">Your path to completion</h2><div class="steps" id="steps"></div></section>
-    <section class="section payment" id="portal"><div class="payment-copy"><p class="kicker">03 — STUDENT ACCOUNT</p><h2 data-t="payment">Clear payment progress</h2><p data-t="paid"></p><a class="primary" href="#home" data-t="portal">Student Portal</a></div><aside class="payment-card"><span data-t="tuition">Total tuition</span><strong>5,000 <small>HTG</small></strong><p data-t="plan">5 payments × 1,000 HTG</p><div class="progress"><i id="progressBar"></i></div><div class="pay-dots" id="payDots"></div><div class="pay-controls"><button id="minus">− Payment</button><button id="plus">+ Payment</button><button id="reset">Reset</button></div><div class="status" id="payStatus"></div></aside></section>
-    <section class="cta"><p class="kicker">BSS1815 PRO-MAX DMP</p><h2 data-t="promise"></h2><p data-t="promiseSub"></p><a class="primary" href="#programs" data-t="explore">Explore Programs</a></section>
+
+    <section class="section" id="programs">
+
+      <p class="kicker">01 — PROGRAMS</p>
+
+      <h2 data-t="programTitle">
+        Core study programs
+      </h2>
+
+      <p class="section-lead" data-t="programSub">
+        Choose a learning track and build strong insurance foundations.
+      </p>
+
+      <div class="grid" id="courseGrid"></div>
+
+    </section>
+
+    <section class="section dark" id="roadmap">
+
+      <p class="kicker">02 — ROADMAP</p>
+
+      <h2 data-t="journey">
+        Your path to completion
+      </h2>
+
+      <div class="steps" id="steps"></div>
+
+    </section>
+
+    <section class="section payment" id="portal">
+
+      <div class="payment-copy">
+
+        <p class="kicker">
+          03 — STUDENT ACCOUNT
+        </p>
+
+        <h2 data-t="payment">
+          Clear payment progress
+        </h2>
+
+        <p data-t="paid">
+          Track paid amount, remaining balance and status from 0/5 to 5/5.
+        </p>
+
+        <a class="primary" href="#home" data-t="portal">
+          Student Portal
+        </a>
+
+      </div>
+
+      <aside class="payment-card">
+
+        <span data-t="tuition">
+          Total tuition
+        </span>
+
+        <strong>
+          5,000
+          <small>HTG</small>
+        </strong>
+
+        <p data-t="plan">
+          5 payments × 1,000 HTG
+        </p>
+
+        <div class="progress">
+          <i id="progressBar"></i>
+        </div>
+
+        <div class="pay-dots" id="payDots"></div>
+
+        <div class="pay-controls">
+
+          <button type="button" id="minus">
+            − Payment
+          </button>
+
+          <button type="button" id="plus">
+            + Payment
+          </button>
+
+          <button type="button" id="reset">
+            Reset
+          </button>
+
+        </div>
+
+        <div class="status" id="payStatus"></div>
+
+      </aside>
+
+    </section>
+
+    <section class="cta">
+
+      <p class="kicker">
+        BSS1815 PRO-MAX DMP
+      </p>
+
+      <h2 data-t="promise">
+        Learn with direction. Progress with discipline.
+      </h2>
+
+      <p data-t="promiseSub">
+        Education, technology and opportunity inside one professional
+        digital ecosystem.
+      </p>
+
+      <a class="primary" href="#programs" data-t="explore">
+        Explore Programs
+      </a>
+
+    </section>
+
   </main>
-  <footer><div class="brand"><b class="brand-mark">PM</b><span><strong>PRO-MAX ACADÉMIE</strong><small>INSURANCE SCHOOL</small></span></div><p data-t="footer">LEARN. EVOLVE. SUCCEED.</p><small>© 2026 BSS1815 PRO-MAX DMP</small></footer>
-  <script src="./Javascript.js" defer></script>
+
+  <footer>
+
+    <div class="brand">
+
+      <b class="brand-mark">PM</b>
+
+      <span>
+        <strong>PRO-MAX ACADÉMIE</strong>
+        <small>INSURANCE SCHOOL</small>
+      </span>
+
+    </div>
+
+    <p data-t="footer">
+      LEARN. EVOLVE. SUCCEED.
+    </p>
+
+    <small>
+      © 2026 BSS1815 PRO-MAX DMP
+    </small>
+
+  </footer>
+
+  <script src="./javascript.js" defer></script>
+
 </body>
 </html>
