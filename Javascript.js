@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       portal: "Student Portal",
 
       programTitle: "Core study programs",
+
       programSub:
         "Choose a learning track and build strong insurance foundations.",
 
@@ -77,7 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "Education, technology and opportunity inside one professional digital ecosystem.",
 
       footer: "LEARN. EVOLVE. SUCCEED.",
-      paymentStatus: "Payments completed",
+
+      status: "Payments completed",
       paidLabel: "Paid",
       balanceLabel: "Balance"
     },
@@ -158,7 +160,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "Éducation, technologie et opportunités dans un écosystème numérique professionnel.",
 
       footer: "APPRENDRE. ÉVOLUER. RÉUSSIR.",
-      paymentStatus: "Versements effectués",
+
+      status: "Versements effectués",
       paidLabel: "Payé",
       balanceLabel: "Solde"
     },
@@ -239,7 +242,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "Edikasyon, teknoloji ak opòtinite nan yon sèl ekosistèm dijital pwofesyonèl.",
 
       footer: "APRANN. EVOLYE. REYISI.",
-      paymentStatus: "Peman ki fèt",
+
+      status: "Peman ki fèt",
       paidLabel: "Peye",
       balanceLabel: "Balans"
     }
@@ -256,9 +260,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     set: function (key, value) {
       try {
-        window.localStorage.setItem(key, String(value));
+        window.localStorage.setItem(
+          key,
+          String(value)
+        );
       } catch (error) {
-        console.warn("Local storage is unavailable.");
+        console.warn(
+          "Local storage is unavailable."
+        );
       }
     }
   };
@@ -290,56 +299,74 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function renderCourses(languageContent) {
-    const courseGrid = getElement("courseGrid");
+    const courseGrid =
+      getElement("courseGrid");
 
     if (!courseGrid) {
       return;
     }
 
-    courseGrid.innerHTML = languageContent.courses
-      .map(function (course, index) {
-        return `
-          <article class="card">
-            <span class="number">0${index + 1}</span>
-            <b class="icon">${icons[index]}</b>
-            <h3>${course[0]}</h3>
-            <p>${course[1]}</p>
-          </article>
-        `;
-      })
-      .join("");
+    courseGrid.innerHTML =
+      languageContent.courses
+        .map(function (course, index) {
+          return `
+            <article class="card">
+              <span class="number">
+                0${index + 1}
+              </span>
+
+              <b class="icon">
+                ${icons[index]}
+              </b>
+
+              <h3>${course[0]}</h3>
+              <p>${course[1]}</p>
+            </article>
+          `;
+        })
+        .join("");
   }
 
   function renderSteps(languageContent) {
-    const stepsContainer = getElement("steps");
+    const stepsContainer =
+      getElement("steps");
 
     if (!stepsContainer) {
       return;
     }
 
-    stepsContainer.innerHTML = languageContent.steps
-      .map(function (step, index) {
-        return `
-          <article class="step">
-            <b>0${index + 1}</b>
-            <h3>${step[0]}</h3>
-            <p>${step[1]}</p>
-          </article>
-        `;
-      })
-      .join("");
+    stepsContainer.innerHTML =
+      languageContent.steps
+        .map(function (step, index) {
+          return `
+            <article class="step">
+              <b>0${index + 1}</b>
+              <h3>${step[0]}</h3>
+              <p>${step[1]}</p>
+            </article>
+          `;
+        })
+        .join("");
   }
 
   function renderPayments() {
     const languageContent =
       translations[currentLanguage];
 
-    const progressBar = getElement("progressBar");
-    const payDots = getElement("payDots");
-    const payStatus = getElement("payStatus");
+    const progressBar =
+      getElement("progressBar");
 
-    const paidAmount = paymentsCompleted * 1000;
-    const remainingBalance = 5000 - paidAmount;
+    const payDots =
+      getElement("payDots");
+
+    const payStatus =
+      getElement("payStatus");
+
+    const paidAmount =
+      paymentsCompleted * 1000;
+
+    const remainingBalance =
+      5000 - paidAmount;
 
     if (progressBar) {
       progressBar.style.width =
@@ -347,34 +374,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (payDots) {
-      payDots.innerHTML = [1, 2, 3, 4, 5]
-        .map(function (number) {
-          const completed =
-            number <= paymentsCompleted;
+      payDots.innerHTML =
+        [1, 2, 3, 4, 5]
+          .map(function (number) {
+            const completed =
+              number <= paymentsCompleted;
 
-          const background = completed
-            ? "#e46b21"
-            : "transparent";
+            const background =
+              completed
+                ? "#ff7418"
+                : "transparent";
 
-          const color = completed
-            ? "#0b0402"
-            : "#e27940";
+            const color =
+              completed
+                ? "#000000"
+                : "#ffad70";
 
-          return `
-            <b style="
-              background:${background};
-              color:${color};
-            ">
-              ${number}
-            </b>
-          `;
-        })
-        .join("");
+            return `
+              <b
+                style="
+                  background:${background};
+                  color:${color};
+                "
+              >
+                ${number}
+              </b>
+            `;
+          })
+          .join("");
     }
 
     if (payStatus) {
       payStatus.textContent =
-        languageContent.paymentStatus +
+        languageContent.status +
         ": " +
         paymentsCompleted +
         "/5 • " +
@@ -410,8 +442,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const translatedText =
           languageContent[translationKey];
 
-        if (typeof translatedText === "string") {
-          element.textContent = translatedText;
+        if (
+          typeof translatedText === "string"
+        ) {
+          element.textContent =
+            translatedText;
         }
       });
 
@@ -441,7 +476,9 @@ document.addEventListener("DOMContentLoaded", function () {
           const selectedLanguage =
             button.getAttribute("data-lang");
 
-          if (!translations[selectedLanguage]) {
+          if (
+            !translations[selectedLanguage]
+          ) {
             return;
           }
 
@@ -458,9 +495,14 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     });
 
-  const plusButton = getElement("plus");
-  const minusButton = getElement("minus");
-  const resetButton = getElement("reset");
+  const plusButton =
+    getElement("plus");
+
+  const minusButton =
+    getElement("minus");
+
+  const resetButton =
+    getElement("reset");
 
   if (plusButton) {
     plusButton.addEventListener(
