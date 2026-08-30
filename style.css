@@ -39,15 +39,15 @@ button {
   top: 0;
   z-index: 20;
 
-  min-height: 104px;
+  min-height: 110px;
   padding: 12px 5vw;
 
   display: flex;
   align-items: center;
   gap: 30px;
 
-  background: rgba(0, 0, 0, 0.96);
-  border-bottom: 1px solid rgba(255, 116, 24, 0.4);
+  background: rgba(0, 0, 0, 0.97);
+  border-bottom: 1px solid rgba(255, 116, 24, 0.45);
   backdrop-filter: blur(15px);
 }
 
@@ -60,23 +60,17 @@ button {
   gap: 15px;
 }
 
-.brand-mark {
-  flex: 0 0 58px;
+.brand-logo {
+  flex: 0 0 78px;
 
-  width: 58px;
-  height: 58px;
+  width: 78px;
+  height: 78px;
 
-  display: grid;
-  place-items: center;
+  display: block;
+  object-fit: contain;
 
-  border: 2px solid var(--orange);
-  border-radius: 16px 4px;
-
-  color: var(--apricot);
-  font-size: 19px;
-  font-weight: 900;
-
-  box-shadow: 0 0 28px rgba(255, 90, 0, 0.4);
+  filter:
+    drop-shadow(0 0 18px rgba(255, 90, 0, 0.45));
 }
 
 .brand span {
@@ -122,7 +116,7 @@ nav a:hover {
   color: var(--apricot);
 }
 
-/* LANGUAGES */
+/* LANGUAGE BUTTONS */
 
 .langs {
   padding: 3px;
@@ -260,7 +254,7 @@ nav a:hover {
   color: var(--apricot);
 }
 
-/* OFFICIAL STATIC LOGO */
+/* MAIN LOGO */
 
 .official-logo-wrap {
   width: min(530px, 88vw);
@@ -284,7 +278,7 @@ nav a:hover {
 /* SECTIONS */
 
 section {
-  scroll-margin-top: 105px;
+  scroll-margin-top: 110px;
 }
 
 .section,
@@ -450,7 +444,6 @@ section {
 
 .progress {
   height: 7px;
-
   background: #361208;
 }
 
@@ -506,7 +499,6 @@ section {
   background: #100300;
 
   color: var(--muted-orange);
-
   cursor: pointer;
 }
 
@@ -522,7 +514,7 @@ section {
   font-size: 12px;
 }
 
-/* FINAL CTA */
+/* CTA */
 
 .cta {
   text-align: center;
@@ -569,7 +561,7 @@ footer > small {
   color: var(--muted-orange);
 }
 
-/* TABLETS */
+/* TABLET */
 
 @media (max-width: 900px) {
   nav {
@@ -604,7 +596,7 @@ footer > small {
   }
 }
 
-/* PHONES */
+/* PHONE */
 
 @media (max-width: 560px) {
   .topbar {
@@ -614,28 +606,26 @@ footer > small {
   }
 
   .brand {
-    gap: 10px;
+    gap: 8px;
   }
 
-  .brand-mark {
-    flex-basis: 46px;
+  .brand-logo {
+    flex-basis: 60px;
 
-    width: 46px;
-    height: 46px;
-
-    font-size: 15px;
+    width: 60px;
+    height: 60px;
   }
 
   .brand strong {
     font-size: 14px;
-    letter-spacing: 0.055em;
+    letter-spacing: 0.04em;
   }
 
   .brand small {
     margin-top: 5px;
 
     font-size: 8px;
-    letter-spacing: 0.17em;
+    letter-spacing: 0.14em;
   }
 
   .langs button {
