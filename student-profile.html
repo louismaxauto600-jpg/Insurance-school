@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#050301">
+  <meta name="google" content="notranslate">
+
+  <meta
+    name="description"
+    content="PRO-MAX Académie Insurance School Student Profile"
+  >
+
+  <title>Student Profile | PRO-MAX Académie Insurance School</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #050301;
+      --soft-black: #0d0602;
+      --card-black: #160a04;
+      --orange: #ff6a00;
+      --orange-dark: #d94d00;
+      --apricot: #ffad78;
+      --apricot-dark: #d98658;
+      --border: rgba(255, 106, 0, 0.4);
+      --glow: rgba(255, 106, 0, 0.28);
+      --shadow: 0 22px 55px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--apricot);
+      background:
+        radial-gradient(circle at 50% 0%, #401400 0%, transparent 40%),
+        linear-gradient(145deg, #050301, #120601 55%, #030201);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    select {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      min-height: 110px;
+      padding: 18px clamp(18px, 5vw, 70px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(4, 2, 1, 0.96);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-logo {
+      width: 74px;
+      height: 74px;
+      object-fit: cover;
+      border: 1px solid var(--orange);
+      background: var(--black);
+      box-shadow: 0 0 24px var(--glow);
+    }
+
+    .brand-title {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(17px, 2vw, 25px);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-subtitle {
+      margin-top: 8px;
+      color: var(--apricot-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .language-switcher {
+      display: flex;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--soft-black);
+    }
+
+    .language-button {
+      min-width: 44px;
+      padding: 9px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--apricot-dark);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .language-button.active {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    .header-button {
+      padding: 13px 17px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: var(--soft-black);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .header-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    main {
+      width: min(1160px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 65px 0 90px;
+    }
+
+    .page-heading {
+      margin-bottom: 40px;
+    }
+
+    .eyebrow {
+      margin-bottom: 15px;
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .page-heading h1 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.05;
+    }
+
+    .page-heading p {
+      max-width: 720px;
+      margin-top: 17px;
+      color: var(--apricot-dark);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 25px;
+    }
+
+    .profile-card,
+    .form-card {
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(145deg, rgba(255, 106, 0, 0.08), transparent 55%),
+        var(--soft-black);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card {
+      height: fit-content;
+      padding: 34px 27px;
+      text-align: center;
+    }
+
+    .avatar {
+      display: grid;
+      place-items: center;
+      width: 132px;
+      height: 132px;
+      margin: 0 auto 24px;
+      overflow: hidden;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      box-shadow: 0 0 35px var(--glow);
+      font-family: "Cinzel", serif;
+      font-size: 44px;
+      font-weight: 900;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .student-name {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .student-program {
+      margin-top: 9px;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .student-id-box {
+      margin-top: 27px;
+      padding: 17px;
+      border: 1px solid var(--border);
+      background: var(--black);
+    }
+
+    .student-id-label {
+      color: var(--apricot-dark);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .student-id {
+      margin-top: 8px;
+      color: var(--apricot);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .completion-area {
+      margin-top: 26px;
+      text-align: left;
+    }
+
+    .completion-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 10px;
+      color: var(--apricot-dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .progress-track {
+      height: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--black);
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--orange-dark), var(--apricot));
+      box-shadow: 0 0 18px var(--orange);
+      transition: width 0.4s ease;
+    }
+
+    .photo-label {
+      display: block;
+      margin-top: 24px;
+      padding: 13px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .photo-label:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .form-card {
+      padding: clamp(26px, 5vw, 50px);
+    }
+
+    .section-number {
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .form-title {
+      margin: 10px 0 30px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(27px, 4vw, 40px);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 21px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--apricot);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .form-control {
+      width: 100%;
+      min-height: 54px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      outline: none;
+      color: var(--apricot);
+      background: #080301;
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-control:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px var(--glow);
+    }
+
+    .form-control::placeholder {
+      color: #8d5637;
+    }
+
+    select option {
+      color: var(--apricot);
+      background: var(--black);
+    }
+
+    .save-button {
+      width: 100%;
+      min-height: 57px;
+      margin-top: 28px;
+      border: 1px solid var(--orange);
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      box-shadow: 0 14px 30px var(--glow);
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .save-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .message {
+      min-height: 24px;
+      margin-top: 17px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    footer {
+      padding: 34px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--apricot-dark);
+      background: #030201;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      .profile-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .site-header {
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .brand-logo {
+        width: 65px;
+        height: 65px;
+      }
+
+      .brand-title {
+        font-size: 16px;
+      }
+
+      .brand-subtitle {
+        font-size: 9px;
+        letter-spacing: 3px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 470px) {
+      .dashboard-link {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <img
+        class="brand-logo"
+        src="./insurance-school-logo.png"
+        alt="PRO-MAX Académie Insurance School"
+        onerror="this.style.display='none'"
+      >
+
+      <div>
+        <div class="brand-title">PRO-MAX ACADÉMIE</div>
+
+        <div class="brand-subtitle" data-i18n="school">
+          Insurance School
+        </div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <div class="language-switcher">
+        <button
+          class="language-button active"
+          type="button"
+          data-language="en"
+        >
+          ENG
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="fr"
+        >
+          FRA
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="ht"
+        >
+          KRE
+        </button>
+      </div>
+
+      <a
+        class="header-button dashboard-link"
+        href="./student-portal.html"
+        data-i18n="dashboard"
+      >
+        Dashboard
+      </a>
+
+      <button
+        class="header-button"
+        id="logoutButton"
+        type="button"
+        data-i18n="logout"
+      >
+        Log Out
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-heading">
+      <div class="eyebrow" data-i18n="account">
+        Student Account
+      </div>
+
+      <h1 data-i18n="title">Student Profile</h1>
+
+      <p data-i18n="intro">
+        Complete and maintain your official Insurance School student information.
+      </p>
+    </div>
+
+    <div class="profile-layout">
+      <aside class="profile-card">
+        <div class="avatar" id="avatar">
+          <span id="studentInitials">PM</span>
+          <img
+            class="hidden"
+            id="studentPhoto"
+            src=""
+            alt="Student profile"
+          >
+        </div>
+
+        <h2 class="student-name" id="profileStudentName">
+          Student Name
+        </h2>
+
+        <div class="student-program" id="profileProgram">
+          Insurance Program
+        </div>
+
+        <div class="student-id-box">
+          <div class="student-id-label" data-i18n="studentId">
+            Student ID
+          </div>
+
+          <div class="student-id" id="profileStudentId">
+            PMIS-000000
+          </div>
+        </div>
+
+        <div class="completion-area">
+          <div class="completion-line">
+            <span data-i18n="profileCompletion">
+              Profile completion
+            </span>
+
+            <span id="completionPercent">0%</span>
+          </div>
+
+          <div class="progress-track">
+            <div
+              class="progress-fill"
+              id="completionProgress"
+            ></div>
+          </div>
+        </div>
+
+        <label class="photo-label" for="photoInput" data-i18n="uploadPhoto">
+          Upload Student Photo
+        </label>
+
+        <input
+          class="hidden"
+          id="photoInput"
+          type="file"
+          accept="image/png,image/jpeg,image/webp"
+        >
+      </aside>
+
+      <section class="form-card">
+        <div class="section-number">02 — STUDENT PROFILE</div>
+
+        <h2 class="form-title" data-i18n="information">
+          Personal Information
+        </h2>
+
+        <form id="profileForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName" data-i18n="fullName">
+                Full Name
+              </label>
+
+              <input
+                class="form-control"
+                id="fullName"
+                type="text"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email" data-i18n="email">
+                Email Address
+              </label>
+
+              <input
+                class="form-control"
+                id="email"
+                type="email"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="phone" data-i18n="phone">
+                Phone Number
+              </label>
+
+              <input
+                class="form-control"
+                id="phone"
+                type="tel"
+                placeholder="+1"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="dateOfBirth" data-i18n="birthDate">
+                Date of Birth
+              </label>
+
+              <input
+                class="form-control"
+                id="dateOfBirth"
+                type="date"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="country" data-i18n="country">
+                Country
+              </label>
+
+              <input
+                class="form-control"
+                id="country"
+                type="text"
+                value="United States"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="state" data-i18n="state">
+                State
+              </label>
+
+              <select class="form-control" id="state">
+                <option value="">Select State</option>
+                <option value="Florida">Florida</option>
+                <option value="Georgia">Georgia</option>
+                <option value="New York">New York</option>
+                <option value="New Jersey">New Jersey</option>
+                <option value="Massachusetts">Massachusetts</option>
+                <option value="Texas">Texas</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="program" data-i18n="program">
+                Insurance Program
+              </label>
+
+              <select class="form-control" id="program" required>
+                <option value="Life Insurance">
+                  Life Insurance
+                </option>
+
+                <option value="Health Insurance">
+                  Health Insurance
+                </option>
+
+                <option value="Auto Insurance">
+                  Auto Insurance
+                </option>
+
+                <option value="Property & Casualty">
+                  Property & Casualty
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="preferredLanguage" data-i18n="language">
+                Preferred Language
+              </label>
+
+              <select
+                class="form-control"
+                id="preferredLanguage"
+              >
+                <option value="English">English</option>
+                <option value="French">Français</option>
+                <option value="Haitian Creole">
+                  Kreyòl Ayisyen
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label for="address" data-i18n="address">
+                Mailing Address
+              </label>
+
+              <input
+                class="form-control"
+                id="address"
+                type="text"
+                placeholder="Street, city, ZIP code"
+              >
+            </div>
+
+            <div class="form-group full">
+              <label for="learningGoal" data-i18n="goal">
+                Learning Goal
+              </label>
+
+              <textarea
+                class="form-control"
+                id="learningGoal"
+                placeholder="Describe your insurance career goal"
+              ></textarea>
+            </div>
+          </div>
+
+          <button
+            class="save-button"
+            type="submit"
+            data-i18n="save"
+          >
+            Save Student Profile
+          </button>
+
+          <div
+            class="message"
+            id="message"
+            aria-live="polite"
+          ></div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div>PRO-MAX ACADÉMIE · INSURANCE SCHOOL</div>
+    <div>© 2026 BSS1815 PRO-MAX DMP</div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const STORAGE = {
+      students: "promaxInsuranceStudents",
+      session: "promaxInsuranceSession",
+      language: "promaxInsuranceLanguage"
+    };
+
+    const translations = {
+      en: {
+        school: "Insurance School",
+        dashboard: "Dashboard",
+        logout: "Log Out",
+        account: "Student Account",
+        title: "Student Profile",
+        intro:
+          "Complete and maintain your official Insurance School student information.",
+        studentId: "Student ID",
+        profileCompletion: "Profile completion",
+        uploadPhoto: "Upload Student Photo",
+        information: "Personal Information",
+        fullName: "Full Name",
+        email: "Email Address",
+        phone: "Phone Number",
+        birthDate: "Date of Birth",
+        country: "Country",
+        state: "State",
+        program: "Insurance Program",
+        language: "Preferred Language",
+        address: "Mailing Address",
+        goal: "Learning Goal",
+        save: "Save Student Profile",
+        saved: "Student profile saved successfully."
+      },
+
+      fr: {
+        school: "École d’assurance",
+        dashboard: "Tableau de bord",
+        logout: "Déconnexion",
+        account: "Compte étudiant",
+        title: "Profil étudiant",
+        intro:
+          "Complétez et maintenez vos informations officielles d’étudiant.",
+        studentId: "Numéro étudiant",
+        profileCompletion: "Profil complété",
+        uploadPhoto: "Télécharger une photo",
+        information: "Informations personnelles",
+        fullName: "Nom complet",
+        email: "Adresse courriel",
+        phone: "Numéro de téléphone",
+        birthDate: "Date de naissance",
+        country: "Pays",
+        state: "État",
+        program: "Programme d’assurance",
+        language: "Langue préférée",
+        address: "Adresse postale",
+        goal: "Objectif de formation",
+        save: "Enregistrer le profil",
+        saved: "Profil étudiant enregistré avec succès."
+      },
+
+      ht: {
+        school: "Lekòl Asirans",
+        dashboard: "Dashboard",
+        logout: "Dekonekte",
+        account: "Kont Elèv",
+        title: "Pwofil Elèv",
+        intro:
+          "Ranpli epi konsève enfòmasyon ofisyèl ou kòm elèv lekòl la.",
+        studentId: "Nimewo Elèv",
+        profileCompletion: "Pwofil konplete",
+        uploadPhoto: "Mete Foto Elèv",
+        information: "Enfòmasyon Pèsonèl",
+        fullName: "Non Konplè",
+        email: "Adrès Imèl",
+        phone: "Nimewo Telefòn",
+        birthDate: "Dat Nesans",
+        country: "Peyi",
+        state: "Eta",
+        program: "Pwogram Asirans",
+        language: "Lang Prefere",
+        address: "Adrès Postal",
+        goal: "Objektif Fòmasyon",
+        save: "Anrejistre Pwofil Elèv",
+        saved: "Pwofil elèv la anrejistre avèk siksè."
+      }
+    };
+
+    let currentLanguage =
+      localStorage.getItem(STORAGE.language) || "en";
+
+    let currentStudent = null;
+
+    const profileForm = document.getElementById("profileForm");
+    const message = document.getElementById("message");
+    const photoInput = document.getElementById("photoInput");
+
+    function getStudents() {
+      try {
+        return JSON.parse(
+          localStorage.getItem(STORAGE.students)
+        ) || [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveStudents(students) {
+      localStorage.setItem(
+        STORAGE.students,
+        JSON.stringify(students)
+      );
+    }
+
+    function findCurrentStudent() {
+      const sessionId = localStorage.getItem(STORAGE.session);
+
+      if (!sessionId) {
+        window.location.href = "./student-portal.html";
+        return;
+      }
+
+      currentStudent = getStudents().find(function (student) {
+        return student.id === sessionId;
+      });
+
+      if (!currentStudent) {
+        localStorage.removeItem(STORAGE.session);
+        window.location.href = "./student-portal.html";
+      }
+    }
+
+    function getInitials(name) {
+      return name
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map(function (part) {
+          return part.charAt(0).toUpperCase();
+        })
+        .join("");
+    }
+
+    function fillProfile() {
+      document.getElementById("fullName").value =
+        currentStudent.name || "";
+
+      document.getElementById("email").value =
+        currentStudent.email || "";
+
+      document.getElementById("phone").value =
+        currentStudent.phone || "";
+
+      document.getElementById("dateOfBirth").value =
+        currentStudent.dateOfBirth || "";
+
+      document.getElementById("country").value =
+        currentStudent.country || "United States";
+
+      document.getElementById("state").value =
+        currentStudent.state || "";
+
+      document.getElementById("program").value =
+        currentStudent.program || "Life Insurance";
+
+      document.getElementById("preferredLanguage").value =
+        currentStudent.preferredLanguage || "English";
+
+      document.getElementById("address").value =
+        currentStudent.address || "";
+
+      document.getElementById("learningGoal").value =
+        currentStudent.learningGoal || "";
+
+      renderProfileCard();
+      calculateCompletion();
+    }
+
+    function renderProfileCard() {
+      document.getElementById("profileStudentName").textContent =
+        currentStudent.name;
+
+      document.getElementById("profileProgram").textContent =
+        currentStudent.program;
+
+      document.getElementById("profileStudentId").textContent =
+        currentStudent.id;
+
+      document.getElementById("studentInitials").textContent =
+        getInitials(currentStudent.name) || "PM";
+
+      const studentPhoto =
+        document.getElementById("studentPhoto");
+
+      const studentInitials =
+        document.getElementById("studentInitials");
+
+      if (currentStudent.photo) {
+        studentPhoto.src = currentStudent.photo;
+        studentPhoto.classList.remove("hidden");
+        studentInitials.classList.add("hidden");
+      } else {
+        studentPhoto.classList.add("hidden");
+        studentInitials.classList.remove("hidden");
+      }
+    }
+
+    function calculateCompletion() {
+      const fields = [
+        currentStudent.name,
+        currentStudent.email,
+        currentStudent.phone,
+        currentStudent.dateOfBirth,
+        currentStudent.country,
+        currentStudent.state,
+        currentStudent.program,
+        currentStudent.preferredLanguage,
+        currentStudent.address,
+        currentStudent.learningGoal
+      ];
+
+      const completedFields = fields.filter(function (field) {
+        return Boolean(field && String(field).trim());
+      }).length;
+
+      const percent = Math.round(
+        (completedFields / fields.length) * 100
+      );
+
+      document.getElementById("completionPercent").textContent =
+        `${percent}%`;
+
+      document.getElementById("completionProgress").style.width =
+        `${percent}%`;
+    }
+
+    function updateStudent(updatedInformation) {
+      const students = getStudents();
+
+      const studentIndex = students.findIndex(function (student) {
+        return student.id === currentStudent.id;
+      });
+
+      if (studentIndex === -1) {
+        return;
+      }
+
+      students[studentIndex] = {
+        ...students[studentIndex],
+        ...updatedInformation
+      };
+
+      saveStudents(students);
+      currentStudent = students[studentIndex];
+
+      renderProfileCard();
+      calculateCompletion();
+    }
+
+    profileForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      updateStudent({
+        name: document.getElementById("fullName").value.trim(),
+        email: document
+          .getElementById("email")
+          .value.trim()
+          .toLowerCase(),
+        phone: document.getElementById("phone").value.trim(),
+        dateOfBirth:
+          document.getElementById("dateOfBirth").value,
+        country:
+          document.getElementById("country").value.trim(),
+        state: document.getElementById("state").value,
+        program: document.getElementById("program").value,
+        preferredLanguage:
+          document.getElementById("preferredLanguage").value,
+        address:
+          document.getElementById("address").value.trim(),
+        learningGoal:
+          document.getElementById("learningGoal").value.trim()
+      });
+
+      message.textContent =
+        translations[currentLanguage].saved;
+
+      setTimeout(function () {
+        message.textContent = "";
+      }, 3500);
+    });
+
+    photoInput.addEventListener("change", function () {
+      const file = photoInput.files[0];
+
+      if (!file) {
+        return;
+      }
+
+      const maximumSize = 2 * 1024 * 1024;
+
+      if (file.size > maximumSize) {
+        message.textContent =
+          "Photo must be smaller than 2 MB.";
+
+        photoInput.value = "";
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.addEventListener("load", function () {
+        updateStudent({
+          photo: reader.result
+        });
+
+        message.textContent =
+          translations[currentLanguage].saved;
+      });
+
+      reader.readAsDataURL(file);
+    });
+
+    function applyLanguage(language) {
+      if (!translations[language]) {
+        language = "en";
+      }
+
+      currentLanguage = language;
+      localStorage.setItem(STORAGE.language, language);
+
+      document.documentElement.lang =
+        language === "ht" ? "ht" : language;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key = element.dataset.i18n;
+
+          if (translations[language][key]) {
+            element.textContent = translations[language][key];
+          }
+        });
+
+      document
+        .querySelectorAll(".language-button")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.dataset.language === language
+          );
+        });
+    }
+
+    document
+      .querySelectorAll(".language-button")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyLanguage(button.dataset.language);
+        });
+      });
+
+    document
+      .getElementById("logoutButton")
+      .addEventListener("click", function () {
+        localStorage.removeItem(STORAGE.session);
+        window.location.href = "./student-portal.html";
+      });
+
+    findCurrentStudent();
+
+    if (currentStudent) {
+      fillProfile();
+      applyLanguage(currentLanguage);
+    }
+  </script>
+</body>
+</html>
