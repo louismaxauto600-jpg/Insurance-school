@@ -30,11 +30,11 @@
     :root {
       --black: #050301;
       --black-soft: #0d0602;
-      --card: #150903;
+      --black-card: #160a04;
       --orange: #ff6a00;
       --orange-dark: #d94d00;
       --apricot: #ffad78;
-      --apricot-dark: #d98557;
+      --apricot-dark: #d98658;
       --border: rgba(255, 106, 0, 0.4);
       --glow: rgba(255, 106, 0, 0.27);
       --shadow: 0 22px 55px rgba(0, 0, 0, 0.66);
@@ -55,7 +55,7 @@
       overflow-x: hidden;
       color: var(--apricot);
       background:
-        radial-gradient(circle at 50% 0%, #401400, transparent 38%),
+        radial-gradient(circle at 50% 0%, #401400 0%, transparent 38%),
         linear-gradient(145deg, #050301, #130601 55%, #030201);
       font-family: "Montserrat", sans-serif;
     }
@@ -99,11 +99,13 @@
       display: flex;
       align-items: center;
       gap: 17px;
+      min-width: 0;
     }
 
     .brand-logo {
       width: 73px;
       height: 73px;
+      flex: 0 0 73px;
       object-fit: cover;
       border: 1px solid var(--orange);
       background: var(--black);
@@ -116,6 +118,7 @@
       font-size: clamp(17px, 2vw, 25px);
       font-weight: 800;
       letter-spacing: 2px;
+      line-height: 1.2;
     }
 
     .brand-subtitle {
@@ -371,6 +374,10 @@
       text-transform: uppercase;
     }
 
+    .primary-button:hover {
+      transform: translateY(-2px);
+    }
+
     .form-message {
       min-height: 23px;
       margin-top: 16px;
@@ -466,7 +473,7 @@
       margin-top: 17px;
       color: var(--apricot);
       font-family: "Cinzel", serif;
-      font-size: 31px;
+      font-size: 30px;
       font-weight: 800;
     }
 
@@ -527,7 +534,7 @@
     }
 
     .progress-fill {
-      width: 0;
+      width: 0%;
       height: 100%;
       border-radius: inherit;
       background: linear-gradient(90deg, var(--orange-dark), var(--apricot));
@@ -781,6 +788,7 @@
       .brand-logo {
         width: 64px;
         height: 64px;
+        flex-basis: 64px;
       }
 
       .brand-title {
@@ -1027,9 +1035,18 @@
                 required
               >
                 <option value="">Choose a program</option>
-                <option value="Life Insurance">Life Insurance</option>
-                <option value="Health Insurance">Health Insurance</option>
-                <option value="Auto Insurance">Auto Insurance</option>
+
+                <option value="Life Insurance">
+                  Life Insurance
+                </option>
+
+                <option value="Health Insurance">
+                  Health Insurance
+                </option>
+
+                <option value="Auto Insurance">
+                  Auto Insurance
+                </option>
 
                 <option value="Property & Casualty">
                   Property & Casualty
@@ -1154,7 +1171,7 @@
           </div>
 
           <div class="stat-detail" id="balanceValue">
-            Balance: $500 USD
+            Balance: $5,000 USD
           </div>
         </article>
 
@@ -1213,11 +1230,11 @@
             </h2>
 
             <div class="price">
-              $500 <small>USD</small>
+              $5,000 <small>USD</small>
             </div>
 
             <p class="description" data-i18n="paymentPlan">
-              5 payments × $100 USD
+              5 payments × $1,000 USD
             </p>
 
             <div class="progress-track">
@@ -1230,7 +1247,7 @@
             <div class="payment-steps" id="paymentSteps"></div>
 
             <p class="description" id="paymentDetails">
-              Paid: $0 USD · Balance: $500 USD
+              Paid: $0 USD · Balance: $5,000 USD
             </p>
 
             <div class="button-row">
@@ -1314,6 +1331,13 @@
       language: "promaxInsuranceLanguage"
     };
 
+    const TUITION = {
+      total: 5000,
+      numberOfPayments: 5,
+      paymentAmount: 1000,
+      currency: "USD"
+    };
+
     const lessonKeys = [
       "fundamentals",
       "policy",
@@ -1330,7 +1354,8 @@
         portalIntro:
           "Access your student profile, insurance courses, payments, final exam and certificate.",
         artTitle: "Learn with direction. Progress with discipline.",
-        artText: "Your complete professional insurance learning environment.",
+        artText:
+          "Your complete professional insurance learning environment.",
         login: "Login",
         register: "Register",
         welcomeBack: "Welcome Back",
@@ -1339,7 +1364,8 @@
         password: "Password",
         enterPortal: "Enter Student Portal",
         createAccount: "Create Student Account",
-        registerText: "Register for your insurance education program.",
+        registerText:
+          "Register for your insurance education program.",
         fullName: "Full Name",
         program: "Insurance Program",
         studentAccount: "Student Account",
@@ -1358,17 +1384,20 @@
         notStarted: "Not started",
         studentId: "Student ID",
         activeStudent: "Active student",
-        courseText: "Complete every lesson before taking your final exam.",
-        paymentPlan: "5 payments × $100 USD",
+        courseText:
+          "Complete every lesson before taking your final exam.",
+        paymentPlan: "5 payments × $1,000 USD",
         removePayment: "− Payment",
         addPayment: "+ Payment",
         examLocked: "Exam Locked",
         examAvailable: "Exam Available",
         examRequirement:
           "Complete all lessons and payments to unlock the exam.",
-        examReady: "Your course and payments are complete. The exam is ready.",
+        examReady:
+          "Your course and payments are complete. The exam is ready.",
         certificatePending: "Certificate Pending",
-        certificateText: "Available after passing the final exam.",
+        certificateText:
+          "Available after passing the final exam.",
         fundamentals: "Insurance Fundamentals",
         policy: "Policy Structure and Coverage",
         ethics: "Clients, Ethics and Responsibilities",
@@ -1377,8 +1406,10 @@
         complete: "Complete",
         completed: "Completed",
         invalidLogin: "Email or password is incorrect.",
-        accountExists: "An account already exists with this email.",
-        accountCreated: "Account created successfully. Opening portal...",
+        accountExists:
+          "An account already exists with this email.",
+        accountCreated:
+          "Account created successfully. Opening portal...",
         fillFields: "Complete all required fields.",
         lessons: "lessons",
         paid: "Paid",
@@ -1391,17 +1422,21 @@
         portalTitle: "Portail étudiant",
         portalIntro:
           "Accédez à votre profil, vos cours, paiements, examen final et certificat.",
-        artTitle: "Apprenez avec direction. Progressez avec discipline.",
-        artText: "Votre environnement professionnel de formation en assurance.",
+        artTitle:
+          "Apprenez avec direction. Progressez avec discipline.",
+        artText:
+          "Votre environnement professionnel de formation en assurance.",
         login: "Connexion",
         register: "Inscription",
         welcomeBack: "Bienvenue",
-        loginText: "Entrez votre courriel et votre mot de passe.",
+        loginText:
+          "Entrez votre courriel et votre mot de passe.",
         email: "Adresse courriel",
         password: "Mot de passe",
         enterPortal: "Entrer dans le portail",
         createAccount: "Créer un compte étudiant",
-        registerText: "Inscrivez-vous à votre programme d’assurance.",
+        registerText:
+          "Inscrivez-vous à votre programme d’assurance.",
         fullName: "Nom complet",
         program: "Programme d’assurance",
         studentAccount: "Compte étudiant",
@@ -1420,28 +1455,36 @@
         notStarted: "Non commencé",
         studentId: "Numéro étudiant",
         activeStudent: "Étudiant actif",
-        courseText: "Terminez chaque leçon avant votre examen final.",
-        paymentPlan: "5 paiements × 100 $ USD",
+        courseText:
+          "Terminez chaque leçon avant votre examen final.",
+        paymentPlan: "5 paiements × 1 000 $ USD",
         removePayment: "− Paiement",
         addPayment: "+ Paiement",
         examLocked: "Examen verrouillé",
         examAvailable: "Examen disponible",
         examRequirement:
           "Terminez les leçons et paiements pour déverrouiller l’examen.",
-        examReady: "Votre cours et vos paiements sont terminés. L’examen est prêt.",
+        examReady:
+          "Votre cours et vos paiements sont terminés. L’examen est prêt.",
         certificatePending: "Certificat en attente",
-        certificateText: "Disponible après la réussite de l’examen final.",
-        fundamentals: "Principes fondamentaux de l’assurance",
+        certificateText:
+          "Disponible après la réussite de l’examen final.",
+        fundamentals:
+          "Principes fondamentaux de l’assurance",
         policy: "Structure des polices et couvertures",
         ethics: "Clients, éthique et responsabilités",
         claims: "Réclamations et gestion des risques",
         examPreparation: "Préparation à l’examen final",
         complete: "Terminer",
         completed: "Terminé",
-        invalidLogin: "Le courriel ou le mot de passe est incorrect.",
-        accountExists: "Un compte utilise déjà ce courriel.",
-        accountCreated: "Compte créé. Ouverture du portail...",
-        fillFields: "Remplissez tous les champs obligatoires.",
+        invalidLogin:
+          "Le courriel ou le mot de passe est incorrect.",
+        accountExists:
+          "Un compte utilise déjà ce courriel.",
+        accountCreated:
+          "Compte créé. Ouverture du portail...",
+        fillFields:
+          "Remplissez tous les champs obligatoires.",
         lessons: "leçons",
         paid: "Payé",
         balance: "Solde"
@@ -1453,17 +1496,21 @@
         portalTitle: "Pòtal Elèv",
         portalIntro:
           "Antre nan pwofil, kou, peman, egzamen final ak sètifika ou.",
-        artTitle: "Aprann ak direksyon. Pwogrese ak disiplin.",
-        artText: "Anviwònman pwofesyonèl konplè pou fòmasyon asirans ou.",
+        artTitle:
+          "Aprann ak direksyon. Pwogrese ak disiplin.",
+        artText:
+          "Anviwònman pwofesyonèl konplè pou fòmasyon asirans ou.",
         login: "Konekte",
         register: "Enskri",
         welcomeBack: "Byenveni",
-        loginText: "Antre imèl elèv ou ak modpas ou.",
+        loginText:
+          "Antre imèl elèv ou ak modpas ou.",
         email: "Adrès Imèl",
         password: "Modpas",
         enterPortal: "Antre nan Pòtal Elèv",
         createAccount: "Kreye Kont Elèv",
-        registerText: "Enskri nan pwogram asirans ou.",
+        registerText:
+          "Enskri nan pwogram asirans ou.",
         fullName: "Non Konplè",
         program: "Pwogram Asirans",
         studentAccount: "Kont Elèv",
@@ -1482,17 +1529,20 @@
         notStarted: "Poko kòmanse",
         studentId: "Nimewo Elèv",
         activeStudent: "Elèv aktif",
-        courseText: "Fini chak leson anvan ou pran egzamen final la.",
-        paymentPlan: "5 peman × $100 USD",
+        courseText:
+          "Fini chak leson anvan ou pran egzamen final la.",
+        paymentPlan: "5 peman × $1,000 USD",
         removePayment: "− Peman",
         addPayment: "+ Peman",
         examLocked: "Egzamen Fèmen",
         examAvailable: "Egzamen Disponib",
         examRequirement:
           "Fini tout leson ak peman pou debloke egzamen an.",
-        examReady: "Ou fini kou ak peman yo. Egzamen an pare.",
+        examReady:
+          "Ou fini kou ak peman yo. Egzamen an pare.",
         certificatePending: "Sètifika an Atant",
-        certificateText: "Disponib apre ou pase egzamen final la.",
+        certificateText:
+          "Disponib apre ou pase egzamen final la.",
         fundamentals: "Baz Asirans",
         policy: "Estrikti Polis ak Kouvèti",
         ethics: "Kliyan, Etik ak Responsablite",
@@ -1500,10 +1550,14 @@
         examPreparation: "Preparasyon Egzamen Final",
         complete: "Fini",
         completed: "Fini",
-        invalidLogin: "Imèl oswa modpas la pa kòrèk.",
-        accountExists: "Gen yon kont ki deja itilize imèl sa a.",
-        accountCreated: "Kont lan kreye. Pòtal la ap ouvri...",
-        fillFields: "Ranpli tout espas obligatwa yo.",
+        invalidLogin:
+          "Imèl oswa modpas la pa kòrèk.",
+        accountExists:
+          "Gen yon kont ki deja itilize imèl sa a.",
+        accountCreated:
+          "Kont lan kreye. Pòtal la ap ouvri...",
+        fillFields:
+          "Ranpli tout espas obligatwa yo.",
         lessons: "leson",
         paid: "Peye",
         balance: "Balans"
@@ -1515,14 +1569,27 @@
 
     let currentStudent = null;
 
-    const authSection = document.getElementById("authSection");
+    const authSection =
+      document.getElementById("authSection");
+
     const dashboardSection =
       document.getElementById("dashboardSection");
 
-    const loginForm = document.getElementById("loginForm");
-    const registerForm = document.getElementById("registerForm");
-    const loginTab = document.getElementById("loginTab");
-    const registerTab = document.getElementById("registerTab");
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const registerForm =
+      document.getElementById("registerForm");
+
+    const loginTab =
+      document.getElementById("loginTab");
+
+    const registerTab =
+      document.getElementById("registerTab");
+
+    function formatUSD(amount) {
+      return `$${amount.toLocaleString("en-US")} USD`;
+    }
 
     function getStudents() {
       try {
@@ -1568,7 +1635,8 @@
       const email =
         document
           .getElementById("registerEmail")
-          .value.trim()
+          .value
+          .trim()
           .toLowerCase();
 
       const program =
@@ -1577,20 +1645,26 @@
       const password =
         document.getElementById("registerPassword").value;
 
-      const message =
+      const registerMessage =
         document.getElementById("registerMessage");
 
       if (!name || !email || !program || password.length < 6) {
-        message.textContent = translations[language].fillFields;
+        registerMessage.textContent =
+          translations[language].fillFields;
+
         return;
       }
 
       const students = getStudents();
 
-      if (students.some(function (student) {
+      const accountExists = students.some(function (student) {
         return student.email === email;
-      })) {
-        message.textContent = translations[language].accountExists;
+      });
+
+      if (accountExists) {
+        registerMessage.textContent =
+          translations[language].accountExists;
+
         return;
       }
 
@@ -1610,7 +1684,9 @@
       saveStudents(students);
 
       localStorage.setItem(STORAGE.session, student.id);
-      message.textContent = translations[language].accountCreated;
+
+      registerMessage.textContent =
+        translations[language].accountCreated;
 
       setTimeout(function () {
         openDashboard(student);
@@ -1623,14 +1699,18 @@
       const email =
         document
           .getElementById("loginEmail")
-          .value.trim()
+          .value
+          .trim()
           .toLowerCase();
 
       const password =
         document.getElementById("loginPassword").value;
 
       const student = getStudents().find(function (item) {
-        return item.email === email && item.password === password;
+        return (
+          item.email === email &&
+          item.password === password
+        );
       });
 
       if (!student) {
@@ -1646,35 +1726,52 @@
 
     function openDashboard(student) {
       currentStudent = student;
+
+      if (!Array.isArray(currentStudent.completedLessons)) {
+        currentStudent.completedLessons = [];
+      }
+
+      if (!Number.isInteger(currentStudent.payments)) {
+        currentStudent.payments = 0;
+      }
+
       authSection.classList.add("hidden");
       dashboardSection.classList.add("active");
+
       renderDashboard();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
 
     function saveCurrentStudent(changes) {
       const students = getStudents();
 
-      const index = students.findIndex(function (student) {
+      const studentIndex = students.findIndex(function (student) {
         return student.id === currentStudent.id;
       });
 
-      if (index === -1) {
+      if (studentIndex === -1) {
         return;
       }
 
-      students[index] = {
-        ...students[index],
+      students[studentIndex] = {
+        ...students[studentIndex],
         ...changes
       };
 
       saveStudents(students);
-      currentStudent = students[index];
+      currentStudent = students[studentIndex];
+
       renderDashboard();
     }
 
     function renderLessons() {
-      const lessonList = document.getElementById("lessonList");
+      const lessonList =
+        document.getElementById("lessonList");
+
       lessonList.innerHTML = "";
 
       lessonKeys.forEach(function (key, index) {
@@ -1682,7 +1779,9 @@
           currentStudent.completedLessons.includes(index);
 
         const lesson = document.createElement("div");
-        lesson.className = `lesson ${completed ? "completed" : ""}`;
+
+        lesson.className =
+          `lesson ${completed ? "completed" : ""}`;
 
         lesson.innerHTML = `
           <div class="lesson-number">
@@ -1719,22 +1818,28 @@
         .querySelectorAll(".lesson-button")
         .forEach(function (button) {
           button.addEventListener("click", function () {
-            const index = Number(button.dataset.index);
-            const lessons = [...currentStudent.completedLessons];
-            const position = lessons.indexOf(index);
+            const lessonIndex =
+              Number(button.dataset.index);
 
-            if (position >= 0) {
-              lessons.splice(position, 1);
+            const completedLessons = [
+              ...currentStudent.completedLessons
+            ];
+
+            const existingPosition =
+              completedLessons.indexOf(lessonIndex);
+
+            if (existingPosition >= 0) {
+              completedLessons.splice(existingPosition, 1);
             } else {
-              lessons.push(index);
+              completedLessons.push(lessonIndex);
             }
 
-            lessons.sort(function (a, b) {
+            completedLessons.sort(function (a, b) {
               return a - b;
             });
 
             saveCurrentStudent({
-              completedLessons: lessons
+              completedLessons: completedLessons
             });
           });
         });
@@ -1746,81 +1851,129 @@
 
       paymentSteps.innerHTML = "";
 
-      for (let number = 1; number <= 5; number += 1) {
-        const step = document.createElement("div");
+      for (
+        let number = 1;
+        number <= TUITION.numberOfPayments;
+        number += 1
+      ) {
+        const paymentStep =
+          document.createElement("div");
 
-        step.className =
+        paymentStep.className =
           `payment-step ${
-            number <= currentStudent.payments ? "paid" : ""
+            number <= currentStudent.payments
+              ? "paid"
+              : ""
           }`;
 
-        step.textContent = number;
-        paymentSteps.appendChild(step);
+        paymentStep.textContent = number;
+        paymentSteps.appendChild(paymentStep);
       }
     }
 
     function renderDashboard() {
-      const completed = currentStudent.completedLessons.length;
-      const coursePercent =
-        Math.round((completed / lessonKeys.length) * 100);
+      if (!currentStudent) {
+        return;
+      }
+
+      const completedLessons =
+        currentStudent.completedLessons.length;
+
+      const coursePercent = Math.round(
+        (completedLessons / lessonKeys.length) * 100
+      );
 
       const payments = currentStudent.payments;
-      const paidAmount = payments * 100;
-      const balance = 500 - paidAmount;
-      const paymentPercent = payments * 20;
+
+      const paidAmount =
+        payments * TUITION.paymentAmount;
+
+      const balance =
+        TUITION.total - paidAmount;
+
+      const paymentPercent = Math.round(
+        (payments / TUITION.numberOfPayments) * 100
+      );
 
       const examUnlocked =
-        completed === lessonKeys.length && payments === 5;
+        completedLessons === lessonKeys.length &&
+        payments === TUITION.numberOfPayments;
 
-      document.getElementById("studentNameDisplay").textContent =
-        currentStudent.name;
+      document.getElementById(
+        "studentNameDisplay"
+      ).textContent = currentStudent.name;
 
-      document.getElementById("studentIdDisplay").textContent =
-        currentStudent.id;
+      document.getElementById(
+        "studentIdDisplay"
+      ).textContent = currentStudent.id;
 
-      document.getElementById("programDisplay").textContent =
-        currentStudent.program;
+      document.getElementById(
+        "programDisplay"
+      ).textContent = currentStudent.program;
 
-      document.getElementById("courseProgressValue").textContent =
-        `${coursePercent}%`;
+      document.getElementById(
+        "courseProgressValue"
+      ).textContent = `${coursePercent}%`;
 
-      document.getElementById("lessonStat").textContent =
-        `${completed}/5 ${translations[language].lessons}`;
+      document.getElementById(
+        "lessonStat"
+      ).textContent =
+        `${completedLessons}/${lessonKeys.length} ` +
+        `${translations[language].lessons}`;
 
-      document.getElementById("courseProgressFill").style.width =
-        `${coursePercent}%`;
+      document.getElementById(
+        "courseProgressFill"
+      ).style.width = `${coursePercent}%`;
 
-      document.getElementById("progressText").textContent =
+      document.getElementById(
+        "progressText"
+      ).textContent =
         `${coursePercent}% ${translations[language].complete}`;
 
-      document.getElementById("lessonCount").textContent =
-        `${completed}/5 ${translations[language].lessons}`;
+      document.getElementById(
+        "lessonCount"
+      ).textContent =
+        `${completedLessons}/${lessonKeys.length} ` +
+        `${translations[language].lessons}`;
 
-      document.getElementById("paymentValue").textContent =
-        `${payments}/5`;
+      document.getElementById(
+        "paymentValue"
+      ).textContent =
+        `${payments}/${TUITION.numberOfPayments}`;
 
-      document.getElementById("balanceValue").textContent =
-        `${translations[language].balance}: $${balance} USD`;
+      document.getElementById(
+        "balanceValue"
+      ).textContent =
+        `${translations[language].balance}: ` +
+        `${formatUSD(balance)}`;
 
-      document.getElementById("paymentProgressFill").style.width =
-        `${paymentPercent}%`;
+      document.getElementById(
+        "paymentProgressFill"
+      ).style.width = `${paymentPercent}%`;
 
-      document.getElementById("paymentDetails").textContent =
-        `${translations[language].paid}: $${paidAmount} USD · ` +
-        `${translations[language].balance}: $${balance} USD`;
+      document.getElementById(
+        "paymentDetails"
+      ).textContent =
+        `${translations[language].paid}: ` +
+        `${formatUSD(paidAmount)} · ` +
+        `${translations[language].balance}: ` +
+        `${formatUSD(balance)}`;
 
-      document.getElementById("examIcon").textContent =
-        examUnlocked ? "✓" : "🔒";
+      document.getElementById(
+        "examIcon"
+      ).textContent = examUnlocked ? "✓" : "🔒";
 
-      document.getElementById("examTitle").textContent =
-        examUnlocked
-          ? translations[language].examAvailable
-          : translations[language].examLocked;
+      document.getElementById(
+        "examTitle"
+      ).textContent = examUnlocked
+        ? translations[language].examAvailable
+        : translations[language].examLocked;
 
-      document.getElementById("examText").textContent =
-        examUnlocked
-          ? translations[language].examReady
-          : translations[language].examRequirement;
+      document.getElementById(
+        "examText"
+      ).textContent = examUnlocked
+        ? translations[language].examReady
+        : translations[language].examRequirement;
 
       renderLessons();
       renderPayments();
@@ -1829,7 +1982,11 @@
     document
       .getElementById("addPayment")
       .addEventListener("click", function () {
-        if (currentStudent.payments < 5) {
+        if (
+          currentStudent &&
+          currentStudent.payments <
+            TUITION.numberOfPayments
+        ) {
           saveCurrentStudent({
             payments: currentStudent.payments + 1
           });
@@ -1839,7 +1996,10 @@
     document
       .getElementById("removePayment")
       .addEventListener("click", function () {
-        if (currentStudent.payments > 0) {
+        if (
+          currentStudent &&
+          currentStudent.payments > 0
+        ) {
           saveCurrentStudent({
             payments: currentStudent.payments - 1
           });
@@ -1850,6 +2010,7 @@
       .getElementById("logoutButton")
       .addEventListener("click", function () {
         localStorage.removeItem(STORAGE.session);
+
         currentStudent = null;
 
         dashboardSection.classList.remove("active");
@@ -1859,7 +2020,10 @@
         registerForm.reset();
         switchTab(true);
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
       });
 
     function applyLanguage(selectedLanguage) {
@@ -1868,7 +2032,11 @@
       }
 
       language = selectedLanguage;
-      localStorage.setItem(STORAGE.language, language);
+
+      localStorage.setItem(
+        STORAGE.language,
+        language
+      );
 
       document.documentElement.lang =
         language === "ht" ? "ht" : language;
@@ -1876,10 +2044,14 @@
       document
         .querySelectorAll("[data-i18n]")
         .forEach(function (element) {
-          const key = element.dataset.i18n;
+          const translationKey =
+            element.dataset.i18n;
 
-          if (translations[language][key]) {
-            element.textContent = translations[language][key];
+          if (
+            translations[language][translationKey]
+          ) {
+            element.textContent =
+              translations[language][translationKey];
           }
         });
 
