@@ -19,6 +19,165 @@
   <title>PRO-MAX Académie | Insurance School</title>
 
   <link rel="stylesheet" href="./style.css">
+
+  <style>
+    .pricing-section {
+      background:
+        radial-gradient(circle at 50% 30%, #5e1c0738, transparent 48%),
+        #050201;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 42px;
+    }
+
+    .pricing-card {
+      position: relative;
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      border: 1px solid #873313;
+      background:
+        linear-gradient(150deg, #251007, #080301);
+      box-shadow: 0 22px 55px #00000099;
+      transition: 0.25s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      border-color: #ff7418;
+      box-shadow: 0 25px 60px #ff5a002b;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid #ff7418;
+      background:
+        linear-gradient(150deg, #3a1508, #0a0301);
+    }
+
+    .pricing-number {
+      color: #d45819;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+    }
+
+    .pricing-card h3 {
+      min-height: 58px;
+      margin: 22px 0 13px;
+      color: #ffad70;
+      font: 700 24px/1.2 Georgia, serif;
+    }
+
+    .pricing-hours {
+      color: #d97743;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .pricing-price {
+      display: block;
+      margin: 25px 0 5px;
+      color: #ff8a3d;
+      font: 700 43px/1 Georgia, serif;
+    }
+
+    .pricing-price small {
+      font: 800 12px/1 Arial, sans-serif;
+    }
+
+    .pricing-card p {
+      color: #d97743;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .pricing-button {
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      margin-top: auto;
+      padding: 14px 15px;
+      border: 1px solid #ff7418;
+      color: #090301;
+      background:
+        linear-gradient(135deg, #ffad70, #e94b00);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .bundle-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 35px;
+      margin-top: 18px;
+      padding: 34px;
+      border: 2px solid #ff7418;
+      background:
+        linear-gradient(135deg, #351307, #080301);
+      box-shadow: 0 25px 70px #ff5a0026;
+    }
+
+    .bundle-card h3 {
+      margin: 8px 0 10px;
+      color: #ffad70;
+      font: 700 31px/1.15 Georgia, serif;
+    }
+
+    .bundle-card p {
+      color: #d97743;
+      line-height: 1.7;
+    }
+
+    .bundle-price {
+      min-width: 200px;
+      color: #ff8a3d;
+      font: 700 52px/1 Georgia, serif;
+      text-align: right;
+    }
+
+    .bundle-price small {
+      display: block;
+      margin-top: 9px;
+      font: 800 11px/1 Arial, sans-serif;
+      letter-spacing: 0.15em;
+    }
+
+    .pricing-note {
+      margin-top: 24px;
+      color: #c96936;
+      font-size: 12px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    @media (max-width: 1000px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bundle-card {
+        grid-template-columns: 1fr;
+      }
+
+      .bundle-price {
+        text-align: left;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -27,7 +186,7 @@
       <img
         class="brand-logo"
         src="./insurance-school-logo.png"
-        alt="PRO-MAX Académie Insurance School logo"
+        alt="PRO-MAX Académie Insurance School"
       >
 
       <span>
@@ -45,6 +204,10 @@
 
       <a href="#roadmap" data-t="navRoadmap">
         Roadmap
+      </a>
+
+      <a href="#pricing" data-t="navPricing">
+        Tuition
       </a>
 
       <a href="#ask-professor" data-t="navProfessor">
@@ -94,9 +257,7 @@
 
         <p class="intro" data-t="intro">
           A focused, multilingual learning path for future
-          insurance professionals. Study the fundamentals,
-          track your progress, prepare for the final exam,
-          and move forward with purpose.
+          insurance professionals.
         </p>
 
         <div class="actions">
@@ -122,7 +283,7 @@
         <img
           class="official-logo"
           src="./insurance-school-logo.png"
-          alt="PRO-MAX Académie Insurance School — Orlando, Florida — 100% Online"
+          alt="PRO-MAX Académie Insurance School"
         >
       </div>
     </section>
@@ -152,6 +313,174 @@
       <div class="steps" id="steps"></div>
     </section>
 
+    <section class="section pricing-section" id="pricing">
+      <p class="kicker">03 — TUITION</p>
+
+      <h2 data-t="pricingTitle">
+        Affordable course pricing
+      </h2>
+
+      <p class="section-lead" data-t="pricingIntro">
+        Select and pay only for the insurance program
+        you need.
+      </p>
+
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <span class="pricing-number">
+            01 — HEALTH
+          </span>
+
+          <h3 data-t="healthTitle">
+            Health Insurance
+          </h3>
+
+          <div class="pricing-hours" data-t="healthHours">
+            Florida 2-40 preparation
+          </div>
+
+          <strong class="pricing-price">
+            $119 <small>USD</small>
+          </strong>
+
+          <p data-t="healthDescription">
+            Health insurance fundamentals, terminology
+            and exam preparation.
+          </p>
+
+          <a
+            class="pricing-button"
+            href="./student-portal.html?program=health&price=119"
+            data-t="enroll"
+          >
+            Enroll Now
+          </a>
+        </article>
+
+        <article class="pricing-card featured">
+          <span class="pricing-number">
+            02 — LIFE & HEALTH
+          </span>
+
+          <h3 data-t="lifeHealthTitle">
+            Life, Health & Annuities
+          </h3>
+
+          <div class="pricing-hours" data-t="lifeHealthHours">
+            Florida 2-15 · 60-hour preparation
+          </div>
+
+          <strong class="pricing-price">
+            $149 <small>USD</small>
+          </strong>
+
+          <p data-t="lifeHealthDescription">
+            Combined life, health and annuity
+            fundamentals with exam preparation.
+          </p>
+
+          <a
+            class="pricing-button"
+            href="./student-portal.html?program=life-health&price=149"
+            data-t="enroll"
+          >
+            Enroll Now
+          </a>
+        </article>
+
+        <article class="pricing-card">
+          <span class="pricing-number">
+            03 — PERSONAL LINES
+          </span>
+
+          <h3 data-t="personalTitle">
+            Personal Lines
+          </h3>
+
+          <div class="pricing-hours" data-t="personalHours">
+            Florida 20-44 · 60-hour preparation
+          </div>
+
+          <strong class="pricing-price">
+            $149 <small>USD</small>
+          </strong>
+
+          <p data-t="personalDescription">
+            Personal automobile and residential
+            property insurance preparation.
+          </p>
+
+          <a
+            class="pricing-button"
+            href="./student-portal.html?program=personal-lines&price=149"
+            data-t="enroll"
+          >
+            Enroll Now
+          </a>
+        </article>
+
+        <article class="pricing-card">
+          <span class="pricing-number">
+            04 — GENERAL LINES
+          </span>
+
+          <h3 data-t="propertyTitle">
+            Property & Casualty
+          </h3>
+
+          <div class="pricing-hours" data-t="propertyHours">
+            Florida 2-20 · 200-hour preparation
+          </div>
+
+          <strong class="pricing-price">
+            $299 <small>USD</small>
+          </strong>
+
+          <p data-t="propertyDescription">
+            Property, casualty, liability and general
+            lines exam preparation.
+          </p>
+
+          <a
+            class="pricing-button"
+            href="./student-portal.html?program=property-casualty&price=299"
+            data-t="enroll"
+          >
+            Enroll Now
+          </a>
+        </article>
+      </div>
+
+      <article class="bundle-card">
+        <div>
+          <span class="pricing-number">
+            COMPLETE LEARNING BUNDLE
+          </span>
+
+          <h3 data-t="bundleTitle">
+            All Insurance Programs
+          </h3>
+
+          <p data-t="bundleDescription">
+            Access all four Insurance School learning
+            programs in one complete package.
+          </p>
+        </div>
+
+        <div class="bundle-price">
+          $599
+          <small>USD</small>
+        </div>
+      </article>
+
+      <p class="pricing-note" data-t="pricingNote">
+        State examination, license application,
+        fingerprinting and government fees are not
+        included. Course availability is subject to
+        applicable state education requirements.
+      </p>
+    </section>
+
     <section
       class="section professor-section"
       id="ask-professor"
@@ -169,7 +498,7 @@
       </div>
 
       <div class="professor-panel">
-        <p class="kicker">03 — ASK PROFESSOR</p>
+        <p class="kicker">04 — ASK PROFESSOR</p>
 
         <h2 data-t="askTitle">
           Ask the Professor
@@ -192,74 +521,10 @@
         </div>
 
         <small class="education-note" data-t="educationNote">
-          Educational information only. Requirements and
-          laws can vary by state.
+          Educational information only. Requirements
+          and laws can vary by state.
         </small>
       </div>
-    </section>
-
-    <section class="section payment" id="portal">
-      <div class="payment-copy">
-        <p class="kicker">
-          04 — STUDENT ACCOUNT
-        </p>
-
-        <h2 data-t="payment">
-          Clear payment progress
-        </h2>
-
-        <p data-t="paid">
-          Track paid amount, remaining balance and
-          status from 0/5 to 5/5.
-        </p>
-
-        <a
-          class="primary"
-          href="./student-portal.html"
-          data-t="portal"
-        >
-          Student Portal
-        </a>
-      </div>
-
-      <aside class="payment-card">
-        <span data-t="tuition">
-          Total tuition
-        </span>
-
-        <strong>
-          $5,000 <small>USD</small>
-        </strong>
-
-        <p data-t="plan">
-          5 payments × $1,000 USD
-        </p>
-
-        <div class="progress">
-          <i id="progressBar"></i>
-        </div>
-
-        <div class="pay-dots" id="payDots"></div>
-
-        <div class="pay-controls">
-          <button id="minus" type="button" data-t="minusPayment">
-            − Payment
-          </button>
-
-          <button id="plus" type="button" data-t="plusPayment">
-            + Payment
-          </button>
-
-          <button id="reset" type="button" data-t="reset">
-            Reset
-          </button>
-        </div>
-
-        <div class="status" id="payStatus">
-          Payments completed: 0/5 · Paid: $0 USD ·
-          Balance: $5,000 USD
-        </div>
-      </aside>
     </section>
 
     <section class="cta">
@@ -278,10 +543,10 @@
 
       <a
         class="primary"
-        href="#programs"
-        data-t="explore"
+        href="#pricing"
+        data-t="viewPricing"
       >
-        Explore Programs
+        View Course Pricing
       </a>
     </section>
   </main>
@@ -291,7 +556,7 @@
       <img
         class="brand-logo"
         src="./insurance-school-logo.png"
-        alt="PRO-MAX Académie Insurance School logo"
+        alt="PRO-MAX Académie Insurance School"
       >
 
       <span>
@@ -309,478 +574,6 @@
     </small>
   </footer>
 
-  <script>
-    "use strict";
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const TOTAL_TUITION_USD = 5000;
-      const PAYMENT_AMOUNT_USD = 1000;
-      const TOTAL_PAYMENTS = 5;
-
-      const translations = {
-        en: {
-          schoolName: "INSURANCE SCHOOL",
-          navHome: "Home",
-          navPrograms: "Programs",
-          navRoadmap: "Roadmap",
-          navProfessor: "Ask Professor",
-          navPortal: "Student Portal",
-          eyebrow:
-            "PRO-MAX ACADÉMIE • INSURANCE SCHOOL",
-          titleA: "Build the knowledge.",
-          titleB: "Earn the confidence.",
-          intro:
-            "A focused, multilingual learning path for future insurance professionals. Study the fundamentals, track your progress, prepare for the final exam, and move forward with purpose.",
-          explore: "Explore Programs",
-          portal: "Student Portal",
-          programTitle: "Core study programs",
-          programSub:
-            "Choose a learning track and build strong insurance foundations.",
-          courses: [
-            [
-              "Life Insurance",
-              "Coverage, beneficiaries, policies and client needs."
-            ],
-            [
-              "Health Insurance",
-              "Plans, essential terminology and responsible guidance."
-            ],
-            [
-              "Auto Insurance",
-              "Liability, protection, claims and policy structure."
-            ],
-            [
-              "Property & Casualty",
-              "Property risks, casualty protection and coverage basics."
-            ]
-          ],
-          journey: "Your path to completion",
-          steps: [
-            [
-              "Enroll",
-              "Create your student profile and select a program."
-            ],
-            [
-              "Learn",
-              "Complete lessons, quizzes and practical reviews."
-            ],
-            [
-              "Final Exam",
-              "Take the final exam through BSS1815 PRO-MAX DMP."
-            ],
-            [
-              "Certificate",
-              "Verify your result and receive your certificate."
-            ]
-          ],
-          professorStatus: "COMING SOON",
-          askTitle: "Ask the Professor",
-          askIntro:
-            "The real-time AI professor is being prepared for the Insurance School.",
-          professorNotice: "AI PROFESSOR",
-          professorMessage:
-            "This service will be activated after the LiveAvatar system is connected.",
-          educationNote:
-            "Educational information only. Requirements and laws can vary by state.",
-          payment: "Clear payment progress",
-          paid:
-            "Track paid amount, remaining balance and status from 0/5 to 5/5.",
-          tuition: "Total tuition",
-          plan: "5 payments × $1,000 USD",
-          minusPayment: "− Payment",
-          plusPayment: "+ Payment",
-          reset: "Reset",
-          promise:
-            "Learn with direction. Progress with discipline.",
-          promiseSub:
-            "Education, technology and opportunity inside one professional digital ecosystem.",
-          footer: "LEARN. EVOLVE. SUCCEED.",
-          status: "Payments completed",
-          paidLabel: "Paid",
-          balance: "Balance"
-        },
-
-        fr: {
-          schoolName: "ÉCOLE D’ASSURANCE",
-          navHome: "Accueil",
-          navPrograms: "Programmes",
-          navRoadmap: "Parcours",
-          navProfessor: "Demander au professeur",
-          navPortal: "Portail étudiant",
-          eyebrow:
-            "PRO-MAX ACADÉMIE • ÉCOLE D’ASSURANCE",
-          titleA: "Développez vos connaissances.",
-          titleB: "Gagnez en confiance.",
-          intro:
-            "Un parcours d’apprentissage ciblé et multilingue pour les futurs professionnels de l’assurance. Maîtrisez les bases, suivez vos progrès et préparez l’examen final.",
-          explore: "Voir les programmes",
-          portal: "Portail étudiant",
-          programTitle: "Programmes fondamentaux",
-          programSub:
-            "Choisissez votre parcours et construisez des bases solides en assurance.",
-          courses: [
-            [
-              "Assurance vie",
-              "Couverture, bénéficiaires, polices et besoins des clients."
-            ],
-            [
-              "Assurance santé",
-              "Régimes, terminologie essentielle et conseils responsables."
-            ],
-            [
-              "Assurance automobile",
-              "Responsabilité, protection, sinistres et structure des polices."
-            ],
-            [
-              "Biens et risques divers",
-              "Risques liés aux biens, protection et notions de couverture."
-            ]
-          ],
-          journey: "Votre parcours vers la réussite",
-          steps: [
-            [
-              "Inscription",
-              "Créez votre profil et choisissez un programme."
-            ],
-            [
-              "Formation",
-              "Terminez les leçons, quiz et révisions pratiques."
-            ],
-            [
-              "Examen final",
-              "Passez l’examen via BSS1815 PRO-MAX DMP."
-            ],
-            [
-              "Certificat",
-              "Vérifiez votre résultat et recevez votre certificat."
-            ]
-          ],
-          professorStatus: "BIENTÔT DISPONIBLE",
-          askTitle: "Demander au professeur",
-          askIntro:
-            "Le professeur AI en temps réel est en préparation pour l’école.",
-          professorNotice: "PROFESSEUR AI",
-          professorMessage:
-            "Ce service sera activé après la connexion du système LiveAvatar.",
-          educationNote:
-            "Informations éducatives uniquement. Les lois peuvent varier selon l’État.",
-          payment: "Progression des paiements",
-          paid:
-            "Suivez le montant payé, le solde et le statut de 0/5 à 5/5.",
-          tuition: "Frais de scolarité",
-          plan: "5 paiements × 1 000 $ USD",
-          minusPayment: "− Paiement",
-          plusPayment: "+ Paiement",
-          reset: "Réinitialiser",
-          promise:
-            "Apprenez avec méthode. Progressez avec discipline.",
-          promiseSub:
-            "Éducation, technologie et opportunités dans un écosystème numérique professionnel.",
-          footer: "APPRENDRE. ÉVOLUER. RÉUSSIR.",
-          status: "Paiements effectués",
-          paidLabel: "Payé",
-          balance: "Solde"
-        },
-
-        ht: {
-          schoolName: "LEKÒL ASIRANS",
-          navHome: "Akèy",
-          navPrograms: "Pwogram",
-          navRoadmap: "Chemen",
-          navProfessor: "Mande Pwofesè",
-          navPortal: "Pòtal Elèv",
-          eyebrow:
-            "PRO-MAX ACADÉMIE • LEKÒL ASIRANS",
-          titleA: "Devlope konesans ou.",
-          titleB: "Bati konfyans ou.",
-          intro:
-            "Yon chemen aprantisaj byen òganize nan twa lang pou pwofesyonèl asirans demen yo. Aprann baz yo, suiv pwogrè ou epi prepare egzamen final la.",
-          explore: "Gade pwogram yo",
-          portal: "Pòtal Elèv",
-          programTitle: "Pwogram prensipal yo",
-          programSub:
-            "Chwazi chemen ou epi bati yon bon fondasyon nan asirans.",
-          courses: [
-            [
-              "Asirans lavi",
-              "Kouvèti, benefisyè, polis ak bezwen kliyan yo."
-            ],
-            [
-              "Asirans sante",
-              "Plan, mo enpòtan ak konsèy responsab."
-            ],
-            [
-              "Asirans machin",
-              "Responsablite, pwoteksyon, reklamasyon ak estrikti polis."
-            ],
-            [
-              "Property & Casualty",
-              "Risk sou pwopriyete, pwoteksyon ak prensip kouvèti yo."
-            ]
-          ],
-          journey: "Chemen ou pou fini",
-          steps: [
-            [
-              "Enskripsyon",
-              "Kreye pwofil elèv ou epi chwazi yon pwogram."
-            ],
-            [
-              "Aprann",
-              "Fini leson, quiz ak revizyon pratik yo."
-            ],
-            [
-              "Egzamen final",
-              "Pran egzamen an atravè BSS1815 PRO-MAX DMP."
-            ],
-            [
-              "Sètifika",
-              "Verifye rezilta ou epi resevwa sètifika ou."
-            ]
-          ],
-          professorStatus: "AP VINI",
-          askTitle: "Mande Pwofesè",
-          askIntro:
-            "Pwofesè AI an tan reyèl la ap prepare pou Lekòl Asirans lan.",
-          professorNotice: "PWOFESÈ AI",
-          professorMessage:
-            "Sèvis sa a ap aktive apre sistèm LiveAvatar la konekte.",
-          educationNote:
-            "Se enfòmasyon edikatif sèlman. Lwa yo ka diferan selon eta a.",
-          payment: "Pwogrè peman",
-          paid:
-            "Suiv kantite ou peye, balans ou ak estati 0/5 rive 5/5.",
-          tuition: "Pri total fòmasyon an",
-          plan: "5 peman × $1,000 USD",
-          minusPayment: "− Peman",
-          plusPayment: "+ Peman",
-          reset: "Rekòmanse",
-          promise:
-            "Aprann ak direksyon. Avanse ak disiplin.",
-          promiseSub:
-            "Edikasyon, teknoloji ak opòtinite nan yon sèl ekosistèm dijital pwofesyonèl.",
-          footer: "APRANN. EVOLYE. REYISI.",
-          status: "Peman ki fèt",
-          paidLabel: "Peye",
-          balance: "Balans"
-        }
-      };
-
-      const storage = {
-        get: function (key) {
-          try {
-            return window.localStorage.getItem(key);
-          } catch (error) {
-            return null;
-          }
-        },
-
-        set: function (key, value) {
-          try {
-            window.localStorage.setItem(
-              key,
-              String(value)
-            );
-          } catch (error) {
-            return;
-          }
-        }
-      };
-
-      let language =
-        storage.get("promaxInsuranceLang") || "en";
-
-      if (!translations[language]) {
-        language = "en";
-      }
-
-      let completedPayments = Number(
-        storage.get("promaxPaymentHistory")
-      ) || 0;
-
-      completedPayments = Math.max(
-        0,
-        Math.min(TOTAL_PAYMENTS, completedPayments)
-      );
-
-      const courseIcons = [
-        "♥",
-        "+",
-        "◆",
-        "⌂"
-      ];
-
-      function formatUSD(amount) {
-        return `$${amount.toLocaleString("en-US")} USD`;
-      }
-
-      function renderPayments() {
-        const text = translations[language];
-
-        const paidAmount =
-          completedPayments * PAYMENT_AMOUNT_USD;
-
-        const remainingBalance =
-          TOTAL_TUITION_USD - paidAmount;
-
-        const paymentPercentage =
-          (completedPayments / TOTAL_PAYMENTS) * 100;
-
-        const progressBar =
-          document.getElementById("progressBar");
-
-        const payDots =
-          document.getElementById("payDots");
-
-        const paymentStatus =
-          document.getElementById("payStatus");
-
-        progressBar.style.width =
-          `${paymentPercentage}%`;
-
-        payDots.innerHTML =
-          Array.from(
-            { length: TOTAL_PAYMENTS },
-            function (_, index) {
-              const paymentNumber = index + 1;
-              const isPaid =
-                paymentNumber <= completedPayments;
-
-              return `
-                <b
-                  style="
-                    background: ${
-                      isPaid ? "#e46b21" : "transparent"
-                    };
-                    color: ${
-                      isPaid ? "#0b0402" : "#e27940"
-                    };
-                  "
-                >
-                  ${paymentNumber}
-                </b>
-              `;
-            }
-          ).join("");
-
-        paymentStatus.textContent =
-          `${text.status}: ` +
-          `${completedPayments}/${TOTAL_PAYMENTS} · ` +
-          `${text.paidLabel}: ${formatUSD(paidAmount)} · ` +
-          `${text.balance}: ${formatUSD(remainingBalance)}`;
-
-        storage.set(
-          "promaxPaymentHistory",
-          completedPayments
-        );
-      }
-
-      function renderPage() {
-        const text = translations[language];
-
-        document.documentElement.lang =
-          language === "ht" ? "ht" : language;
-
-        document
-          .querySelectorAll("[data-t]")
-          .forEach(function (element) {
-            const translationKey =
-              element.dataset.t;
-
-            const translatedValue =
-              text[translationKey];
-
-            if (typeof translatedValue === "string") {
-              element.textContent = translatedValue;
-            }
-          });
-
-        document.getElementById("courseGrid").innerHTML =
-          text.courses
-            .map(function (course, index) {
-              return `
-                <article class="card">
-                  <span class="number">
-                    0${index + 1}
-                  </span>
-
-                  <b class="icon">
-                    ${courseIcons[index]}
-                  </b>
-
-                  <h3>${course[0]}</h3>
-                  <p>${course[1]}</p>
-                </article>
-              `;
-            })
-            .join("");
-
-        document.getElementById("steps").innerHTML =
-          text.steps
-            .map(function (step, index) {
-              return `
-                <article class="step">
-                  <b>0${index + 1}</b>
-                  <h3>${step[0]}</h3>
-                  <p>${step[1]}</p>
-                </article>
-              `;
-            })
-            .join("");
-
-        document
-          .querySelectorAll("[data-lang]")
-          .forEach(function (button) {
-            button.classList.toggle(
-              "active",
-              button.dataset.lang === language
-            );
-          });
-
-        renderPayments();
-      }
-
-      document
-        .querySelectorAll("[data-lang]")
-        .forEach(function (button) {
-          button.addEventListener("click", function () {
-            language = button.dataset.lang;
-
-            storage.set(
-              "promaxInsuranceLang",
-              language
-            );
-
-            renderPage();
-          });
-        });
-
-      document
-        .getElementById("plus")
-        .addEventListener("click", function () {
-          if (completedPayments < TOTAL_PAYMENTS) {
-            completedPayments += 1;
-            renderPayments();
-          }
-        });
-
-      document
-        .getElementById("minus")
-        .addEventListener("click", function () {
-          if (completedPayments > 0) {
-            completedPayments -= 1;
-            renderPayments();
-          }
-        });
-
-      document
-        .getElementById("reset")
-        .addEventListener("click", function () {
-          completedPayments = 0;
-          renderPayments();
-        });
-
-      renderPage();
-    });
-  </script>
+  <script src="./javascript.js"></script>
 </body>
 </html>
