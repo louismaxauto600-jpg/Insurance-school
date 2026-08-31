@@ -13,10 +13,10 @@
 
   <meta
     name="description"
-    content="PRO-MAX Académie Insurance School Student Portal"
+    content="Create or access your PRO-MAX Académie Insurance School student account."
   >
 
-  <title>Student Portal | PRO-MAX Académie Insurance School</title>
+  <title>Student Profile | PRO-MAX Académie Insurance School</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,16 +28,17 @@
 
   <style>
     :root {
-      --black: #050301;
-      --black-soft: #0d0602;
-      --black-card: #160a04;
-      --orange: #ff6a00;
-      --orange-dark: #d94d00;
+      --black: #030201;
+      --black-soft: #0c0502;
+      --panel: #160a04;
+      --panel-light: #231006;
+      --orange: #ff681a;
+      --orange-dark: #bd3b08;
       --apricot: #ffad78;
-      --apricot-dark: #d98658;
-      --border: rgba(255, 106, 0, 0.4);
-      --glow: rgba(255, 106, 0, 0.27);
-      --shadow: 0 22px 55px rgba(0, 0, 0, 0.66);
+      --apricot-dark: #cf754a;
+      --border: rgba(255, 104, 26, 0.4);
+      --shadow: rgba(255, 82, 10, 0.25);
+      --muted: #c17b58;
     }
 
     * {
@@ -52,11 +53,19 @@
 
     body {
       min-height: 100vh;
-      overflow-x: hidden;
       color: var(--apricot);
       background:
-        radial-gradient(circle at 50% 0%, #401400 0%, transparent 38%),
-        linear-gradient(145deg, #050301, #130601 55%, #030201);
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(255, 89, 15, 0.18),
+          transparent 34%
+        ),
+        linear-gradient(
+          145deg,
+          #020100,
+          #120702 48%,
+          #020100
+        );
       font-family: "Montserrat", sans-serif;
     }
 
@@ -67,17 +76,14 @@
     }
 
     button,
+    a,
     select {
-      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
     a {
       color: inherit;
       text-decoration: none;
-    }
-
-    .hidden {
-      display: none !important;
     }
 
     .site-header {
@@ -87,739 +93,463 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      min-height: 108px;
-      padding: 17px clamp(18px, 5vw, 70px);
+      gap: 25px;
+      min-height: 118px;
+      padding: 18px clamp(20px, 5vw, 72px);
       border-bottom: 1px solid var(--border);
-      background: rgba(4, 2, 1, 0.97);
-      backdrop-filter: blur(18px);
+      background: rgba(3, 2, 1, 0.96);
+      backdrop-filter: blur(16px);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 17px;
+      gap: 18px;
       min-width: 0;
     }
 
-    .brand-logo {
-      width: 73px;
-      height: 73px;
-      flex: 0 0 73px;
-      object-fit: cover;
-      border: 1px solid var(--orange);
+    .logo-box {
+      flex: 0 0 auto;
+      width: 82px;
+      height: 82px;
+      overflow: hidden;
+      border: 1px solid var(--border);
       background: var(--black);
-      box-shadow: 0 0 25px var(--glow);
+      box-shadow: 0 0 26px var(--shadow);
     }
 
-    .brand-title {
+    .school-logo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      place-items: center;
+      border: 2px solid var(--orange);
       color: var(--apricot);
       font-family: "Cinzel", serif;
-      font-size: clamp(17px, 2vw, 25px);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .brand-name {
+      color: var(--apricot);
+      font-size: clamp(18px, 2.5vw, 27px);
       font-weight: 800;
       letter-spacing: 2px;
       line-height: 1.2;
+      text-transform: uppercase;
     }
 
-    .brand-subtitle {
-      margin-top: 7px;
-      color: var(--apricot-dark);
-      font-size: 10px;
-      font-weight: 800;
+    .brand-school {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
       letter-spacing: 4px;
       text-transform: uppercase;
     }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
     .language-switcher {
       display: flex;
-      padding: 5px;
+      padding: 4px;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: var(--black-soft);
+      background: #080301;
     }
 
     .language-button {
-      min-width: 43px;
-      padding: 9px;
+      min-width: 48px;
+      padding: 11px 12px;
       border: 0;
       border-radius: 999px;
-      color: var(--apricot-dark);
+      color: var(--muted);
       background: transparent;
-      font-size: 11px;
+      cursor: pointer;
+      font-size: 12px;
       font-weight: 800;
     }
 
     .language-button.active {
       color: var(--black);
-      background: linear-gradient(135deg, var(--apricot), var(--orange));
-    }
-
-    .header-button {
-      padding: 12px 16px;
-      border: 1px solid var(--border);
-      color: var(--apricot);
-      background: var(--black-soft);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .header-button:hover {
-      color: var(--black);
-      background: var(--orange);
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
+      box-shadow: 0 0 18px var(--shadow);
     }
 
     main {
-      width: min(1220px, calc(100% - 28px));
+      width: min(1050px, calc(100% - 30px));
       margin: 0 auto;
-      padding: 65px 0 95px;
+      padding: 65px 0 90px;
     }
 
-    .intro {
-      max-width: 840px;
-      margin: 0 auto 42px;
+    .page-introduction {
+      margin-bottom: 38px;
       text-align: center;
     }
 
     .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
       color: var(--orange);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
-      letter-spacing: 5px;
+      letter-spacing: 4px;
       text-transform: uppercase;
     }
 
-    .intro h1,
-    .dashboard-title {
+    .page-title {
+      max-width: 850px;
+      margin: 18px auto 0;
       color: var(--apricot);
       font-family: "Cinzel", serif;
-      font-size: clamp(38px, 7vw, 68px);
+      font-size: clamp(38px, 7vw, 72px);
       line-height: 1.05;
     }
 
-    .intro p,
-    .dashboard-description {
-      max-width: 730px;
-      margin: 18px auto 0;
-      color: var(--apricot-dark);
-      font-size: 17px;
-      line-height: 1.75;
+    .page-description {
+      max-width: 720px;
+      margin: 20px auto 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
     }
 
-    .auth-box {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      max-width: 1030px;
-      margin: 0 auto;
+    .account-panel {
       overflow: hidden;
       border: 1px solid var(--border);
-      background: var(--black-soft);
-      box-shadow: var(--shadow);
-    }
-
-    .auth-art {
-      position: relative;
-      min-height: 610px;
-      display: flex;
-      align-items: flex-end;
-      padding: 40px;
-      overflow: hidden;
       background:
-        linear-gradient(180deg, transparent, rgba(5, 3, 1, 0.95)),
-        radial-gradient(circle at 50% 30%, #8c2c00, #260b00 48%, #050301 75%);
-    }
-
-    .auth-art::before {
-      content: "";
-      position: absolute;
-      top: 65px;
-      left: 50%;
-      width: 330px;
-      height: 330px;
-      border: 2px solid var(--orange);
-      border-radius: 50%;
+        linear-gradient(
+          145deg,
+          rgba(35, 15, 6, 0.96),
+          rgba(7, 3, 1, 0.98)
+        );
       box-shadow:
-        0 0 35px var(--glow),
-        inset 0 0 35px var(--glow);
-      transform: translateX(-50%);
-      animation: pulse 4s ease-in-out infinite;
+        0 30px 70px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(255, 82, 10, 0.08);
     }
 
-    .auth-art::after {
-      content: "";
-      position: absolute;
-      top: 105px;
-      left: 50%;
-      width: 250px;
-      height: 250px;
-      border: 1px dashed var(--orange);
-      border-radius: 50%;
-      transform: translateX(-50%);
-      animation: spin 17s linear infinite;
-    }
-
-    .auth-art-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .auth-art-content h2 {
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.15;
-    }
-
-    .auth-art-content p {
-      margin-top: 17px;
-      color: var(--apricot-dark);
-      line-height: 1.7;
-    }
-
-    .auth-panel {
-      padding: clamp(28px, 5vw, 55px);
-    }
-
-    .auth-tabs {
+    .account-tabs {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      margin-bottom: 32px;
-      border: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    .auth-tab {
-      padding: 15px;
+    .tab-button {
+      min-height: 68px;
       border: 0;
-      color: var(--apricot-dark);
-      background: transparent;
+      color: var(--muted);
+      background: #080301;
+      cursor: pointer;
+      font-size: 13px;
       font-weight: 800;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    .auth-tab.active {
+    .tab-button + .tab-button {
+      border-left: 1px solid var(--border);
+    }
+
+    .tab-button.active {
       color: var(--black);
-      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
+    }
+
+    .form-container {
+      padding: clamp(26px, 6vw, 58px);
+    }
+
+    .account-form {
+      display: none;
+    }
+
+    .account-form.active {
+      display: block;
+    }
+
+    .form-heading {
+      margin-bottom: 30px;
     }
 
     .form-title {
-      margin-bottom: 8px;
       color: var(--apricot);
       font-family: "Cinzel", serif;
-      font-size: 29px;
+      font-size: clamp(27px, 4vw, 42px);
     }
 
-    .form-description {
-      margin-bottom: 27px;
-      color: var(--apricot-dark);
-      line-height: 1.6;
+    .form-text {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
-    .form-group {
-      margin-bottom: 18px;
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .field.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
       color: var(--apricot);
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    .form-control {
+    .field input,
+    .field select {
       width: 100%;
-      min-height: 53px;
+      min-height: 58px;
       padding: 14px 16px;
       border: 1px solid var(--border);
+      border-radius: 0;
       outline: none;
       color: var(--apricot);
       background: #080301;
     }
 
-    .form-control:focus {
+    .field input::placeholder {
+      color: #865037;
+    }
+
+    .field input:focus,
+    .field select:focus {
       border-color: var(--orange);
-      box-shadow: 0 0 0 3px var(--glow);
+      box-shadow: 0 0 18px rgba(255, 104, 26, 0.12);
     }
 
-    .form-control::placeholder {
-      color: #8d5637;
-    }
-
-    select option {
+    .field select option {
       color: var(--apricot);
-      background: var(--black);
+      background: var(--black-soft);
     }
 
-    .primary-button {
+    .program-summary {
+      display: none;
+      grid-template-columns: 1.5fr repeat(3, 0.7fr);
+      gap: 1px;
+      margin-top: 24px;
+      border: 1px solid var(--border);
+      background: var(--border);
+    }
+
+    .program-summary.visible {
+      display: grid;
+    }
+
+    .summary-item {
+      min-height: 110px;
+      padding: 20px;
+      background: #0a0402;
+    }
+
+    .summary-label {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .summary-value {
+      margin-top: 11px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .confirmation-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-top: 25px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .confirmation-row input {
+      flex: 0 0 auto;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--orange);
+    }
+
+    .submit-button {
       width: 100%;
-      min-height: 56px;
-      margin-top: 7px;
+      min-height: 66px;
+      margin-top: 28px;
+      padding: 16px 24px;
       border: 1px solid var(--orange);
       color: var(--black);
-      background: linear-gradient(135deg, var(--apricot), var(--orange));
-      box-shadow: 0 13px 30px var(--glow);
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .primary-button:hover {
-      transform: translateY(-2px);
-    }
-
-    .form-message {
-      min-height: 23px;
-      margin-top: 16px;
-      color: var(--orange);
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .dashboard {
-      display: none;
-    }
-
-    .dashboard.active {
-      display: block;
-    }
-
-    .dashboard-heading {
-      margin-bottom: 30px;
-    }
-
-    .dashboard-description {
-      margin-left: 0;
-    }
-
-    .student-navigation {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      margin-bottom: 35px;
-      border: 1px solid var(--border);
-      background: var(--black-soft);
-      box-shadow: var(--shadow);
-    }
-
-    .student-navigation a,
-    .student-navigation button {
-      min-height: 67px;
-      display: grid;
-      place-items: center;
-      padding: 12px 9px;
-      border: 0;
-      border-right: 1px solid var(--border);
-      color: var(--apricot);
-      background: transparent;
-      font-size: 10px;
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
+      box-shadow: 0 0 24px var(--shadow);
+      cursor: pointer;
+      font-size: 14px;
       font-weight: 800;
       letter-spacing: 1px;
-      text-align: center;
       text-transform: uppercase;
     }
 
-    .student-navigation > :last-child {
-      border-right: 0;
+    .submit-button:hover {
+      background: linear-gradient(
+        135deg,
+        var(--orange),
+        var(--orange-dark)
+      );
     }
 
-    .student-navigation a:hover,
-    .student-navigation button:hover,
-    .student-navigation .active {
-      color: var(--black);
-      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    .submit-button:disabled {
+      cursor: wait;
+      opacity: 0.65;
     }
 
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-      margin-bottom: 26px;
-    }
-
-    .stat-card,
-    .portal-card {
-      border: 1px solid var(--border);
-      background:
-        linear-gradient(145deg, rgba(255, 106, 0, 0.08), transparent 55%),
-        var(--black-soft);
-      box-shadow: var(--shadow);
-    }
-
-    .stat-card {
-      min-height: 150px;
-      padding: 24px;
-    }
-
-    .stat-label {
-      color: var(--apricot-dark);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .stat-value {
-      margin-top: 17px;
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: 30px;
-      font-weight: 800;
-    }
-
-    .stat-detail {
-      margin-top: 7px;
-      color: var(--orange);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
-      gap: 24px;
-    }
-
-    .portal-card {
-      padding: clamp(23px, 4vw, 37px);
-      scroll-margin-top: 135px;
-    }
-
-    .side-column .portal-card + .portal-card {
+    .message {
+      display: none;
       margin-top: 24px;
-    }
-
-    .card-number {
-      color: var(--orange);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 3px;
-    }
-
-    .card-title {
-      margin: 9px 0 24px;
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: clamp(25px, 3vw, 34px);
-    }
-
-    .program-name {
-      color: var(--apricot);
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .description {
-      margin: 11px 0 21px;
-      color: var(--apricot-dark);
-      line-height: 1.7;
-    }
-
-    .progress-track {
-      height: 10px;
-      overflow: hidden;
+      padding: 18px;
       border: 1px solid var(--border);
-      border-radius: 999px;
-      background: var(--black);
-    }
-
-    .progress-fill {
-      width: 0%;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--orange-dark), var(--apricot));
-      box-shadow: 0 0 18px var(--orange);
-      transition: width 0.4s ease;
-    }
-
-    .progress-information {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      margin-top: 11px;
-      color: var(--apricot-dark);
-      font-size: 12px;
+      color: var(--apricot);
+      background: rgba(255, 104, 26, 0.08);
       font-weight: 700;
-    }
-
-    .lesson-list {
-      display: grid;
-      gap: 11px;
-      margin-top: 26px;
-    }
-
-    .lesson {
-      display: grid;
-      grid-template-columns: 43px 1fr auto;
-      align-items: center;
-      gap: 14px;
-      padding: 15px;
-      border: 1px solid rgba(255, 106, 0, 0.24);
-      background: rgba(5, 3, 1, 0.8);
-    }
-
-    .lesson-number {
-      display: grid;
-      place-items: center;
-      width: 41px;
-      height: 41px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      color: var(--orange);
-      font-weight: 900;
-    }
-
-    .lesson.completed .lesson-number {
-      color: var(--black);
-      background: var(--orange);
-    }
-
-    .lesson-name {
-      color: var(--apricot);
-      font-weight: 800;
-    }
-
-    .lesson-meta {
-      margin-top: 5px;
-      color: var(--apricot-dark);
-      font-size: 11px;
-    }
-
-    .lesson-button,
-    .action-button {
-      padding: 11px 13px;
-      border: 1px solid var(--border);
-      color: var(--apricot);
-      background: transparent;
-      font-size: 10px;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .lesson-button:hover,
-    .action-button:hover {
-      color: var(--black);
-      background: var(--orange);
-    }
-
-    .price {
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: 40px;
-      font-weight: 800;
-    }
-
-    .price small {
-      font-family: "Montserrat", sans-serif;
-      font-size: 15px;
-    }
-
-    .payment-steps {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-      margin: 22px 0;
-    }
-
-    .payment-step {
-      display: grid;
-      place-items: center;
-      aspect-ratio: 1;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      color: var(--apricot-dark);
-      background: var(--black);
-      font-size: 11px;
-      font-weight: 900;
-    }
-
-    .payment-step.paid {
-      color: var(--black);
-      background: var(--orange);
-      box-shadow: 0 0 18px var(--glow);
-    }
-
-    .button-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 9px;
-      margin-top: 18px;
-    }
-
-    .locked-box {
-      padding: 21px;
-      border: 1px dashed var(--border);
-      background: var(--black);
-    }
-
-    .locked-icon {
-      margin-bottom: 12px;
-      color: var(--orange);
-      font-size: 27px;
-    }
-
-    .locked-box h3 {
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: 21px;
-    }
-
-    .locked-box p {
-      margin-top: 9px;
-      color: var(--apricot-dark);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .certificate-box {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .certificate-seal {
-      display: grid;
-      place-items: center;
-      width: 59px;
-      height: 59px;
-      flex: 0 0 59px;
-      border: 2px solid var(--orange);
-      border-radius: 50%;
-      color: var(--orange);
-      font-family: "Cinzel", serif;
-      font-weight: 900;
-      box-shadow: 0 0 20px var(--glow);
-    }
-
-    .certificate-box h3 {
-      color: var(--apricot);
-      font-size: 16px;
-    }
-
-    .certificate-box p {
-      margin-top: 5px;
-      color: var(--apricot-dark);
-      font-size: 12px;
       line-height: 1.6;
     }
 
-    footer {
-      padding: 34px 20px;
-      border-top: 1px solid var(--border);
-      color: var(--apricot-dark);
-      background: #030201;
-      text-align: center;
-      font-size: 12px;
+    .message.visible {
+      display: block;
+    }
+
+    .message.error {
+      border-color: var(--orange-dark);
+      color: var(--orange);
+    }
+
+    .price-notice {
+      margin-top: 28px;
+      padding: 20px;
+      border-left: 3px solid var(--orange);
+      color: var(--muted);
+      background: rgba(255, 104, 26, 0.06);
+      font-size: 13px;
       line-height: 1.8;
     }
 
-    @keyframes spin {
-      from {
-        transform: translateX(-50%) rotate(0deg);
-      }
-
-      to {
-        transform: translateX(-50%) rotate(360deg);
-      }
+    .price-notice strong {
+      color: var(--apricot);
     }
 
-    @keyframes pulse {
-      0%,
-      100% {
-        opacity: 0.6;
-        transform: translateX(-50%) scale(0.96);
-      }
-
-      50% {
-        opacity: 1;
-        transform: translateX(-50%) scale(1.03);
-      }
+    .site-footer {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+      padding: 36px clamp(20px, 5vw, 72px);
+      border-top: 1px solid var(--border);
+      background: #030201;
     }
 
-    @media (max-width: 1050px) {
-      .student-navigation {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .student-navigation a,
-      .student-navigation button {
-        border-bottom: 1px solid var(--border);
-      }
-
-      .dashboard-grid,
-      .auth-box {
-        grid-template-columns: 1fr;
-      }
-
-      .auth-art {
-        min-height: 420px;
-      }
+    .footer-brand {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 2px;
     }
 
-    @media (max-width: 800px) {
-      .stat-grid {
+    .footer-slogan,
+    .footer-copy {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+
+    .footer-copy {
+      text-align: right;
+    }
+
+    @media (max-width: 850px) {
+      .program-summary {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .site-footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-copy {
+        text-align: center;
+      }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 680px) {
       .site-header {
         position: relative;
-        align-items: flex-start;
         flex-direction: column;
-        padding: 17px;
+        align-items: stretch;
+        padding: 18px;
       }
 
-      .header-actions {
-        width: 100%;
-        justify-content: space-between;
+      .logo-box {
+        width: 70px;
+        height: 70px;
       }
 
-      .brand-logo {
-        width: 64px;
-        height: 64px;
-        flex-basis: 64px;
+      .brand-name {
+        font-size: 18px;
+        letter-spacing: 1px;
       }
 
-      .brand-title {
-        font-size: 16px;
-      }
-
-      .brand-subtitle {
+      .brand-school {
         font-size: 9px;
-        letter-spacing: 3px;
+        letter-spacing: 2px;
       }
 
-      .student-navigation {
-        grid-template-columns: repeat(2, 1fr);
+      .language-switcher {
+        align-self: center;
       }
 
-      .lesson {
-        grid-template-columns: 41px 1fr;
+      main {
+        width: min(100% - 22px, 1050px);
+        padding-top: 35px;
       }
 
-      .lesson-button {
-        grid-column: 1 / -1;
-      }
-    }
-
-    @media (max-width: 460px) {
-      .stat-grid {
+      .form-grid,
+      .program-summary {
         grid-template-columns: 1fr;
       }
 
-      .home-button {
-        display: none;
+      .field.full-width {
+        grid-column: auto;
       }
     }
   </style>
@@ -827,1277 +557,1077 @@
 
 <body>
   <header class="site-header">
-    <a class="brand" href="./index.html">
-      <img
-        class="brand-logo"
-        src="./insurance-school-logo.png"
-        alt="PRO-MAX Académie Insurance School"
-        onerror="this.style.display='none'"
-      >
+    <a href="index.html" class="brand">
+      <div class="logo-box">
+        <img
+          src="insurance-school-logo.png"
+          alt="PRO-MAX Académie Insurance School"
+          class="school-logo"
+          id="schoolLogo"
+        >
+
+        <span class="logo-fallback" id="logoFallback">PM</span>
+      </div>
 
       <div>
-        <div class="brand-title">PRO-MAX ACADÉMIE</div>
-
-        <div class="brand-subtitle" data-i18n="school">
-          Insurance School
-        </div>
+        <div class="brand-name">PRO-MAX ACADÉMIE</div>
+        <div class="brand-school">Insurance School</div>
       </div>
     </a>
 
-    <div class="header-actions">
-      <div class="language-switcher">
-        <button
-          class="language-button active"
-          type="button"
-          data-language="en"
-        >
-          ENG
-        </button>
-
-        <button
-          class="language-button"
-          type="button"
-          data-language="fr"
-        >
-          FRA
-        </button>
-
-        <button
-          class="language-button"
-          type="button"
-          data-language="ht"
-        >
-          KRE
-        </button>
-      </div>
-
-      <a
-        class="header-button home-button"
-        href="./index.html"
-        data-i18n="home"
+    <div class="language-switcher">
+      <button
+        type="button"
+        class="language-button active"
+        data-language="en"
       >
-        Home
-      </a>
+        ENG
+      </button>
+
+      <button
+        type="button"
+        class="language-button"
+        data-language="fr"
+      >
+        FRA
+      </button>
+
+      <button
+        type="button"
+        class="language-button"
+        data-language="ht"
+      >
+        KRE
+      </button>
     </div>
   </header>
 
   <main>
-    <section id="authSection">
-      <div class="intro">
-        <span class="eyebrow">BSS1815 PRO-MAX DMP</span>
+    <section class="page-introduction">
+      <p class="eyebrow" data-i18n="eyebrow">
+        Student Registration
+      </p>
 
-        <h1 data-i18n="portalTitle">
-          Student Portal
-        </h1>
+      <h1 class="page-title" data-i18n="pageTitle">
+        Build your student profile
+      </h1>
 
-        <p data-i18n="portalIntro">
-          Access your student profile, insurance courses,
-          payments, final exam and certificate.
-        </p>
+      <p class="page-description" data-i18n="pageDescription">
+        Select your Florida insurance exam-preparation program and
+        access your personalized student portal.
+      </p>
+    </section>
+
+    <section class="account-panel">
+      <div class="account-tabs">
+        <button
+          type="button"
+          class="tab-button active"
+          data-tab="registrationForm"
+          data-i18n="createAccountTab"
+        >
+          Create Account
+        </button>
+
+        <button
+          type="button"
+          class="tab-button"
+          data-tab="loginForm"
+          data-i18n="signInTab"
+        >
+          Student Sign In
+        </button>
       </div>
 
-      <div class="auth-box">
-        <div class="auth-art">
-          <div class="auth-art-content">
-            <h2 data-i18n="artTitle">
-              Learn with direction. Progress with discipline.
+      <div class="form-container">
+        <form
+          class="account-form active"
+          id="registrationForm"
+          novalidate
+        >
+          <div class="form-heading">
+            <h2 class="form-title" data-i18n="createTitle">
+              Create your account
             </h2>
 
-            <p data-i18n="artText">
-              Your complete professional insurance learning environment.
+            <p class="form-text" data-i18n="createDescription">
+              Complete every field and choose the program you want
+              to study.
             </p>
           </div>
-        </div>
 
-        <div class="auth-panel">
-          <div class="auth-tabs">
-            <button
-              class="auth-tab active"
-              id="loginTab"
-              type="button"
-              data-i18n="login"
-            >
-              Login
-            </button>
+          <div class="form-grid">
+            <div class="field">
+              <label for="fullName" data-i18n="fullName">
+                Full Name
+              </label>
 
-            <button
-              class="auth-tab"
-              id="registerTab"
-              type="button"
-              data-i18n="register"
-            >
-              Register
-            </button>
+              <input
+                type="text"
+                id="fullName"
+                autocomplete="name"
+                placeholder="Your full name"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="phone" data-i18n="phone">
+                Phone Number
+              </label>
+
+              <input
+                type="tel"
+                id="phone"
+                autocomplete="tel"
+                placeholder="(407) 000-0000"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="email" data-i18n="email">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                autocomplete="email"
+                placeholder="student@email.com"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="state" data-i18n="state">
+                State
+              </label>
+
+              <input
+                type="text"
+                id="state"
+                value="Florida"
+                autocomplete="address-level1"
+                required
+              >
+            </div>
+
+            <div class="field full-width">
+              <label for="program" data-i18n="program">
+                Insurance Program
+              </label>
+
+              <select id="program" required>
+                <option value="" data-i18n="chooseProgram">
+                  Choose your program
+                </option>
+
+                <option value="health-2-40">
+                  Health Insurance — Florida 2-40 — $119 USD
+                </option>
+
+                <option value="life-health-2-15">
+                  Life, Health &amp; Annuities — Florida 2-15 —
+                  $149 USD
+                </option>
+
+                <option value="personal-lines-20-44">
+                  Personal Lines Insurance — Florida 20-44 —
+                  $149 USD
+                </option>
+
+                <option value="property-casualty-2-20">
+                  Property &amp; Casualty — Florida 2-20 —
+                  $299 USD
+                </option>
+
+                <option value="complete-bundle">
+                  Complete Insurance School Bundle — $599 USD
+                </option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="password" data-i18n="password">
+                Password
+              </label>
+
+              <input
+                type="password"
+                id="password"
+                autocomplete="new-password"
+                minlength="6"
+                placeholder="Minimum 6 characters"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="confirmPassword" data-i18n="confirmPassword">
+                Confirm Password
+              </label>
+
+              <input
+                type="password"
+                id="confirmPassword"
+                autocomplete="new-password"
+                minlength="6"
+                placeholder="Enter password again"
+                required
+              >
+            </div>
           </div>
 
-          <form id="loginForm">
-            <h2 class="form-title" data-i18n="welcomeBack">
-              Welcome Back
+          <div class="program-summary" id="programSummary">
+            <article class="summary-item">
+              <p class="summary-label" data-i18n="selectedProgram">
+                Selected Program
+              </p>
+
+              <p class="summary-value" id="summaryProgram">—</p>
+            </article>
+
+            <article class="summary-item">
+              <p class="summary-label" data-i18n="license">
+                License
+              </p>
+
+              <p class="summary-value" id="summaryLicense">—</p>
+            </article>
+
+            <article class="summary-item">
+              <p class="summary-label" data-i18n="hours">
+                Hours
+              </p>
+
+              <p class="summary-value" id="summaryHours">—</p>
+            </article>
+
+            <article class="summary-item">
+              <p class="summary-label" data-i18n="tuition">
+                Tuition
+              </p>
+
+              <p class="summary-value" id="summaryPrice">$0 USD</p>
+            </article>
+          </div>
+
+          <label class="confirmation-row">
+            <input type="checkbox" id="confirmation" required>
+
+            <span data-i18n="confirmation">
+              I confirm that my information is correct and authorize
+              PRO-MAX Académie to contact me.
+            </span>
+          </label>
+
+          <button
+            type="submit"
+            class="submit-button"
+            id="createAccountButton"
+            data-i18n="createButton"
+          >
+            Create My Account
+          </button>
+
+          <div
+            class="message"
+            id="registrationMessage"
+            role="alert"
+          ></div>
+
+          <div class="price-notice">
+            <strong data-i18n="important">Important:</strong>
+            <span data-i18n="feeNotice">
+              Florida application, state examination and fingerprint
+              fees are separate from PRO-MAX course tuition.
+            </span>
+          </div>
+        </form>
+
+        <form
+          class="account-form"
+          id="loginForm"
+          novalidate
+        >
+          <div class="form-heading">
+            <h2 class="form-title" data-i18n="loginTitle">
+              Access your student portal
             </h2>
 
-            <p class="form-description" data-i18n="loginText">
-              Enter your student email and password.
+            <p class="form-text" data-i18n="loginDescription">
+              Enter the email address and password used to create
+              your account.
             </p>
+          </div>
 
-            <div class="form-group">
+          <div class="form-grid">
+            <div class="field full-width">
               <label for="loginEmail" data-i18n="email">
                 Email Address
               </label>
 
               <input
-                class="form-control"
-                id="loginEmail"
                 type="email"
-                required
+                id="loginEmail"
                 autocomplete="email"
-                placeholder="student@example.com"
+                placeholder="student@email.com"
+                required
               >
             </div>
 
-            <div class="form-group">
+            <div class="field full-width">
               <label for="loginPassword" data-i18n="password">
                 Password
               </label>
 
               <input
-                class="form-control"
+                type="password"
                 id="loginPassword"
-                type="password"
-                minlength="6"
-                required
                 autocomplete="current-password"
-                placeholder="Enter password"
-              >
-            </div>
-
-            <button
-              class="primary-button"
-              type="submit"
-              data-i18n="enterPortal"
-            >
-              Enter Student Portal
-            </button>
-
-            <div
-              class="form-message"
-              id="loginMessage"
-              aria-live="polite"
-            ></div>
-          </form>
-
-          <form class="hidden" id="registerForm">
-            <h2 class="form-title" data-i18n="createAccount">
-              Create Student Account
-            </h2>
-
-            <p class="form-description" data-i18n="registerText">
-              Register for your insurance education program.
-            </p>
-
-            <div class="form-group">
-              <label for="studentName" data-i18n="fullName">
-                Full Name
-              </label>
-
-              <input
-                class="form-control"
-                id="studentName"
-                type="text"
-                required
-                autocomplete="name"
-                placeholder="Your full name"
-              >
-            </div>
-
-            <div class="form-group">
-              <label for="registerEmail" data-i18n="email">
-                Email Address
-              </label>
-
-              <input
-                class="form-control"
-                id="registerEmail"
-                type="email"
-                required
-                autocomplete="email"
-                placeholder="student@example.com"
-              >
-            </div>
-
-            <div class="form-group">
-              <label for="studentProgram" data-i18n="program">
-                Insurance Program
-              </label>
-
-              <select
-                class="form-control"
-                id="studentProgram"
+                placeholder="Your password"
                 required
               >
-                <option value="">Choose a program</option>
-
-                <option value="Life Insurance">
-                  Life Insurance
-                </option>
-
-                <option value="Health Insurance">
-                  Health Insurance
-                </option>
-
-                <option value="Auto Insurance">
-                  Auto Insurance
-                </option>
-
-                <option value="Property & Casualty">
-                  Property & Casualty
-                </option>
-              </select>
             </div>
-
-            <div class="form-group">
-              <label for="registerPassword" data-i18n="password">
-                Password
-              </label>
-
-              <input
-                class="form-control"
-                id="registerPassword"
-                type="password"
-                minlength="6"
-                required
-                autocomplete="new-password"
-                placeholder="Minimum 6 characters"
-              >
-            </div>
-
-            <button
-              class="primary-button"
-              type="submit"
-              data-i18n="createAccount"
-            >
-              Create Student Account
-            </button>
-
-            <div
-              class="form-message"
-              id="registerMessage"
-              aria-live="polite"
-            ></div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="dashboard" id="dashboardSection">
-      <div class="dashboard-heading">
-        <span class="eyebrow" data-i18n="studentAccount">
-          Student Account
-        </span>
-
-        <h1 class="dashboard-title">
-          <span data-i18n="welcome">Welcome</span>,
-          <span id="studentNameDisplay">Student</span>
-        </h1>
-
-        <p class="dashboard-description" data-i18n="dashboardText">
-          Manage your profile and continue every step of your training.
-        </p>
-      </div>
-
-      <nav class="student-navigation" aria-label="Student navigation">
-        <a class="active" href="#dashboardSection" data-i18n="dashboard">
-          Dashboard
-        </a>
-
-        <a href="./student-profile.html" data-i18n="myProfile">
-          My Profile
-        </a>
-
-        <a href="#courses" data-i18n="myCourses">
-          My Courses
-        </a>
-
-        <a href="#payments" data-i18n="payments">
-          Payments
-        </a>
-
-        <a href="#finalExam" data-i18n="finalExam">
-          Final Exam
-        </a>
-
-        <a href="#certificate" data-i18n="certificate">
-          Certificate
-        </a>
-
-        <button id="logoutButton" type="button" data-i18n="logout">
-          Log Out
-        </button>
-      </nav>
-
-      <div class="stat-grid">
-        <article class="stat-card">
-          <div class="stat-label" data-i18n="courseProgress">
-            Course Progress
           </div>
 
-          <div class="stat-value" id="courseProgressValue">
-            0%
-          </div>
+          <button
+            type="submit"
+            class="submit-button"
+            id="loginButton"
+            data-i18n="loginButton"
+          >
+            Open Student Portal
+          </button>
 
-          <div class="stat-detail" id="lessonStat">
-            0/5 lessons
-          </div>
-        </article>
-
-        <article class="stat-card">
-          <div class="stat-label" data-i18n="quizScore">
-            Quiz Score
-          </div>
-
-          <div class="stat-value">—</div>
-
-          <div class="stat-detail" data-i18n="notStarted">
-            Not started
-          </div>
-        </article>
-
-        <article class="stat-card">
-          <div class="stat-label" data-i18n="payments">
-            Payments
-          </div>
-
-          <div class="stat-value" id="paymentValue">
-            0/5
-          </div>
-
-          <div class="stat-detail" id="balanceValue">
-            Balance: $5,000 USD
-          </div>
-        </article>
-
-        <article class="stat-card">
-          <div class="stat-label" data-i18n="studentId">
-            Student ID
-          </div>
-
-          <div class="stat-value" id="studentIdDisplay">
-            PMIS
-          </div>
-
-          <div class="stat-detail" data-i18n="activeStudent">
-            Active student
-          </div>
-        </article>
-      </div>
-
-      <div class="dashboard-grid">
-        <article class="portal-card" id="courses">
-          <div class="card-number">01 — COURSES</div>
-
-          <h2 class="card-title" data-i18n="myCourses">
-            My Courses
-          </h2>
-
-          <div class="program-name" id="programDisplay">
-            Insurance Program
-          </div>
-
-          <p class="description" data-i18n="courseText">
-            Complete every lesson before taking your final exam.
-          </p>
-
-          <div class="progress-track">
-            <div
-              class="progress-fill"
-              id="courseProgressFill"
-            ></div>
-          </div>
-
-          <div class="progress-information">
-            <span id="progressText">0% Complete</span>
-            <span id="lessonCount">0/5 lessons</span>
-          </div>
-
-          <div class="lesson-list" id="lessonList"></div>
-        </article>
-
-        <div class="side-column">
-          <article class="portal-card" id="payments">
-            <div class="card-number">02 — PAYMENTS</div>
-
-            <h2 class="card-title" data-i18n="payments">
-              Payments
-            </h2>
-
-            <div class="price">
-              $5,000 <small>USD</small>
-            </div>
-
-            <p class="description" data-i18n="paymentPlan">
-              5 payments × $1,000 USD
-            </p>
-
-            <div class="progress-track">
-              <div
-                class="progress-fill"
-                id="paymentProgressFill"
-              ></div>
-            </div>
-
-            <div class="payment-steps" id="paymentSteps"></div>
-
-            <p class="description" id="paymentDetails">
-              Paid: $0 USD · Balance: $5,000 USD
-            </p>
-
-            <div class="button-row">
-              <button
-                class="action-button"
-                id="removePayment"
-                type="button"
-                data-i18n="removePayment"
-              >
-                − Payment
-              </button>
-
-              <button
-                class="action-button"
-                id="addPayment"
-                type="button"
-                data-i18n="addPayment"
-              >
-                + Payment
-              </button>
-            </div>
-          </article>
-
-          <article class="portal-card" id="finalExam">
-            <div class="card-number">03 — FINAL EXAM</div>
-
-            <h2 class="card-title" data-i18n="finalExam">
-              Final Exam
-            </h2>
-
-            <div class="locked-box">
-              <div class="locked-icon" id="examIcon">🔒</div>
-
-              <h3 id="examTitle" data-i18n="examLocked">
-                Exam Locked
-              </h3>
-
-              <p id="examText" data-i18n="examRequirement">
-                Complete all lessons and payments to unlock the exam.
-              </p>
-            </div>
-          </article>
-
-          <article class="portal-card" id="certificate">
-            <div class="card-number">04 — CERTIFICATE</div>
-
-            <h2 class="card-title" data-i18n="certificate">
-              Certificate
-            </h2>
-
-            <div class="certificate-box">
-              <div class="certificate-seal">PM</div>
-
-              <div>
-                <h3 data-i18n="certificatePending">
-                  Certificate Pending
-                </h3>
-
-                <p data-i18n="certificateText">
-                  Available after passing the final exam.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
+          <div
+            class="message"
+            id="loginMessage"
+            role="alert"
+          ></div>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div>PRO-MAX ACADÉMIE · INSURANCE SCHOOL</div>
-    <div>© 2026 BSS1815 PRO-MAX DMP</div>
+  <footer class="site-footer">
+    <div class="footer-brand">
+      PRO-MAX ACADÉMIE<br>
+      INSURANCE SCHOOL
+    </div>
+
+    <div class="footer-slogan">
+      LEARN. EVOLVE.<br>
+      SUCCEED.
+    </div>
+
+    <div class="footer-copy">
+      © <span id="currentYear"></span>
+      BSS1815 PRO-MAX DMP
+    </div>
   </footer>
 
   <script>
     "use strict";
 
-    const STORAGE = {
+    const STORAGE_KEYS = {
       students: "promaxInsuranceStudents",
       session: "promaxInsuranceSession",
       language: "promaxInsuranceLanguage"
     };
 
-    const TUITION = {
-      total: 5000,
-      numberOfPayments: 5,
-      paymentAmount: 1000,
-      currency: "USD"
-    };
-
-    const lessonKeys = [
-      "fundamentals",
-      "policy",
-      "ethics",
-      "claims",
-      "examPreparation"
-    ];
-
-    const translations = {
-      en: {
-        school: "Insurance School",
-        home: "Home",
-        portalTitle: "Student Portal",
-        portalIntro:
-          "Access your student profile, insurance courses, payments, final exam and certificate.",
-        artTitle: "Learn with direction. Progress with discipline.",
-        artText:
-          "Your complete professional insurance learning environment.",
-        login: "Login",
-        register: "Register",
-        welcomeBack: "Welcome Back",
-        loginText: "Enter your student email and password.",
-        email: "Email Address",
-        password: "Password",
-        enterPortal: "Enter Student Portal",
-        createAccount: "Create Student Account",
-        registerText:
-          "Register for your insurance education program.",
-        fullName: "Full Name",
-        program: "Insurance Program",
-        studentAccount: "Student Account",
-        welcome: "Welcome",
-        dashboardText:
-          "Manage your profile and continue every step of your training.",
-        dashboard: "Dashboard",
-        myProfile: "My Profile",
-        myCourses: "My Courses",
-        payments: "Payments",
-        finalExam: "Final Exam",
-        certificate: "Certificate",
-        logout: "Log Out",
-        courseProgress: "Course Progress",
-        quizScore: "Quiz Score",
-        notStarted: "Not started",
-        studentId: "Student ID",
-        activeStudent: "Active student",
-        courseText:
-          "Complete every lesson before taking your final exam.",
-        paymentPlan: "5 payments × $1,000 USD",
-        removePayment: "− Payment",
-        addPayment: "+ Payment",
-        examLocked: "Exam Locked",
-        examAvailable: "Exam Available",
-        examRequirement:
-          "Complete all lessons and payments to unlock the exam.",
-        examReady:
-          "Your course and payments are complete. The exam is ready.",
-        certificatePending: "Certificate Pending",
-        certificateText:
-          "Available after passing the final exam.",
-        fundamentals: "Insurance Fundamentals",
-        policy: "Policy Structure and Coverage",
-        ethics: "Clients, Ethics and Responsibilities",
-        claims: "Claims and Risk Management",
-        examPreparation: "Final Exam Preparation",
-        complete: "Complete",
-        completed: "Completed",
-        invalidLogin: "Email or password is incorrect.",
-        accountExists:
-          "An account already exists with this email.",
-        accountCreated:
-          "Account created successfully. Opening portal...",
-        fillFields: "Complete all required fields.",
-        lessons: "lessons",
-        paid: "Paid",
-        balance: "Balance"
+    const PROGRAMS = {
+      "health-2-40": {
+        key: "health-2-40",
+        name: "Health Insurance — Florida 2-40",
+        shortName: "Health Insurance",
+        license: "2-40",
+        hours: 40,
+        modules: 8,
+        price: 119,
+        currency: "USD",
+        coursePage: "health-insurance.html"
       },
 
-      fr: {
-        school: "École d’assurance",
-        home: "Accueil",
-        portalTitle: "Portail étudiant",
-        portalIntro:
-          "Accédez à votre profil, vos cours, paiements, examen final et certificat.",
-        artTitle:
-          "Apprenez avec direction. Progressez avec discipline.",
-        artText:
-          "Votre environnement professionnel de formation en assurance.",
-        login: "Connexion",
-        register: "Inscription",
-        welcomeBack: "Bienvenue",
-        loginText:
-          "Entrez votre courriel et votre mot de passe.",
-        email: "Adresse courriel",
-        password: "Mot de passe",
-        enterPortal: "Entrer dans le portail",
-        createAccount: "Créer un compte étudiant",
-        registerText:
-          "Inscrivez-vous à votre programme d’assurance.",
-        fullName: "Nom complet",
-        program: "Programme d’assurance",
-        studentAccount: "Compte étudiant",
-        welcome: "Bienvenue",
-        dashboardText:
-          "Gérez votre profil et poursuivez chaque étape de votre formation.",
-        dashboard: "Tableau de bord",
-        myProfile: "Mon profil",
-        myCourses: "Mes cours",
-        payments: "Paiements",
-        finalExam: "Examen final",
-        certificate: "Certificat",
-        logout: "Déconnexion",
-        courseProgress: "Progression du cours",
-        quizScore: "Résultat du quiz",
-        notStarted: "Non commencé",
-        studentId: "Numéro étudiant",
-        activeStudent: "Étudiant actif",
-        courseText:
-          "Terminez chaque leçon avant votre examen final.",
-        paymentPlan: "5 paiements × 1 000 $ USD",
-        removePayment: "− Paiement",
-        addPayment: "+ Paiement",
-        examLocked: "Examen verrouillé",
-        examAvailable: "Examen disponible",
-        examRequirement:
-          "Terminez les leçons et paiements pour déverrouiller l’examen.",
-        examReady:
-          "Votre cours et vos paiements sont terminés. L’examen est prêt.",
-        certificatePending: "Certificat en attente",
-        certificateText:
-          "Disponible après la réussite de l’examen final.",
-        fundamentals:
-          "Principes fondamentaux de l’assurance",
-        policy: "Structure des polices et couvertures",
-        ethics: "Clients, éthique et responsabilités",
-        claims: "Réclamations et gestion des risques",
-        examPreparation: "Préparation à l’examen final",
-        complete: "Terminer",
-        completed: "Terminé",
-        invalidLogin:
-          "Le courriel ou le mot de passe est incorrect.",
-        accountExists:
-          "Un compte utilise déjà ce courriel.",
-        accountCreated:
-          "Compte créé. Ouverture du portail...",
-        fillFields:
-          "Remplissez tous les champs obligatoires.",
-        lessons: "leçons",
-        paid: "Payé",
-        balance: "Solde"
+      "life-health-2-15": {
+        key: "life-health-2-15",
+        name: "Life, Health & Annuities — Florida 2-15",
+        shortName: "Life Insurance",
+        license: "2-15",
+        hours: 60,
+        modules: 12,
+        price: 149,
+        currency: "USD",
+        coursePage: "life-health-annuities.html"
       },
 
-      ht: {
-        school: "Lekòl Asirans",
-        home: "Akèy",
-        portalTitle: "Pòtal Elèv",
-        portalIntro:
-          "Antre nan pwofil, kou, peman, egzamen final ak sètifika ou.",
-        artTitle:
-          "Aprann ak direksyon. Pwogrese ak disiplin.",
-        artText:
-          "Anviwònman pwofesyonèl konplè pou fòmasyon asirans ou.",
-        login: "Konekte",
-        register: "Enskri",
-        welcomeBack: "Byenveni",
-        loginText:
-          "Antre imèl elèv ou ak modpas ou.",
-        email: "Adrès Imèl",
-        password: "Modpas",
-        enterPortal: "Antre nan Pòtal Elèv",
-        createAccount: "Kreye Kont Elèv",
-        registerText:
-          "Enskri nan pwogram asirans ou.",
-        fullName: "Non Konplè",
-        program: "Pwogram Asirans",
-        studentAccount: "Kont Elèv",
-        welcome: "Byenveni",
-        dashboardText:
-          "Jere pwofil ou epi kontinye chak etap fòmasyon ou.",
-        dashboard: "Dashboard",
-        myProfile: "Pwofil Mwen",
-        myCourses: "Kou Mwen",
-        payments: "Peman",
-        finalExam: "Egzamen Final",
-        certificate: "Sètifika",
-        logout: "Dekonekte",
-        courseProgress: "Pwogrè Kou",
-        quizScore: "Nòt Quiz",
-        notStarted: "Poko kòmanse",
-        studentId: "Nimewo Elèv",
-        activeStudent: "Elèv aktif",
-        courseText:
-          "Fini chak leson anvan ou pran egzamen final la.",
-        paymentPlan: "5 peman × $1,000 USD",
-        removePayment: "− Peman",
-        addPayment: "+ Peman",
-        examLocked: "Egzamen Fèmen",
-        examAvailable: "Egzamen Disponib",
-        examRequirement:
-          "Fini tout leson ak peman pou debloke egzamen an.",
-        examReady:
-          "Ou fini kou ak peman yo. Egzamen an pare.",
-        certificatePending: "Sètifika an Atant",
-        certificateText:
-          "Disponib apre ou pase egzamen final la.",
-        fundamentals: "Baz Asirans",
-        policy: "Estrikti Polis ak Kouvèti",
-        ethics: "Kliyan, Etik ak Responsablite",
-        claims: "Reklamasyon ak Jesyon Risk",
-        examPreparation: "Preparasyon Egzamen Final",
-        complete: "Fini",
-        completed: "Fini",
-        invalidLogin:
-          "Imèl oswa modpas la pa kòrèk.",
-        accountExists:
-          "Gen yon kont ki deja itilize imèl sa a.",
-        accountCreated:
-          "Kont lan kreye. Pòtal la ap ouvri...",
-        fillFields:
-          "Ranpli tout espas obligatwa yo.",
-        lessons: "leson",
-        paid: "Peye",
-        balance: "Balans"
+      "personal-lines-20-44": {
+        key: "personal-lines-20-44",
+        name: "Personal Lines Insurance — Florida 20-44",
+        shortName: "Personal Lines",
+        license: "20-44",
+        hours: 60,
+        modules: 10,
+        price: 149,
+        currency: "USD",
+        coursePage: "personal-lines.html"
+      },
+
+      "property-casualty-2-20": {
+        key: "property-casualty-2-20",
+        name: "Property & Casualty — Florida 2-20",
+        shortName: "Property & Casualty",
+        license: "2-20",
+        hours: 200,
+        modules: 20,
+        price: 299,
+        currency: "USD",
+        coursePage: "property-casualty.html"
+      },
+
+      "complete-bundle": {
+        key: "complete-bundle",
+        name: "Complete Insurance School Bundle",
+        shortName: "Complete Bundle",
+        license: "Multiple",
+        hours: 360,
+        modules: 50,
+        price: 599,
+        currency: "USD",
+        coursePage: "my-courses.html"
       }
     };
 
-    let language =
-      localStorage.getItem(STORAGE.language) || "en";
+    const translations = {
+      en: {
+        eyebrow: "Student Registration",
+        pageTitle: "Build your student profile",
+        pageDescription:
+          "Select your Florida insurance exam-preparation program and access your personalized student portal.",
+        createAccountTab: "Create Account",
+        signInTab: "Student Sign In",
+        createTitle: "Create your account",
+        createDescription:
+          "Complete every field and choose the program you want to study.",
+        fullName: "Full Name",
+        phone: "Phone Number",
+        email: "Email Address",
+        state: "State",
+        program: "Insurance Program",
+        chooseProgram: "Choose your program",
+        password: "Password",
+        confirmPassword: "Confirm Password",
+        selectedProgram: "Selected Program",
+        license: "License",
+        hours: "Hours",
+        tuition: "Tuition",
+        confirmation:
+          "I confirm that my information is correct and authorize PRO-MAX Académie to contact me.",
+        createButton: "Create My Account",
+        important: "Important:",
+        feeNotice:
+          "Florida application, state examination and fingerprint fees are separate from PRO-MAX course tuition.",
+        loginTitle: "Access your student portal",
+        loginDescription:
+          "Enter the email address and password used to create your account.",
+        loginButton: "Open Student Portal",
+        requiredMessage: "Please complete every required field.",
+        passwordLength:
+          "Your password must contain at least 6 characters.",
+        passwordMismatch: "The passwords do not match.",
+        emailExists:
+          "An account already exists with this email address. Please sign in.",
+        accountCreated:
+          "Account created successfully. Opening your student portal...",
+        invalidLogin: "Incorrect email address or password.",
+        loginSuccess: "Sign-in successful. Opening your portal..."
+      },
 
-    let currentStudent = null;
+      fr: {
+        eyebrow: "Inscription étudiante",
+        pageTitle: "Créez votre profil étudiant",
+        pageDescription:
+          "Choisissez votre programme de préparation aux examens d’assurance de Floride et accédez à votre portail.",
+        createAccountTab: "Créer un compte",
+        signInTab: "Connexion étudiante",
+        createTitle: "Créez votre compte",
+        createDescription:
+          "Remplissez tous les champs et choisissez votre programme.",
+        fullName: "Nom complet",
+        phone: "Numéro de téléphone",
+        email: "Adresse courriel",
+        state: "État",
+        program: "Programme d’assurance",
+        chooseProgram: "Choisissez votre programme",
+        password: "Mot de passe",
+        confirmPassword: "Confirmer le mot de passe",
+        selectedProgram: "Programme sélectionné",
+        license: "Licence",
+        hours: "Heures",
+        tuition: "Frais de formation",
+        confirmation:
+          "Je confirme que mes informations sont exactes et j’autorise PRO-MAX Académie à me contacter.",
+        createButton: "Créer mon compte",
+        important: "Important :",
+        feeNotice:
+          "Les frais de demande, d’examen et d’empreintes digitales de Floride sont séparés des frais du cours.",
+        loginTitle: "Accédez à votre portail étudiant",
+        loginDescription:
+          "Entrez l’adresse courriel et le mot de passe utilisés lors de la création du compte.",
+        loginButton: "Ouvrir le portail étudiant",
+        requiredMessage:
+          "Veuillez remplir tous les champs obligatoires.",
+        passwordLength:
+          "Votre mot de passe doit contenir au moins 6 caractères.",
+        passwordMismatch: "Les mots de passe ne correspondent pas.",
+        emailExists:
+          "Un compte existe déjà avec cette adresse. Veuillez vous connecter.",
+        accountCreated:
+          "Compte créé. Ouverture de votre portail étudiant...",
+        invalidLogin: "Adresse courriel ou mot de passe incorrect.",
+        loginSuccess:
+          "Connexion réussie. Ouverture de votre portail..."
+      },
 
-    const authSection =
-      document.getElementById("authSection");
+      ht: {
+        eyebrow: "Enskripsyon Elèv",
+        pageTitle: "Kreye pwofil elèv ou",
+        pageDescription:
+          "Chwazi pwogram preparasyon egzamen asirans Florida ou epi antre nan pòtal elèv pèsonèl ou.",
+        createAccountTab: "Kreye Kont",
+        signInTab: "Konekte",
+        createTitle: "Kreye kont ou",
+        createDescription:
+          "Ranpli tout chan yo epi chwazi pwogram ou vle etidye a.",
+        fullName: "Non Konplè",
+        phone: "Nimewo Telefòn",
+        email: "Adrès Imèl",
+        state: "Eta",
+        program: "Pwogram Asirans",
+        chooseProgram: "Chwazi pwogram ou",
+        password: "Modpas",
+        confirmPassword: "Konfime Modpas",
+        selectedProgram: "Pwogram ou Chwazi",
+        license: "Lisans",
+        hours: "Èdtan",
+        tuition: "Pri Kou a",
+        confirmation:
+          "Mwen konfime enfòmasyon mwen yo kòrèk epi mwen otorize PRO-MAX Académie kontakte mwen.",
+        createButton: "Kreye Kont Mwen",
+        important: "Enpòtan:",
+        feeNotice:
+          "Frè aplikasyon, egzamen leta ak anprent dwèt Florida separe ak pri kou PRO-MAX la.",
+        loginTitle: "Antre nan pòtal elèv ou",
+        loginDescription:
+          "Ekri adrès imèl ak modpas ou te itilize pou kreye kont lan.",
+        loginButton: "Ouvri Pòtal Elèv",
+        requiredMessage: "Tanpri ranpli tout chan obligatwa yo.",
+        passwordLength:
+          "Modpas ou dwe genyen omwen 6 karaktè.",
+        passwordMismatch: "De modpas yo pa menm.",
+        emailExists:
+          "Gen yon kont ki deja itilize adrès imèl sa. Tanpri konekte.",
+        accountCreated:
+          "Kont lan kreye avèk siksè. N ap ouvri pòtal elèv ou...",
+        invalidLogin: "Adrès imèl oswa modpas la pa kòrèk.",
+        loginSuccess:
+          "Ou konekte avèk siksè. N ap ouvri pòtal ou..."
+      }
+    };
 
-    const dashboardSection =
-      document.getElementById("dashboardSection");
+    let currentLanguage =
+      localStorage.getItem(STORAGE_KEYS.language) || "en";
+
+    const registrationForm =
+      document.getElementById("registrationForm");
 
     const loginForm =
       document.getElementById("loginForm");
 
-    const registerForm =
-      document.getElementById("registerForm");
+    const registrationMessage =
+      document.getElementById("registrationMessage");
 
-    const loginTab =
-      document.getElementById("loginTab");
+    const loginMessage =
+      document.getElementById("loginMessage");
 
-    const registerTab =
-      document.getElementById("registerTab");
+    const programSelect =
+      document.getElementById("program");
 
-    function formatUSD(amount) {
-      return `$${amount.toLocaleString("en-US")} USD`;
-    }
+    const programSummary =
+      document.getElementById("programSummary");
 
-    function getStudents() {
+    function readStorage(key, fallback) {
       try {
-        return JSON.parse(
-          localStorage.getItem(STORAGE.students)
-        ) || [];
+        const storedValue = localStorage.getItem(key);
+
+        if (!storedValue) {
+          return fallback;
+        }
+
+        const parsedValue = JSON.parse(storedValue);
+        return parsedValue ?? fallback;
       } catch (error) {
-        return [];
+        console.error("Storage reading error:", error);
+        return fallback;
       }
     }
 
-    function saveStudents(students) {
-      localStorage.setItem(
-        STORAGE.students,
-        JSON.stringify(students)
-      );
-    }
-
-    function switchTab(showLogin) {
-      loginTab.classList.toggle("active", showLogin);
-      registerTab.classList.toggle("active", !showLogin);
-      loginForm.classList.toggle("hidden", !showLogin);
-      registerForm.classList.toggle("hidden", showLogin);
-
-      document.getElementById("loginMessage").textContent = "";
-      document.getElementById("registerMessage").textContent = "";
-    }
-
-    loginTab.addEventListener("click", function () {
-      switchTab(true);
-    });
-
-    registerTab.addEventListener("click", function () {
-      switchTab(false);
-    });
-
-    registerForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const name =
-        document.getElementById("studentName").value.trim();
-
-      const email =
-        document
-          .getElementById("registerEmail")
-          .value
-          .trim()
-          .toLowerCase();
-
-      const program =
-        document.getElementById("studentProgram").value;
-
-      const password =
-        document.getElementById("registerPassword").value;
-
-      const registerMessage =
-        document.getElementById("registerMessage");
-
-      if (!name || !email || !program || password.length < 6) {
-        registerMessage.textContent =
-          translations[language].fillFields;
-
-        return;
-      }
-
-      const students = getStudents();
-
-      const accountExists = students.some(function (student) {
-        return student.email === email;
-      });
-
-      if (accountExists) {
-        registerMessage.textContent =
-          translations[language].accountExists;
-
-        return;
-      }
-
-      const student = {
-        id: `PMIS-${Date.now().toString().slice(-6)}`,
-        name: name,
-        email: email,
-        password: password,
-        program: program,
-        completedLessons: [],
-        payments: 0,
-        examPassed: false,
-        createdAt: new Date().toISOString()
-      };
-
-      students.push(student);
-      saveStudents(students);
-
-      localStorage.setItem(STORAGE.session, student.id);
-
-      registerMessage.textContent =
-        translations[language].accountCreated;
-
-      setTimeout(function () {
-        openDashboard(student);
-      }, 500);
-    });
-
-    loginForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const email =
-        document
-          .getElementById("loginEmail")
-          .value
-          .trim()
-          .toLowerCase();
-
-      const password =
-        document.getElementById("loginPassword").value;
-
-      const student = getStudents().find(function (item) {
-        return (
-          item.email === email &&
-          item.password === password
-        );
-      });
-
-      if (!student) {
-        document.getElementById("loginMessage").textContent =
-          translations[language].invalidLogin;
-
-        return;
-      }
-
-      localStorage.setItem(STORAGE.session, student.id);
-      openDashboard(student);
-    });
-
-    function openDashboard(student) {
-      currentStudent = student;
-
-      if (!Array.isArray(currentStudent.completedLessons)) {
-        currentStudent.completedLessons = [];
-      }
-
-      if (!Number.isInteger(currentStudent.payments)) {
-        currentStudent.payments = 0;
-      }
-
-      authSection.classList.add("hidden");
-      dashboardSection.classList.add("active");
-
-      renderDashboard();
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-
-    function saveCurrentStudent(changes) {
-      const students = getStudents();
-
-      const studentIndex = students.findIndex(function (student) {
-        return student.id === currentStudent.id;
-      });
-
-      if (studentIndex === -1) {
-        return;
-      }
-
-      students[studentIndex] = {
-        ...students[studentIndex],
-        ...changes
-      };
-
-      saveStudents(students);
-      currentStudent = students[studentIndex];
-
-      renderDashboard();
-    }
-
-    function renderLessons() {
-      const lessonList =
-        document.getElementById("lessonList");
-
-      lessonList.innerHTML = "";
-
-      lessonKeys.forEach(function (key, index) {
-        const completed =
-          currentStudent.completedLessons.includes(index);
-
-        const lesson = document.createElement("div");
-
-        lesson.className =
-          `lesson ${completed ? "completed" : ""}`;
-
-        lesson.innerHTML = `
-          <div class="lesson-number">
-            ${completed ? "✓" : index + 1}
-          </div>
-
-          <div>
-            <div class="lesson-name">
-              ${translations[language][key]}
-            </div>
-
-            <div class="lesson-meta">
-              Module ${String(index + 1).padStart(2, "0")}
-            </div>
-          </div>
-
-          <button
-            class="lesson-button"
-            type="button"
-            data-index="${index}"
-          >
-            ${
-              completed
-                ? translations[language].completed
-                : translations[language].complete
-            }
-          </button>
-        `;
-
-        lessonList.appendChild(lesson);
-      });
-
-      document
-        .querySelectorAll(".lesson-button")
-        .forEach(function (button) {
-          button.addEventListener("click", function () {
-            const lessonIndex =
-              Number(button.dataset.index);
-
-            const completedLessons = [
-              ...currentStudent.completedLessons
-            ];
-
-            const existingPosition =
-              completedLessons.indexOf(lessonIndex);
-
-            if (existingPosition >= 0) {
-              completedLessons.splice(existingPosition, 1);
-            } else {
-              completedLessons.push(lessonIndex);
-            }
-
-            completedLessons.sort(function (a, b) {
-              return a - b;
-            });
-
-            saveCurrentStudent({
-              completedLessons: completedLessons
-            });
-          });
-        });
-    }
-
-    function renderPayments() {
-      const paymentSteps =
-        document.getElementById("paymentSteps");
-
-      paymentSteps.innerHTML = "";
-
-      for (
-        let number = 1;
-        number <= TUITION.numberOfPayments;
-        number += 1
-      ) {
-        const paymentStep =
-          document.createElement("div");
-
-        paymentStep.className =
-          `payment-step ${
-            number <= currentStudent.payments
-              ? "paid"
-              : ""
-          }`;
-
-        paymentStep.textContent = number;
-        paymentSteps.appendChild(paymentStep);
+    function writeStorage(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+        return true;
+      } catch (error) {
+        console.error("Storage saving error:", error);
+        return false;
       }
     }
 
-    function renderDashboard() {
-      if (!currentStudent) {
-        return;
-      }
-
-      const completedLessons =
-        currentStudent.completedLessons.length;
-
-      const coursePercent = Math.round(
-        (completedLessons / lessonKeys.length) * 100
-      );
-
-      const payments = currentStudent.payments;
-
-      const paidAmount =
-        payments * TUITION.paymentAmount;
-
-      const balance =
-        TUITION.total - paidAmount;
-
-      const paymentPercent = Math.round(
-        (payments / TUITION.numberOfPayments) * 100
-      );
-
-      const examUnlocked =
-        completedLessons === lessonKeys.length &&
-        payments === TUITION.numberOfPayments;
-
-      document.getElementById(
-        "studentNameDisplay"
-      ).textContent = currentStudent.name;
-
-      document.getElementById(
-        "studentIdDisplay"
-      ).textContent = currentStudent.id;
-
-      document.getElementById(
-        "programDisplay"
-      ).textContent = currentStudent.program;
-
-      document.getElementById(
-        "courseProgressValue"
-      ).textContent = `${coursePercent}%`;
-
-      document.getElementById(
-        "lessonStat"
-      ).textContent =
-        `${completedLessons}/${lessonKeys.length} ` +
-        `${translations[language].lessons}`;
-
-      document.getElementById(
-        "courseProgressFill"
-      ).style.width = `${coursePercent}%`;
-
-      document.getElementById(
-        "progressText"
-      ).textContent =
-        `${coursePercent}% ${translations[language].complete}`;
-
-      document.getElementById(
-        "lessonCount"
-      ).textContent =
-        `${completedLessons}/${lessonKeys.length} ` +
-        `${translations[language].lessons}`;
-
-      document.getElementById(
-        "paymentValue"
-      ).textContent =
-        `${payments}/${TUITION.numberOfPayments}`;
-
-      document.getElementById(
-        "balanceValue"
-      ).textContent =
-        `${translations[language].balance}: ` +
-        `${formatUSD(balance)}`;
-
-      document.getElementById(
-        "paymentProgressFill"
-      ).style.width = `${paymentPercent}%`;
-
-      document.getElementById(
-        "paymentDetails"
-      ).textContent =
-        `${translations[language].paid}: ` +
-        `${formatUSD(paidAmount)} · ` +
-        `${translations[language].balance}: ` +
-        `${formatUSD(balance)}`;
-
-      document.getElementById(
-        "examIcon"
-      ).textContent = examUnlocked ? "✓" : "🔒";
-
-      document.getElementById(
-        "examTitle"
-      ).textContent = examUnlocked
-        ? translations[language].examAvailable
-        : translations[language].examLocked;
-
-      document.getElementById(
-        "examText"
-      ).textContent = examUnlocked
-        ? translations[language].examReady
-        : translations[language].examRequirement;
-
-      renderLessons();
-      renderPayments();
+    function normalizeEmail(email) {
+      return String(email || "").trim().toLowerCase();
     }
 
-    document
-      .getElementById("addPayment")
-      .addEventListener("click", function () {
-        if (
-          currentStudent &&
-          currentStudent.payments <
-            TUITION.numberOfPayments
-        ) {
-          saveCurrentStudent({
-            payments: currentStudent.payments + 1
-          });
-        }
-      });
+    function translate(key) {
+      const selectedPack =
+        translations[currentLanguage] || translations.en;
 
-    document
-      .getElementById("removePayment")
-      .addEventListener("click", function () {
-        if (
-          currentStudent &&
-          currentStudent.payments > 0
-        ) {
-          saveCurrentStudent({
-            payments: currentStudent.payments - 1
-          });
-        }
-      });
+      return selectedPack[key] || translations.en[key] || key;
+    }
 
-    document
-      .getElementById("logoutButton")
-      .addEventListener("click", function () {
-        localStorage.removeItem(STORAGE.session);
+    function showMessage(element, message, isError = false) {
+      element.textContent = message;
+      element.classList.add("visible");
+      element.classList.toggle("error", isError);
+    }
 
-        currentStudent = null;
+    function hideMessage(element) {
+      element.textContent = "";
+      element.classList.remove("visible", "error");
+    }
 
-        dashboardSection.classList.remove("active");
-        authSection.classList.remove("hidden");
+    function generateStudentId() {
+      const year = new Date().getFullYear();
+      const randomNumber =
+        Math.floor(100000 + Math.random() * 900000);
 
-        loginForm.reset();
-        registerForm.reset();
-        switchTab(true);
+      return `PMIS-${year}-${randomNumber}`;
+    }
 
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      });
-
-    function applyLanguage(selectedLanguage) {
-      if (!translations[selectedLanguage]) {
-        selectedLanguage = "en";
-      }
-
-      language = selectedLanguage;
-
-      localStorage.setItem(
-        STORAGE.language,
-        language
-      );
-
+    function applyTranslations() {
       document.documentElement.lang =
-        language === "ht" ? "ht" : language;
+        currentLanguage === "ht" ? "ht" : currentLanguage;
 
       document
         .querySelectorAll("[data-i18n]")
-        .forEach(function (element) {
-          const translationKey =
-            element.dataset.i18n;
-
-          if (
-            translations[language][translationKey]
-          ) {
-            element.textContent =
-              translations[language][translationKey];
-          }
+        .forEach(element => {
+          const key = element.dataset.i18n;
+          element.textContent = translate(key);
         });
 
       document
         .querySelectorAll(".language-button")
-        .forEach(function (button) {
+        .forEach(button => {
           button.classList.toggle(
             "active",
-            button.dataset.language === language
+            button.dataset.language === currentLanguage
           );
         });
-
-      if (currentStudent) {
-        renderDashboard();
-      }
     }
 
-    document
-      .querySelectorAll(".language-button")
-      .forEach(function (button) {
-        button.addEventListener("click", function () {
-          applyLanguage(button.dataset.language);
-        });
-      });
-
-    function restoreSession() {
-      const sessionId =
-        localStorage.getItem(STORAGE.session);
-
-      if (!sessionId) {
+    function changeLanguage(language) {
+      if (!translations[language]) {
         return;
       }
 
-      const student = getStudents().find(function (item) {
-        return item.id === sessionId;
+      currentLanguage = language;
+      localStorage.setItem(STORAGE_KEYS.language, language);
+      applyTranslations();
+    }
+
+    function updateProgramSummary() {
+      const selectedProgram = PROGRAMS[programSelect.value];
+
+      if (!selectedProgram) {
+        programSummary.classList.remove("visible");
+        return;
+      }
+
+      document.getElementById("summaryProgram").textContent =
+        selectedProgram.name;
+
+      document.getElementById("summaryLicense").textContent =
+        selectedProgram.license;
+
+      document.getElementById("summaryHours").textContent =
+        `${selectedProgram.hours}`;
+
+      document.getElementById("summaryPrice").textContent =
+        `$${selectedProgram.price} USD`;
+
+      programSummary.classList.add("visible");
+    }
+
+    function openTab(formId) {
+      document
+        .querySelectorAll(".tab-button")
+        .forEach(button => {
+          button.classList.toggle(
+            "active",
+            button.dataset.tab === formId
+          );
+        });
+
+      document
+        .querySelectorAll(".account-form")
+        .forEach(form => {
+          form.classList.toggle("active", form.id === formId);
+        });
+
+      hideMessage(registrationMessage);
+      hideMessage(loginMessage);
+    }
+
+    function migrateExistingStudents(students) {
+      if (!Array.isArray(students)) {
+        return [];
+      }
+
+      return students.map(student => {
+        const oldProgram = String(student.program || "")
+          .toLowerCase();
+
+        let matchedProgram = null;
+
+        if (
+          oldProgram.includes("life") ||
+          oldProgram.includes("2-15")
+        ) {
+          matchedProgram = PROGRAMS["life-health-2-15"];
+        } else if (
+          oldProgram.includes("health") ||
+          oldProgram.includes("2-40")
+        ) {
+          matchedProgram = PROGRAMS["health-2-40"];
+        } else if (
+          oldProgram.includes("auto") ||
+          oldProgram.includes("personal") ||
+          oldProgram.includes("20-44")
+        ) {
+          matchedProgram = PROGRAMS["personal-lines-20-44"];
+        } else if (
+          oldProgram.includes("property") ||
+          oldProgram.includes("casualty") ||
+          oldProgram.includes("2-20")
+        ) {
+          matchedProgram = PROGRAMS["property-casualty-2-20"];
+        } else if (oldProgram.includes("bundle")) {
+          matchedProgram = PROGRAMS["complete-bundle"];
+        }
+
+        if (!matchedProgram) {
+          return student;
+        }
+
+        return {
+          ...student,
+          program: matchedProgram.name,
+          programKey: matchedProgram.key,
+          programShortName: matchedProgram.shortName,
+          licenseCode: matchedProgram.license,
+          courseHours: matchedProgram.hours,
+          totalModules: matchedProgram.modules,
+          tuition: matchedProgram.price,
+          coursePrice: matchedProgram.price,
+          currency: "USD",
+          coursePage: matchedProgram.coursePage,
+          paymentStatus:
+            student.paymentStatus === "paid" ||
+            student.paid === true
+              ? "paid"
+              : "pending"
+        };
+      });
+    }
+
+    function repairExistingAccounts() {
+      const storedStudents = readStorage(STORAGE_KEYS.students, []);
+      const migratedStudents =
+        migrateExistingStudents(storedStudents);
+
+      writeStorage(STORAGE_KEYS.students, migratedStudents);
+
+      const session = readStorage(STORAGE_KEYS.session, null);
+
+      if (!session) {
+        return;
+      }
+
+      const sessionEmail =
+        typeof session === "string"
+          ? normalizeEmail(session)
+          : normalizeEmail(session.email);
+
+      const matchingStudent = migratedStudents.find(student => {
+        return normalizeEmail(student.email) === sessionEmail;
       });
 
-      if (student) {
-        openDashboard(student);
-      } else {
-        localStorage.removeItem(STORAGE.session);
+      if (matchingStudent) {
+        writeStorage(STORAGE_KEYS.session, {
+          id: matchingStudent.id,
+          email: matchingStudent.email
+        });
       }
     }
 
-    applyLanguage(language);
-    restoreSession();
+    registrationForm.addEventListener("submit", event => {
+      event.preventDefault();
+      hideMessage(registrationMessage);
+
+      const fullName =
+        document.getElementById("fullName").value.trim();
+
+      const phone =
+        document.getElementById("phone").value.trim();
+
+      const email = normalizeEmail(
+        document.getElementById("email").value
+      );
+
+      const state =
+        document.getElementById("state").value.trim();
+
+      const programKey = programSelect.value;
+
+      const password =
+        document.getElementById("password").value;
+
+      const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+      const confirmation =
+        document.getElementById("confirmation").checked;
+
+      const selectedProgram = PROGRAMS[programKey];
+
+      if (
+        !fullName ||
+        !phone ||
+        !email ||
+        !state ||
+        !selectedProgram ||
+        !password ||
+        !confirmPassword ||
+        !confirmation
+      ) {
+        showMessage(
+          registrationMessage,
+          translate("requiredMessage"),
+          true
+        );
+        return;
+      }
+
+      if (password.length < 6) {
+        showMessage(
+          registrationMessage,
+          translate("passwordLength"),
+          true
+        );
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showMessage(
+          registrationMessage,
+          translate("passwordMismatch"),
+          true
+        );
+        return;
+      }
+
+      const students = migrateExistingStudents(
+        readStorage(STORAGE_KEYS.students, [])
+      );
+
+      const existingStudent = students.find(student => {
+        return normalizeEmail(student.email) === email;
+      });
+
+      if (existingStudent) {
+        showMessage(
+          registrationMessage,
+          translate("emailExists"),
+          true
+        );
+
+        document.getElementById("loginEmail").value = email;
+        return;
+      }
+
+      const newStudent = {
+        id: generateStudentId(),
+        name: fullName,
+        fullName: fullName,
+        phone: phone,
+        email: email,
+        state: state,
+
+        program: selectedProgram.name,
+        programKey: selectedProgram.key,
+        programShortName: selectedProgram.shortName,
+        licenseCode: selectedProgram.license,
+        courseHours: selectedProgram.hours,
+        totalModules: selectedProgram.modules,
+        coursePage: selectedProgram.coursePage,
+
+        tuition: selectedProgram.price,
+        coursePrice: selectedProgram.price,
+        currency: "USD",
+        paymentStatus: "pending",
+        paid: false,
+
+        password: password,
+        completedLessons: [],
+        progress: 0,
+        examScore: null,
+        examPassed: false,
+        certificateIssued: false,
+
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+
+      students.push(newStudent);
+
+      const studentsSaved = writeStorage(
+        STORAGE_KEYS.students,
+        students
+      );
+
+      const sessionSaved = writeStorage(
+        STORAGE_KEYS.session,
+        {
+          id: newStudent.id,
+          email: newStudent.email
+        }
+      );
+
+      if (!studentsSaved || !sessionSaved) {
+        showMessage(
+          registrationMessage,
+          "The account could not be saved on this device.",
+          true
+        );
+        return;
+      }
+
+      showMessage(
+        registrationMessage,
+        translate("accountCreated")
+      );
+
+      document.getElementById(
+        "createAccountButton"
+      ).disabled = true;
+
+      window.setTimeout(() => {
+        window.location.href = "student-portal.html";
+      }, 900);
+    });
+
+    loginForm.addEventListener("submit", event => {
+      event.preventDefault();
+      hideMessage(loginMessage);
+
+      const email = normalizeEmail(
+        document.getElementById("loginEmail").value
+      );
+
+      const password =
+        document.getElementById("loginPassword").value;
+
+      const students = migrateExistingStudents(
+        readStorage(STORAGE_KEYS.students, [])
+      );
+
+      writeStorage(STORAGE_KEYS.students, students);
+
+      const student = students.find(savedStudent => {
+        return (
+          normalizeEmail(savedStudent.email) === email &&
+          String(savedStudent.password) === String(password)
+        );
+      });
+
+      if (!student) {
+        showMessage(
+          loginMessage,
+          translate("invalidLogin"),
+          true
+        );
+        return;
+      }
+
+      writeStorage(STORAGE_KEYS.session, {
+        id: student.id,
+        email: student.email
+      });
+
+      showMessage(
+        loginMessage,
+        translate("loginSuccess")
+      );
+
+      document.getElementById("loginButton").disabled = true;
+
+      window.setTimeout(() => {
+        window.location.href = "student-portal.html";
+      }, 700);
+    });
+
+    programSelect.addEventListener(
+      "change",
+      updateProgramSummary
+    );
+
+    document
+      .querySelectorAll(".tab-button")
+      .forEach(button => {
+        button.addEventListener("click", () => {
+          openTab(button.dataset.tab);
+        });
+      });
+
+    document
+      .querySelectorAll(".language-button")
+      .forEach(button => {
+        button.addEventListener("click", () => {
+          changeLanguage(button.dataset.language);
+        });
+      });
+
+    const schoolLogo = document.getElementById("schoolLogo");
+    const logoFallback = document.getElementById("logoFallback");
+
+    schoolLogo.addEventListener("error", () => {
+      if (
+        schoolLogo.getAttribute("src") ===
+        "insurance-school-logo.png"
+      ) {
+        schoolLogo.src = "logo.png";
+        return;
+      }
+
+      schoolLogo.style.display = "none";
+      logoFallback.style.display = "grid";
+    });
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    repairExistingAccounts();
+    applyTranslations();
+    updateProgramSummary();
   </script>
 </body>
 </html>
