@@ -2,6 +2,11 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31">
 
   <meta
     name="viewport"
@@ -581,12 +586,27 @@
         padding: 20px;
       }
     }
+    .course-lock {
+      display: none;
+      width: min(880px, calc(100% - 32px));
+      margin: 70px auto 100px;
+      padding: clamp(32px, 6vw, 70px);
+      border: 1px solid var(--border);
+      text-align: center;
+      background: linear-gradient(145deg, rgba(42, 15, 6, .97), rgba(7, 3, 2, .98));
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .42);
+    }
+
+    .course-lock.show { display: block; }
+    .course-lock h2 { margin: 18px 0; font-family: "Cinzel", serif; font-size: clamp(32px, 6vw, 55px); }
+    .course-lock p { max-width: 650px; margin: 0 auto; color: var(--muted); line-height: 1.8; }
+    .course-lock .action-button { display: inline-flex; margin-top: 28px; }
   </style>
 </head>
 
 <body>
   <header class="site-header">
-    <a class="brand" href="./index.html">
+    <a class='brand' href='/'>
       <img
         class="brand-logo"
         src="./insurance-school-logo.png"
@@ -632,17 +652,21 @@
         </button>
       </div>
 
-      <a
-        class="header-button"
-        href="./my-courses.html"
-        data-i18n="back"
-      >
+      <a class='header-button' data-i18n='back' href='my-courses.html'>
         My Courses
       </a>
     </div>
   </header>
 
-  <main>
+  <section class="course-lock" id="courseLock">
+    <div class="panel-label">SECURE COURSE ACCESS</div>
+    <h2>COURSE LOCKED</h2>
+    <p>Your Health Insurance 2-40 course will unlock automatically after a PRO-MAX administrator verifies your tuition payment.</p>
+    <a class="action-button" href="payment.html">PAY TUITION</a>
+    <a class="action-button secondary" href="my-courses.html">MY COURSES</a>
+  </section>
+
+  <main id="courseContent">
     <section class="course-hero">
       <div>
         <div class="eyebrow">
@@ -782,11 +806,7 @@
         Your course examination is now available.
       </p>
 
-      <a
-        class="action-button"
-        href="./student-portal.html#finalExam"
-        data-i18n="exam"
-      >
+      <a class='action-button' data-i18n='exam' href='/student-portal#finalExam'>
         Go to Final Exam
       </a>
     </section>
@@ -1332,13 +1352,58 @@
       completedModules = [];
     }
 
-    function verifySession() {
-      const sessionId =
-        localStorage.getItem(STORAGE.session);
-
-      if (!sessionId) {
-        window.location.href = "./student-portal.html";
+    function readStorage(key, fallback) {
+      try {
+        const value = JSON.parse(localStorage.getItem(key));
+        return value === null ? fallback : value;
+      } catch (error) {
+        return fallback;
       }
+    }
+
+    function normalize(value) {
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function getCurrentStudent() {
+      const session = readStorage(STORAGE.session, null);
+      const students = readStorage(STORAGE.students, []);
+
+      if (!session || !Array.isArray(students)) return null;
+
+      const sessionEmail = normalize(
+        typeof session === "string" ? session : session.email
+      );
+      const sessionId = normalize(
+        typeof session === "object" ? (session.id || session.studentId) : session
+      );
+
+      return students.find(function (student) {
+        return (
+          (sessionEmail && normalize(student.email) === sessionEmail) ||
+          (sessionId && normalize(student.id) === sessionId)
+        );
+      }) || null;
+    }
+
+    function verifySession() {
+      const student = getCurrentStudent();
+
+      if (!student) {
+        window.location.replace("student-profile.html");
+        return false;
+      }
+
+      const paid =
+        student.paymentStatus === "paid" ||
+        student.paymentStatus === true ||
+        student.paid === true ||
+        student.isPaid === true;
+
+      document.getElementById("courseLock").classList.toggle("show", !paid);
+      document.getElementById("courseContent").style.display = paid ? "block" : "none";
+
+      return paid;
     }
 
     function saveProgress() {
@@ -1601,8 +1666,21 @@
         }
       });
 
-    verifySession();
-    renderCourse();
+    const requestedModule = Number(
+      new URLSearchParams(window.location.search).get("module")
+    );
+
+    if (
+      Number.isInteger(requestedModule) &&
+      requestedModule >= 1 &&
+      requestedModule <= modules.length
+    ) {
+      activeModule = requestedModule - 1;
+    }
+
+    if (verifySession()) {
+      renderCourse();
+    }
   </script>
 </body>
 </html>
