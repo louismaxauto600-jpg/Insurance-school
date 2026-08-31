@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#050301">
+  <meta name="google" content="notranslate">
+
+  <meta
+    name="description"
+    content="PRO-MAX Académie Life, Health and Annuities Course"
+  >
+
+  <title>Life, Health & Annuities | PRO-MAX Académie</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #050301;
+      --soft-black: #0d0602;
+      --orange: #ff6a00;
+      --orange-dark: #d94d00;
+      --apricot: #ffad78;
+      --apricot-dark: #d98658;
+      --border: rgba(255, 106, 0, 0.4);
+      --glow: rgba(255, 106, 0, 0.27);
+      --shadow: 0 22px 55px rgba(0, 0, 0, 0.67);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--apricot);
+      background:
+        radial-gradient(circle at 50% 0%, #421500, transparent 38%),
+        linear-gradient(145deg, #050301, #130601 55%, #030201);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      min-height: 105px;
+      padding: 16px clamp(18px, 5vw, 70px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(4, 2, 1, 0.97);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border: 1px solid var(--orange);
+      box-shadow: 0 0 24px var(--glow);
+    }
+
+    .brand-title {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-subtitle {
+      margin-top: 7px;
+      color: var(--apricot-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .languages {
+      display: flex;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--soft-black);
+    }
+
+    .language-button {
+      min-width: 42px;
+      padding: 9px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--apricot-dark);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .language-button.active {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    .header-button {
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: var(--soft-black);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .header-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    main {
+      width: min(1240px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 58px 0 95px;
+    }
+
+    .course-hero {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      align-items: center;
+      gap: 38px;
+      margin-bottom: 30px;
+      padding: clamp(28px, 5vw, 55px);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 82% 35%, #ff5a0038, transparent 36%),
+        linear-gradient(145deg, #211007, #080301);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow,
+    .panel-label {
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .course-hero h1 {
+      margin-top: 14px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(37px, 6vw, 65px);
+      line-height: 1.05;
+    }
+
+    .course-hero p {
+      max-width: 730px;
+      margin-top: 18px;
+      color: var(--apricot-dark);
+      line-height: 1.75;
+    }
+
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 23px;
+    }
+
+    .course-tag {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      color: var(--apricot-dark);
+      background: var(--black);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .course-price {
+      padding: 32px;
+      border: 2px solid var(--orange);
+      background: var(--black);
+      text-align: center;
+      box-shadow: 0 0 35px var(--glow);
+    }
+
+    .course-price span {
+      color: var(--apricot-dark);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .course-price strong {
+      display: block;
+      margin-top: 12px;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: 49px;
+    }
+
+    .course-price small {
+      color: var(--apricot-dark);
+      font-size: 11px;
+    }
+
+    .progress-card {
+      margin-bottom: 26px;
+      padding: 27px;
+      border: 1px solid var(--border);
+      background: var(--soft-black);
+      box-shadow: var(--shadow);
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .progress-header strong {
+      color: var(--apricot);
+    }
+
+    .progress-header span {
+      color: var(--orange);
+      font-weight: 800;
+    }
+
+    .progress-track {
+      height: 11px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--black);
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--orange-dark), var(--apricot));
+      box-shadow: 0 0 18px var(--orange);
+      transition: width 0.4s ease;
+    }
+
+    .course-layout {
+      display: grid;
+      grid-template-columns: 390px 1fr;
+      gap: 25px;
+    }
+
+    .module-navigation,
+    .lesson-panel {
+      border: 1px solid var(--border);
+      background: var(--soft-black);
+      box-shadow: var(--shadow);
+    }
+
+    .module-navigation {
+      height: fit-content;
+      padding: 24px;
+    }
+
+    .module-navigation h2,
+    .lesson-panel h2 {
+      margin: 9px 0 22px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 28px;
+    }
+
+    .module-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .module-button {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      align-items: center;
+      gap: 11px;
+      padding: 12px;
+      border: 1px solid rgba(255, 106, 0, 0.24);
+      color: var(--apricot);
+      background: var(--black);
+      text-align: left;
+    }
+
+    .module-button.active {
+      border-color: var(--orange);
+      background: #261006;
+    }
+
+    .module-number {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .module-button.completed .module-number {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .module-name {
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .module-status {
+      color: var(--orange);
+    }
+
+    .lesson-panel {
+      min-height: 680px;
+      padding: clamp(27px, 5vw, 50px);
+    }
+
+    .lesson-description {
+      margin-bottom: 25px;
+      color: var(--apricot-dark);
+      line-height: 1.8;
+    }
+
+    .learning-box,
+    .quiz-box {
+      margin-bottom: 18px;
+      padding: 23px;
+      border-left: 3px solid var(--orange);
+      background: var(--black);
+    }
+
+    .learning-box h3,
+    .quiz-box h3 {
+      margin-bottom: 12px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+    }
+
+    .learning-box li,
+    .quiz-question {
+      color: var(--apricot-dark);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .learning-box ul {
+      padding-left: 20px;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+    .quiz-option {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid rgba(255, 106, 0, 0.28);
+      color: var(--apricot);
+      background: var(--black);
+      text-align: left;
+    }
+
+    .quiz-option:hover {
+      border-color: var(--orange);
+    }
+
+    .quiz-option.correct {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .quiz-option.incorrect {
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .quiz-message {
+      min-height: 24px;
+      margin-top: 15px;
+      color: var(--orange);
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .lesson-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .action-button {
+      min-height: 53px;
+      display: grid;
+      place-items: center;
+      padding: 13px;
+      border: 1px solid var(--orange);
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .action-button.secondary {
+      color: var(--apricot);
+      background: transparent;
+    }
+
+    .action-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+
+    .completion-card {
+      margin-top: 27px;
+      padding: 31px;
+      border: 2px solid var(--orange);
+      background: linear-gradient(145deg, #301207, #080301);
+      text-align: center;
+      box-shadow: 0 0 35px var(--glow);
+    }
+
+    .completion-card h2 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 31px;
+    }
+
+    .completion-card p {
+      margin: 12px 0 22px;
+      color: var(--apricot-dark);
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 34px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--apricot-dark);
+      background: #030201;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 1000px) {
+      .course-layout,
+      .course-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .course-price {
+        max-width: 330px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .site-header {
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .brand-logo {
+        width: 62px;
+        height: 62px;
+      }
+
+      .brand-title {
+        font-size: 15px;
+      }
+
+      .brand-subtitle {
+        font-size: 8px;
+        letter-spacing: 3px;
+      }
+
+      .module-navigation,
+      .lesson-panel {
+        padding: 20px;
+      }
+
+      .lesson-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <img
+        class="brand-logo"
+        src="./insurance-school-logo.png"
+        alt="PRO-MAX Académie Insurance School"
+        onerror="this.style.display='none'"
+      >
+
+      <div>
+        <div class="brand-title">
+          PRO-MAX ACADÉMIE
+        </div>
+
+        <div class="brand-subtitle" data-i18n="school">
+          INSURANCE SCHOOL
+        </div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <div class="languages">
+        <button
+          class="language-button active"
+          type="button"
+          data-language="en"
+        >
+          ENG
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="fr"
+        >
+          FRA
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="ht"
+        >
+          KRE
+        </button>
+      </div>
+
+      <a
+        class="header-button"
+        href="./my-courses.html"
+        data-i18n="back"
+      >
+        My Courses
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="course-hero">
+      <div>
+        <div class="eyebrow">
+          FLORIDA 2-15 · LIFE · HEALTH · ANNUITIES
+        </div>
+
+        <h1 data-i18n="courseTitle">
+          Life, Health & Annuities
+        </h1>
+
+        <p data-i18n="courseDescription">
+          Study life insurance, health insurance,
+          annuities, policy provisions, underwriting,
+          social insurance and Florida regulations.
+        </p>
+
+        <div class="course-tags">
+          <span class="course-tag">60 HOURS</span>
+          <span class="course-tag">12 MODULES</span>
+          <span class="course-tag">100% ONLINE</span>
+          <span class="course-tag">ENG · FRA · KRE</span>
+        </div>
+      </div>
+
+      <div class="course-price">
+        <span data-i18n="tuition">
+          COURSE TUITION
+        </span>
+
+        <strong>$149</strong>
+        <small>USD</small>
+      </div>
+    </section>
+
+    <section class="progress-card">
+      <div class="progress-header">
+        <strong data-i18n="progress">
+          Course Progress
+        </strong>
+
+        <span id="progressText">
+          0% · 0/12
+        </span>
+      </div>
+
+      <div class="progress-track">
+        <div
+          class="progress-fill"
+          id="progressFill"
+        ></div>
+      </div>
+    </section>
+
+    <section class="course-layout">
+      <aside class="module-navigation">
+        <div class="panel-label">
+          COURSE CONTENT
+        </div>
+
+        <h2 data-i18n="modules">
+          Course Modules
+        </h2>
+
+        <div class="module-list" id="moduleList"></div>
+      </aside>
+
+      <article class="lesson-panel">
+        <div class="panel-label" id="lessonNumber">
+          MODULE 01
+        </div>
+
+        <h2 id="lessonTitle">
+          Insurance Fundamentals
+        </h2>
+
+        <p
+          class="lesson-description"
+          id="lessonDescription"
+        ></p>
+
+        <div id="learningContent"></div>
+
+        <div class="quiz-box">
+          <h3 data-i18n="knowledgeCheck">
+            Knowledge Check
+          </h3>
+
+          <p
+            class="quiz-question"
+            id="quizQuestion"
+          ></p>
+
+          <div
+            class="quiz-options"
+            id="quizOptions"
+          ></div>
+
+          <div
+            class="quiz-message"
+            id="quizMessage"
+            aria-live="polite"
+          ></div>
+        </div>
+
+        <div class="lesson-actions">
+          <button
+            class="action-button secondary"
+            id="previousButton"
+            type="button"
+            data-i18n="previous"
+          >
+            Previous Module
+          </button>
+
+          <button
+            class="action-button"
+            id="nextButton"
+            type="button"
+            data-i18n="next"
+          >
+            Next Module
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section
+      class="completion-card hidden"
+      id="completionCard"
+    >
+      <h2 data-i18n="completedTitle">
+        Course Modules Completed
+      </h2>
+
+      <p data-i18n="completedText">
+        You completed all twelve modules.
+        Your course examination is now available.
+      </p>
+
+      <a
+        class="action-button"
+        href="./student-portal.html#finalExam"
+        data-i18n="exam"
+      >
+        Go to Final Exam
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div>PRO-MAX ACADÉMIE · INSURANCE SCHOOL</div>
+    <div>© 2026 BSS1815 PRO-MAX DMP</div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const STORAGE = {
+      session: "promaxInsuranceSession",
+      language: "promaxInsuranceLanguage",
+      progress: "promaxLifeHealth215Progress"
+    };
+
+    const translations = {
+      en: {
+        school: "INSURANCE SCHOOL",
+        back: "My Courses",
+        courseTitle: "Life, Health & Annuities",
+        courseDescription:
+          "Study life insurance, health insurance, annuities, policy provisions, underwriting, social insurance and Florida regulations.",
+        tuition: "COURSE TUITION",
+        progress: "Course Progress",
+        modules: "Course Modules",
+        knowledgeCheck: "Knowledge Check",
+        previous: "Previous Module",
+        next: "Next Module",
+        correct: "Correct. This module is now completed.",
+        incorrect:
+          "Not correct. Review the lesson and try again.",
+        completedTitle: "Course Modules Completed",
+        completedText:
+          "You completed all twelve modules. Your course examination is now available.",
+        exam: "Go to Final Exam",
+        objectives: "Learning Objectives"
+      },
+
+      fr: {
+        school: "ÉCOLE D’ASSURANCE",
+        back: "Mes cours",
+        courseTitle: "Vie, santé et rentes",
+        courseDescription:
+          "Étudiez l’assurance vie, santé, les rentes, les dispositions, la souscription, l’assurance sociale et les règles de Florida.",
+        tuition: "FRAIS DU COURS",
+        progress: "Progression du cours",
+        modules: "Modules du cours",
+        knowledgeCheck: "Vérification des connaissances",
+        previous: "Module précédent",
+        next: "Module suivant",
+        correct:
+          "Bonne réponse. Ce module est maintenant terminé.",
+        incorrect:
+          "Réponse incorrecte. Révisez la leçon et réessayez.",
+        completedTitle: "Modules terminés",
+        completedText:
+          "Vous avez terminé les douze modules. L’examen est disponible.",
+        exam: "Aller à l’examen final",
+        objectives: "Objectifs d’apprentissage"
+      },
+
+      ht: {
+        school: "LEKÒL ASIRANS",
+        back: "Kou Mwen",
+        courseTitle: "Lavi, Sante ak Annuity",
+        courseDescription:
+          "Etidye asirans lavi, sante, annuity, kondisyon polis, underwriting, asirans sosyal ak règ Florida.",
+        tuition: "PRI KOU A",
+        progress: "Pwogrè Kou",
+        modules: "Modil Kou",
+        knowledgeCheck: "Verifye Konesans",
+        previous: "Modil Anvan",
+        next: "Pwochen Modil",
+        correct:
+          "Bon repons. Modil sa a fini kounye a.",
+        incorrect:
+          "Repons lan pa kòrèk. Revize leson an epi eseye ankò.",
+        completedTitle: "Tout Modil yo Fini",
+        completedText:
+          "Ou fini tout douz modil yo. Egzamen kou a disponib.",
+        exam: "Ale nan Egzamen Final",
+        objectives: "Objektif Aprantisaj"
+      }
+    };
+
+    const modules = [
+      {
+        title: {
+          en: "Insurance Fundamentals",
+          fr: "Principes de l’assurance",
+          ht: "Baz Asirans"
+        },
+        description: {
+          en: "Understand risk, risk pooling, premiums, contracts and the roles of the parties to an insurance policy.",
+          fr: "Comprendre le risque, les primes, les contrats et les parties à une police.",
+          ht: "Konprann risk, prim, kontra ak moun ki patisipe nan yon polis."
+        },
+        objectives: {
+          en: [
+            "Define risk and risk pooling.",
+            "Identify the insurer and insured.",
+            "Understand the elements of an insurance contract."
+          ],
+          fr: [
+            "Définir le risque.",
+            "Identifier l’assureur et l’assuré.",
+            "Comprendre les éléments du contrat."
+          ],
+          ht: [
+            "Defini risk.",
+            "Idantifye konpayi ak moun asire a.",
+            "Konprann eleman kontra asirans lan."
+          ]
+        },
+        question: {
+          en: "What is a premium?",
+          fr: "Qu’est-ce qu’une prime ?",
+          ht: "Kisa yon prim ye?"
+        },
+        answers: {
+          en: [
+            "The amount paid to maintain insurance coverage",
+            "A policy exclusion",
+            "A state license"
+          ],
+          fr: [
+            "Le montant payé pour maintenir la couverture",
+            "Une exclusion",
+            "Une licence d’État"
+          ],
+          ht: [
+            "Lajan yo peye pou kenbe kouvèti a",
+            "Yon esklizyon",
+            "Yon lisans leta"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Life Insurance Policies",
+          fr: "Polices d’assurance vie",
+          ht: "Polis Asirans Lavi"
+        },
+        description: {
+          en: "Compare term life, whole life, universal life and variable life insurance.",
+          fr: "Comparez l’assurance temporaire, entière, universelle et variable.",
+          ht: "Konpare term life, whole life, universal life ak variable life."
+        },
+        objectives: {
+          en: [
+            "Compare temporary and permanent coverage.",
+            "Understand cash value.",
+            "Recognize flexible-premium policies."
+          ],
+          fr: [
+            "Comparer les couvertures temporaires et permanentes.",
+            "Comprendre la valeur de rachat.",
+            "Reconnaître les primes flexibles."
+          ],
+          ht: [
+            "Konpare kouvèti tanporè ak pèmanan.",
+            "Konprann cash value.",
+            "Rekonèt polis ak prim fleksib."
+          ]
+        },
+        question: {
+          en: "Which policy generally provides coverage for a specified period?",
+          fr: "Quelle police couvre généralement une période déterminée ?",
+          ht: "Ki polis ki bay kouvèti pou yon peryòd presi?"
+        },
+        answers: {
+          en: [
+            "Term life insurance",
+            "Whole life insurance",
+            "An immediate annuity"
+          ],
+          fr: [
+            "Assurance vie temporaire",
+            "Assurance vie entière",
+            "Rente immédiate"
+          ],
+          ht: [
+            "Term life insurance",
+            "Whole life insurance",
+            "Immediate annuity"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Life Policy Provisions and Riders",
+          fr: "Dispositions et avenants vie",
+          ht: "Kondisyon ak Riders Lavi"
+        },
+        description: {
+          en: "Study grace periods, reinstatement, incontestability, assignments and common riders.",
+          fr: "Étudiez les délais de grâce, la remise en vigueur, l’incontestabilité et les avenants.",
+          ht: "Etidye grace period, retablisman, incontestability ak riders."
+        },
+        objectives: {
+          en: [
+            "Understand common policy provisions.",
+            "Identify rider benefits.",
+            "Recognize ownership rights."
+          ],
+          fr: [
+            "Comprendre les dispositions.",
+            "Identifier les avenants.",
+            "Reconnaître les droits du propriétaire."
+          ],
+          ht: [
+            "Konprann kondisyon polis.",
+            "Idantifye avantaj riders.",
+            "Rekonèt dwa mèt polis la."
+          ]
+        },
+        question: {
+          en: "What does a grace period generally provide?",
+          fr: "Que permet un délai de grâce ?",
+          ht: "Kisa grace period la pèmèt?"
+        },
+        answers: {
+          en: [
+            "Additional time to pay a premium",
+            "Immediate cancellation",
+            "Automatic claim denial"
+          ],
+          fr: [
+            "Un délai supplémentaire pour payer",
+            "Une annulation immédiate",
+            "Un refus automatique"
+          ],
+          ht: [
+            "Plis tan pou peye prim lan",
+            "Anilasyon touswit",
+            "Refi reklamasyon otomatik"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Beneficiaries and Policy Ownership",
+          fr: "Bénéficiaires et propriété",
+          ht: "Benefisyè ak Pwopriyetè Polis"
+        },
+        description: {
+          en: "Learn beneficiary designations, ownership rights, assignments and settlement options.",
+          fr: "Apprenez les désignations, droits de propriété, cessions et règlements.",
+          ht: "Aprann benefisyè, dwa pwopriyetè, assignments ak opsyon peman."
+        },
+        objectives: {
+          en: [
+            "Distinguish primary and contingent beneficiaries.",
+            "Understand ownership changes.",
+            "Recognize settlement options."
+          ],
+          fr: [
+            "Distinguer les bénéficiaires.",
+            "Comprendre les changements de propriétaire.",
+            "Reconnaître les options de règlement."
+          ],
+          ht: [
+            "Distenkte benefisyè prensipal ak segondè.",
+            "Konprann chanjman pwopriyetè.",
+            "Rekonèt opsyon peman."
+          ]
+        },
+        question: {
+          en: "Who is first in line to receive the death benefit?",
+          fr: "Qui reçoit d’abord la prestation de décès ?",
+          ht: "Kiyès ki resevwa benefis lanmò a an premye?"
+        },
+        answers: {
+          en: [
+            "Primary beneficiary",
+            "Insurance producer",
+            "State examiner"
+          ],
+          fr: [
+            "Bénéficiaire principal",
+            "Producteur d’assurance",
+            "Examinateur d’État"
+          ],
+          ht: [
+            "Benefisyè prensipal",
+            "Ajan asirans",
+            "Egzaminatè leta"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Life Insurance Underwriting",
+          fr: "Souscription en assurance vie",
+          ht: "Underwriting Asirans Lavi"
+        },
+        description: {
+          en: "Review applications, insurable interest, risk classification and delivery responsibilities.",
+          fr: "Examinez les demandes, l’intérêt assurable, les risques et la livraison.",
+          ht: "Revize aplikasyon, insurable interest, klasifikasyon risk ak livrezon."
+        },
+        objectives: {
+          en: [
+            "Complete applications accurately.",
+            "Understand insurable interest.",
+            "Protect confidential information."
+          ],
+          fr: [
+            "Remplir les demandes correctement.",
+            "Comprendre l’intérêt assurable.",
+            "Protéger les renseignements."
+          ],
+          ht: [
+            "Ranpli aplikasyon kòrèkteman.",
+            "Konprann insurable interest.",
+            "Pwoteje enfòmasyon kliyan."
+          ]
+        },
+        question: {
+          en: "When must insurable interest generally exist in life insurance?",
+          fr: "Quand l’intérêt assurable doit-il généralement exister ?",
+          ht: "Kilè insurable interest dwe egziste an jeneral?"
+        },
+        answers: {
+          en: [
+            "When the policy is issued",
+            "Only after a claim",
+            "Only when the beneficiary changes"
+          ],
+          fr: [
+            "Lors de l’émission de la police",
+            "Seulement après une réclamation",
+            "Seulement lors d’un changement"
+          ],
+          ht: [
+            "Lè yo emèt polis la",
+            "Sèlman apre reklamasyon",
+            "Sèlman lè benefisyè chanje"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Annuity Fundamentals",
+          fr: "Principes des rentes",
+          ht: "Baz Annuity"
+        },
+        description: {
+          en: "Understand accumulation, annuitization, immediate and deferred annuities.",
+          fr: "Comprenez l’accumulation, l’annuitisation et les rentes immédiates ou différées.",
+          ht: "Konprann accumulation, annuitization, immediate ak deferred annuity."
+        },
+        objectives: {
+          en: [
+            "Identify annuity phases.",
+            "Compare immediate and deferred annuities.",
+            "Understand income options."
+          ],
+          fr: [
+            "Identifier les phases.",
+            "Comparer les rentes.",
+            "Comprendre les options de revenu."
+          ],
+          ht: [
+            "Idantifye faz annuity yo.",
+            "Konpare immediate ak deferred annuity.",
+            "Konprann opsyon revni."
+          ]
+        },
+        question: {
+          en: "Which annuity generally begins income payments soon after purchase?",
+          fr: "Quelle rente commence rapidement les paiements ?",
+          ht: "Ki annuity ki kòmanse peye revni rapid apre acha?"
+        },
+        answers: {
+          en: [
+            "Immediate annuity",
+            "Deferred annuity",
+            "Term life policy"
+          ],
+          fr: [
+            "Rente immédiate",
+            "Rente différée",
+            "Assurance temporaire"
+          ],
+          ht: [
+            "Immediate annuity",
+            "Deferred annuity",
+            "Term life policy"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Variable Contracts",
+          fr: "Contrats variables",
+          ht: "Kontra Varyab"
+        },
+        description: {
+          en: "Review separate accounts, investment risk and the characteristics of variable products.",
+          fr: "Examinez les comptes séparés, le risque d’investissement et les produits variables.",
+          ht: "Revize separate accounts, risk envestisman ak pwodwi varyab."
+        },
+        objectives: {
+          en: [
+            "Understand separate accounts.",
+            "Identify investment risk.",
+            "Recognize variable product characteristics."
+          ],
+          fr: [
+            "Comprendre les comptes séparés.",
+            "Identifier le risque.",
+            "Reconnaître les produits variables."
+          ],
+          ht: [
+            "Konprann separate accounts.",
+            "Idantifye risk envestisman.",
+            "Rekonèt pwodwi varyab."
+          ]
+        },
+        question: {
+          en: "Who generally bears the investment risk in a variable product?",
+          fr: "Qui supporte généralement le risque d’investissement ?",
+          ht: "Kiyès ki pote risk envestisman nan pwodwi varyab?"
+        },
+        answers: {
+          en: [
+            "The contract owner",
+            "The state examiner",
+            "The beneficiary only"
+          ],
+          fr: [
+            "Le propriétaire du contrat",
+            "L’examinateur",
+            "Le bénéficiaire uniquement"
+          ],
+          ht: [
+            "Mèt kontra a",
+            "Egzaminatè leta",
+            "Benefisyè a sèlman"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Health Insurance Policies",
+          fr: "Polices d’assurance santé",
+          ht: "Polis Asirans Sante"
+        },
+        description: {
+          en: "Review medical expense, disability income, dental, vision and long-term care policies.",
+          fr: "Examinez les frais médicaux, l’invalidité, le dentaire, la vision et les soins de longue durée.",
+          ht: "Revize depans medikal, andikap, dan, vizyon ak swen alontèm."
+        },
+        objectives: {
+          en: [
+            "Compare major health policy types.",
+            "Understand disability income.",
+            "Recognize long-term care coverage."
+          ],
+          fr: [
+            "Comparer les types de polices.",
+            "Comprendre le revenu d’invalidité.",
+            "Reconnaître les soins de longue durée."
+          ],
+          ht: [
+            "Konpare kalite polis sante.",
+            "Konprann revni andikap.",
+            "Rekonèt swen alontèm."
+          ]
+        },
+        question: {
+          en: "Which coverage may replace part of lost income after disability?",
+          fr: "Quelle couverture peut remplacer le revenu après une invalidité ?",
+          ht: "Ki kouvèti ki ka ranplase revni apre andikap?"
+        },
+        answers: {
+          en: [
+            "Disability income insurance",
+            "Property insurance",
+            "Automobile liability"
+          ],
+          fr: [
+            "Assurance revenu d’invalidité",
+            "Assurance de biens",
+            "Responsabilité automobile"
+          ],
+          ht: [
+            "Asirans revni andikap",
+            "Asirans pwopriyete",
+            "Responsablite machin"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Managed Care and Group Health",
+          fr: "Soins gérés et assurance collective",
+          ht: "Managed Care ak Group Health"
+        },
+        description: {
+          en: "Compare HMO, PPO, POS, group health coverage and continuation rights.",
+          fr: "Comparez HMO, PPO, POS, l’assurance collective et les droits de continuation.",
+          ht: "Konpare HMO, PPO, POS, group health ak continuation rights."
+        },
+        objectives: {
+          en: [
+            "Compare managed care plans.",
+            "Understand provider networks.",
+            "Recognize group coverage concepts."
+          ],
+          fr: [
+            "Comparer les régimes.",
+            "Comprendre les réseaux.",
+            "Reconnaître l’assurance collective."
+          ],
+          ht: [
+            "Konpare plan swen yo.",
+            "Konprann rezo founisè.",
+            "Rekonèt group coverage."
+          ]
+        },
+        question: {
+          en: "Which plan generally offers more out-of-network flexibility?",
+          fr: "Quel régime offre plus de flexibilité hors réseau ?",
+          ht: "Ki plan ki bay plis fleksibilite deyò rezo?"
+        },
+        answers: {
+          en: ["PPO", "HMO", "Medicaid only"],
+          fr: ["PPO", "HMO", "Medicaid seulement"],
+          ht: ["PPO", "HMO", "Medicaid sèlman"]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Social Insurance",
+          fr: "Assurance sociale",
+          ht: "Asirans Sosyal"
+        },
+        description: {
+          en: "Review Medicare, Medicaid, Social Security and disability-related public programs.",
+          fr: "Examinez Medicare, Medicaid, Social Security et les programmes d’invalidité.",
+          ht: "Revize Medicare, Medicaid, Social Security ak pwogram andikap."
+        },
+        objectives: {
+          en: [
+            "Identify Medicare parts.",
+            "Understand Medicaid generally.",
+            "Recognize Social Security benefits."
+          ],
+          fr: [
+            "Identifier les parties de Medicare.",
+            "Comprendre Medicaid.",
+            "Reconnaître les prestations sociales."
+          ],
+          ht: [
+            "Idantifye pati Medicare yo.",
+            "Konprann Medicaid.",
+            "Rekonèt avantaj Social Security."
+          ]
+        },
+        question: {
+          en: "Which program generally serves eligible low-income individuals?",
+          fr: "Quel programme dessert généralement les personnes à faible revenu ?",
+          ht: "Ki pwogram ki sèvi moun ki gen revni ba epi ki kalifye?"
+        },
+        answers: {
+          en: ["Medicaid", "PPO", "Whole life"],
+          fr: ["Medicaid", "PPO", "Assurance vie entière"],
+          ht: ["Medicaid", "PPO", "Whole life"]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Florida Laws and Ethical Practices",
+          fr: "Lois de Florida et éthique",
+          ht: "Lwa Florida ak Etik"
+        },
+        description: {
+          en: "Review licensing responsibilities, marketing practices, consumer protection and ethics.",
+          fr: "Examinez les responsabilités, pratiques commerciales, protection du consommateur et éthique.",
+          ht: "Revize responsabilite lisans, marketing, pwoteksyon kliyan ak etik."
+        },
+        objectives: {
+          en: [
+            "Recognize prohibited practices.",
+            "Understand agent responsibilities.",
+            "Apply ethical standards."
+          ],
+          fr: [
+            "Reconnaître les pratiques interdites.",
+            "Comprendre les responsabilités.",
+            "Appliquer les normes éthiques."
+          ],
+          ht: [
+            "Rekonèt pratik entèdi.",
+            "Konprann responsabilite ajan.",
+            "Aplike prensip etik."
+          ]
+        },
+        question: {
+          en: "Which action best demonstrates ethical practice?",
+          fr: "Quelle action démontre une pratique éthique ?",
+          ht: "Ki aksyon ki montre yon pratik etik?"
+        },
+        answers: {
+          en: [
+            "Providing accurate and complete information",
+            "Hiding policy exclusions",
+            "Making misleading promises"
+          ],
+          fr: [
+            "Fournir des informations exactes",
+            "Cacher les exclusions",
+            "Faire des promesses trompeuses"
+          ],
+          ht: [
+            "Bay enfòmasyon egzak ak konplè",
+            "Kache esklizyon",
+            "Bay pwomès ki twonpe moun"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Final Review and Exam Preparation",
+          fr: "Révision finale et préparation",
+          ht: "Revizyon Final ak Preparasyon"
+        },
+        description: {
+          en: "Review the major life, health and annuity concepts before the course examination.",
+          fr: "Révisez les principaux concepts avant l’examen du cours.",
+          ht: "Revize prensipal konsèp lavi, sante ak annuity anvan egzamen an."
+        },
+        objectives: {
+          en: [
+            "Review all policy types.",
+            "Review Florida law and ethics.",
+            "Practice exam-style questions."
+          ],
+          fr: [
+            "Réviser les polices.",
+            "Réviser les lois et l’éthique.",
+            "Pratiquer les questions."
+          ],
+          ht: [
+            "Revize tout kalite polis.",
+            "Revize lwa ak etik Florida.",
+            "Pratike kestyon egzamen."
+          ]
+        },
+        question: {
+          en: "What is the best preparation before the final examination?",
+          fr: "Quelle est la meilleure préparation avant l’examen ?",
+          ht: "Ki pi bon preparasyon anvan egzamen final la?"
+        },
+        answers: {
+          en: [
+            "Review every module and practice question",
+            "Skip policy provisions",
+            "Ignore Florida regulations"
+          ],
+          fr: [
+            "Réviser chaque module et question",
+            "Ignorer les dispositions",
+            "Ignorer les règles de Florida"
+          ],
+          ht: [
+            "Revize chak modil ak kestyon",
+            "Sote kondisyon polis",
+            "Inyore règ Florida"
+          ]
+        },
+        correct: 0
+      }
+    ];
+
+    let language =
+      localStorage.getItem(STORAGE.language) || "en";
+
+    let activeModule = 0;
+    let completedModules = [];
+
+    try {
+      completedModules = JSON.parse(
+        localStorage.getItem(STORAGE.progress)
+      ) || [];
+    } catch (error) {
+      completedModules = [];
+    }
+
+    function verifySession() {
+      if (!localStorage.getItem(STORAGE.session)) {
+        window.location.href = "./student-portal.html";
+      }
+    }
+
+    function saveProgress() {
+      localStorage.setItem(
+        STORAGE.progress,
+        JSON.stringify(completedModules)
+      );
+    }
+
+    function renderTranslations() {
+      if (!translations[language]) {
+        language = "en";
+      }
+
+      document.documentElement.lang =
+        language === "ht" ? "ht" : language;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key = element.dataset.i18n;
+
+          if (translations[language][key]) {
+            element.textContent =
+              translations[language][key];
+          }
+        });
+
+      document
+        .querySelectorAll(".language-button")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.dataset.language === language
+          );
+        });
+    }
+
+    function renderModuleList() {
+      document.getElementById("moduleList").innerHTML =
+        modules
+          .map(function (module, index) {
+            const completed =
+              completedModules.includes(index);
+
+            return `
+              <button
+                class="module-button ${
+                  index === activeModule ? "active" : ""
+                } ${
+                  completed ? "completed" : ""
+                }"
+                type="button"
+                data-module="${index}"
+              >
+                <span class="module-number">
+                  ${completed ? "✓" : index + 1}
+                </span>
+
+                <span class="module-name">
+                  ${module.title[language]}
+                </span>
+
+                <span class="module-status">
+                  ${completed ? "✓" : "›"}
+                </span>
+              </button>
+            `;
+          })
+          .join("");
+
+      document
+        .querySelectorAll(".module-button")
+        .forEach(function (button) {
+          button.addEventListener("click", function () {
+            activeModule =
+              Number(button.dataset.module);
+
+            renderCourse();
+          });
+        });
+    }
+
+    function renderLesson() {
+      const module = modules[activeModule];
+
+      document.getElementById("lessonNumber").textContent =
+        `MODULE ${String(activeModule + 1).padStart(2, "0")}`;
+
+      document.getElementById("lessonTitle").textContent =
+        module.title[language];
+
+      document.getElementById("lessonDescription").textContent =
+        module.description[language];
+
+      document.getElementById("learningContent").innerHTML = `
+        <div class="learning-box">
+          <h3>
+            ${translations[language].objectives}
+          </h3>
+
+          <ul>
+            ${module.objectives[language]
+              .map(function (objective) {
+                return `<li>${objective}</li>`;
+              })
+              .join("")}
+          </ul>
+        </div>
+      `;
+
+      document.getElementById("quizQuestion").textContent =
+        module.question[language];
+
+      document.getElementById("quizOptions").innerHTML =
+        module.answers[language]
+          .map(function (answer, index) {
+            return `
+              <button
+                class="quiz-option"
+                type="button"
+                data-answer="${index}"
+              >
+                ${answer}
+              </button>
+            `;
+          })
+          .join("");
+
+      document.getElementById("quizMessage").textContent = "";
+
+      document
+        .querySelectorAll(".quiz-option")
+        .forEach(function (button) {
+          button.addEventListener("click", function () {
+            checkAnswer(
+              Number(button.dataset.answer),
+              button
+            );
+          });
+        });
+
+      document.getElementById("previousButton").disabled =
+        activeModule === 0;
+
+      document.getElementById("nextButton").disabled =
+        activeModule === modules.length - 1;
+    }
+
+    function checkAnswer(answerIndex, button) {
+      const module = modules[activeModule];
+
+      document
+        .querySelectorAll(".quiz-option")
+        .forEach(function (option) {
+          option.classList.remove(
+            "correct",
+            "incorrect"
+          );
+        });
+
+      if (answerIndex === module.correct) {
+        button.classList.add("correct");
+
+        document.getElementById("quizMessage").textContent =
+          translations[language].correct;
+
+        if (!completedModules.includes(activeModule)) {
+          completedModules.push(activeModule);
+
+          completedModules.sort(function (a, b) {
+            return a - b;
+          });
+
+          saveProgress();
+        }
+
+        updateProgress();
+        renderModuleList();
+      } else {
+        button.classList.add("incorrect");
+
+        document.getElementById("quizMessage").textContent =
+          translations[language].incorrect;
+      }
+    }
+
+    function updateProgress() {
+      const percentage = Math.round(
+        (completedModules.length / modules.length) * 100
+      );
+
+      document.getElementById("progressFill").style.width =
+        `${percentage}%`;
+
+      document.getElementById("progressText").textContent =
+        `${percentage}% · ${completedModules.length}/${modules.length}`;
+
+      document
+        .getElementById("completionCard")
+        .classList.toggle(
+          "hidden",
+          completedModules.length !== modules.length
+        );
+    }
+
+    function renderCourse() {
+      renderTranslations();
+      renderModuleList();
+      renderLesson();
+      updateProgress();
+    }
+
+    document
+      .querySelectorAll(".language-button")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          language = button.dataset.language;
+
+          localStorage.setItem(
+            STORAGE.language,
+            language
+          );
+
+          renderCourse();
+        });
+      });
+
+    document
+      .getElementById("previousButton")
+      .addEventListener("click", function () {
+        if (activeModule > 0) {
+          activeModule -= 1;
+          renderCourse();
+        }
+      });
+
+    document
+      .getElementById("nextButton")
+      .addEventListener("click", function () {
+        if (activeModule < modules.length - 1) {
+          activeModule += 1;
+          renderCourse();
+        }
+      });
+
+    verifySession();
+    renderCourse();
+  </script>
+</body>
+</html>
