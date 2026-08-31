@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#050301">
+  <meta name="google" content="notranslate">
+
+  <meta
+    name="description"
+    content="PRO-MAX Académie Health Insurance Course"
+  >
+
+  <title>Health Insurance | PRO-MAX Académie</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #050301;
+      --black-soft: #0d0602;
+      --orange: #ff6a00;
+      --orange-dark: #d94d00;
+      --apricot: #ffad78;
+      --apricot-dark: #d98658;
+      --border: rgba(255, 106, 0, 0.4);
+      --glow: rgba(255, 106, 0, 0.27);
+      --shadow: 0 22px 55px rgba(0, 0, 0, 0.67);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--apricot);
+      background:
+        radial-gradient(circle at 50% 0%, #421500, transparent 38%),
+        linear-gradient(145deg, #050301, #130601 55%, #030201);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 105px;
+      padding: 16px clamp(18px, 5vw, 70px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(4, 2, 1, 0.97);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border: 1px solid var(--orange);
+      box-shadow: 0 0 24px var(--glow);
+    }
+
+    .brand-title {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-subtitle {
+      margin-top: 7px;
+      color: var(--apricot-dark);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .language-switcher {
+      display: flex;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--black-soft);
+    }
+
+    .language-button {
+      min-width: 42px;
+      padding: 9px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--apricot-dark);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .language-button.active {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    .header-button {
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: var(--black-soft);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .header-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    main {
+      width: min(1220px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 58px 0 95px;
+    }
+
+    .course-hero {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      align-items: center;
+      gap: 38px;
+      margin-bottom: 35px;
+      padding: clamp(28px, 5vw, 55px);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 80% 40%, #ff5a0038, transparent 38%),
+        linear-gradient(145deg, #211007, #080301);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin-bottom: 15px;
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    .course-hero h1 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(38px, 6vw, 67px);
+      line-height: 1.05;
+    }
+
+    .course-hero p {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--apricot-dark);
+      line-height: 1.75;
+    }
+
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 23px;
+    }
+
+    .course-tag {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      color: var(--apricot-dark);
+      background: var(--black);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .course-price {
+      padding: 32px;
+      border: 2px solid var(--orange);
+      background: var(--black);
+      text-align: center;
+      box-shadow: 0 0 35px var(--glow);
+    }
+
+    .course-price span {
+      color: var(--apricot-dark);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .course-price strong {
+      display: block;
+      margin-top: 12px;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: 49px;
+    }
+
+    .course-price small {
+      color: var(--apricot-dark);
+      font-size: 11px;
+    }
+
+    .progress-card {
+      margin-bottom: 28px;
+      padding: 27px;
+      border: 1px solid var(--border);
+      background: var(--black-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .progress-header strong {
+      color: var(--apricot);
+    }
+
+    .progress-header span {
+      color: var(--orange);
+      font-weight: 800;
+    }
+
+    .progress-track {
+      height: 11px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--black);
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--orange-dark), var(--apricot));
+      box-shadow: 0 0 18px var(--orange);
+      transition: width 0.4s ease;
+    }
+
+    .course-layout {
+      display: grid;
+      grid-template-columns: 390px 1fr;
+      gap: 25px;
+    }
+
+    .module-navigation,
+    .lesson-panel {
+      border: 1px solid var(--border);
+      background: var(--black-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .module-navigation {
+      height: fit-content;
+      padding: 25px;
+    }
+
+    .panel-label {
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .module-navigation h2,
+    .lesson-panel h2 {
+      margin: 9px 0 23px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 29px;
+    }
+
+    .module-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .module-button {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 13px;
+      border: 1px solid rgba(255, 106, 0, 0.24);
+      color: var(--apricot);
+      background: var(--black);
+      text-align: left;
+    }
+
+    .module-button.active {
+      border-color: var(--orange);
+      background: #261006;
+    }
+
+    .module-button.completed {
+      border-color: var(--orange);
+    }
+
+    .module-number {
+      display: grid;
+      place-items: center;
+      width: 39px;
+      height: 39px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .module-button.completed .module-number {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .module-name {
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .module-status {
+      color: var(--orange);
+      font-size: 12px;
+    }
+
+    .lesson-panel {
+      min-height: 650px;
+      padding: clamp(27px, 5vw, 50px);
+    }
+
+    .lesson-description {
+      margin-bottom: 27px;
+      color: var(--apricot-dark);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .learning-box {
+      margin-bottom: 18px;
+      padding: 23px;
+      border-left: 3px solid var(--orange);
+      background: #080301;
+    }
+
+    .learning-box h3 {
+      margin-bottom: 12px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+    }
+
+    .learning-box p,
+    .learning-box li {
+      color: var(--apricot-dark);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .learning-box ul {
+      padding-left: 20px;
+    }
+
+    .lesson-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 27px;
+    }
+
+    .action-button {
+      min-height: 53px;
+      padding: 13px;
+      border: 1px solid var(--orange);
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .action-button.secondary {
+      color: var(--apricot);
+      background: transparent;
+    }
+
+    .action-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+
+    .quiz-box {
+      margin-top: 25px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      background: #080301;
+    }
+
+    .quiz-box h3 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 22px;
+    }
+
+    .quiz-question {
+      margin: 14px 0 18px;
+      color: var(--apricot-dark);
+      line-height: 1.7;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quiz-option {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid rgba(255, 106, 0, 0.28);
+      color: var(--apricot);
+      background: var(--black);
+      text-align: left;
+    }
+
+    .quiz-option:hover {
+      border-color: var(--orange);
+    }
+
+    .quiz-option.correct {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .quiz-option.incorrect {
+      border-color: var(--orange-dark);
+      color: var(--orange);
+    }
+
+    .quiz-message {
+      min-height: 24px;
+      margin-top: 16px;
+      color: var(--orange);
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .completion-card {
+      margin-top: 27px;
+      padding: 30px;
+      border: 2px solid var(--orange);
+      background:
+        linear-gradient(145deg, #301207, #080301);
+      text-align: center;
+      box-shadow: 0 0 35px var(--glow);
+    }
+
+    .completion-card h2 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 31px;
+    }
+
+    .completion-card p {
+      margin-top: 12px;
+      color: var(--apricot-dark);
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 34px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--apricot-dark);
+      background: #030201;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 1000px) {
+      .course-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .course-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .course-price {
+        max-width: 330px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .site-header {
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .brand-logo {
+        width: 62px;
+        height: 62px;
+      }
+
+      .brand-title {
+        font-size: 16px;
+      }
+
+      .brand-subtitle {
+        font-size: 8px;
+        letter-spacing: 3px;
+      }
+
+      .lesson-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .module-navigation,
+      .lesson-panel {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <img
+        class="brand-logo"
+        src="./insurance-school-logo.png"
+        alt="PRO-MAX Académie Insurance School"
+        onerror="this.style.display='none'"
+      >
+
+      <div>
+        <div class="brand-title">
+          PRO-MAX ACADÉMIE
+        </div>
+
+        <div class="brand-subtitle" data-i18n="school">
+          INSURANCE SCHOOL
+        </div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <div class="language-switcher">
+        <button
+          class="language-button active"
+          type="button"
+          data-language="en"
+        >
+          ENG
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="fr"
+        >
+          FRA
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="ht"
+        >
+          KRE
+        </button>
+      </div>
+
+      <a
+        class="header-button"
+        href="./my-courses.html"
+        data-i18n="back"
+      >
+        My Courses
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="course-hero">
+      <div>
+        <div class="eyebrow">
+          FLORIDA 2-40 · HEALTH
+        </div>
+
+        <h1 data-i18n="courseTitle">
+          Health Insurance
+        </h1>
+
+        <p data-i18n="courseDescription">
+          Learn health insurance fundamentals, policy
+          provisions, social insurance, field underwriting
+          and Florida insurance regulations.
+        </p>
+
+        <div class="course-tags">
+          <span class="course-tag">40 HOURS</span>
+          <span class="course-tag">8 MODULES</span>
+          <span class="course-tag">100% ONLINE</span>
+          <span class="course-tag">ENG · FRA · KRE</span>
+        </div>
+      </div>
+
+      <div class="course-price">
+        <span data-i18n="tuition">
+          COURSE TUITION
+        </span>
+
+        <strong>$119</strong>
+        <small>USD</small>
+      </div>
+    </section>
+
+    <section class="progress-card">
+      <div class="progress-header">
+        <strong data-i18n="progress">
+          Course Progress
+        </strong>
+
+        <span id="progressText">
+          0% · 0/8
+        </span>
+      </div>
+
+      <div class="progress-track">
+        <div
+          class="progress-fill"
+          id="progressFill"
+        ></div>
+      </div>
+    </section>
+
+    <section class="course-layout">
+      <aside class="module-navigation">
+        <div class="panel-label">
+          COURSE CONTENT
+        </div>
+
+        <h2 data-i18n="modules">
+          Course Modules
+        </h2>
+
+        <div class="module-list" id="moduleList"></div>
+      </aside>
+
+      <article class="lesson-panel">
+        <div class="panel-label" id="lessonNumber">
+          MODULE 01
+        </div>
+
+        <h2 id="lessonTitle">
+          Health Insurance Fundamentals
+        </h2>
+
+        <p
+          class="lesson-description"
+          id="lessonDescription"
+        ></p>
+
+        <div id="learningContent"></div>
+
+        <div class="quiz-box">
+          <h3 data-i18n="knowledgeCheck">
+            Knowledge Check
+          </h3>
+
+          <p
+            class="quiz-question"
+            id="quizQuestion"
+          ></p>
+
+          <div
+            class="quiz-options"
+            id="quizOptions"
+          ></div>
+
+          <div
+            class="quiz-message"
+            id="quizMessage"
+            aria-live="polite"
+          ></div>
+        </div>
+
+        <div class="lesson-actions">
+          <button
+            class="action-button secondary"
+            id="previousButton"
+            type="button"
+            data-i18n="previous"
+          >
+            Previous Module
+          </button>
+
+          <button
+            class="action-button"
+            id="nextButton"
+            type="button"
+            data-i18n="next"
+          >
+            Next Module
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section
+      class="completion-card hidden"
+      id="completionCard"
+    >
+      <h2 data-i18n="completedTitle">
+        Course Modules Completed
+      </h2>
+
+      <p data-i18n="completedText">
+        You completed all eight learning modules.
+        Your course examination is now available.
+      </p>
+
+      <a
+        class="action-button"
+        href="./student-portal.html#finalExam"
+        data-i18n="exam"
+      >
+        Go to Final Exam
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div>PRO-MAX ACADÉMIE · INSURANCE SCHOOL</div>
+    <div>© 2026 BSS1815 PRO-MAX DMP</div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const STORAGE = {
+      students: "promaxInsuranceStudents",
+      session: "promaxInsuranceSession",
+      language: "promaxInsuranceLanguage",
+      progress: "promaxHealth240Progress"
+    };
+
+    const translations = {
+      en: {
+        school: "INSURANCE SCHOOL",
+        back: "My Courses",
+        courseTitle: "Health Insurance",
+        courseDescription:
+          "Learn health insurance fundamentals, policy provisions, social insurance, field underwriting and Florida insurance regulations.",
+        tuition: "COURSE TUITION",
+        progress: "Course Progress",
+        modules: "Course Modules",
+        knowledgeCheck: "Knowledge Check",
+        previous: "Previous Module",
+        next: "Next Module",
+        correct:
+          "Correct. This module is now completed.",
+        incorrect:
+          "Not correct. Review the lesson and try again.",
+        completedTitle: "Course Modules Completed",
+        completedText:
+          "You completed all eight learning modules. Your course examination is now available.",
+        exam: "Go to Final Exam"
+      },
+
+      fr: {
+        school: "ÉCOLE D’ASSURANCE",
+        back: "Mes cours",
+        courseTitle: "Assurance santé",
+        courseDescription:
+          "Apprenez les principes de l’assurance santé, les dispositions des polices, l’assurance sociale, la souscription et les règles de Florida.",
+        tuition: "FRAIS DU COURS",
+        progress: "Progression du cours",
+        modules: "Modules du cours",
+        knowledgeCheck: "Vérification des connaissances",
+        previous: "Module précédent",
+        next: "Module suivant",
+        correct:
+          "Bonne réponse. Ce module est maintenant terminé.",
+        incorrect:
+          "Réponse incorrecte. Révisez la leçon et réessayez.",
+        completedTitle: "Modules terminés",
+        completedText:
+          "Vous avez terminé les huit modules. L’examen du cours est maintenant disponible.",
+        exam: "Aller à l’examen final"
+      },
+
+      ht: {
+        school: "LEKÒL ASIRANS",
+        back: "Kou Mwen",
+        courseTitle: "Asirans Sante",
+        courseDescription:
+          "Aprann baz asirans sante, kondisyon polis, asirans sosyal, underwriting ak règ asirans Florida.",
+        tuition: "PRI KOU A",
+        progress: "Pwogrè Kou",
+        modules: "Modil Kou",
+        knowledgeCheck: "Verifye Konesans",
+        previous: "Modil Anvan",
+        next: "Pwochen Modil",
+        correct:
+          "Bon repons. Modil sa a fini kounye a.",
+        incorrect:
+          "Repons lan pa kòrèk. Revize leson an epi eseye ankò.",
+        completedTitle: "Tout Modil yo Fini",
+        completedText:
+          "Ou fini tout uit modil yo. Egzamen kou a disponib kounye a.",
+        exam: "Ale nan Egzamen Final"
+      }
+    };
+
+    const modules = [
+      {
+        title: {
+          en: "Health Insurance Fundamentals",
+          fr: "Principes de l’assurance santé",
+          ht: "Baz Asirans Sante"
+        },
+
+        description: {
+          en: "Understand the purpose of health insurance and the relationship between risk, premiums, coverage and claims.",
+          fr: "Comprendre le rôle de l’assurance santé et la relation entre risque, primes, couverture et réclamations.",
+          ht: "Konprann objektif asirans sante ak relasyon ant risk, prim, kouvèti ak reklamasyon."
+        },
+
+        objectives: {
+          en: [
+            "Define insurance risk and risk pooling.",
+            "Understand premiums and covered losses.",
+            "Identify the roles of insurer, insured and policyowner."
+          ],
+          fr: [
+            "Définir le risque et la mutualisation.",
+            "Comprendre les primes et les pertes couvertes.",
+            "Identifier l’assureur, l’assuré et le propriétaire."
+          ],
+          ht: [
+            "Defini risk ak pataj risk.",
+            "Konprann prim ak pèt ki kouvri.",
+            "Idantifye konpayi an, moun asire a ak mèt polis la."
+          ]
+        },
+
+        question: {
+          en: "What is a premium?",
+          fr: "Qu’est-ce qu’une prime ?",
+          ht: "Kisa yon prim asirans ye?"
+        },
+
+        answers: {
+          en: [
+            "The amount paid to maintain coverage",
+            "A claim denial",
+            "A government license"
+          ],
+          fr: [
+            "Le montant payé pour maintenir la couverture",
+            "Un refus de réclamation",
+            "Une licence gouvernementale"
+          ],
+          ht: [
+            "Lajan yo peye pou kenbe kouvèti a",
+            "Yon reklamasyon yo refize",
+            "Yon lisans gouvènman"
+          ]
+        },
+
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Types of Health Policies",
+          fr: "Types de polices de santé",
+          ht: "Kalite Polis Sante"
+        },
+
+        description: {
+          en: "Study medical expense, disability income, dental, vision and long-term care coverage.",
+          fr: "Étudiez les frais médicaux, l’invalidité, les soins dentaires, la vision et les soins de longue durée.",
+          ht: "Etidye depans medikal, andikap, dan, vizyon ak swen alontèm."
+        },
+
+        objectives: {
+          en: [
+            "Compare major medical and limited policies.",
+            "Understand disability income protection.",
+            "Recognize long-term care coverage."
+          ],
+          fr: [
+            "Comparer les polices médicales.",
+            "Comprendre la protection du revenu d’invalidité.",
+            "Reconnaître la couverture de longue durée."
+          ],
+          ht: [
+            "Konpare diferan polis medikal.",
+            "Konprann pwoteksyon revni andikap.",
+            "Rekonèt kouvèti swen alontèm."
+          ]
+        },
+
+        question: {
+          en: "Which coverage may replace part of lost income after a qualifying disability?",
+          fr: "Quelle couverture peut remplacer une partie du revenu après une invalidité admissible ?",
+          ht: "Ki kouvèti ki ka ranplase yon pati nan revni apre yon andikap kalifye?"
+        },
+
+        answers: {
+          en: [
+            "Disability income insurance",
+            "Property insurance",
+            "Automobile liability"
+          ],
+          fr: [
+            "Assurance revenu d’invalidité",
+            "Assurance de biens",
+            "Responsabilité automobile"
+          ],
+          ht: [
+            "Asirans revni andikap",
+            "Asirans pwopriyete",
+            "Responsablite machin"
+          ]
+        },
+
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Policy Provisions and Clauses",
+          fr: "Dispositions et clauses",
+          ht: "Kondisyon ak Kloz Polis"
+        },
+
+        description: {
+          en: "Review renewability, grace periods, reinstatement, claims and common policy provisions.",
+          fr: "Examinez le renouvellement, les délais de grâce, la remise en vigueur et les réclamations.",
+          ht: "Revize renouvèlman, grace period, retablisman ak reklamasyon."
+        },
+
+        objectives: {
+          en: [
+            "Understand mandatory policy provisions.",
+            "Explain grace periods and reinstatement.",
+            "Recognize claim-related provisions."
+          ],
+          fr: [
+            "Comprendre les dispositions obligatoires.",
+            "Expliquer les délais de grâce.",
+            "Reconnaître les dispositions des réclamations."
+          ],
+          ht: [
+            "Konprann kondisyon obligatwa yo.",
+            "Eksplike grace period ak retablisman.",
+            "Rekonèt kondisyon reklamasyon yo."
+          ]
+        },
+
+        question: {
+          en: "What does a grace period generally provide?",
+          fr: "Que permet généralement un délai de grâce ?",
+          ht: "Kisa yon grace period pèmèt an jeneral?"
+        },
+
+        answers: {
+          en: [
+            "Additional time to pay a premium",
+            "Automatic cancellation",
+            "A new insurance license"
+          ],
+          fr: [
+            "Un délai supplémentaire pour payer la prime",
+            "Une annulation automatique",
+            "Une nouvelle licence"
+          ],
+          ht: [
+            "Plis tan pou peye prim lan",
+            "Anilasyon otomatik",
+            "Yon nouvo lisans"
+          ]
+        },
+
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Managed Care Plans",
+          fr: "Régimes de soins gérés",
+          ht: "Plan Swen Jere"
+        },
+
+        description: {
+          en: "Compare HMO, PPO, POS and other managed care arrangements.",
+          fr: "Comparez les HMO, PPO, POS et autres régimes de soins gérés.",
+          ht: "Konpare HMO, PPO, POS ak lòt plan swen jere."
+        },
+
+        objectives: {
+          en: [
+            "Compare HMO and PPO structures.",
+            "Understand provider networks.",
+            "Identify referrals and out-of-network costs."
+          ],
+          fr: [
+            "Comparer les structures HMO et PPO.",
+            "Comprendre les réseaux de fournisseurs.",
+            "Identifier les références et frais hors réseau."
+          ],
+          ht: [
+            "Konpare estrikti HMO ak PPO.",
+            "Konprann rezo founisè yo.",
+            "Idantifye referral ak depans deyò rezo."
+          ]
+        },
+
+        question: {
+          en: "Which plan generally offers more out-of-network flexibility?",
+          fr: "Quel régime offre généralement plus de flexibilité hors réseau ?",
+          ht: "Ki plan ki bay plis fleksibilite deyò rezo an jeneral?"
+        },
+
+        answers: {
+          en: ["PPO", "HMO", "Medicaid only"],
+          fr: ["PPO", "HMO", "Medicaid seulement"],
+          ht: ["PPO", "HMO", "Medicaid sèlman"]
+        },
+
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Social Insurance Programs",
+          fr: "Programmes d’assurance sociale",
+          ht: "Pwogram Asirans Sosyal"
+        },
+
+        description: {
+          en: "Review Medicare, Medicaid and disability-related public programs.",
+          fr: "Examinez Medicare, Medicaid et les programmes publics liés à l’invalidité.",
+          ht: "Revize Medicare, Medicaid ak pwogram piblik pou andikap."
+        },
+
+        objectives: {
+          en: [
+            "Identify basic Medicare parts.",
+            "Understand Medicaid generally.",
+            "Recognize coordination with private coverage."
+          ],
+          fr: [
+            "Identifier les parties de Medicare.",
+            "Comprendre Medicaid.",
+            "Reconnaître la coordination avec le privé."
+          ],
+          ht: [
+            "Idantifye pati Medicare yo.",
+            "Konprann Medicaid an jeneral.",
+            "Rekonèt kijan yo mache ak asirans prive."
+          ]
+        },
+
+        question: {
+          en: "Which program is generally associated with eligible low-income individuals?",
+          fr: "Quel programme est généralement associé aux personnes admissibles à faible revenu ?",
+          ht: "Ki pwogram ki asosye ak moun ki gen revni ba epi ki kalifye?"
+        },
+
+        answers: {
+          en: ["Medicaid", "Workers compensation only", "PPO"],
+          fr: ["Medicaid", "Indemnisation des travailleurs", "PPO"],
+          ht: ["Medicaid", "Workers compensation sèlman", "PPO"]
+        },
+
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Field Underwriting and Applications",
+          fr: "Souscription et demandes",
+          ht: "Underwriting ak Aplikasyon"
+        },
+
+        description: {
+          en: "Learn application responsibilities, disclosures, receipts and ethical handling of client information.",
+          fr: "Apprenez les responsabilités liées aux demandes, divulgations et informations du client.",
+          ht: "Aprann responsabilite nan aplikasyon, deklarasyon ak enfòmasyon kliyan."
+        },
+
+        objectives: {
+          en: [
+            "Complete applications accurately.",
+            "Understand material information.",
+            "Protect confidential client information."
+          ],
+          fr: [
+            "Remplir correctement les demandes.",
+            "Comprendre les informations importantes.",
+            "Protéger les renseignements confidentiels."
+          ],
+          ht: [
+            "Ranpli aplikasyon yo kòrèkteman.",
+            "Konprann enfòmasyon enpòtan.",
+            "Pwoteje enfòmasyon prive kliyan."
+          ]
+        },
+
+        question: {
+          en: "Why must an insurance application be accurate?",
+          fr: "Pourquoi une demande d’assurance doit-elle être exacte ?",
+          ht: "Poukisa aplikasyon asirans lan dwe egzak?"
+        },
+
+        answers: {
+          en: [
+            "It provides material information for underwriting",
+            "It replaces the policy",
+            "It guarantees every claim"
+          ],
+          fr: [
+            "Elle fournit des informations importantes pour la souscription",
+            "Elle remplace la police",
+            "Elle garantit toutes les réclamations"
+          ],
+          ht: [
+            "Li bay enfòmasyon enpòtan pou underwriting",
+            "Li ranplase polis la",
+            "Li garanti tout reklamasyon"
+          ]
+        },
+
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Florida Laws and Ethics",
+          fr: "Lois et éthique de Florida",
+          ht: "Lwa ak Etik Florida"
+        },
+
+        description: {
+          en: "Review licensing responsibilities, prohibited practices, consumer protection and ethical conduct.",
+          fr: "Examinez les responsabilités, pratiques interdites, protection du consommateur et conduite éthique.",
+          ht: "Revize responsabilite lisans, pratik entèdi, pwoteksyon kliyan ak etik."
+        },
+
+        objectives: {
+          en: [
+            "Recognize unfair trade practices.",
+            "Understand agent responsibilities.",
+            "Apply ethical standards."
+          ],
+          fr: [
+            "Reconnaître les pratiques commerciales interdites.",
+            "Comprendre les responsabilités de l’agent.",
+            "Appliquer les normes éthiques."
+          ],
+          ht: [
+            "Rekonèt pratik komèsyal entèdi.",
+            "Konprann responsabilite ajan.",
+            "Aplike prensip etik."
+          ]
+        },
+
+        question: {
+          en: "Which action best supports ethical insurance practice?",
+          fr: "Quelle action soutient une pratique éthique ?",
+          ht: "Ki aksyon ki pi byen montre yon pratik etik?"
+        },
+
+        answers: {
+          en: [
+            "Providing accurate and complete information",
+            "Hiding policy exclusions",
+            "Making misleading statements"
+          ],
+          fr: [
+            "Fournir des informations exactes et complètes",
+            "Cacher les exclusions",
+            "Faire des déclarations trompeuses"
+          ],
+          ht: [
+            "Bay enfòmasyon egzak ak konplè",
+            "Kache esklizyon polis yo",
+            "Bay enfòmasyon ki twonpe moun"
+          ]
+        },
+
+        correct: 0
+      },
+
+      {
+        title: {
+          en: "Final Review and Exam Preparation",
+          fr: "Révision finale et préparation",
+          ht: "Revizyon Final ak Preparasyon"
+        },
+
+        description: {
+          en: "Review the major health insurance concepts and prepare for the course examination.",
+          fr: "Révisez les principaux concepts et préparez l’examen du cours.",
+          ht: "Revize prensipal konsèp yo epi prepare egzamen kou a."
+        },
+
+        objectives: {
+          en: [
+            "Review policy types and provisions.",
+            "Review social insurance concepts.",
+            "Practice ethical exam-style questions."
+          ],
+          fr: [
+            "Réviser les polices et dispositions.",
+            "Réviser l’assurance sociale.",
+            "Pratiquer des questions d’examen."
+          ],
+          ht: [
+            "Revize kalite polis ak kondisyon yo.",
+            "Revize asirans sosyal.",
+            "Pratike kestyon egzamen."
+          ]
+        },
+
+        question: {
+          en: "What should a student do before the final examination?",
+          fr: "Que doit faire l’étudiant avant l’examen final ?",
+          ht: "Kisa yon elèv dwe fè anvan egzamen final la?"
+        },
+
+        answers: {
+          en: [
+            "Review all modules and practice questions",
+            "Skip policy provisions",
+            "Ignore Florida regulations"
+          ],
+          fr: [
+            "Réviser tous les modules et questions",
+            "Ignorer les dispositions",
+            "Ignorer les règles de Florida"
+          ],
+          ht: [
+            "Revize tout modil ak kestyon pratik yo",
+            "Sote kondisyon polis yo",
+            "Inyore règ Florida yo"
+          ]
+        },
+
+        correct: 0
+      }
+    ];
+
+    let language =
+      localStorage.getItem(STORAGE.language) || "en";
+
+    let activeModule = 0;
+
+    let completedModules = [];
+
+    try {
+      completedModules = JSON.parse(
+        localStorage.getItem(STORAGE.progress)
+      ) || [];
+    } catch (error) {
+      completedModules = [];
+    }
+
+    function verifySession() {
+      const sessionId =
+        localStorage.getItem(STORAGE.session);
+
+      if (!sessionId) {
+        window.location.href = "./student-portal.html";
+      }
+    }
+
+    function saveProgress() {
+      localStorage.setItem(
+        STORAGE.progress,
+        JSON.stringify(completedModules)
+      );
+    }
+
+    function renderModuleList() {
+      const moduleList =
+        document.getElementById("moduleList");
+
+      moduleList.innerHTML =
+        modules
+          .map(function (module, index) {
+            const completed =
+              completedModules.includes(index);
+
+            return `
+              <button
+                class="module-button ${
+                  index === activeModule ? "active" : ""
+                } ${
+                  completed ? "completed" : ""
+                }"
+                type="button"
+                data-module="${index}"
+              >
+                <span class="module-number">
+                  ${completed ? "✓" : index + 1}
+                </span>
+
+                <span class="module-name">
+                  ${module.title[language]}
+                </span>
+
+                <span class="module-status">
+                  ${completed ? "✓" : "›"}
+                </span>
+              </button>
+            `;
+          })
+          .join("");
+
+      document
+        .querySelectorAll(".module-button")
+        .forEach(function (button) {
+          button.addEventListener("click", function () {
+            activeModule =
+              Number(button.dataset.module);
+
+            renderCourse();
+          });
+        });
+    }
+
+    function renderLesson() {
+      const module =
+        modules[activeModule];
+
+      document.getElementById("lessonNumber").textContent =
+        `MODULE ${String(activeModule + 1).padStart(2, "0")}`;
+
+      document.getElementById("lessonTitle").textContent =
+        module.title[language];
+
+      document.getElementById("lessonDescription").textContent =
+        module.description[language];
+
+      document.getElementById("learningContent").innerHTML = `
+        <div class="learning-box">
+          <h3>
+            ${
+              language === "fr"
+                ? "Objectifs d’apprentissage"
+                : language === "ht"
+                  ? "Objektif Aprantisaj"
+                  : "Learning Objectives"
+            }
+          </h3>
+
+          <ul>
+            ${module.objectives[language]
+              .map(function (objective) {
+                return `<li>${objective}</li>`;
+              })
+              .join("")}
+          </ul>
+        </div>
+      `;
+
+      document.getElementById("quizQuestion").textContent =
+        module.question[language];
+
+      document.getElementById("quizOptions").innerHTML =
+        module.answers[language]
+          .map(function (answer, index) {
+            return `
+              <button
+                class="quiz-option"
+                type="button"
+                data-answer="${index}"
+              >
+                ${answer}
+              </button>
+            `;
+          })
+          .join("");
+
+      document.getElementById("quizMessage").textContent = "";
+
+      document
+        .querySelectorAll(".quiz-option")
+        .forEach(function (button) {
+          button.addEventListener("click", function () {
+            checkAnswer(
+              Number(button.dataset.answer),
+              button
+            );
+          });
+        });
+
+      document.getElementById("previousButton").disabled =
+        activeModule === 0;
+
+      document.getElementById("nextButton").disabled =
+        activeModule === modules.length - 1;
+    }
+
+    function checkAnswer(answerIndex, selectedButton) {
+      const module =
+        modules[activeModule];
+
+      const message =
+        document.getElementById("quizMessage");
+
+      document
+        .querySelectorAll(".quiz-option")
+        .forEach(function (button) {
+          button.classList.remove(
+            "correct",
+            "incorrect"
+          );
+        });
+
+      if (answerIndex === module.correct) {
+        selectedButton.classList.add("correct");
+
+        message.textContent =
+          translations[language].correct;
+
+        if (!completedModules.includes(activeModule)) {
+          completedModules.push(activeModule);
+
+          completedModules.sort(function (a, b) {
+            return a - b;
+          });
+
+          saveProgress();
+        }
+
+        updateProgress();
+        renderModuleList();
+      } else {
+        selectedButton.classList.add("incorrect");
+
+        message.textContent =
+          translations[language].incorrect;
+      }
+    }
+
+    function updateProgress() {
+      const percentage = Math.round(
+        (completedModules.length / modules.length) * 100
+      );
+
+      document.getElementById("progressFill").style.width =
+        `${percentage}%`;
+
+      document.getElementById("progressText").textContent =
+        `${percentage}% · ${completedModules.length}/${modules.length}`;
+
+      document
+        .getElementById("completionCard")
+        .classList.toggle(
+          "hidden",
+          completedModules.length !== modules.length
+        );
+    }
+
+    function renderTranslations() {
+      if (!translations[language]) {
+        language = "en";
+      }
+
+      document.documentElement.lang =
+        language === "ht" ? "ht" : language;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key =
+            element.dataset.i18n;
+
+          if (translations[language][key]) {
+            element.textContent =
+              translations[language][key];
+          }
+        });
+
+      document
+        .querySelectorAll(".language-button")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.dataset.language === language
+          );
+        });
+    }
+
+    function renderCourse() {
+      renderTranslations();
+      renderModuleList();
+      renderLesson();
+      updateProgress();
+    }
+
+    document
+      .querySelectorAll(".language-button")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          language =
+            button.dataset.language;
+
+          localStorage.setItem(
+            STORAGE.language,
+            language
+          );
+
+          renderCourse();
+        });
+      });
+
+    document
+      .getElementById("previousButton")
+      .addEventListener("click", function () {
+        if (activeModule > 0) {
+          activeModule -= 1;
+          renderCourse();
+        }
+      });
+
+    document
+      .getElementById("nextButton")
+      .addEventListener("click", function () {
+        if (activeModule < modules.length - 1) {
+          activeModule += 1;
+          renderCourse();
+        }
+      });
+
+    verifySession();
+    renderCourse();
+  </script>
+</body>
+</html>
