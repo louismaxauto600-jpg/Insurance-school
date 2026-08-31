@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#050301">
+  <meta name="google" content="notranslate">
+
+  <meta
+    name="description"
+    content="PRO-MAX Académie Insurance School Final Examination"
+  >
+
+  <title>Final Exam | PRO-MAX Académie Insurance School</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #050301;
+      --black-soft: #0d0602;
+      --orange: #ff6a00;
+      --orange-dark: #d94d00;
+      --apricot: #ffad78;
+      --apricot-dark: #d98658;
+      --border: rgba(255, 106, 0, 0.4);
+      --glow: rgba(255, 106, 0, 0.27);
+      --shadow: 0 22px 55px rgba(0, 0, 0, 0.67);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--apricot);
+      background:
+        radial-gradient(circle at 50% 0%, #421500, transparent 38%),
+        linear-gradient(145deg, #050301, #130601 55%, #030201);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      min-height: 105px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 16px clamp(18px, 5vw, 70px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(4, 2, 1, 0.97);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border: 1px solid var(--orange);
+      box-shadow: 0 0 24px var(--glow);
+    }
+
+    .brand-title {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-subtitle {
+      margin-top: 7px;
+      color: var(--apricot-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .languages {
+      display: flex;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--black-soft);
+    }
+
+    .language-button {
+      min-width: 42px;
+      padding: 9px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--apricot-dark);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .language-button.active {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    .header-button {
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: var(--black-soft);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .header-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    main {
+      width: min(1050px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 60px 0 95px;
+    }
+
+    .exam-heading {
+      margin-bottom: 30px;
+      padding: clamp(28px, 5vw, 50px);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 85% 30%, #ff5a0038, transparent 35%),
+        linear-gradient(145deg, #211007, #080301);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .exam-heading h1 {
+      margin-top: 13px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(38px, 7vw, 66px);
+      line-height: 1.05;
+    }
+
+    .exam-heading p {
+      max-width: 760px;
+      margin-top: 17px;
+      color: var(--apricot-dark);
+      line-height: 1.75;
+    }
+
+    .exam-information {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+      margin-top: 25px;
+    }
+
+    .information-card {
+      padding: 17px;
+      border: 1px solid var(--border);
+      background: var(--black);
+    }
+
+    .information-label {
+      color: var(--apricot-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .information-value {
+      margin-top: 8px;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .start-panel,
+    .exam-panel,
+    .result-panel {
+      padding: clamp(25px, 5vw, 45px);
+      border: 1px solid var(--border);
+      background: var(--black-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .start-panel h2,
+    .result-panel h2 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(27px, 5vw, 42px);
+    }
+
+    .start-panel p,
+    .result-panel p {
+      margin-top: 14px;
+      color: var(--apricot-dark);
+      line-height: 1.75;
+    }
+
+    .rules-list {
+      display: grid;
+      gap: 11px;
+      margin: 25px 0;
+      padding-left: 20px;
+      color: var(--apricot-dark);
+      line-height: 1.6;
+    }
+
+    .primary-button {
+      min-height: 54px;
+      display: inline-grid;
+      place-items: center;
+      padding: 14px 24px;
+      border: 1px solid var(--orange);
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      box-shadow: 0 13px 30px var(--glow);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .secondary-button {
+      min-height: 54px;
+      display: inline-grid;
+      place-items: center;
+      padding: 14px 24px;
+      border: 1px solid var(--orange);
+      color: var(--apricot);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .exam-toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 28px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .question-counter {
+      color: var(--apricot);
+      font-weight: 800;
+    }
+
+    .timer {
+      min-width: 125px;
+      padding: 12px 17px;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      background: var(--black);
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .progress-track {
+      height: 10px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--black);
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--orange-dark), var(--apricot));
+      box-shadow: 0 0 18px var(--orange);
+      transition: width 0.35s ease;
+    }
+
+    .question-number {
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .question-title {
+      margin: 12px 0 25px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(23px, 4vw, 34px);
+      line-height: 1.35;
+    }
+
+    .answer-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .answer-button {
+      width: 100%;
+      min-height: 57px;
+      padding: 15px 18px;
+      border: 1px solid rgba(255, 106, 0, 0.3);
+      color: var(--apricot);
+      background: var(--black);
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .answer-button:hover,
+    .answer-button.selected {
+      border-color: var(--orange);
+      background: #281006;
+    }
+
+    .exam-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .result-panel {
+      text-align: center;
+    }
+
+    .result-seal {
+      width: 145px;
+      height: 145px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 25px;
+      border: 3px solid var(--orange);
+      border-radius: 50%;
+      color: var(--orange);
+      background: var(--black);
+      box-shadow: 0 0 38px var(--glow);
+      font-family: "Cinzel", serif;
+      font-size: 36px;
+      font-weight: 900;
+    }
+
+    .result-status {
+      margin-top: 13px;
+      color: var(--orange);
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .result-details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 29px 0;
+    }
+
+    .result-detail {
+      padding: 19px;
+      border: 1px solid var(--border);
+      background: var(--black);
+    }
+
+    .result-detail span {
+      display: block;
+      color: var(--apricot-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .result-detail strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: 24px;
+    }
+
+    .result-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .notice {
+      margin-top: 25px;
+      color: var(--apricot-dark);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 34px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--apricot-dark);
+      background: #030201;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 760px) {
+      .exam-information,
+      .result-details {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .site-header {
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .brand-logo {
+        width: 62px;
+        height: 62px;
+      }
+
+      .brand-title {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .exam-information,
+      .result-details {
+        grid-template-columns: 1fr;
+      }
+
+      .exam-actions {
+        flex-direction: column;
+      }
+
+      .exam-actions button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <img
+        class="brand-logo"
+        src="./insurance-school-logo.png"
+        alt="PRO-MAX Académie Insurance School"
+        onerror="this.style.display='none'"
+      >
+
+      <div>
+        <div class="brand-title">
+          PRO-MAX ACADÉMIE
+        </div>
+
+        <div class="brand-subtitle" data-i18n="school">
+          INSURANCE SCHOOL
+        </div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <div class="languages">
+        <button
+          class="language-button active"
+          type="button"
+          data-language="en"
+        >
+          ENG
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="fr"
+        >
+          FRA
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="ht"
+        >
+          KRE
+        </button>
+      </div>
+
+      <a
+        class="header-button"
+        href="./student-portal.html"
+        data-i18n="portal"
+      >
+        Student Portal
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="exam-heading">
+      <div class="eyebrow">
+        BSS1815 PRO-MAX DMP
+      </div>
+
+      <h1 data-i18n="title">
+        Final Examination
+      </h1>
+
+      <p data-i18n="intro">
+        Complete this course assessment to verify your
+        understanding of fundamental insurance concepts.
+      </p>
+
+      <div class="exam-information">
+        <article class="information-card">
+          <div class="information-label" data-i18n="questions">
+            Questions
+          </div>
+
+          <div class="information-value">
+            10
+          </div>
+        </article>
+
+        <article class="information-card">
+          <div class="information-label" data-i18n="time">
+            Time Limit
+          </div>
+
+          <div class="information-value">
+            30 MIN
+          </div>
+        </article>
+
+        <article class="information-card">
+          <div class="information-label" data-i18n="passing">
+            Passing Score
+          </div>
+
+          <div class="information-value">
+            70%
+          </div>
+        </article>
+
+        <article class="information-card">
+          <div class="information-label" data-i18n="attempt">
+            Attempt
+          </div>
+
+          <div class="information-value" id="attemptNumber">
+            1
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="start-panel" id="startPanel">
+      <h2 data-i18n="readyTitle">
+        Ready to Begin?
+      </h2>
+
+      <p data-i18n="readyText">
+        Read each question carefully. Select one answer
+        before moving to the next question.
+      </p>
+
+      <ul class="rules-list">
+        <li data-i18n="ruleOne">
+          The assessment contains 10 questions.
+        </li>
+
+        <li data-i18n="ruleTwo">
+          You need at least 70% to pass.
+        </li>
+
+        <li data-i18n="ruleThree">
+          Your result will be saved to your student account.
+        </li>
+
+        <li data-i18n="ruleFour">
+          This is a PRO-MAX course assessment, not the Florida state examination.
+        </li>
+      </ul>
+
+      <button
+        class="primary-button"
+        id="startExamButton"
+        type="button"
+        data-i18n="start"
+      >
+        Start Final Exam
+      </button>
+    </section>
+
+    <section class="exam-panel hidden" id="examPanel">
+      <div class="exam-toolbar">
+        <div class="question-counter" id="questionCounter">
+          Question 1 of 10
+        </div>
+
+        <div class="timer" id="timer">
+          30:00
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div
+          class="progress-fill"
+          id="examProgress"
+        ></div>
+      </div>
+
+      <div class="question-number" id="questionNumber">
+        QUESTION 01
+      </div>
+
+      <h2 class="question-title" id="questionTitle"></h2>
+
+      <div class="answer-list" id="answerList"></div>
+
+      <div class="exam-actions">
+        <button
+          class="secondary-button"
+          id="previousQuestion"
+          type="button"
+          data-i18n="previous"
+        >
+          Previous
+        </button>
+
+        <button
+          class="primary-button"
+          id="nextQuestion"
+          type="button"
+          data-i18n="next"
+        >
+          Next Question
+        </button>
+      </div>
+    </section>
+
+    <section class="result-panel hidden" id="resultPanel">
+      <div class="result-seal" id="resultScore">
+        0%
+      </div>
+
+      <h2 id="resultTitle">
+        Examination Result
+      </h2>
+
+      <div class="result-status" id="resultStatus">
+        PENDING
+      </div>
+
+      <p id="resultMessage"></p>
+
+      <div class="result-details">
+        <article class="result-detail">
+          <span data-i18n="correctAnswers">
+            CORRECT ANSWERS
+          </span>
+
+          <strong id="correctCount">
+            0/10
+          </strong>
+        </article>
+
+        <article class="result-detail">
+          <span data-i18n="finalScore">
+            FINAL SCORE
+          </span>
+
+          <strong id="finalScore">
+            0%
+          </strong>
+        </article>
+
+        <article class="result-detail">
+          <span data-i18n="result">
+            RESULT
+          </span>
+
+          <strong id="passFail">
+            —
+          </strong>
+        </article>
+      </div>
+
+      <div class="result-actions">
+        <button
+          class="secondary-button"
+          id="retakeButton"
+          type="button"
+          data-i18n="retake"
+        >
+          Retake Exam
+        </button>
+
+        <a
+          class="primary-button hidden"
+          id="certificateButton"
+          href="./certificate.html"
+          data-i18n="certificate"
+        >
+          View Certificate
+        </a>
+
+        <a
+          class="secondary-button"
+          href="./student-portal.html"
+          data-i18n="portal"
+        >
+          Student Portal
+        </a>
+      </div>
+
+      <p class="notice" data-i18n="notice">
+        This assessment and certificate belong to the
+        PRO-MAX Académie educational program. They are
+        not a Florida insurance license or state examination.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>PRO-MAX ACADÉMIE · INSURANCE SCHOOL</div>
+    <div>© 2026 BSS1815 PRO-MAX DMP</div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const STORAGE = {
+      students: "promaxInsuranceStudents",
+      session: "promaxInsuranceSession",
+      language: "promaxInsuranceLanguage",
+      examAttempts: "promaxInsuranceExamAttempts"
+    };
+
+    const PASSING_SCORE = 70;
+    const EXAM_DURATION_SECONDS = 30 * 60;
+
+    const translations = {
+      en: {
+        school: "INSURANCE SCHOOL",
+        portal: "Student Portal",
+        title: "Final Examination",
+        intro:
+          "Complete this course assessment to verify your understanding of fundamental insurance concepts.",
+        questions: "Questions",
+        time: "Time Limit",
+        passing: "Passing Score",
+        attempt: "Attempt",
+        readyTitle: "Ready to Begin?",
+        readyText:
+          "Read each question carefully. Select one answer before moving to the next question.",
+        ruleOne: "The assessment contains 10 questions.",
+        ruleTwo: "You need at least 70% to pass.",
+        ruleThree:
+          "Your result will be saved to your student account.",
+        ruleFour:
+          "This is a PRO-MAX course assessment, not the Florida state examination.",
+        start: "Start Final Exam",
+        previous: "Previous",
+        next: "Next Question",
+        submit: "Submit Examination",
+        question: "Question",
+        of: "of",
+        selectAnswer:
+          "Select an answer before continuing.",
+        correctAnswers: "Correct Answers",
+        finalScore: "Final Score",
+        result: "Result",
+        passed: "Passed",
+        failed: "Not Passed",
+        passedTitle: "Congratulations!",
+        failedTitle: "Additional Study Required",
+        passedMessage:
+          "You passed the PRO-MAX Académie course assessment. Your course certificate is now available.",
+        failedMessage:
+          "Review your course modules and retake the assessment when you are ready.",
+        retake: "Retake Exam",
+        certificate: "View Certificate",
+        notice:
+          "This assessment and certificate belong to the PRO-MAX Académie educational program. They are not a Florida insurance license or state examination."
+      },
+
+      fr: {
+        school: "ÉCOLE D’ASSURANCE",
+        portal: "Portail étudiant",
+        title: "Examen final",
+        intro:
+          "Terminez cette évaluation pour vérifier votre compréhension des concepts fondamentaux.",
+        questions: "Questions",
+        time: "Durée",
+        passing: "Note de passage",
+        attempt: "Tentative",
+        readyTitle: "Prêt à commencer ?",
+        readyText:
+          "Lisez chaque question attentivement et choisissez une réponse.",
+        ruleOne: "L’évaluation contient 10 questions.",
+        ruleTwo: "Vous devez obtenir au moins 70 %.",
+        ruleThree:
+          "Le résultat sera enregistré dans votre compte.",
+        ruleFour:
+          "Il s’agit d’une évaluation PRO-MAX, et non de l’examen de l’État de Florida.",
+        start: "Commencer l’examen",
+        previous: "Précédent",
+        next: "Question suivante",
+        submit: "Soumettre l’examen",
+        question: "Question",
+        of: "sur",
+        selectAnswer:
+          "Choisissez une réponse avant de continuer.",
+        correctAnswers: "Bonnes réponses",
+        finalScore: "Note finale",
+        result: "Résultat",
+        passed: "Réussi",
+        failed: "Non réussi",
+        passedTitle: "Félicitations !",
+        failedTitle: "Étude supplémentaire requise",
+        passedMessage:
+          "Vous avez réussi l’évaluation PRO-MAX Académie. Votre certificat est disponible.",
+        failedMessage:
+          "Révisez vos modules et reprenez l’évaluation lorsque vous serez prêt.",
+        retake: "Reprendre l’examen",
+        certificate: "Voir le certificat",
+        notice:
+          "Cette évaluation et ce certificat appartiennent au programme éducatif PRO-MAX Académie. Ils ne constituent pas une licence ou un examen de l’État de Florida."
+      },
+
+      ht: {
+        school: "LEKÒL ASIRANS",
+        portal: "Pòtal Elèv",
+        title: "Egzamen Final",
+        intro:
+          "Fini evalyasyon sa a pou verifye konesans ou sou prensipal konsèp asirans yo.",
+        questions: "Kestyon",
+        time: "Limit Tan",
+        passing: "Nòt pou Pase",
+        attempt: "Tantativ",
+        readyTitle: "Ou Pare pou Kòmanse?",
+        readyText:
+          "Li chak kestyon byen. Chwazi yon repons anvan ou pase nan pwochen kestyon an.",
+        ruleOne: "Evalyasyon an gen 10 kestyon.",
+        ruleTwo: "Ou bezwen omwen 70% pou pase.",
+        ruleThree:
+          "Rezilta a ap anrejistre nan kont elèv ou.",
+        ruleFour:
+          "Sa se evalyasyon kou PRO-MAX la, se pa egzamen leta Florida.",
+        start: "Kòmanse Egzamen Final",
+        previous: "Anvan",
+        next: "Pwochen Kestyon",
+        submit: "Soumèt Egzamen an",
+        question: "Kestyon",
+        of: "sou",
+        selectAnswer:
+          "Chwazi yon repons anvan ou kontinye.",
+        correctAnswers: "Bon Repons",
+        finalScore: "Nòt Final",
+        result: "Rezilta",
+        passed: "Pase",
+        failed: "Pa Pase",
+        passedTitle: "Felisitasyon!",
+        failedTitle: "Ou Bezwen Revize Plis",
+        passedMessage:
+          "Ou pase evalyasyon PRO-MAX Académie a. Sètifika kou ou disponib.",
+        failedMessage:
+          "Revize modil kou yo epi repran evalyasyon an lè ou pare.",
+        retake: "Repran Egzamen",
+        certificate: "Gade Sètifika",
+        notice:
+          "Evalyasyon ak sètifika sa a fè pati pwogram edikatif PRO-MAX Académie. Yo pa yon lisans oswa egzamen leta Florida."
+      }
+    };
+
+    const questions = [
+      {
+        text: {
+          en: "What is an insurance premium?",
+          fr: "Qu’est-ce qu’une prime d’assurance ?",
+          ht: "Kisa yon prim asirans ye?"
+        },
+        answers: {
+          en: [
+            "The amount paid to maintain insurance coverage",
+            "A policy exclusion",
+            "A state examination"
+          ],
+          fr: [
+            "Le montant payé pour maintenir la couverture",
+            "Une exclusion",
+            "Un examen d’État"
+          ],
+          ht: [
+            "Lajan yo peye pou kenbe kouvèti a",
+            "Yon esklizyon",
+            "Yon egzamen leta"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        text: {
+          en: "What is a deductible?",
+          fr: "Qu’est-ce qu’une franchise ?",
+          ht: "Kisa yon deductible ye?"
+        },
+        answers: {
+          en: [
+            "The amount the insured pays before covered benefits apply",
+            "The insurance company’s license fee",
+            "A beneficiary designation"
+          ],
+          fr: [
+            "Le montant payé avant l’application des prestations",
+            "Les frais de licence de l’assureur",
+            "Une désignation de bénéficiaire"
+          ],
+          ht: [
+            "Lajan kliyan an peye anvan kouvèti a aplike",
+            "Frè lisans konpayi an",
+            "Chwa yon benefisyè"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        text: {
+          en: "Which life insurance policy generally covers a specified period?",
+          fr: "Quelle police vie couvre généralement une période déterminée ?",
+          ht: "Ki polis lavi ki bay kouvèti pou yon peryòd presi?"
+        },
+        answers: {
+          en: [
+            "Term life insurance",
+            "Whole life insurance",
+            "Immediate annuity"
+          ],
+          fr: [
+            "Assurance vie temporaire",
+            "Assurance vie entière",
+            "Rente immédiate"
+          ],
+          ht: [
+            "Term life insurance",
+            "Whole life insurance",
+            "Immediate annuity"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        text: {
+          en: "Who is first in line to receive a life insurance death benefit?",
+          fr: "Qui reçoit d’abord la prestation de décès ?",
+          ht: "Kiyès ki resevwa benefis lanmò a an premye?"
+        },
+        answers: {
+          en: [
+            "The primary beneficiary",
+            "The insurance producer",
+            "The state examiner"
+          ],
+          fr: [
+            "Le bénéficiaire principal",
+            "Le producteur",
+            "L’examinateur"
+          ],
+          ht: [
+            "Benefisyè prensipal la",
+            "Ajan asirans lan",
+            "Egzaminatè leta"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        text: {
+          en: "Which health plan generally provides greater out-of-network flexibility?",
+          fr: "Quel régime offre généralement plus de flexibilité hors réseau ?",
+          ht: "Ki plan sante ki bay plis fleksibilite deyò rezo?"
+        },
+        answers: {
+          en: ["PPO", "HMO", "Medicaid only"],
+          fr: ["PPO", "HMO", "Medicaid seulement"],
+          ht: ["PPO", "HMO", "Medicaid sèlman"]
+        },
+        correct: 0
+      },
+
+      {
+        text: {
+          en: "Which program generally serves eligible low-income individuals?",
+          fr: "Quel programme dessert généralement les personnes admissibles à faible revenu ?",
+          ht: "Ki pwogram ki sèvi moun revni ba ki kalifye?"
+        },
+        answers: {
+          en: ["Medicaid", "Whole life", "Collision coverage"],
+          fr: ["Medicaid", "Assurance vie entière", "Collision"],
+          ht: ["Medicaid", "Whole life", "Collision coverage"]
+        },
+        correct: 0
+      },
+
+      {
+        text: {
+          en: "Which coverage generally applies when an insured automobile strikes another object?",
+          fr: "Quelle couverture s’applique lorsqu’une automobile frappe un objet ?",
+          ht: "Ki kouvèti ki aplike lè machin nan frape yon lòt bagay?"
+        },
+        answers: {
+          en: [
+            "Collision coverage",
+            "Life insurance",
+            "Dental insurance"
+          ],
+          fr: [
+            "Couverture collision",
+            "Assurance vie",
+            "Assurance dentaire"
+          ],
+          ht: [
+            "Collision coverage",
+            "Asirans lavi",
+            "Asirans dan"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        text: {
+          en: "What is the main purpose of liability insurance?",
+          fr: "Quel est l’objectif principal de l’assurance responsabilité ?",
+          ht: "Ki objektif prensipal liability insurance?"
+        },
+        answers: {
+          en: [
+            "Protection against covered legal responsibility for injury or damage",
+            "Routine maintenance",
+            "Investment growth"
+          ],
+          fr: [
+            "Protection contre une responsabilité légale couverte",
+            "Entretien normal",
+            "Croissance d’investissement"
+          ],
+          ht: [
+            "Pwoteksyon kont responsablite legal pou blesi oswa domaj",
+            "Antretyen nòmal",
+            "Kwasans envestisman"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        text: {
+          en: "Which action best represents ethical insurance practice?",
+          fr: "Quelle action représente une pratique éthique ?",
+          ht: "Ki aksyon ki montre yon pratik etik?"
+        },
+        answers: {
+          en: [
+            "Providing accurate and complete information",
+            "Hiding exclusions",
+            "Making misleading promises"
+          ],
+          fr: [
+            "Fournir des informations exactes et complètes",
+            "Cacher les exclusions",
+            "Faire des promesses trompeuses"
+          ],
+          ht: [
+            "Bay enfòmasyon egzak ak konplè",
+            "Kache esklizyon",
+            "Bay pwomès ki twonpe moun"
+          ]
+        },
+        correct: 0
+      },
+
+      {
+        text: {
+          en: "What should a student do before an insurance examination?",
+          fr: "Que doit faire l’étudiant avant un examen d’assurance ?",
+          ht: "Kisa elèv la dwe fè anvan egzamen asirans?"
+        },
+        answers: {
+          en: [
+            "Review every module and practice question",
+            "Ignore policy provisions",
+            "Skip insurance regulations"
+          ],
+          fr: [
+            "Réviser chaque module et question",
+            "Ignorer les dispositions",
+            "Ignorer les règlements"
+          ],
+          ht: [
+            "Revize chak modil ak kestyon pratik",
+            "Inyore kondisyon polis",
+            "Sote règ asirans"
+          ]
+        },
+        correct: 0
+      }
+    ];
+
+    let language =
+      localStorage.getItem(STORAGE.language) || "en";
+
+    let currentQuestion = 0;
+    let selectedAnswers = new Array(questions.length).fill(null);
+    let remainingSeconds = EXAM_DURATION_SECONDS;
+    let timerInterval = null;
+
+    const startPanel = document.getElementById("startPanel");
+    const examPanel = document.getElementById("examPanel");
+    const resultPanel = document.getElementById("resultPanel");
+
+    function verifySession() {
+      if (!localStorage.getItem(STORAGE.session)) {
+        window.location.href = "./student-portal.html";
+      }
+    }
+
+    function getStudents() {
+      try {
+        return JSON.parse(
+          localStorage.getItem(STORAGE.students)
+        ) || [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveExamResult(score, passed) {
+      const students = getStudents();
+      const sessionId = localStorage.getItem(STORAGE.session);
+
+      const studentIndex = students.findIndex(function (student) {
+        return student.id === sessionId;
+      });
+
+      if (studentIndex >= 0) {
+        students[studentIndex] = {
+          ...students[studentIndex],
+          examScore: score,
+          examPassed: passed,
+          examCompletedAt: new Date().toISOString()
+        };
+
+        localStorage.setItem(
+          STORAGE.students,
+          JSON.stringify(students)
+        );
+      }
+    }
+
+    function getAttempts() {
+      return Number(
+        localStorage.getItem(STORAGE.examAttempts)
+      ) || 0;
+    }
+
+    function updateAttempts() {
+      const attempts = getAttempts() + 1;
+
+      localStorage.setItem(
+        STORAGE.examAttempts,
+        attempts
+      );
+
+      document.getElementById("attemptNumber").textContent =
+        attempts;
+
+      return attempts;
+    }
+
+    function applyLanguage() {
+      if (!translations[language]) {
+        language = "en";
+      }
+
+      document.documentElement.lang =
+        language === "ht" ? "ht" : language;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key = element.dataset.i18n;
+
+          if (translations[language][key]) {
+            element.textContent =
+              translations[language][key];
+          }
+        });
+
+      document
+        .querySelectorAll(".language-button")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.dataset.language === language
+          );
+        });
+
+      if (!examPanel.classList.contains("hidden")) {
+        renderQuestion();
+      }
+    }
+
+    function formatTime(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remaining = seconds % 60;
+
+      return (
+        String(minutes).padStart(2, "0") +
+        ":" +
+        String(remaining).padStart(2, "0")
+      );
+    }
+
+    function startTimer() {
+      document.getElementById("timer").textContent =
+        formatTime(remainingSeconds);
+
+      timerInterval = window.setInterval(function () {
+        remainingSeconds -= 1;
+
+        document.getElementById("timer").textContent =
+          formatTime(remainingSeconds);
+
+        if (remainingSeconds <= 0) {
+          window.clearInterval(timerInterval);
+          submitExam();
+        }
+      }, 1000);
+    }
+
+    function startExam() {
+      updateAttempts();
+
+      currentQuestion = 0;
+      selectedAnswers = new Array(questions.length).fill(null);
+      remainingSeconds = EXAM_DURATION_SECONDS;
+
+      startPanel.classList.add("hidden");
+      resultPanel.classList.add("hidden");
+      examPanel.classList.remove("hidden");
+
+      renderQuestion();
+      startTimer();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function renderQuestion() {
+      const text = translations[language];
+      const question = questions[currentQuestion];
+
+      document.getElementById("questionCounter").textContent =
+        `${text.question} ${currentQuestion + 1} ` +
+        `${text.of} ${questions.length}`;
+
+      document.getElementById("questionNumber").textContent =
+        `QUESTION ${String(currentQuestion + 1).padStart(2, "0")}`;
+
+      document.getElementById("questionTitle").textContent =
+        question.text[language];
+
+      document.getElementById("examProgress").style.width =
+        `${((currentQuestion + 1) / questions.length) * 100}%`;
+
+      document.getElementById("answerList").innerHTML =
+        question.answers[language]
+          .map(function (answer, index) {
+            const selected =
+              selectedAnswers[currentQuestion] === index;
+
+            return `
+              <button
+                class="answer-button ${
+                  selected ? "selected" : ""
+                }"
+                type="button"
+                data-answer="${index}"
+              >
+                ${String.fromCharCode(65 + index)}. ${answer}
+              </button>
+            `;
+          })
+          .join("");
+
+      document
+        .querySelectorAll(".answer-button")
+        .forEach(function (button) {
+          button.addEventListener("click", function () {
+            selectedAnswers[currentQuestion] =
+              Number(button.dataset.answer);
+
+            renderQuestion();
+          });
+        });
+
+      document.getElementById("previousQuestion").disabled =
+        currentQuestion === 0;
+
+      document.getElementById("nextQuestion").textContent =
+        currentQuestion === questions.length - 1
+          ? text.submit
+          : text.next;
+    }
+
+    function nextQuestion() {
+      const text = translations[language];
+
+      if (selectedAnswers[currentQuestion] === null) {
+        window.alert(text.selectAnswer);
+        return;
+      }
+
+      if (currentQuestion === questions.length - 1) {
+        submitExam();
+        return;
+      }
+
+      currentQuestion += 1;
+      renderQuestion();
+    }
+
+    function previousQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion -= 1;
+        renderQuestion();
+      }
+    }
+
+    function submitExam() {
+      window.clearInterval(timerInterval);
+
+      let correctAnswers = 0;
+
+      questions.forEach(function (question, index) {
+        if (selectedAnswers[index] === question.correct) {
+          correctAnswers += 1;
+        }
+      });
+
+      const score = Math.round(
+        (correctAnswers / questions.length) * 100
+      );
+
+      const passed = score >= PASSING_SCORE;
+      const text = translations[language];
+
+      saveExamResult(score, passed);
+
+      examPanel.classList.add("hidden");
+      resultPanel.classList.remove("hidden");
+
+      document.getElementById("resultScore").textContent =
+        `${score}%`;
+
+      document.getElementById("correctCount").textContent =
+        `${correctAnswers}/${questions.length}`;
+
+      document.getElementById("finalScore").textContent =
+        `${score}%`;
+
+      document.getElementById("passFail").textContent =
+        passed ? text.passed : text.failed;
+
+      document.getElementById("resultTitle").textContent =
+        passed ? text.passedTitle : text.failedTitle;
+
+      document.getElementById("resultStatus").textContent =
+        passed ? text.passed.toUpperCase() : text.failed.toUpperCase();
+
+      document.getElementById("resultMessage").textContent =
+        passed ? text.passedMessage : text.failedMessage;
+
+      document
+        .getElementById("certificateButton")
+        .classList.toggle("hidden", !passed);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    document
+      .querySelectorAll(".language-button")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          language = button.dataset.language;
+
+          localStorage.setItem(
+            STORAGE.language,
+            language
+          );
+
+          applyLanguage();
+        });
+      });
+
+    document
+      .getElementById("startExamButton")
+      .addEventListener("click", startExam);
+
+    document
+      .getElementById("nextQuestion")
+      .addEventListener("click", nextQuestion);
+
+    document
+      .getElementById("previousQuestion")
+      .addEventListener("click", previousQuestion);
+
+    document
+      .getElementById("retakeButton")
+      .addEventListener("click", function () {
+        resultPanel.classList.add("hidden");
+        startPanel.classList.remove("hidden");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+    verifySession();
+
+    document.getElementById("attemptNumber").textContent =
+      getAttempts() + 1;
+
+    applyLanguage();
+  </script>
+</body>
+</html>
