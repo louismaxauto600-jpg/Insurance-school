@@ -2,6 +2,11 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31">
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -764,11 +769,7 @@
         the portal.
       </p>
 
-      <a
-        href="student-profile.html"
-        class="primary-button"
-        data-i18n="accessButton"
-      >
+      <a class='primary-button' data-i18n='accessButton' href='/student-profile'>
         Create Profile / Sign In
       </a>
     </div>
@@ -776,7 +777,7 @@
 
   <div class="page-shell" id="portalApp">
     <header class="site-header">
-      <a href="index.html" class="brand" aria-label="Return to homepage">
+      <a aria-label='Return to homepage' class='brand' href='/'>
         <div class="brand-logo-wrap">
           <img
             src="insurance-school-logo.png"
@@ -989,31 +990,32 @@
           </h2>
 
           <nav class="portal-links">
-            <a href="student-profile.html" class="portal-link">
+            <a class='portal-link' href='/student-profile'>
               <span data-i18n="myProfile">My Profile</span>
               <span class="portal-link-symbol">→</span>
             </a>
 
-            <a href="my-courses.html" class="portal-link">
+            <a class='portal-link' href='/my-courses'>
               <span data-i18n="myCourses">My Courses</span>
               <span class="portal-link-symbol">→</span>
             </a>
 
-            <a href="final-exam.html" class="portal-link">
+            <a class="portal-link" href="payment.html" id="paymentLink">
+              <span data-i18n="payTuition">Pay Tuition</span>
+              <span class="portal-link-symbol">$</span>
+            </a>
+
+            <a class='portal-link' href='/final-exam'>
               <span data-i18n="finalExam">Final Exam</span>
               <span class="portal-link-symbol">→</span>
             </a>
 
-            <a
-              href="certificate.html"
-              class="portal-link"
-              id="certificateLink"
-            >
+            <a class='portal-link' href='/certificate' id='certificateLink'>
               <span data-i18n="certificate">Certificate</span>
               <span class="portal-link-symbol">→</span>
             </a>
 
-            <a href="index.html#programs" class="portal-link">
+            <a class='portal-link' href='/#programs'>
               <span data-i18n="viewPrograms">View Programs</span>
               <span class="portal-link-symbol">→</span>
             </a>
@@ -1180,6 +1182,9 @@
         continueLearning: "Continue Learning",
         myProfile: "My Profile",
         myCourses: "My Courses",
+        payTuition: "Pay Tuition",
+        paymentConfirmed: "Payment Confirmed",
+        paymentSubmitted: "Submitted — Pending Verification",
         finalExam: "Final Exam",
         certificate: "Certificate",
         viewPrograms: "View Programs",
@@ -1225,6 +1230,9 @@
         continueLearning: "Continuer la formation",
         myProfile: "Mon profil",
         myCourses: "Mes cours",
+        payTuition: "Payer les frais",
+        paymentConfirmed: "Paiement confirmé",
+        paymentSubmitted: "Soumis — Vérification en attente",
         finalExam: "Examen final",
         certificate: "Certificat",
         viewPrograms: "Voir les programmes",
@@ -1270,6 +1278,9 @@
         continueLearning: "Kontinye Aprann",
         myProfile: "Pwofil Mwen",
         myCourses: "Kou Mwen Yo",
+        payTuition: "Peye Kou a",
+        paymentConfirmed: "Peman Konfime",
+        paymentSubmitted: "Voye — Ap Tann Verifikasyon",
         finalExam: "Egzamen Final",
         certificate: "Sètifika",
         viewPrograms: "Gade Pwogram Yo",
@@ -1582,13 +1593,31 @@
         }`;
 
       const isPaid = getPaymentStatus(currentStudent);
+      const paymentSubmitted = Boolean(
+        currentStudent.paymentSubmission && !isPaid
+      );
       const paymentStatus = document.getElementById("paymentStatus");
+      const paymentLink = document.getElementById("paymentLink");
 
       paymentStatus.textContent = isPaid
         ? translate("paid")
-        : translate("paymentPending");
+        : paymentSubmitted
+          ? translate("paymentSubmitted")
+          : translate("paymentPending");
 
       paymentStatus.classList.toggle("paid", isPaid);
+
+      if (isPaid) {
+        paymentLink.href = "#";
+        paymentLink.classList.add("locked");
+        paymentLink.querySelector("[data-i18n]").textContent =
+          translate("paymentConfirmed");
+      } else {
+        paymentLink.href = "payment.html";
+        paymentLink.classList.remove("locked");
+        paymentLink.querySelector("[data-i18n]").textContent =
+          translate("payTuition");
+      }
 
       const examPassed = currentStudent.examPassed === true;
       const hasExamScore =
