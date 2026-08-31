@@ -2,8 +2,13 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#000000">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#070402">
   <meta name="google" content="notranslate">
 
   <meta
@@ -17,11 +22,8 @@
 </head>
 
 <body>
-
   <header class="topbar">
-
     <a class="brand" href="#home">
-
       <img
         class="brand-logo"
         src="./insurance-school-logo.png"
@@ -30,21 +32,36 @@
 
       <span>
         <strong>PRO-MAX ACADÉMIE</strong>
-        <small>INSURANCE SCHOOL</small>
+        <small data-t="schoolName">INSURANCE SCHOOL</small>
       </span>
-
     </a>
 
     <nav>
       <a href="#home" data-t="navHome">Home</a>
-      <a href="#programs" data-t="navPrograms">Programs</a>
-      <a href="#roadmap" data-t="navRoadmap">Roadmap</a>
-      <a href="#portal" data-t="navPortal">Student Portal</a>
+
+      <a href="#programs" data-t="navPrograms">
+        Programs
+      </a>
+
+      <a href="#roadmap" data-t="navRoadmap">
+        Roadmap
+      </a>
+
+      <a href="#ask-professor" data-t="navProfessor">
+        Ask Professor
+      </a>
+
+      <a href="./student-portal.html" data-t="navPortal">
+        Student Portal
+      </a>
     </nav>
 
     <div class="langs" aria-label="Language selector">
-
-      <button type="button" data-lang="en" class="active">
+      <button
+        class="active"
+        type="button"
+        data-lang="en"
+      >
         ENG
       </button>
 
@@ -55,17 +72,12 @@
       <button type="button" data-lang="ht">
         KRE
       </button>
-
     </div>
-
   </header>
 
   <main>
-
     <section class="hero" id="home">
-
       <div class="hero-copy">
-
         <p class="kicker" data-t="eyebrow">
           PRO-MAX ACADÉMIE • INSURANCE SCHOOL
         </p>
@@ -81,75 +93,115 @@
         </h1>
 
         <p class="intro" data-t="intro">
-          A focused, multilingual learning path for future insurance
-          professionals. Study the fundamentals, track your progress,
-          prepare for the final exam, and move forward with purpose.
+          A focused, multilingual learning path for future
+          insurance professionals. Study the fundamentals,
+          track your progress, prepare for the final exam,
+          and move forward with purpose.
         </p>
 
         <div class="actions">
-
-          <a class="primary" href="#programs" data-t="explore">
+          <a
+            class="primary"
+            href="#programs"
+            data-t="explore"
+          >
             Explore Programs
           </a>
 
-          <a class="secondary" href="#portal" data-t="portal">
+          <a
+            class="secondary"
+            href="./student-portal.html"
+            data-t="portal"
+          >
             Student Portal
           </a>
-
         </div>
-
       </div>
 
       <div class="official-logo-wrap">
-
         <img
           class="official-logo"
           src="./insurance-school-logo.png"
           alt="PRO-MAX Académie Insurance School — Orlando, Florida — 100% Online"
         >
-
       </div>
-
     </section>
 
     <section class="section" id="programs">
-
-      <p class="kicker">
-        01 — PROGRAMS
-      </p>
+      <p class="kicker">01 — PROGRAMS</p>
 
       <h2 data-t="programTitle">
         Core study programs
       </h2>
 
       <p class="section-lead" data-t="programSub">
-        Choose a learning track and build strong insurance foundations.
+        Choose a learning track and build strong
+        insurance foundations.
       </p>
 
       <div class="grid" id="courseGrid"></div>
-
     </section>
 
     <section class="section dark" id="roadmap">
-
-      <p class="kicker">
-        02 — ROADMAP
-      </p>
+      <p class="kicker">02 — ROADMAP</p>
 
       <h2 data-t="journey">
         Your path to completion
       </h2>
 
       <div class="steps" id="steps"></div>
+    </section>
 
+    <section
+      class="section professor-section"
+      id="ask-professor"
+    >
+      <div class="professor-portrait">
+        <img
+          src="./ask-professor.webp"
+          alt="PRO-MAX Académie Insurance Professor"
+          onerror="this.style.display='none'"
+        >
+
+        <span data-t="professorStatus">
+          COMING SOON
+        </span>
+      </div>
+
+      <div class="professor-panel">
+        <p class="kicker">03 — ASK PROFESSOR</p>
+
+        <h2 data-t="askTitle">
+          Ask the Professor
+        </h2>
+
+        <p class="section-lead" data-t="askIntro">
+          The real-time AI professor is being prepared
+          for the Insurance School.
+        </p>
+
+        <div class="professor-answer">
+          <strong data-t="professorNotice">
+            AI PROFESSOR
+          </strong>
+
+          <p data-t="professorMessage">
+            This service will be activated after the
+            LiveAvatar system is connected.
+          </p>
+        </div>
+
+        <small class="education-note" data-t="educationNote">
+          Educational information only. Requirements and
+          laws can vary by state.
+        </small>
+      </div>
     </section>
 
     <section class="section payment" id="portal">
-
       <div class="payment-copy">
-
         <p class="kicker">
-          03 — STUDENT ACCOUNT
+          04 — STUDENT ACCOUNT
         </p>
 
         <h2 data-t="payment">
@@ -157,28 +209,30 @@
         </h2>
 
         <p data-t="paid">
-          Track paid amount, remaining balance and status from 0/5 to 5/5.
+          Track paid amount, remaining balance and
+          status from 0/5 to 5/5.
         </p>
 
-        <a class="primary" href="#home" data-t="portal">
+        <a
+          class="primary"
+          href="./student-portal.html"
+          data-t="portal"
+        >
           Student Portal
         </a>
-
       </div>
 
       <aside class="payment-card">
-
         <span data-t="tuition">
           Total tuition
         </span>
 
         <strong>
-          5,000
-          <small>HTG</small>
+          $5,000 <small>USD</small>
         </strong>
 
         <p data-t="plan">
-          5 payments × 1,000 HTG
+          5 payments × $1,000 USD
         </p>
 
         <div class="progress">
@@ -188,29 +242,27 @@
         <div class="pay-dots" id="payDots"></div>
 
         <div class="pay-controls">
-
-          <button type="button" id="minus">
+          <button id="minus" type="button" data-t="minusPayment">
             − Payment
           </button>
 
-          <button type="button" id="plus">
+          <button id="plus" type="button" data-t="plusPayment">
             + Payment
           </button>
 
-          <button type="button" id="reset">
+          <button id="reset" type="button" data-t="reset">
             Reset
           </button>
-
         </div>
 
-        <div class="status" id="payStatus"></div>
-
+        <div class="status" id="payStatus">
+          Payments completed: 0/5 · Paid: $0 USD ·
+          Balance: $5,000 USD
+        </div>
       </aside>
-
     </section>
 
     <section class="cta">
-
       <p class="kicker">
         BSS1815 PRO-MAX DMP
       </p>
@@ -220,22 +272,22 @@
       </h2>
 
       <p data-t="promiseSub">
-        Education, technology and opportunity inside one professional
-        digital ecosystem.
+        Education, technology and opportunity inside
+        one professional digital ecosystem.
       </p>
 
-      <a class="primary" href="#programs" data-t="explore">
+      <a
+        class="primary"
+        href="#programs"
+        data-t="explore"
+      >
         Explore Programs
       </a>
-
     </section>
-
   </main>
 
   <footer>
-
     <div class="brand">
-
       <img
         class="brand-logo"
         src="./insurance-school-logo.png"
@@ -244,9 +296,8 @@
 
       <span>
         <strong>PRO-MAX ACADÉMIE</strong>
-        <small>INSURANCE SCHOOL</small>
+        <small data-t="schoolName">INSURANCE SCHOOL</small>
       </span>
-
     </div>
 
     <p data-t="footer">
@@ -256,10 +307,480 @@
     <small>
       © 2026 BSS1815 PRO-MAX DMP
     </small>
-
   </footer>
 
-  <script src="./javascript.js" defer></script>
+  <script>
+    "use strict";
 
+    document.addEventListener("DOMContentLoaded", function () {
+      const TOTAL_TUITION_USD = 5000;
+      const PAYMENT_AMOUNT_USD = 1000;
+      const TOTAL_PAYMENTS = 5;
+
+      const translations = {
+        en: {
+          schoolName: "INSURANCE SCHOOL",
+          navHome: "Home",
+          navPrograms: "Programs",
+          navRoadmap: "Roadmap",
+          navProfessor: "Ask Professor",
+          navPortal: "Student Portal",
+          eyebrow:
+            "PRO-MAX ACADÉMIE • INSURANCE SCHOOL",
+          titleA: "Build the knowledge.",
+          titleB: "Earn the confidence.",
+          intro:
+            "A focused, multilingual learning path for future insurance professionals. Study the fundamentals, track your progress, prepare for the final exam, and move forward with purpose.",
+          explore: "Explore Programs",
+          portal: "Student Portal",
+          programTitle: "Core study programs",
+          programSub:
+            "Choose a learning track and build strong insurance foundations.",
+          courses: [
+            [
+              "Life Insurance",
+              "Coverage, beneficiaries, policies and client needs."
+            ],
+            [
+              "Health Insurance",
+              "Plans, essential terminology and responsible guidance."
+            ],
+            [
+              "Auto Insurance",
+              "Liability, protection, claims and policy structure."
+            ],
+            [
+              "Property & Casualty",
+              "Property risks, casualty protection and coverage basics."
+            ]
+          ],
+          journey: "Your path to completion",
+          steps: [
+            [
+              "Enroll",
+              "Create your student profile and select a program."
+            ],
+            [
+              "Learn",
+              "Complete lessons, quizzes and practical reviews."
+            ],
+            [
+              "Final Exam",
+              "Take the final exam through BSS1815 PRO-MAX DMP."
+            ],
+            [
+              "Certificate",
+              "Verify your result and receive your certificate."
+            ]
+          ],
+          professorStatus: "COMING SOON",
+          askTitle: "Ask the Professor",
+          askIntro:
+            "The real-time AI professor is being prepared for the Insurance School.",
+          professorNotice: "AI PROFESSOR",
+          professorMessage:
+            "This service will be activated after the LiveAvatar system is connected.",
+          educationNote:
+            "Educational information only. Requirements and laws can vary by state.",
+          payment: "Clear payment progress",
+          paid:
+            "Track paid amount, remaining balance and status from 0/5 to 5/5.",
+          tuition: "Total tuition",
+          plan: "5 payments × $1,000 USD",
+          minusPayment: "− Payment",
+          plusPayment: "+ Payment",
+          reset: "Reset",
+          promise:
+            "Learn with direction. Progress with discipline.",
+          promiseSub:
+            "Education, technology and opportunity inside one professional digital ecosystem.",
+          footer: "LEARN. EVOLVE. SUCCEED.",
+          status: "Payments completed",
+          paidLabel: "Paid",
+          balance: "Balance"
+        },
+
+        fr: {
+          schoolName: "ÉCOLE D’ASSURANCE",
+          navHome: "Accueil",
+          navPrograms: "Programmes",
+          navRoadmap: "Parcours",
+          navProfessor: "Demander au professeur",
+          navPortal: "Portail étudiant",
+          eyebrow:
+            "PRO-MAX ACADÉMIE • ÉCOLE D’ASSURANCE",
+          titleA: "Développez vos connaissances.",
+          titleB: "Gagnez en confiance.",
+          intro:
+            "Un parcours d’apprentissage ciblé et multilingue pour les futurs professionnels de l’assurance. Maîtrisez les bases, suivez vos progrès et préparez l’examen final.",
+          explore: "Voir les programmes",
+          portal: "Portail étudiant",
+          programTitle: "Programmes fondamentaux",
+          programSub:
+            "Choisissez votre parcours et construisez des bases solides en assurance.",
+          courses: [
+            [
+              "Assurance vie",
+              "Couverture, bénéficiaires, polices et besoins des clients."
+            ],
+            [
+              "Assurance santé",
+              "Régimes, terminologie essentielle et conseils responsables."
+            ],
+            [
+              "Assurance automobile",
+              "Responsabilité, protection, sinistres et structure des polices."
+            ],
+            [
+              "Biens et risques divers",
+              "Risques liés aux biens, protection et notions de couverture."
+            ]
+          ],
+          journey: "Votre parcours vers la réussite",
+          steps: [
+            [
+              "Inscription",
+              "Créez votre profil et choisissez un programme."
+            ],
+            [
+              "Formation",
+              "Terminez les leçons, quiz et révisions pratiques."
+            ],
+            [
+              "Examen final",
+              "Passez l’examen via BSS1815 PRO-MAX DMP."
+            ],
+            [
+              "Certificat",
+              "Vérifiez votre résultat et recevez votre certificat."
+            ]
+          ],
+          professorStatus: "BIENTÔT DISPONIBLE",
+          askTitle: "Demander au professeur",
+          askIntro:
+            "Le professeur AI en temps réel est en préparation pour l’école.",
+          professorNotice: "PROFESSEUR AI",
+          professorMessage:
+            "Ce service sera activé après la connexion du système LiveAvatar.",
+          educationNote:
+            "Informations éducatives uniquement. Les lois peuvent varier selon l’État.",
+          payment: "Progression des paiements",
+          paid:
+            "Suivez le montant payé, le solde et le statut de 0/5 à 5/5.",
+          tuition: "Frais de scolarité",
+          plan: "5 paiements × 1 000 $ USD",
+          minusPayment: "− Paiement",
+          plusPayment: "+ Paiement",
+          reset: "Réinitialiser",
+          promise:
+            "Apprenez avec méthode. Progressez avec discipline.",
+          promiseSub:
+            "Éducation, technologie et opportunités dans un écosystème numérique professionnel.",
+          footer: "APPRENDRE. ÉVOLUER. RÉUSSIR.",
+          status: "Paiements effectués",
+          paidLabel: "Payé",
+          balance: "Solde"
+        },
+
+        ht: {
+          schoolName: "LEKÒL ASIRANS",
+          navHome: "Akèy",
+          navPrograms: "Pwogram",
+          navRoadmap: "Chemen",
+          navProfessor: "Mande Pwofesè",
+          navPortal: "Pòtal Elèv",
+          eyebrow:
+            "PRO-MAX ACADÉMIE • LEKÒL ASIRANS",
+          titleA: "Devlope konesans ou.",
+          titleB: "Bati konfyans ou.",
+          intro:
+            "Yon chemen aprantisaj byen òganize nan twa lang pou pwofesyonèl asirans demen yo. Aprann baz yo, suiv pwogrè ou epi prepare egzamen final la.",
+          explore: "Gade pwogram yo",
+          portal: "Pòtal Elèv",
+          programTitle: "Pwogram prensipal yo",
+          programSub:
+            "Chwazi chemen ou epi bati yon bon fondasyon nan asirans.",
+          courses: [
+            [
+              "Asirans lavi",
+              "Kouvèti, benefisyè, polis ak bezwen kliyan yo."
+            ],
+            [
+              "Asirans sante",
+              "Plan, mo enpòtan ak konsèy responsab."
+            ],
+            [
+              "Asirans machin",
+              "Responsablite, pwoteksyon, reklamasyon ak estrikti polis."
+            ],
+            [
+              "Property & Casualty",
+              "Risk sou pwopriyete, pwoteksyon ak prensip kouvèti yo."
+            ]
+          ],
+          journey: "Chemen ou pou fini",
+          steps: [
+            [
+              "Enskripsyon",
+              "Kreye pwofil elèv ou epi chwazi yon pwogram."
+            ],
+            [
+              "Aprann",
+              "Fini leson, quiz ak revizyon pratik yo."
+            ],
+            [
+              "Egzamen final",
+              "Pran egzamen an atravè BSS1815 PRO-MAX DMP."
+            ],
+            [
+              "Sètifika",
+              "Verifye rezilta ou epi resevwa sètifika ou."
+            ]
+          ],
+          professorStatus: "AP VINI",
+          askTitle: "Mande Pwofesè",
+          askIntro:
+            "Pwofesè AI an tan reyèl la ap prepare pou Lekòl Asirans lan.",
+          professorNotice: "PWOFESÈ AI",
+          professorMessage:
+            "Sèvis sa a ap aktive apre sistèm LiveAvatar la konekte.",
+          educationNote:
+            "Se enfòmasyon edikatif sèlman. Lwa yo ka diferan selon eta a.",
+          payment: "Pwogrè peman",
+          paid:
+            "Suiv kantite ou peye, balans ou ak estati 0/5 rive 5/5.",
+          tuition: "Pri total fòmasyon an",
+          plan: "5 peman × $1,000 USD",
+          minusPayment: "− Peman",
+          plusPayment: "+ Peman",
+          reset: "Rekòmanse",
+          promise:
+            "Aprann ak direksyon. Avanse ak disiplin.",
+          promiseSub:
+            "Edikasyon, teknoloji ak opòtinite nan yon sèl ekosistèm dijital pwofesyonèl.",
+          footer: "APRANN. EVOLYE. REYISI.",
+          status: "Peman ki fèt",
+          paidLabel: "Peye",
+          balance: "Balans"
+        }
+      };
+
+      const storage = {
+        get: function (key) {
+          try {
+            return window.localStorage.getItem(key);
+          } catch (error) {
+            return null;
+          }
+        },
+
+        set: function (key, value) {
+          try {
+            window.localStorage.setItem(
+              key,
+              String(value)
+            );
+          } catch (error) {
+            return;
+          }
+        }
+      };
+
+      let language =
+        storage.get("promaxInsuranceLang") || "en";
+
+      if (!translations[language]) {
+        language = "en";
+      }
+
+      let completedPayments = Number(
+        storage.get("promaxPaymentHistory")
+      ) || 0;
+
+      completedPayments = Math.max(
+        0,
+        Math.min(TOTAL_PAYMENTS, completedPayments)
+      );
+
+      const courseIcons = [
+        "♥",
+        "+",
+        "◆",
+        "⌂"
+      ];
+
+      function formatUSD(amount) {
+        return `$${amount.toLocaleString("en-US")} USD`;
+      }
+
+      function renderPayments() {
+        const text = translations[language];
+
+        const paidAmount =
+          completedPayments * PAYMENT_AMOUNT_USD;
+
+        const remainingBalance =
+          TOTAL_TUITION_USD - paidAmount;
+
+        const paymentPercentage =
+          (completedPayments / TOTAL_PAYMENTS) * 100;
+
+        const progressBar =
+          document.getElementById("progressBar");
+
+        const payDots =
+          document.getElementById("payDots");
+
+        const paymentStatus =
+          document.getElementById("payStatus");
+
+        progressBar.style.width =
+          `${paymentPercentage}%`;
+
+        payDots.innerHTML =
+          Array.from(
+            { length: TOTAL_PAYMENTS },
+            function (_, index) {
+              const paymentNumber = index + 1;
+              const isPaid =
+                paymentNumber <= completedPayments;
+
+              return `
+                <b
+                  style="
+                    background: ${
+                      isPaid ? "#e46b21" : "transparent"
+                    };
+                    color: ${
+                      isPaid ? "#0b0402" : "#e27940"
+                    };
+                  "
+                >
+                  ${paymentNumber}
+                </b>
+              `;
+            }
+          ).join("");
+
+        paymentStatus.textContent =
+          `${text.status}: ` +
+          `${completedPayments}/${TOTAL_PAYMENTS} · ` +
+          `${text.paidLabel}: ${formatUSD(paidAmount)} · ` +
+          `${text.balance}: ${formatUSD(remainingBalance)}`;
+
+        storage.set(
+          "promaxPaymentHistory",
+          completedPayments
+        );
+      }
+
+      function renderPage() {
+        const text = translations[language];
+
+        document.documentElement.lang =
+          language === "ht" ? "ht" : language;
+
+        document
+          .querySelectorAll("[data-t]")
+          .forEach(function (element) {
+            const translationKey =
+              element.dataset.t;
+
+            const translatedValue =
+              text[translationKey];
+
+            if (typeof translatedValue === "string") {
+              element.textContent = translatedValue;
+            }
+          });
+
+        document.getElementById("courseGrid").innerHTML =
+          text.courses
+            .map(function (course, index) {
+              return `
+                <article class="card">
+                  <span class="number">
+                    0${index + 1}
+                  </span>
+
+                  <b class="icon">
+                    ${courseIcons[index]}
+                  </b>
+
+                  <h3>${course[0]}</h3>
+                  <p>${course[1]}</p>
+                </article>
+              `;
+            })
+            .join("");
+
+        document.getElementById("steps").innerHTML =
+          text.steps
+            .map(function (step, index) {
+              return `
+                <article class="step">
+                  <b>0${index + 1}</b>
+                  <h3>${step[0]}</h3>
+                  <p>${step[1]}</p>
+                </article>
+              `;
+            })
+            .join("");
+
+        document
+          .querySelectorAll("[data-lang]")
+          .forEach(function (button) {
+            button.classList.toggle(
+              "active",
+              button.dataset.lang === language
+            );
+          });
+
+        renderPayments();
+      }
+
+      document
+        .querySelectorAll("[data-lang]")
+        .forEach(function (button) {
+          button.addEventListener("click", function () {
+            language = button.dataset.lang;
+
+            storage.set(
+              "promaxInsuranceLang",
+              language
+            );
+
+            renderPage();
+          });
+        });
+
+      document
+        .getElementById("plus")
+        .addEventListener("click", function () {
+          if (completedPayments < TOTAL_PAYMENTS) {
+            completedPayments += 1;
+            renderPayments();
+          }
+        });
+
+      document
+        .getElementById("minus")
+        .addEventListener("click", function () {
+          if (completedPayments > 0) {
+            completedPayments -= 1;
+            renderPayments();
+          }
+        });
+
+      document
+        .getElementById("reset")
+        .addEventListener("click", function () {
+          completedPayments = 0;
+          renderPayments();
+        });
+
+      renderPage();
+    });
+  </script>
 </body>
 </html>
