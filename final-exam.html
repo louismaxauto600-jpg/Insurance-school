@@ -2,6 +2,11 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31">
 
   <meta
     name="viewport"
@@ -504,12 +509,26 @@
         width: 100%;
       }
     }
+    .exam-lock {
+      display: none;
+      width: min(900px, calc(100% - 32px));
+      margin: 70px auto 100px;
+      padding: clamp(34px, 6vw, 72px);
+      border: 1px solid var(--border);
+      text-align: center;
+      background: linear-gradient(145deg, rgba(42, 15, 6, .97), rgba(7, 3, 2, .98));
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .42);
+    }
+    .exam-lock.show { display: block; }
+    .exam-lock h2 { margin: 18px 0; font-family: "Cinzel", serif; font-size: clamp(32px, 6vw, 56px); }
+    .exam-lock p { max-width: 680px; margin: 0 auto; color: var(--muted); line-height: 1.8; }
+    .exam-lock .primary-button, .exam-lock .secondary-button { display: inline-flex; margin: 28px 7px 0; }
   </style>
 </head>
 
 <body>
   <header class="site-header">
-    <a class="brand" href="./index.html">
+    <a class='brand' href='/'>
       <img
         class="brand-logo"
         src="./insurance-school-logo.png"
@@ -555,17 +574,21 @@
         </button>
       </div>
 
-      <a
-        class="header-button"
-        href="./student-portal.html"
-        data-i18n="portal"
-      >
+      <a class='header-button' data-i18n='portal' href='student-portal.html'>
         Student Portal
       </a>
     </div>
   </header>
 
-  <main>
+  <section class="exam-lock" id="examLock">
+    <div class="eyebrow">SECURE EXAM ACCESS</div>
+    <h2 id="lockTitle">FINAL EXAM LOCKED</h2>
+    <p id="lockMessage">The final examination unlocks after tuition is confirmed and all required course modules are completed.</p>
+    <a class="primary-button" href="my-courses.html">COMPLETE MY COURSE</a>
+    <a class="secondary-button" href="student-portal.html">STUDENT PORTAL</a>
+  </section>
+
+  <main id="examContent">
     <section class="exam-heading">
       <div class="eyebrow">
         BSS1815 PRO-MAX DMP
@@ -765,20 +788,11 @@
           Retake Exam
         </button>
 
-        <a
-          class="primary-button hidden"
-          id="certificateButton"
-          href="./certificate.html"
-          data-i18n="certificate"
-        >
+        <a class='primary-button hidden' data-i18n='certificate' href='certificate.html' id='certificateButton'>
           View Certificate
         </a>
 
-        <a
-          class="secondary-button"
-          href="./student-portal.html"
-          data-i18n="portal"
-        >
+        <a class='secondary-button' data-i18n='portal' href='student-portal.html'>
           Student Portal
         </a>
       </div>
@@ -803,7 +817,11 @@
       students: "promaxInsuranceStudents",
       session: "promaxInsuranceSession",
       language: "promaxInsuranceLanguage",
-      examAttempts: "promaxInsuranceExamAttempts"
+      examAttempts: "promaxInsuranceExamAttempts",
+      healthProgress: "promaxHealth240Progress",
+      lifeProgress: "promaxLifeHealth215Progress",
+      personalProgress: "promaxPersonalLines2044Progress",
+      propertyProgress: "promaxPropertyCasualty220Progress"
     };
 
     const PASSING_SCORE = 70;
@@ -1193,12 +1211,6 @@
     const examPanel = document.getElementById("examPanel");
     const resultPanel = document.getElementById("resultPanel");
 
-    function verifySession() {
-      if (!localStorage.getItem(STORAGE.session)) {
-        window.location.href = "./student-portal.html";
-      }
-    }
-
     function getStudents() {
       try {
         return JSON.parse(
@@ -1209,12 +1221,98 @@
       }
     }
 
+    function readStorage(key, fallback) {
+      try {
+        const value = JSON.parse(localStorage.getItem(key));
+        return value === null ? fallback : value;
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function normalize(value) {
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function getCurrentStudent() {
+      const session = readStorage(STORAGE.session, null);
+      const students = getStudents();
+
+      if (!session || !Array.isArray(students)) return null;
+
+      const sessionEmail = normalize(
+        typeof session === "string" ? session : session.email
+      );
+      const sessionId = normalize(
+        typeof session === "object" ? (session.id || session.studentId) : session
+      );
+
+      return students.find(function (student) {
+        return (
+          (sessionEmail && normalize(student.email) === sessionEmail) ||
+          (sessionId && normalize(student.id) === sessionId)
+        );
+      }) || null;
+    }
+
+    function getCourseRequirement(student) {
+      const program = normalize(student.programKey || student.program);
+
+      if (program.includes("2-15") || program.includes("life")) {
+        return { key: STORAGE.lifeProgress, modules: 12 };
+      }
+      if (program.includes("20-44") || program.includes("personal") || program.includes("auto")) {
+        return { key: STORAGE.personalProgress, modules: 10 };
+      }
+      if (program.includes("2-20") || program.includes("property") || program.includes("casualty")) {
+        return { key: STORAGE.propertyProgress, modules: 20 };
+      }
+      return { key: STORAGE.healthProgress, modules: 8 };
+    }
+
+    function verifyExamAccess() {
+      const student = getCurrentStudent();
+
+      if (!student) {
+        window.location.replace("student-profile.html");
+        return null;
+      }
+
+      const paid =
+        student.paymentStatus === "paid" ||
+        student.paymentStatus === true ||
+        student.paid === true ||
+        student.isPaid === true;
+
+      const requirement = getCourseRequirement(student);
+      const progress = readStorage(requirement.key, []);
+      const completed = Array.isArray(progress)
+        ? new Set(progress.map(Number)).size
+        : Number(progress.completed || 0);
+      const eligible = paid && completed >= requirement.modules;
+
+      if (!eligible) {
+        const message = !paid
+          ? "Your tuition payment must be confirmed before you can take the final examination."
+          : `Complete all ${requirement.modules} course modules before taking the final examination. Current progress: ${completed}/${requirement.modules}.`;
+        document.getElementById("lockMessage").textContent = message;
+      }
+
+      document.getElementById("examLock").classList.toggle("show", !eligible);
+      document.getElementById("examContent").style.display = eligible ? "block" : "none";
+
+      return eligible ? student : null;
+    }
+
     function saveExamResult(score, passed) {
       const students = getStudents();
-      const sessionId = localStorage.getItem(STORAGE.session);
-
+      const currentStudent = getCurrentStudent();
       const studentIndex = students.findIndex(function (student) {
-        return student.id === sessionId;
+        if (!currentStudent) return false;
+        return (
+          (student.id && currentStudent.id && student.id === currentStudent.id) ||
+          normalize(student.email) === normalize(currentStudent.email)
+        );
       });
 
       if (studentIndex >= 0) {
@@ -1222,7 +1320,10 @@
           ...students[studentIndex],
           examScore: score,
           examPassed: passed,
-          examCompletedAt: new Date().toISOString()
+          examCompletedAt: new Date().toISOString(),
+          certificateIssued: passed
+            ? students[studentIndex].certificateIssued === true
+            : false
         };
 
         localStorage.setItem(
@@ -1455,12 +1556,20 @@
       document.getElementById("resultStatus").textContent =
         passed ? text.passed.toUpperCase() : text.failed.toUpperCase();
 
+      const updatedStudent = getCurrentStudent();
+      const certificateIssued =
+        updatedStudent && updatedStudent.certificateIssued === true;
+
       document.getElementById("resultMessage").textContent =
-        passed ? text.passedMessage : text.failedMessage;
+        passed
+          ? certificateIssued
+            ? text.passedMessage
+            : "You passed the final examination. Your result was sent to the administrator for certificate approval."
+          : text.failedMessage;
 
       document
         .getElementById("certificateButton")
-        .classList.toggle("hidden", !passed);
+        .classList.toggle("hidden", !passed || !certificateIssued);
 
       window.scrollTo({
         top: 0,
@@ -1507,12 +1616,12 @@
         });
       });
 
-    verifySession();
+    if (verifyExamAccess()) {
+      document.getElementById("attemptNumber").textContent =
+        getAttempts() + 1;
 
-    document.getElementById("attemptNumber").textContent =
-      getAttempts() + 1;
-
-    applyLanguage();
+      applyLanguage();
+    }
   </script>
 </body>
 </html>
