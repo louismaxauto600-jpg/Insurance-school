@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#030201">
+  <meta name="google" content="notranslate">
+
+  <meta
+    name="description"
+    content="Secure administrator access for PRO-MAX Académie Insurance School."
+  >
+
+  <title>Admin Login | PRO-MAX Insurance School</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #030201;
+      --black-soft: #0c0502;
+      --panel: #170a04;
+      --orange: #ff681a;
+      --orange-dark: #b93908;
+      --apricot: #ffad78;
+      --muted: #ba704e;
+      --border: rgba(255, 104, 26, 0.42);
+      --glow: rgba(255, 82, 10, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--apricot);
+      background:
+        radial-gradient(
+          circle at 50% 18%,
+          rgba(255, 87, 12, 0.2),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #020100,
+          #120702 48%,
+          #020100
+        );
+      font-family: "Montserrat", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 112px;
+      padding: 17px clamp(18px, 5vw, 70px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(3, 2, 1, 0.97);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      min-width: 0;
+    }
+
+    .logo-box {
+      flex: 0 0 auto;
+      width: 78px;
+      height: 78px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--black);
+      box-shadow: 0 0 25px var(--glow);
+    }
+
+    .school-logo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      place-items: center;
+      border: 2px solid var(--orange);
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .brand-name {
+      color: var(--apricot);
+      font-size: clamp(17px, 2.5vw, 26px);
+      font-weight: 800;
+      letter-spacing: 2px;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .brand-school {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .home-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 47px;
+      padding: 12px 17px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: transparent;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .home-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    main {
+      display: grid;
+      min-height: calc(100vh - 112px);
+      padding: 55px 18px 85px;
+      place-items: center;
+    }
+
+    .login-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      width: min(1050px, 100%);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(10, 4, 2, 0.96);
+      box-shadow:
+        0 35px 80px rgba(0, 0, 0, 0.48),
+        0 0 55px rgba(255, 82, 10, 0.1);
+    }
+
+    .identity-panel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 650px;
+      padding: clamp(32px, 6vw, 65px);
+      overflow: hidden;
+      border-right: 1px solid var(--border);
+      background:
+        radial-gradient(
+          circle at 50% 30%,
+          rgba(255, 104, 26, 0.22),
+          transparent 35%
+        ),
+        #070301;
+    }
+
+    .identity-panel::after {
+      content: "";
+      position: absolute;
+      right: -140px;
+      bottom: -140px;
+      width: 350px;
+      height: 350px;
+      border: 35px solid rgba(255, 104, 26, 0.08);
+      border-radius: 50%;
+    }
+
+    .admin-logo {
+      position: relative;
+      z-index: 1;
+      width: min(270px, 80%);
+      margin: 0 auto 35px;
+      filter: drop-shadow(0 20px 25px var(--glow));
+      animation: logoFloat 5s ease-in-out infinite;
+    }
+
+    .admin-logo img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .identity-eyebrow {
+      position: relative;
+      z-index: 1;
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .identity-title {
+      position: relative;
+      z-index: 1;
+      margin-top: 16px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(31px, 5vw, 49px);
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .identity-text {
+      position: relative;
+      z-index: 1;
+      margin-top: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .form-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 650px;
+      padding: clamp(32px, 6vw, 68px);
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .form-title {
+      margin-top: 16px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.08;
+    }
+
+    .form-description {
+      margin-top: 17px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .login-form {
+      display: grid;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .field {
+      display: grid;
+      gap: 9px;
+    }
+
+    .field label {
+      color: var(--apricot);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .field input {
+      width: 100%;
+      min-height: 58px;
+      padding: 14px 48px 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      outline: none;
+      color: var(--apricot);
+      background: #070301;
+    }
+
+    .field input::placeholder {
+      color: #875037;
+    }
+
+    .field input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 17px rgba(255, 104, 26, 0.12);
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      min-width: 35px;
+      min-height: 35px;
+      border: 0;
+      color: var(--orange);
+      background: transparent;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 800;
+      transform: translateY(-50%);
+    }
+
+    .submit-button {
+      min-height: 62px;
+      padding: 15px 22px;
+      border: 1px solid var(--orange);
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
+      box-shadow: 0 0 23px var(--glow);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .submit-button:hover {
+      background: var(--orange);
+    }
+
+    .submit-button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    .message {
+      display: none;
+      padding: 16px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: rgba(255, 104, 26, 0.07);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .message.visible {
+      display: block;
+    }
+
+    .message.error {
+      color: var(--orange);
+      border-color: var(--orange-dark);
+    }
+
+    .setup-notice {
+      margin-top: 25px;
+      padding: 17px;
+      border-left: 3px solid var(--orange);
+      color: var(--muted);
+      background: rgba(255, 104, 26, 0.05);
+      font-size: 11px;
+      line-height: 1.75;
+    }
+
+    .setup-notice strong {
+      color: var(--apricot);
+    }
+
+    .contact-line {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    @keyframes logoFloat {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .login-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .identity-panel {
+        min-height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .form-panel {
+        min-height: auto;
+      }
+
+      .admin-logo {
+        width: min(210px, 65%);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .site-header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 17px;
+      }
+
+      .home-button {
+        align-self: center;
+      }
+
+      .logo-box {
+        width: 68px;
+        height: 68px;
+      }
+
+      .brand-name {
+        font-size: 17px;
+        letter-spacing: 1px;
+      }
+
+      .brand-school {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+
+      main {
+        min-height: auto;
+        padding: 25px 11px 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="logo-box">
+        <img
+          src="insurance-school-logo.png"
+          alt="PRO-MAX Insurance School"
+          class="school-logo"
+          id="schoolLogo"
+        >
+
+        <span class="logo-fallback" id="logoFallback">PM</span>
+      </div>
+
+      <div>
+        <div class="brand-name">PRO-MAX ACADÉMIE</div>
+        <div class="brand-school">
+          Insurance School • Secure Administration
+        </div>
+      </div>
+    </a>
+
+    <a href="index.html" class="home-button">
+      Return to Homepage
+    </a>
+  </header>
+
+  <main>
+    <section class="login-layout">
+      <article class="identity-panel">
+        <div class="admin-logo">
+          <img
+            src="insurance-school-logo.png"
+            alt="PRO-MAX Académie Insurance School"
+            id="mainLogo"
+          >
+        </div>
+
+        <p class="identity-eyebrow">
+          BSS1815 PRO-MAX DMP
+        </p>
+
+        <h1 class="identity-title">
+          Administration Center
+        </h1>
+
+        <p class="identity-text">
+          Authorized access for the PRO-MAX Académie Insurance School
+          Super Administrator.
+        </p>
+      </article>
+
+      <article class="form-panel">
+        <p class="eyebrow" id="formEyebrow">
+          Super Admin Access
+        </p>
+
+        <h2 class="form-title" id="formTitle">
+          Secure sign in
+        </h2>
+
+        <p class="form-description" id="formDescription">
+          Enter your authorized administrator email address and
+          security PIN.
+        </p>
+
+        <form class="login-form" id="adminLoginForm">
+          <div class="field">
+            <label for="adminEmail">Administrator Email</label>
+
+            <input
+              type="email"
+              id="adminEmail"
+              value="louismaxauto600@gmail.com"
+              autocomplete="username"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="adminPin" id="pinLabel">
+              Security PIN
+            </label>
+
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="adminPin"
+                inputmode="numeric"
+                autocomplete="current-password"
+                minlength="6"
+                maxlength="12"
+                placeholder="Enter your 6–12 digit PIN"
+                required
+              >
+
+              <button
+                type="button"
+                class="toggle-password"
+                id="togglePassword"
+                aria-label="Show or hide PIN"
+              >
+                SHOW
+              </button>
+            </div>
+          </div>
+
+          <div class="field" id="confirmPinField">
+            <label for="confirmAdminPin">
+              Confirm Security PIN
+            </label>
+
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="confirmAdminPin"
+                inputmode="numeric"
+                autocomplete="new-password"
+                minlength="6"
+                maxlength="12"
+                placeholder="Enter the same PIN again"
+              >
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-button"
+            id="submitButton"
+          >
+            Create Super Admin Access
+          </button>
+
+          <div
+            class="message"
+            id="loginMessage"
+            role="alert"
+          ></div>
+        </form>
+
+        <div class="setup-notice" id="setupNotice">
+          <strong>First-time setup:</strong>
+          Create a private security PIN containing between 6 and 12
+          numbers. Do not share this PIN.
+        </div>
+
+        <p class="contact-line">
+          louismaxauto600@gmail.com<br>
+          (407) 640-5166 • (516) 216-8494 • +509 4343-7488
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    "use strict";
+
+    const ADMIN_EMAIL = "louismaxauto600@gmail.com";
+
+    const STORAGE_KEYS = {
+      credentials: "promaxInsuranceAdminCredentials",
+      session: "promaxInsuranceAdminSession"
+    };
+
+    const SESSION_DURATION = 4 * 60 * 60 * 1000;
+
+    const adminLoginForm =
+      document.getElementById("adminLoginForm");
+
+    const adminEmail =
+      document.getElementById("adminEmail");
+
+    const adminPin =
+      document.getElementById("adminPin");
+
+    const confirmAdminPin =
+      document.getElementById("confirmAdminPin");
+
+    const confirmPinField =
+      document.getElementById("confirmPinField");
+
+    const submitButton =
+      document.getElementById("submitButton");
+
+    const loginMessage =
+      document.getElementById("loginMessage");
+
+    const setupNotice =
+      document.getElementById("setupNotice");
+
+    const formTitle =
+      document.getElementById("formTitle");
+
+    const formDescription =
+      document.getElementById("formDescription");
+
+    let setupMode = !localStorage.getItem(
+      STORAGE_KEYS.credentials
+    );
+
+    function normalizeEmail(value) {
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function showMessage(message, isError = false) {
+      loginMessage.textContent = message;
+      loginMessage.classList.add("visible");
+      loginMessage.classList.toggle("error", isError);
+    }
+
+    function hideMessage() {
+      loginMessage.textContent = "";
+      loginMessage.classList.remove("visible", "error");
+    }
+
+    function isValidPin(pin) {
+      return /^[0-9]{6,12}$/.test(pin);
+    }
+
+    async function hashValue(value) {
+      const encodedValue = new TextEncoder().encode(value);
+
+      const hashBuffer = await crypto.subtle.digest(
+        "SHA-256",
+        encodedValue
+      );
+
+      return Array.from(new Uint8Array(hashBuffer))
+        .map(byte => byte.toString(16).padStart(2, "0"))
+        .join("");
+    }
+
+    function readCredentials() {
+      try {
+        return JSON.parse(
+          localStorage.getItem(STORAGE_KEYS.credentials)
+        );
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function saveAdminSession(email) {
+      const session = {
+        email: email,
+        role: "super-admin",
+        authenticated: true,
+        createdAt: Date.now(),
+        expiresAt: Date.now() + SESSION_DURATION
+      };
+
+      localStorage.setItem(
+        STORAGE_KEYS.session,
+        JSON.stringify(session)
+      );
+    }
+
+    function validExistingSession() {
+      try {
+        const session = JSON.parse(
+          localStorage.getItem(STORAGE_KEYS.session)
+        );
+
+        return Boolean(
+          session &&
+          session.authenticated === true &&
+          session.role === "super-admin" &&
+          session.expiresAt > Date.now() &&
+          normalizeEmail(session.email) === ADMIN_EMAIL
+        );
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function updateFormMode() {
+      setupMode = !readCredentials();
+
+      if (setupMode) {
+        formTitle.textContent = "Create Super Admin access";
+
+        formDescription.textContent =
+          "Create the private security PIN for the authorized administrator.";
+
+        confirmPinField.style.display = "grid";
+        confirmAdminPin.required = true;
+
+        submitButton.textContent =
+          "Create Super Admin Access";
+
+        setupNotice.style.display = "block";
+      } else {
+        formTitle.textContent = "Secure sign in";
+
+        formDescription.textContent =
+          "Enter your authorized administrator email address and security PIN.";
+
+        confirmPinField.style.display = "none";
+        confirmAdminPin.required = false;
+        confirmAdminPin.value = "";
+
+        submitButton.textContent =
+          "Open Admin Dashboard";
+
+        setupNotice.style.display = "none";
+      }
+    }
+
+    adminLoginForm.addEventListener(
+      "submit",
+      async event => {
+        event.preventDefault();
+        hideMessage();
+
+        const email = normalizeEmail(adminEmail.value);
+        const pin = adminPin.value.trim();
+        const confirmedPin = confirmAdminPin.value.trim();
+
+        if (email !== ADMIN_EMAIL) {
+          showMessage(
+            "This email address is not authorized for Super Admin access.",
+            true
+          );
+          return;
+        }
+
+        if (!isValidPin(pin)) {
+          showMessage(
+            "The security PIN must contain between 6 and 12 numbers.",
+            true
+          );
+          return;
+        }
+
+        submitButton.disabled = true;
+
+        try {
+          const pinHash = await hashValue(
+            `${email}:${pin}:PRO-MAX-INSURANCE`
+          );
+
+          if (setupMode) {
+            if (pin !== confirmedPin) {
+              showMessage(
+                "The two security PIN entries do not match.",
+                true
+              );
+
+              submitButton.disabled = false;
+              return;
+            }
+
+            const credentials = {
+              email: email,
+              pinHash: pinHash,
+              role: "super-admin",
+              createdAt: new Date().toISOString()
+            };
+
+            localStorage.setItem(
+              STORAGE_KEYS.credentials,
+              JSON.stringify(credentials)
+            );
+
+            saveAdminSession(email);
+
+            showMessage(
+              "Super Admin access created. Opening the dashboard..."
+            );
+          } else {
+            const credentials = readCredentials();
+
+            if (
+              !credentials ||
+              normalizeEmail(credentials.email) !== email ||
+              credentials.pinHash !== pinHash
+            ) {
+              showMessage(
+                "Incorrect administrator email address or security PIN.",
+                true
+              );
+
+              submitButton.disabled = false;
+              return;
+            }
+
+            saveAdminSession(email);
+
+            showMessage(
+              "Access approved. Opening the Admin Dashboard..."
+            );
+          }
+
+          window.setTimeout(() => {
+            window.location.href = "admin-dashboard.html";
+          }, 800);
+        } catch (error) {
+          console.error(error);
+
+          showMessage(
+            "The administrator session could not be created on this device.",
+            true
+          );
+
+          submitButton.disabled = false;
+        }
+      }
+    );
+
+    document.getElementById(
+      "togglePassword"
+    ).addEventListener("click", () => {
+      const pinIsVisible = adminPin.type === "text";
+
+      adminPin.type = pinIsVisible
+        ? "password"
+        : "text";
+
+      confirmAdminPin.type = pinIsVisible
+        ? "password"
+        : "text";
+
+      document.getElementById(
+        "togglePassword"
+      ).textContent = pinIsVisible
+        ? "SHOW"
+        : "HIDE";
+    });
+
+    const schoolLogo =
+      document.getElementById("schoolLogo");
+
+    const mainLogo =
+      document.getElementById("mainLogo");
+
+    const logoFallback =
+      document.getElementById("logoFallback");
+
+    function handleLogoError(image) {
+      if (
+        image.getAttribute("src") ===
+        "insurance-school-logo.png"
+      ) {
+        image.src = "logo.png";
+        return;
+      }
+
+      image.style.display = "none";
+
+      if (image === schoolLogo) {
+        logoFallback.style.display = "grid";
+      }
+    }
+
+    schoolLogo.addEventListener(
+      "error",
+      () => handleLogoError(schoolLogo)
+    );
+
+    mainLogo.addEventListener(
+      "error",
+      () => handleLogoError(mainLogo)
+    );
+
+    if (validExistingSession()) {
+      window.location.href = "admin-dashboard.html";
+    } else {
+      localStorage.removeItem(STORAGE_KEYS.session);
+      updateFormMode();
+    }
+  </script>
+</body>
+</html>
