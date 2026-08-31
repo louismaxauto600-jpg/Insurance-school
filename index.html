@@ -2,6 +2,11 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31">
 
   <meta
     name="viewport"
@@ -886,7 +891,7 @@
 
 <body>
   <header class="site-header">
-    <a href="index.html" class="brand">
+    <a class='brand' href='/'>
       <div class="logo-box">
         <img
           src="insurance-school-logo.png"
@@ -904,14 +909,8 @@
     </a>
 
     <div class="header-actions">
-      <a
-        href="admin-dashboard.html"
-        class="admin-button"
-        data-en="Admin Dashboard"
-        data-fr="Tableau Admin"
-        data-ht="Administrasyon"
-      >
-        Admin Dashboard
+      <a class='admin-button' data-en='Admin Login' data-fr='Connexion Admin' data-ht='Koneksyon Admin' href='admin-login.html'>
+        Admin Login
       </a>
 
       <div class="language-switcher">
@@ -997,23 +996,11 @@
               Explore Programs
             </a>
 
-            <a
-              href="student-profile.html"
-              class="button button-secondary"
-              data-en="Create Account"
-              data-fr="Créer un compte"
-              data-ht="Kreye kont"
-            >
+            <a class='button button-secondary' data-en='Create Account' data-fr='Créer un compte' data-ht='Kreye kont' href='/student-profile'>
               Create Account
             </a>
 
-            <a
-              href="student-portal.html"
-              class="button button-secondary"
-              data-en="Student Portal"
-              data-fr="Portail étudiant"
-              data-ht="Pòtal elèv"
-            >
+            <a class='button button-secondary' data-en='Student Portal' data-fr='Portail étudiant' data-ht='Pòtal elèv' href='/student-portal'>
               Student Portal
             </a>
           </div>
@@ -1088,10 +1075,7 @@
                 </p>
               </div>
 
-              <a
-                href="health-insurance.html"
-                class="course-link"
-              >
+              <a class='course-link' href='/health-insurance'>
                 View Course
               </a>
             </div>
@@ -1125,10 +1109,7 @@
                 </p>
               </div>
 
-              <a
-                href="life-health-annuities.html"
-                class="course-link"
-              >
+              <a class='course-link' href='/life-health-annuities'>
                 View Course
               </a>
             </div>
@@ -1160,10 +1141,7 @@
                 </p>
               </div>
 
-              <a
-                href="personal-lines.html"
-                class="course-link"
-              >
+              <a class='course-link' href='/personal-lines'>
                 View Course
               </a>
             </div>
@@ -1324,25 +1302,16 @@
         </p>
 
         <div class="hero-actions">
-          <a
-            href="student-profile.html"
-            class="button button-primary"
-          >
+          <a class='button button-primary' href='/student-profile'>
             Create Account / Sign In
           </a>
 
-          <a
-            href="student-portal.html"
-            class="button button-secondary"
-          >
+          <a class='button button-secondary' href='/student-portal'>
             Student Portal
           </a>
 
-          <a
-            href="admin-dashboard.html"
-            class="button button-secondary"
-          >
-            Admin Dashboard
+          <a class='button button-secondary' href='admin-login.html'>
+            Admin Login
           </a>
         </div>
       </div>
@@ -1672,3 +1641,4 @@
   </script>
 </body>
 </html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31" data-app-host="app.netlify.com"></script>
