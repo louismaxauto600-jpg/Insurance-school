@@ -1132,6 +1132,27 @@
             <span class="status ${paymentPaid ? "paid" : ""}">
               ${paymentPaid ? "Paid" : "Pending"}
             </span>
+
+            ${
+              student.paymentSubmission
+                ? `<div class="student-email" style="margin-top:8px">
+                    Zelle Ref: ${escapeHTML(
+                      student.paymentSubmission.confirmationNumber || "Not provided"
+                    )}<br>
+                    Date: ${escapeHTML(
+                      student.paymentSubmission.paymentDate || "Not provided"
+                    )}<br>
+                    Submitted: ${escapeHTML(
+                      student.paymentSubmission.submittedAt
+                        ? new Date(student.paymentSubmission.submittedAt)
+                            .toLocaleString("en-US")
+                        : "Not provided"
+                    )}
+                  </div>`
+                : `<div class="student-email" style="margin-top:8px">
+                    No payment confirmation submitted
+                  </div>`
+            }
           </td>
 
           <td>
@@ -1238,6 +1259,9 @@
       student.paid = newPaidStatus;
       student.paymentConfirmedAt =
         newPaidStatus ? new Date().toISOString() : null;
+
+      student.paymentVerifiedBy =
+        newPaidStatus ? "PRO-MAX Administrator" : null;
 
       student.tuition = getTuition(student);
       student.coursePrice = getTuition(student);
