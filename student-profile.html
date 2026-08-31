@@ -13,10 +13,10 @@
 
   <meta
     name="description"
-    content="PRO-MAX Académie Insurance School Student Profile"
+    content="PRO-MAX Académie Insurance School Student Portal"
   >
 
-  <title>Student Profile | PRO-MAX Académie Insurance School</title>
+  <title>Student Portal | PRO-MAX Académie Insurance School</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,15 +29,15 @@
   <style>
     :root {
       --black: #050301;
-      --soft-black: #0d0602;
-      --card-black: #160a04;
+      --black-soft: #0d0602;
+      --card: #150903;
       --orange: #ff6a00;
       --orange-dark: #d94d00;
       --apricot: #ffad78;
-      --apricot-dark: #d98658;
+      --apricot-dark: #d98557;
       --border: rgba(255, 106, 0, 0.4);
-      --glow: rgba(255, 106, 0, 0.28);
-      --shadow: 0 22px 55px rgba(0, 0, 0, 0.65);
+      --glow: rgba(255, 106, 0, 0.27);
+      --shadow: 0 22px 55px rgba(0, 0, 0, 0.66);
     }
 
     * {
@@ -46,19 +46,23 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       min-height: 100vh;
+      overflow-x: hidden;
       color: var(--apricot);
       background:
-        radial-gradient(circle at 50% 0%, #401400 0%, transparent 40%),
-        linear-gradient(145deg, #050301, #120601 55%, #030201);
+        radial-gradient(circle at 50% 0%, #401400, transparent 38%),
+        linear-gradient(145deg, #050301, #130601 55%, #030201);
       font-family: "Montserrat", sans-serif;
     }
 
     button,
     input,
-    select,
-    textarea {
+    select {
       font: inherit;
     }
 
@@ -81,29 +85,29 @@
       top: 0;
       z-index: 1000;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 25px;
-      min-height: 110px;
-      padding: 18px clamp(18px, 5vw, 70px);
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 108px;
+      padding: 17px clamp(18px, 5vw, 70px);
       border-bottom: 1px solid var(--border);
-      background: rgba(4, 2, 1, 0.96);
+      background: rgba(4, 2, 1, 0.97);
       backdrop-filter: blur(18px);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 17px;
     }
 
     .brand-logo {
-      width: 74px;
-      height: 74px;
+      width: 73px;
+      height: 73px;
       object-fit: cover;
       border: 1px solid var(--orange);
       background: var(--black);
-      box-shadow: 0 0 24px var(--glow);
+      box-shadow: 0 0 25px var(--glow);
     }
 
     .brand-title {
@@ -115,10 +119,10 @@
     }
 
     .brand-subtitle {
-      margin-top: 8px;
+      margin-top: 7px;
       color: var(--apricot-dark);
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 10px;
+      font-weight: 800;
       letter-spacing: 4px;
       text-transform: uppercase;
     }
@@ -126,7 +130,7 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
     }
 
     .language-switcher {
@@ -134,11 +138,11 @@
       padding: 5px;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: var(--soft-black);
+      background: var(--black-soft);
     }
 
     .language-button {
-      min-width: 44px;
+      min-width: 43px;
       padding: 9px;
       border: 0;
       border-radius: 999px;
@@ -154,10 +158,10 @@
     }
 
     .header-button {
-      padding: 13px 17px;
+      padding: 12px 16px;
       border: 1px solid var(--border);
       color: var(--apricot);
-      background: var(--soft-black);
+      background: var(--black-soft);
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 1px;
@@ -170,134 +174,348 @@
     }
 
     main {
-      width: min(1160px, calc(100% - 28px));
+      width: min(1220px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 65px 0 90px;
+      padding: 65px 0 95px;
     }
 
-    .page-heading {
-      margin-bottom: 40px;
+    .intro {
+      max-width: 840px;
+      margin: 0 auto 42px;
+      text-align: center;
     }
 
     .eyebrow {
-      margin-bottom: 15px;
+      display: inline-block;
+      margin-bottom: 16px;
       color: var(--orange);
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
     }
 
-    .page-heading h1 {
+    .intro h1,
+    .dashboard-title {
       color: var(--apricot);
       font-family: "Cinzel", serif;
       font-size: clamp(38px, 7vw, 68px);
       line-height: 1.05;
     }
 
-    .page-heading p {
-      max-width: 720px;
-      margin-top: 17px;
+    .intro p,
+    .dashboard-description {
+      max-width: 730px;
+      margin: 18px auto 0;
       color: var(--apricot-dark);
       font-size: 17px;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    .profile-layout {
+    .auth-box {
       display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 25px;
-    }
-
-    .profile-card,
-    .form-card {
+      grid-template-columns: 0.9fr 1.1fr;
+      max-width: 1030px;
+      margin: 0 auto;
+      overflow: hidden;
       border: 1px solid var(--border);
-      background:
-        linear-gradient(145deg, rgba(255, 106, 0, 0.08), transparent 55%),
-        var(--soft-black);
+      background: var(--black-soft);
       box-shadow: var(--shadow);
     }
 
-    .profile-card {
-      height: fit-content;
-      padding: 34px 27px;
-      text-align: center;
+    .auth-art {
+      position: relative;
+      min-height: 610px;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, transparent, rgba(5, 3, 1, 0.95)),
+        radial-gradient(circle at 50% 30%, #8c2c00, #260b00 48%, #050301 75%);
     }
 
-    .avatar {
-      display: grid;
-      place-items: center;
-      width: 132px;
-      height: 132px;
-      margin: 0 auto 24px;
-      overflow: hidden;
+    .auth-art::before {
+      content: "";
+      position: absolute;
+      top: 65px;
+      left: 50%;
+      width: 330px;
+      height: 330px;
       border: 2px solid var(--orange);
       border-radius: 50%;
-      color: var(--black);
-      background: linear-gradient(135deg, var(--apricot), var(--orange));
-      box-shadow: 0 0 35px var(--glow);
-      font-family: "Cinzel", serif;
-      font-size: 44px;
-      font-weight: 900;
+      box-shadow:
+        0 0 35px var(--glow),
+        inset 0 0 35px var(--glow);
+      transform: translateX(-50%);
+      animation: pulse 4s ease-in-out infinite;
     }
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .auth-art::after {
+      content: "";
+      position: absolute;
+      top: 105px;
+      left: 50%;
+      width: 250px;
+      height: 250px;
+      border: 1px dashed var(--orange);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      animation: spin 17s linear infinite;
     }
 
-    .student-name {
+    .auth-art-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .auth-art-content h2 {
       color: var(--apricot);
       font-family: "Cinzel", serif;
-      font-size: 24px;
-      line-height: 1.3;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
     }
 
-    .student-program {
-      margin-top: 9px;
-      color: var(--orange);
-      font-size: 12px;
+    .auth-art-content p {
+      margin-top: 17px;
+      color: var(--apricot-dark);
+      line-height: 1.7;
+    }
+
+    .auth-panel {
+      padding: clamp(28px, 5vw, 55px);
+    }
+
+    .auth-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+    }
+
+    .auth-tab {
+      padding: 15px;
+      border: 0;
+      color: var(--apricot-dark);
+      background: transparent;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .auth-tab.active {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    .form-title {
+      margin-bottom: 8px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 29px;
+    }
+
+    .form-description {
+      margin-bottom: 27px;
+      color: var(--apricot-dark);
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--apricot);
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
-    .student-id-box {
-      margin-top: 27px;
-      padding: 17px;
+    .form-control {
+      width: 100%;
+      min-height: 53px;
+      padding: 14px 16px;
       border: 1px solid var(--border);
+      outline: none;
+      color: var(--apricot);
+      background: #080301;
+    }
+
+    .form-control:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px var(--glow);
+    }
+
+    .form-control::placeholder {
+      color: #8d5637;
+    }
+
+    select option {
+      color: var(--apricot);
       background: var(--black);
     }
 
-    .student-id-label {
-      color: var(--apricot-dark);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 3px;
+    .primary-button {
+      width: 100%;
+      min-height: 56px;
+      margin-top: 7px;
+      border: 1px solid var(--orange);
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      box-shadow: 0 13px 30px var(--glow);
+      font-weight: 900;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    .student-id {
-      margin-top: 8px;
+    .form-message {
+      min-height: 23px;
+      margin-top: 16px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .dashboard {
+      display: none;
+    }
+
+    .dashboard.active {
+      display: block;
+    }
+
+    .dashboard-heading {
+      margin-bottom: 30px;
+    }
+
+    .dashboard-description {
+      margin-left: 0;
+    }
+
+    .student-navigation {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 35px;
+      border: 1px solid var(--border);
+      background: var(--black-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .student-navigation a,
+    .student-navigation button {
+      min-height: 67px;
+      display: grid;
+      place-items: center;
+      padding: 12px 9px;
+      border: 0;
+      border-right: 1px solid var(--border);
       color: var(--apricot);
-      font-size: 18px;
+      background: transparent;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .student-navigation > :last-child {
+      border-right: 0;
+    }
+
+    .student-navigation a:hover,
+    .student-navigation button:hover,
+    .student-navigation .active {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+      margin-bottom: 26px;
+    }
+
+    .stat-card,
+    .portal-card {
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(145deg, rgba(255, 106, 0, 0.08), transparent 55%),
+        var(--black-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card {
+      min-height: 150px;
+      padding: 24px;
+    }
+
+    .stat-label {
+      color: var(--apricot-dark);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      margin-top: 17px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 31px;
       font-weight: 800;
     }
 
-    .completion-area {
-      margin-top: 26px;
-      text-align: left;
-    }
-
-    .completion-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 10px;
-      color: var(--apricot-dark);
+    .stat-detail {
+      margin-top: 7px;
+      color: var(--orange);
       font-size: 12px;
       font-weight: 700;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 24px;
+    }
+
+    .portal-card {
+      padding: clamp(23px, 4vw, 37px);
+      scroll-margin-top: 135px;
+    }
+
+    .side-column .portal-card + .portal-card {
+      margin-top: 24px;
+    }
+
+    .card-number {
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .card-title {
+      margin: 9px 0 24px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(25px, 3vw, 34px);
+    }
+
+    .program-name {
+      color: var(--apricot);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .description {
+      margin: 11px 0 21px;
+      color: var(--apricot-dark);
+      line-height: 1.7;
     }
 
     .progress-track {
@@ -317,117 +535,175 @@
       transition: width 0.4s ease;
     }
 
-    .photo-label {
-      display: block;
-      margin-top: 24px;
-      padding: 13px;
-      border: 1px solid var(--border);
-      color: var(--apricot);
-      background: transparent;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      cursor: pointer;
+    .progress-information {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 11px;
+      color: var(--apricot-dark);
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    .photo-label:hover {
+    .lesson-list {
+      display: grid;
+      gap: 11px;
+      margin-top: 26px;
+    }
+
+    .lesson {
+      display: grid;
+      grid-template-columns: 43px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 15px;
+      border: 1px solid rgba(255, 106, 0, 0.24);
+      background: rgba(5, 3, 1, 0.8);
+    }
+
+    .lesson-number {
+      display: grid;
+      place-items: center;
+      width: 41px;
+      height: 41px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .lesson.completed .lesson-number {
       color: var(--black);
       background: var(--orange);
     }
 
-    .form-card {
-      padding: clamp(26px, 5vw, 50px);
-    }
-
-    .section-number {
-      color: var(--orange);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 4px;
-    }
-
-    .form-title {
-      margin: 10px 0 30px;
+    .lesson-name {
       color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: clamp(27px, 4vw, 40px);
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 21px;
-    }
-
-    .form-group.full {
-      grid-column: 1 / -1;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 9px;
-      color: var(--apricot);
-      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1px;
+    }
+
+    .lesson-meta {
+      margin-top: 5px;
+      color: var(--apricot-dark);
+      font-size: 11px;
+    }
+
+    .lesson-button,
+    .action-button {
+      padding: 11px 13px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: transparent;
+      font-size: 10px;
+      font-weight: 800;
       text-transform: uppercase;
     }
 
-    .form-control {
-      width: 100%;
-      min-height: 54px;
-      padding: 14px 16px;
+    .lesson-button:hover,
+    .action-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .price {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 40px;
+      font-weight: 800;
+    }
+
+    .price small {
+      font-family: "Montserrat", sans-serif;
+      font-size: 15px;
+    }
+
+    .payment-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin: 22px 0;
+    }
+
+    .payment-step {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
       border: 1px solid var(--border);
-      border-radius: 2px;
-      outline: none;
-      color: var(--apricot);
-      background: #080301;
+      border-radius: 50%;
+      color: var(--apricot-dark);
+      background: var(--black);
+      font-size: 11px;
+      font-weight: 900;
     }
 
-    textarea.form-control {
-      min-height: 120px;
-      resize: vertical;
+    .payment-step.paid {
+      color: var(--black);
+      background: var(--orange);
+      box-shadow: 0 0 18px var(--glow);
     }
 
-    .form-control:focus {
-      border-color: var(--orange);
-      box-shadow: 0 0 0 3px var(--glow);
+    .button-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 18px;
     }
 
-    .form-control::placeholder {
-      color: #8d5637;
-    }
-
-    select option {
-      color: var(--apricot);
+    .locked-box {
+      padding: 21px;
+      border: 1px dashed var(--border);
       background: var(--black);
     }
 
-    .save-button {
-      width: 100%;
-      min-height: 57px;
-      margin-top: 28px;
-      border: 1px solid var(--orange);
-      color: var(--black);
-      background: linear-gradient(135deg, var(--apricot), var(--orange));
-      box-shadow: 0 14px 30px var(--glow);
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .save-button:hover {
-      transform: translateY(-2px);
-    }
-
-    .message {
-      min-height: 24px;
-      margin-top: 17px;
+    .locked-icon {
+      margin-bottom: 12px;
       color: var(--orange);
+      font-size: 27px;
+    }
+
+    .locked-box h3 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 21px;
+    }
+
+    .locked-box p {
+      margin-top: 9px;
+      color: var(--apricot-dark);
       font-size: 13px;
-      font-weight: 700;
-      text-align: center;
+      line-height: 1.7;
+    }
+
+    .certificate-box {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .certificate-seal {
+      display: grid;
+      place-items: center;
+      width: 59px;
+      height: 59px;
+      flex: 0 0 59px;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-weight: 900;
+      box-shadow: 0 0 20px var(--glow);
+    }
+
+    .certificate-box h3 {
+      color: var(--apricot);
+      font-size: 16px;
+    }
+
+    .certificate-box p {
+      margin-top: 5px;
+      color: var(--apricot-dark);
+      font-size: 12px;
+      line-height: 1.6;
     }
 
     footer {
@@ -440,18 +716,61 @@
       line-height: 1.8;
     }
 
-    @media (max-width: 900px) {
-      .profile-layout {
-        grid-template-columns: 1fr;
+    @keyframes spin {
+      from {
+        transform: translateX(-50%) rotate(0deg);
+      }
+
+      to {
+        transform: translateX(-50%) rotate(360deg);
       }
     }
 
-    @media (max-width: 680px) {
+    @keyframes pulse {
+      0%,
+      100% {
+        opacity: 0.6;
+        transform: translateX(-50%) scale(0.96);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.03);
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .student-navigation {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .student-navigation a,
+      .student-navigation button {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .dashboard-grid,
+      .auth-box {
+        grid-template-columns: 1fr;
+      }
+
+      .auth-art {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
       .site-header {
         position: relative;
         align-items: flex-start;
         flex-direction: column;
-        padding: 18px;
+        padding: 17px;
       }
 
       .header-actions {
@@ -460,8 +779,8 @@
       }
 
       .brand-logo {
-        width: 65px;
-        height: 65px;
+        width: 64px;
+        height: 64px;
       }
 
       .brand-title {
@@ -473,17 +792,25 @@
         letter-spacing: 3px;
       }
 
-      .form-grid {
-        grid-template-columns: 1fr;
+      .student-navigation {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .form-group.full {
-        grid-column: auto;
+      .lesson {
+        grid-template-columns: 41px 1fr;
+      }
+
+      .lesson-button {
+        grid-column: 1 / -1;
       }
     }
 
-    @media (max-width: 470px) {
-      .dashboard-link {
+    @media (max-width: 460px) {
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-button {
         display: none;
       }
     }
@@ -537,203 +864,172 @@
       </div>
 
       <a
-        class="header-button dashboard-link"
-        href="./student-portal.html"
-        data-i18n="dashboard"
+        class="header-button home-button"
+        href="./index.html"
+        data-i18n="home"
       >
-        Dashboard
+        Home
       </a>
-
-      <button
-        class="header-button"
-        id="logoutButton"
-        type="button"
-        data-i18n="logout"
-      >
-        Log Out
-      </button>
     </div>
   </header>
 
   <main>
-    <div class="page-heading">
-      <div class="eyebrow" data-i18n="account">
-        Student Account
+    <section id="authSection">
+      <div class="intro">
+        <span class="eyebrow">BSS1815 PRO-MAX DMP</span>
+
+        <h1 data-i18n="portalTitle">
+          Student Portal
+        </h1>
+
+        <p data-i18n="portalIntro">
+          Access your student profile, insurance courses,
+          payments, final exam and certificate.
+        </p>
       </div>
 
-      <h1 data-i18n="title">Student Profile</h1>
+      <div class="auth-box">
+        <div class="auth-art">
+          <div class="auth-art-content">
+            <h2 data-i18n="artTitle">
+              Learn with direction. Progress with discipline.
+            </h2>
 
-      <p data-i18n="intro">
-        Complete and maintain your official Insurance School student information.
-      </p>
-    </div>
-
-    <div class="profile-layout">
-      <aside class="profile-card">
-        <div class="avatar" id="avatar">
-          <span id="studentInitials">PM</span>
-          <img
-            class="hidden"
-            id="studentPhoto"
-            src=""
-            alt="Student profile"
-          >
-        </div>
-
-        <h2 class="student-name" id="profileStudentName">
-          Student Name
-        </h2>
-
-        <div class="student-program" id="profileProgram">
-          Insurance Program
-        </div>
-
-        <div class="student-id-box">
-          <div class="student-id-label" data-i18n="studentId">
-            Student ID
-          </div>
-
-          <div class="student-id" id="profileStudentId">
-            PMIS-000000
+            <p data-i18n="artText">
+              Your complete professional insurance learning environment.
+            </p>
           </div>
         </div>
 
-        <div class="completion-area">
-          <div class="completion-line">
-            <span data-i18n="profileCompletion">
-              Profile completion
-            </span>
+        <div class="auth-panel">
+          <div class="auth-tabs">
+            <button
+              class="auth-tab active"
+              id="loginTab"
+              type="button"
+              data-i18n="login"
+            >
+              Login
+            </button>
 
-            <span id="completionPercent">0%</span>
+            <button
+              class="auth-tab"
+              id="registerTab"
+              type="button"
+              data-i18n="register"
+            >
+              Register
+            </button>
           </div>
 
-          <div class="progress-track">
-            <div
-              class="progress-fill"
-              id="completionProgress"
-            ></div>
-          </div>
-        </div>
+          <form id="loginForm">
+            <h2 class="form-title" data-i18n="welcomeBack">
+              Welcome Back
+            </h2>
 
-        <label class="photo-label" for="photoInput" data-i18n="uploadPhoto">
-          Upload Student Photo
-        </label>
-
-        <input
-          class="hidden"
-          id="photoInput"
-          type="file"
-          accept="image/png,image/jpeg,image/webp"
-        >
-      </aside>
-
-      <section class="form-card">
-        <div class="section-number">02 — STUDENT PROFILE</div>
-
-        <h2 class="form-title" data-i18n="information">
-          Personal Information
-        </h2>
-
-        <form id="profileForm">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="fullName" data-i18n="fullName">
-                Full Name
-              </label>
-
-              <input
-                class="form-control"
-                id="fullName"
-                type="text"
-                required
-              >
-            </div>
+            <p class="form-description" data-i18n="loginText">
+              Enter your student email and password.
+            </p>
 
             <div class="form-group">
-              <label for="email" data-i18n="email">
+              <label for="loginEmail" data-i18n="email">
                 Email Address
               </label>
 
               <input
                 class="form-control"
-                id="email"
+                id="loginEmail"
                 type="email"
                 required
+                autocomplete="email"
+                placeholder="student@example.com"
               >
             </div>
 
             <div class="form-group">
-              <label for="phone" data-i18n="phone">
-                Phone Number
+              <label for="loginPassword" data-i18n="password">
+                Password
               </label>
 
               <input
                 class="form-control"
-                id="phone"
-                type="tel"
-                placeholder="+1"
+                id="loginPassword"
+                type="password"
+                minlength="6"
+                required
+                autocomplete="current-password"
+                placeholder="Enter password"
               >
             </div>
 
+            <button
+              class="primary-button"
+              type="submit"
+              data-i18n="enterPortal"
+            >
+              Enter Student Portal
+            </button>
+
+            <div
+              class="form-message"
+              id="loginMessage"
+              aria-live="polite"
+            ></div>
+          </form>
+
+          <form class="hidden" id="registerForm">
+            <h2 class="form-title" data-i18n="createAccount">
+              Create Student Account
+            </h2>
+
+            <p class="form-description" data-i18n="registerText">
+              Register for your insurance education program.
+            </p>
+
             <div class="form-group">
-              <label for="dateOfBirth" data-i18n="birthDate">
-                Date of Birth
+              <label for="studentName" data-i18n="fullName">
+                Full Name
               </label>
 
               <input
                 class="form-control"
-                id="dateOfBirth"
-                type="date"
-              >
-            </div>
-
-            <div class="form-group">
-              <label for="country" data-i18n="country">
-                Country
-              </label>
-
-              <input
-                class="form-control"
-                id="country"
+                id="studentName"
                 type="text"
-                value="United States"
+                required
+                autocomplete="name"
+                placeholder="Your full name"
               >
             </div>
 
             <div class="form-group">
-              <label for="state" data-i18n="state">
-                State
+              <label for="registerEmail" data-i18n="email">
+                Email Address
               </label>
 
-              <select class="form-control" id="state">
-                <option value="">Select State</option>
-                <option value="Florida">Florida</option>
-                <option value="Georgia">Georgia</option>
-                <option value="New York">New York</option>
-                <option value="New Jersey">New Jersey</option>
-                <option value="Massachusetts">Massachusetts</option>
-                <option value="Texas">Texas</option>
-                <option value="Other">Other</option>
-              </select>
+              <input
+                class="form-control"
+                id="registerEmail"
+                type="email"
+                required
+                autocomplete="email"
+                placeholder="student@example.com"
+              >
             </div>
 
             <div class="form-group">
-              <label for="program" data-i18n="program">
+              <label for="studentProgram" data-i18n="program">
                 Insurance Program
               </label>
 
-              <select class="form-control" id="program" required>
-                <option value="Life Insurance">
-                  Life Insurance
-                </option>
-
-                <option value="Health Insurance">
-                  Health Insurance
-                </option>
-
-                <option value="Auto Insurance">
-                  Auto Insurance
-                </option>
+              <select
+                class="form-control"
+                id="studentProgram"
+                required
+              >
+                <option value="">Choose a program</option>
+                <option value="Life Insurance">Life Insurance</option>
+                <option value="Health Insurance">Health Insurance</option>
+                <option value="Auto Insurance">Auto Insurance</option>
 
                 <option value="Property & Casualty">
                   Property & Casualty
@@ -742,64 +1038,266 @@
             </div>
 
             <div class="form-group">
-              <label for="preferredLanguage" data-i18n="language">
-                Preferred Language
-              </label>
-
-              <select
-                class="form-control"
-                id="preferredLanguage"
-              >
-                <option value="English">English</option>
-                <option value="French">Français</option>
-                <option value="Haitian Creole">
-                  Kreyòl Ayisyen
-                </option>
-              </select>
-            </div>
-
-            <div class="form-group full">
-              <label for="address" data-i18n="address">
-                Mailing Address
+              <label for="registerPassword" data-i18n="password">
+                Password
               </label>
 
               <input
                 class="form-control"
-                id="address"
-                type="text"
-                placeholder="Street, city, ZIP code"
+                id="registerPassword"
+                type="password"
+                minlength="6"
+                required
+                autocomplete="new-password"
+                placeholder="Minimum 6 characters"
               >
             </div>
 
-            <div class="form-group full">
-              <label for="learningGoal" data-i18n="goal">
-                Learning Goal
-              </label>
+            <button
+              class="primary-button"
+              type="submit"
+              data-i18n="createAccount"
+            >
+              Create Student Account
+            </button>
 
-              <textarea
-                class="form-control"
-                id="learningGoal"
-                placeholder="Describe your insurance career goal"
-              ></textarea>
-            </div>
+            <div
+              class="form-message"
+              id="registerMessage"
+              aria-live="polite"
+            ></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard" id="dashboardSection">
+      <div class="dashboard-heading">
+        <span class="eyebrow" data-i18n="studentAccount">
+          Student Account
+        </span>
+
+        <h1 class="dashboard-title">
+          <span data-i18n="welcome">Welcome</span>,
+          <span id="studentNameDisplay">Student</span>
+        </h1>
+
+        <p class="dashboard-description" data-i18n="dashboardText">
+          Manage your profile and continue every step of your training.
+        </p>
+      </div>
+
+      <nav class="student-navigation" aria-label="Student navigation">
+        <a class="active" href="#dashboardSection" data-i18n="dashboard">
+          Dashboard
+        </a>
+
+        <a href="./student-profile.html" data-i18n="myProfile">
+          My Profile
+        </a>
+
+        <a href="#courses" data-i18n="myCourses">
+          My Courses
+        </a>
+
+        <a href="#payments" data-i18n="payments">
+          Payments
+        </a>
+
+        <a href="#finalExam" data-i18n="finalExam">
+          Final Exam
+        </a>
+
+        <a href="#certificate" data-i18n="certificate">
+          Certificate
+        </a>
+
+        <button id="logoutButton" type="button" data-i18n="logout">
+          Log Out
+        </button>
+      </nav>
+
+      <div class="stat-grid">
+        <article class="stat-card">
+          <div class="stat-label" data-i18n="courseProgress">
+            Course Progress
           </div>
 
-          <button
-            class="save-button"
-            type="submit"
-            data-i18n="save"
-          >
-            Save Student Profile
-          </button>
+          <div class="stat-value" id="courseProgressValue">
+            0%
+          </div>
 
-          <div
-            class="message"
-            id="message"
-            aria-live="polite"
-          ></div>
-        </form>
-      </section>
-    </div>
+          <div class="stat-detail" id="lessonStat">
+            0/5 lessons
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-label" data-i18n="quizScore">
+            Quiz Score
+          </div>
+
+          <div class="stat-value">—</div>
+
+          <div class="stat-detail" data-i18n="notStarted">
+            Not started
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-label" data-i18n="payments">
+            Payments
+          </div>
+
+          <div class="stat-value" id="paymentValue">
+            0/5
+          </div>
+
+          <div class="stat-detail" id="balanceValue">
+            Balance: $500 USD
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-label" data-i18n="studentId">
+            Student ID
+          </div>
+
+          <div class="stat-value" id="studentIdDisplay">
+            PMIS
+          </div>
+
+          <div class="stat-detail" data-i18n="activeStudent">
+            Active student
+          </div>
+        </article>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="portal-card" id="courses">
+          <div class="card-number">01 — COURSES</div>
+
+          <h2 class="card-title" data-i18n="myCourses">
+            My Courses
+          </h2>
+
+          <div class="program-name" id="programDisplay">
+            Insurance Program
+          </div>
+
+          <p class="description" data-i18n="courseText">
+            Complete every lesson before taking your final exam.
+          </p>
+
+          <div class="progress-track">
+            <div
+              class="progress-fill"
+              id="courseProgressFill"
+            ></div>
+          </div>
+
+          <div class="progress-information">
+            <span id="progressText">0% Complete</span>
+            <span id="lessonCount">0/5 lessons</span>
+          </div>
+
+          <div class="lesson-list" id="lessonList"></div>
+        </article>
+
+        <div class="side-column">
+          <article class="portal-card" id="payments">
+            <div class="card-number">02 — PAYMENTS</div>
+
+            <h2 class="card-title" data-i18n="payments">
+              Payments
+            </h2>
+
+            <div class="price">
+              $500 <small>USD</small>
+            </div>
+
+            <p class="description" data-i18n="paymentPlan">
+              5 payments × $100 USD
+            </p>
+
+            <div class="progress-track">
+              <div
+                class="progress-fill"
+                id="paymentProgressFill"
+              ></div>
+            </div>
+
+            <div class="payment-steps" id="paymentSteps"></div>
+
+            <p class="description" id="paymentDetails">
+              Paid: $0 USD · Balance: $500 USD
+            </p>
+
+            <div class="button-row">
+              <button
+                class="action-button"
+                id="removePayment"
+                type="button"
+                data-i18n="removePayment"
+              >
+                − Payment
+              </button>
+
+              <button
+                class="action-button"
+                id="addPayment"
+                type="button"
+                data-i18n="addPayment"
+              >
+                + Payment
+              </button>
+            </div>
+          </article>
+
+          <article class="portal-card" id="finalExam">
+            <div class="card-number">03 — FINAL EXAM</div>
+
+            <h2 class="card-title" data-i18n="finalExam">
+              Final Exam
+            </h2>
+
+            <div class="locked-box">
+              <div class="locked-icon" id="examIcon">🔒</div>
+
+              <h3 id="examTitle" data-i18n="examLocked">
+                Exam Locked
+              </h3>
+
+              <p id="examText" data-i18n="examRequirement">
+                Complete all lessons and payments to unlock the exam.
+              </p>
+            </div>
+          </article>
+
+          <article class="portal-card" id="certificate">
+            <div class="card-number">04 — CERTIFICATE</div>
+
+            <h2 class="card-title" data-i18n="certificate">
+              Certificate
+            </h2>
+
+            <div class="certificate-box">
+              <div class="certificate-seal">PM</div>
+
+              <div>
+                <h3 data-i18n="certificatePending">
+                  Certificate Pending
+                </h3>
+
+                <p data-i18n="certificateText">
+                  Available after passing the final exam.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -816,94 +1314,215 @@
       language: "promaxInsuranceLanguage"
     };
 
+    const lessonKeys = [
+      "fundamentals",
+      "policy",
+      "ethics",
+      "claims",
+      "examPreparation"
+    ];
+
     const translations = {
       en: {
         school: "Insurance School",
-        dashboard: "Dashboard",
-        logout: "Log Out",
-        account: "Student Account",
-        title: "Student Profile",
-        intro:
-          "Complete and maintain your official Insurance School student information.",
-        studentId: "Student ID",
-        profileCompletion: "Profile completion",
-        uploadPhoto: "Upload Student Photo",
-        information: "Personal Information",
-        fullName: "Full Name",
+        home: "Home",
+        portalTitle: "Student Portal",
+        portalIntro:
+          "Access your student profile, insurance courses, payments, final exam and certificate.",
+        artTitle: "Learn with direction. Progress with discipline.",
+        artText: "Your complete professional insurance learning environment.",
+        login: "Login",
+        register: "Register",
+        welcomeBack: "Welcome Back",
+        loginText: "Enter your student email and password.",
         email: "Email Address",
-        phone: "Phone Number",
-        birthDate: "Date of Birth",
-        country: "Country",
-        state: "State",
+        password: "Password",
+        enterPortal: "Enter Student Portal",
+        createAccount: "Create Student Account",
+        registerText: "Register for your insurance education program.",
+        fullName: "Full Name",
         program: "Insurance Program",
-        language: "Preferred Language",
-        address: "Mailing Address",
-        goal: "Learning Goal",
-        save: "Save Student Profile",
-        saved: "Student profile saved successfully."
+        studentAccount: "Student Account",
+        welcome: "Welcome",
+        dashboardText:
+          "Manage your profile and continue every step of your training.",
+        dashboard: "Dashboard",
+        myProfile: "My Profile",
+        myCourses: "My Courses",
+        payments: "Payments",
+        finalExam: "Final Exam",
+        certificate: "Certificate",
+        logout: "Log Out",
+        courseProgress: "Course Progress",
+        quizScore: "Quiz Score",
+        notStarted: "Not started",
+        studentId: "Student ID",
+        activeStudent: "Active student",
+        courseText: "Complete every lesson before taking your final exam.",
+        paymentPlan: "5 payments × $100 USD",
+        removePayment: "− Payment",
+        addPayment: "+ Payment",
+        examLocked: "Exam Locked",
+        examAvailable: "Exam Available",
+        examRequirement:
+          "Complete all lessons and payments to unlock the exam.",
+        examReady: "Your course and payments are complete. The exam is ready.",
+        certificatePending: "Certificate Pending",
+        certificateText: "Available after passing the final exam.",
+        fundamentals: "Insurance Fundamentals",
+        policy: "Policy Structure and Coverage",
+        ethics: "Clients, Ethics and Responsibilities",
+        claims: "Claims and Risk Management",
+        examPreparation: "Final Exam Preparation",
+        complete: "Complete",
+        completed: "Completed",
+        invalidLogin: "Email or password is incorrect.",
+        accountExists: "An account already exists with this email.",
+        accountCreated: "Account created successfully. Opening portal...",
+        fillFields: "Complete all required fields.",
+        lessons: "lessons",
+        paid: "Paid",
+        balance: "Balance"
       },
 
       fr: {
         school: "École d’assurance",
-        dashboard: "Tableau de bord",
-        logout: "Déconnexion",
-        account: "Compte étudiant",
-        title: "Profil étudiant",
-        intro:
-          "Complétez et maintenez vos informations officielles d’étudiant.",
-        studentId: "Numéro étudiant",
-        profileCompletion: "Profil complété",
-        uploadPhoto: "Télécharger une photo",
-        information: "Informations personnelles",
-        fullName: "Nom complet",
+        home: "Accueil",
+        portalTitle: "Portail étudiant",
+        portalIntro:
+          "Accédez à votre profil, vos cours, paiements, examen final et certificat.",
+        artTitle: "Apprenez avec direction. Progressez avec discipline.",
+        artText: "Votre environnement professionnel de formation en assurance.",
+        login: "Connexion",
+        register: "Inscription",
+        welcomeBack: "Bienvenue",
+        loginText: "Entrez votre courriel et votre mot de passe.",
         email: "Adresse courriel",
-        phone: "Numéro de téléphone",
-        birthDate: "Date de naissance",
-        country: "Pays",
-        state: "État",
+        password: "Mot de passe",
+        enterPortal: "Entrer dans le portail",
+        createAccount: "Créer un compte étudiant",
+        registerText: "Inscrivez-vous à votre programme d’assurance.",
+        fullName: "Nom complet",
         program: "Programme d’assurance",
-        language: "Langue préférée",
-        address: "Adresse postale",
-        goal: "Objectif de formation",
-        save: "Enregistrer le profil",
-        saved: "Profil étudiant enregistré avec succès."
+        studentAccount: "Compte étudiant",
+        welcome: "Bienvenue",
+        dashboardText:
+          "Gérez votre profil et poursuivez chaque étape de votre formation.",
+        dashboard: "Tableau de bord",
+        myProfile: "Mon profil",
+        myCourses: "Mes cours",
+        payments: "Paiements",
+        finalExam: "Examen final",
+        certificate: "Certificat",
+        logout: "Déconnexion",
+        courseProgress: "Progression du cours",
+        quizScore: "Résultat du quiz",
+        notStarted: "Non commencé",
+        studentId: "Numéro étudiant",
+        activeStudent: "Étudiant actif",
+        courseText: "Terminez chaque leçon avant votre examen final.",
+        paymentPlan: "5 paiements × 100 $ USD",
+        removePayment: "− Paiement",
+        addPayment: "+ Paiement",
+        examLocked: "Examen verrouillé",
+        examAvailable: "Examen disponible",
+        examRequirement:
+          "Terminez les leçons et paiements pour déverrouiller l’examen.",
+        examReady: "Votre cours et vos paiements sont terminés. L’examen est prêt.",
+        certificatePending: "Certificat en attente",
+        certificateText: "Disponible après la réussite de l’examen final.",
+        fundamentals: "Principes fondamentaux de l’assurance",
+        policy: "Structure des polices et couvertures",
+        ethics: "Clients, éthique et responsabilités",
+        claims: "Réclamations et gestion des risques",
+        examPreparation: "Préparation à l’examen final",
+        complete: "Terminer",
+        completed: "Terminé",
+        invalidLogin: "Le courriel ou le mot de passe est incorrect.",
+        accountExists: "Un compte utilise déjà ce courriel.",
+        accountCreated: "Compte créé. Ouverture du portail...",
+        fillFields: "Remplissez tous les champs obligatoires.",
+        lessons: "leçons",
+        paid: "Payé",
+        balance: "Solde"
       },
 
       ht: {
         school: "Lekòl Asirans",
-        dashboard: "Dashboard",
-        logout: "Dekonekte",
-        account: "Kont Elèv",
-        title: "Pwofil Elèv",
-        intro:
-          "Ranpli epi konsève enfòmasyon ofisyèl ou kòm elèv lekòl la.",
-        studentId: "Nimewo Elèv",
-        profileCompletion: "Pwofil konplete",
-        uploadPhoto: "Mete Foto Elèv",
-        information: "Enfòmasyon Pèsonèl",
-        fullName: "Non Konplè",
+        home: "Akèy",
+        portalTitle: "Pòtal Elèv",
+        portalIntro:
+          "Antre nan pwofil, kou, peman, egzamen final ak sètifika ou.",
+        artTitle: "Aprann ak direksyon. Pwogrese ak disiplin.",
+        artText: "Anviwònman pwofesyonèl konplè pou fòmasyon asirans ou.",
+        login: "Konekte",
+        register: "Enskri",
+        welcomeBack: "Byenveni",
+        loginText: "Antre imèl elèv ou ak modpas ou.",
         email: "Adrès Imèl",
-        phone: "Nimewo Telefòn",
-        birthDate: "Dat Nesans",
-        country: "Peyi",
-        state: "Eta",
+        password: "Modpas",
+        enterPortal: "Antre nan Pòtal Elèv",
+        createAccount: "Kreye Kont Elèv",
+        registerText: "Enskri nan pwogram asirans ou.",
+        fullName: "Non Konplè",
         program: "Pwogram Asirans",
-        language: "Lang Prefere",
-        address: "Adrès Postal",
-        goal: "Objektif Fòmasyon",
-        save: "Anrejistre Pwofil Elèv",
-        saved: "Pwofil elèv la anrejistre avèk siksè."
+        studentAccount: "Kont Elèv",
+        welcome: "Byenveni",
+        dashboardText:
+          "Jere pwofil ou epi kontinye chak etap fòmasyon ou.",
+        dashboard: "Dashboard",
+        myProfile: "Pwofil Mwen",
+        myCourses: "Kou Mwen",
+        payments: "Peman",
+        finalExam: "Egzamen Final",
+        certificate: "Sètifika",
+        logout: "Dekonekte",
+        courseProgress: "Pwogrè Kou",
+        quizScore: "Nòt Quiz",
+        notStarted: "Poko kòmanse",
+        studentId: "Nimewo Elèv",
+        activeStudent: "Elèv aktif",
+        courseText: "Fini chak leson anvan ou pran egzamen final la.",
+        paymentPlan: "5 peman × $100 USD",
+        removePayment: "− Peman",
+        addPayment: "+ Peman",
+        examLocked: "Egzamen Fèmen",
+        examAvailable: "Egzamen Disponib",
+        examRequirement:
+          "Fini tout leson ak peman pou debloke egzamen an.",
+        examReady: "Ou fini kou ak peman yo. Egzamen an pare.",
+        certificatePending: "Sètifika an Atant",
+        certificateText: "Disponib apre ou pase egzamen final la.",
+        fundamentals: "Baz Asirans",
+        policy: "Estrikti Polis ak Kouvèti",
+        ethics: "Kliyan, Etik ak Responsablite",
+        claims: "Reklamasyon ak Jesyon Risk",
+        examPreparation: "Preparasyon Egzamen Final",
+        complete: "Fini",
+        completed: "Fini",
+        invalidLogin: "Imèl oswa modpas la pa kòrèk.",
+        accountExists: "Gen yon kont ki deja itilize imèl sa a.",
+        accountCreated: "Kont lan kreye. Pòtal la ap ouvri...",
+        fillFields: "Ranpli tout espas obligatwa yo.",
+        lessons: "leson",
+        paid: "Peye",
+        balance: "Balans"
       }
     };
 
-    let currentLanguage =
+    let language =
       localStorage.getItem(STORAGE.language) || "en";
 
     let currentStudent = null;
 
-    const profileForm = document.getElementById("profileForm");
-    const message = document.getElementById("message");
-    const photoInput = document.getElementById("photoInput");
+    const authSection = document.getElementById("authSection");
+    const dashboardSection =
+      document.getElementById("dashboardSection");
+
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const loginTab = document.getElementById("loginTab");
+    const registerTab = document.getElementById("registerTab");
 
     function getStudents() {
       try {
@@ -922,220 +1541,333 @@
       );
     }
 
-    function findCurrentStudent() {
-      const sessionId = localStorage.getItem(STORAGE.session);
+    function switchTab(showLogin) {
+      loginTab.classList.toggle("active", showLogin);
+      registerTab.classList.toggle("active", !showLogin);
+      loginForm.classList.toggle("hidden", !showLogin);
+      registerForm.classList.toggle("hidden", showLogin);
 
-      if (!sessionId) {
-        window.location.href = "./student-portal.html";
+      document.getElementById("loginMessage").textContent = "";
+      document.getElementById("registerMessage").textContent = "";
+    }
+
+    loginTab.addEventListener("click", function () {
+      switchTab(true);
+    });
+
+    registerTab.addEventListener("click", function () {
+      switchTab(false);
+    });
+
+    registerForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name =
+        document.getElementById("studentName").value.trim();
+
+      const email =
+        document
+          .getElementById("registerEmail")
+          .value.trim()
+          .toLowerCase();
+
+      const program =
+        document.getElementById("studentProgram").value;
+
+      const password =
+        document.getElementById("registerPassword").value;
+
+      const message =
+        document.getElementById("registerMessage");
+
+      if (!name || !email || !program || password.length < 6) {
+        message.textContent = translations[language].fillFields;
         return;
       }
 
-      currentStudent = getStudents().find(function (student) {
-        return student.id === sessionId;
-      });
-
-      if (!currentStudent) {
-        localStorage.removeItem(STORAGE.session);
-        window.location.href = "./student-portal.html";
-      }
-    }
-
-    function getInitials(name) {
-      return name
-        .trim()
-        .split(/\s+/)
-        .slice(0, 2)
-        .map(function (part) {
-          return part.charAt(0).toUpperCase();
-        })
-        .join("");
-    }
-
-    function fillProfile() {
-      document.getElementById("fullName").value =
-        currentStudent.name || "";
-
-      document.getElementById("email").value =
-        currentStudent.email || "";
-
-      document.getElementById("phone").value =
-        currentStudent.phone || "";
-
-      document.getElementById("dateOfBirth").value =
-        currentStudent.dateOfBirth || "";
-
-      document.getElementById("country").value =
-        currentStudent.country || "United States";
-
-      document.getElementById("state").value =
-        currentStudent.state || "";
-
-      document.getElementById("program").value =
-        currentStudent.program || "Life Insurance";
-
-      document.getElementById("preferredLanguage").value =
-        currentStudent.preferredLanguage || "English";
-
-      document.getElementById("address").value =
-        currentStudent.address || "";
-
-      document.getElementById("learningGoal").value =
-        currentStudent.learningGoal || "";
-
-      renderProfileCard();
-      calculateCompletion();
-    }
-
-    function renderProfileCard() {
-      document.getElementById("profileStudentName").textContent =
-        currentStudent.name;
-
-      document.getElementById("profileProgram").textContent =
-        currentStudent.program;
-
-      document.getElementById("profileStudentId").textContent =
-        currentStudent.id;
-
-      document.getElementById("studentInitials").textContent =
-        getInitials(currentStudent.name) || "PM";
-
-      const studentPhoto =
-        document.getElementById("studentPhoto");
-
-      const studentInitials =
-        document.getElementById("studentInitials");
-
-      if (currentStudent.photo) {
-        studentPhoto.src = currentStudent.photo;
-        studentPhoto.classList.remove("hidden");
-        studentInitials.classList.add("hidden");
-      } else {
-        studentPhoto.classList.add("hidden");
-        studentInitials.classList.remove("hidden");
-      }
-    }
-
-    function calculateCompletion() {
-      const fields = [
-        currentStudent.name,
-        currentStudent.email,
-        currentStudent.phone,
-        currentStudent.dateOfBirth,
-        currentStudent.country,
-        currentStudent.state,
-        currentStudent.program,
-        currentStudent.preferredLanguage,
-        currentStudent.address,
-        currentStudent.learningGoal
-      ];
-
-      const completedFields = fields.filter(function (field) {
-        return Boolean(field && String(field).trim());
-      }).length;
-
-      const percent = Math.round(
-        (completedFields / fields.length) * 100
-      );
-
-      document.getElementById("completionPercent").textContent =
-        `${percent}%`;
-
-      document.getElementById("completionProgress").style.width =
-        `${percent}%`;
-    }
-
-    function updateStudent(updatedInformation) {
       const students = getStudents();
 
-      const studentIndex = students.findIndex(function (student) {
+      if (students.some(function (student) {
+        return student.email === email;
+      })) {
+        message.textContent = translations[language].accountExists;
+        return;
+      }
+
+      const student = {
+        id: `PMIS-${Date.now().toString().slice(-6)}`,
+        name: name,
+        email: email,
+        password: password,
+        program: program,
+        completedLessons: [],
+        payments: 0,
+        examPassed: false,
+        createdAt: new Date().toISOString()
+      };
+
+      students.push(student);
+      saveStudents(students);
+
+      localStorage.setItem(STORAGE.session, student.id);
+      message.textContent = translations[language].accountCreated;
+
+      setTimeout(function () {
+        openDashboard(student);
+      }, 500);
+    });
+
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const email =
+        document
+          .getElementById("loginEmail")
+          .value.trim()
+          .toLowerCase();
+
+      const password =
+        document.getElementById("loginPassword").value;
+
+      const student = getStudents().find(function (item) {
+        return item.email === email && item.password === password;
+      });
+
+      if (!student) {
+        document.getElementById("loginMessage").textContent =
+          translations[language].invalidLogin;
+
+        return;
+      }
+
+      localStorage.setItem(STORAGE.session, student.id);
+      openDashboard(student);
+    });
+
+    function openDashboard(student) {
+      currentStudent = student;
+      authSection.classList.add("hidden");
+      dashboardSection.classList.add("active");
+      renderDashboard();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function saveCurrentStudent(changes) {
+      const students = getStudents();
+
+      const index = students.findIndex(function (student) {
         return student.id === currentStudent.id;
       });
 
-      if (studentIndex === -1) {
+      if (index === -1) {
         return;
       }
 
-      students[studentIndex] = {
-        ...students[studentIndex],
-        ...updatedInformation
+      students[index] = {
+        ...students[index],
+        ...changes
       };
 
       saveStudents(students);
-      currentStudent = students[studentIndex];
-
-      renderProfileCard();
-      calculateCompletion();
+      currentStudent = students[index];
+      renderDashboard();
     }
 
-    profileForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+    function renderLessons() {
+      const lessonList = document.getElementById("lessonList");
+      lessonList.innerHTML = "";
 
-      updateStudent({
-        name: document.getElementById("fullName").value.trim(),
-        email: document
-          .getElementById("email")
-          .value.trim()
-          .toLowerCase(),
-        phone: document.getElementById("phone").value.trim(),
-        dateOfBirth:
-          document.getElementById("dateOfBirth").value,
-        country:
-          document.getElementById("country").value.trim(),
-        state: document.getElementById("state").value,
-        program: document.getElementById("program").value,
-        preferredLanguage:
-          document.getElementById("preferredLanguage").value,
-        address:
-          document.getElementById("address").value.trim(),
-        learningGoal:
-          document.getElementById("learningGoal").value.trim()
+      lessonKeys.forEach(function (key, index) {
+        const completed =
+          currentStudent.completedLessons.includes(index);
+
+        const lesson = document.createElement("div");
+        lesson.className = `lesson ${completed ? "completed" : ""}`;
+
+        lesson.innerHTML = `
+          <div class="lesson-number">
+            ${completed ? "✓" : index + 1}
+          </div>
+
+          <div>
+            <div class="lesson-name">
+              ${translations[language][key]}
+            </div>
+
+            <div class="lesson-meta">
+              Module ${String(index + 1).padStart(2, "0")}
+            </div>
+          </div>
+
+          <button
+            class="lesson-button"
+            type="button"
+            data-index="${index}"
+          >
+            ${
+              completed
+                ? translations[language].completed
+                : translations[language].complete
+            }
+          </button>
+        `;
+
+        lessonList.appendChild(lesson);
       });
 
-      message.textContent =
-        translations[currentLanguage].saved;
+      document
+        .querySelectorAll(".lesson-button")
+        .forEach(function (button) {
+          button.addEventListener("click", function () {
+            const index = Number(button.dataset.index);
+            const lessons = [...currentStudent.completedLessons];
+            const position = lessons.indexOf(index);
 
-      setTimeout(function () {
-        message.textContent = "";
-      }, 3500);
-    });
+            if (position >= 0) {
+              lessons.splice(position, 1);
+            } else {
+              lessons.push(index);
+            }
 
-    photoInput.addEventListener("change", function () {
-      const file = photoInput.files[0];
+            lessons.sort(function (a, b) {
+              return a - b;
+            });
 
-      if (!file) {
-        return;
-      }
-
-      const maximumSize = 2 * 1024 * 1024;
-
-      if (file.size > maximumSize) {
-        message.textContent =
-          "Photo must be smaller than 2 MB.";
-
-        photoInput.value = "";
-        return;
-      }
-
-      const reader = new FileReader();
-
-      reader.addEventListener("load", function () {
-        updateStudent({
-          photo: reader.result
+            saveCurrentStudent({
+              completedLessons: lessons
+            });
+          });
         });
+    }
 
-        message.textContent =
-          translations[currentLanguage].saved;
+    function renderPayments() {
+      const paymentSteps =
+        document.getElementById("paymentSteps");
+
+      paymentSteps.innerHTML = "";
+
+      for (let number = 1; number <= 5; number += 1) {
+        const step = document.createElement("div");
+
+        step.className =
+          `payment-step ${
+            number <= currentStudent.payments ? "paid" : ""
+          }`;
+
+        step.textContent = number;
+        paymentSteps.appendChild(step);
+      }
+    }
+
+    function renderDashboard() {
+      const completed = currentStudent.completedLessons.length;
+      const coursePercent =
+        Math.round((completed / lessonKeys.length) * 100);
+
+      const payments = currentStudent.payments;
+      const paidAmount = payments * 100;
+      const balance = 500 - paidAmount;
+      const paymentPercent = payments * 20;
+
+      const examUnlocked =
+        completed === lessonKeys.length && payments === 5;
+
+      document.getElementById("studentNameDisplay").textContent =
+        currentStudent.name;
+
+      document.getElementById("studentIdDisplay").textContent =
+        currentStudent.id;
+
+      document.getElementById("programDisplay").textContent =
+        currentStudent.program;
+
+      document.getElementById("courseProgressValue").textContent =
+        `${coursePercent}%`;
+
+      document.getElementById("lessonStat").textContent =
+        `${completed}/5 ${translations[language].lessons}`;
+
+      document.getElementById("courseProgressFill").style.width =
+        `${coursePercent}%`;
+
+      document.getElementById("progressText").textContent =
+        `${coursePercent}% ${translations[language].complete}`;
+
+      document.getElementById("lessonCount").textContent =
+        `${completed}/5 ${translations[language].lessons}`;
+
+      document.getElementById("paymentValue").textContent =
+        `${payments}/5`;
+
+      document.getElementById("balanceValue").textContent =
+        `${translations[language].balance}: $${balance} USD`;
+
+      document.getElementById("paymentProgressFill").style.width =
+        `${paymentPercent}%`;
+
+      document.getElementById("paymentDetails").textContent =
+        `${translations[language].paid}: $${paidAmount} USD · ` +
+        `${translations[language].balance}: $${balance} USD`;
+
+      document.getElementById("examIcon").textContent =
+        examUnlocked ? "✓" : "🔒";
+
+      document.getElementById("examTitle").textContent =
+        examUnlocked
+          ? translations[language].examAvailable
+          : translations[language].examLocked;
+
+      document.getElementById("examText").textContent =
+        examUnlocked
+          ? translations[language].examReady
+          : translations[language].examRequirement;
+
+      renderLessons();
+      renderPayments();
+    }
+
+    document
+      .getElementById("addPayment")
+      .addEventListener("click", function () {
+        if (currentStudent.payments < 5) {
+          saveCurrentStudent({
+            payments: currentStudent.payments + 1
+          });
+        }
       });
 
-      reader.readAsDataURL(file);
-    });
+    document
+      .getElementById("removePayment")
+      .addEventListener("click", function () {
+        if (currentStudent.payments > 0) {
+          saveCurrentStudent({
+            payments: currentStudent.payments - 1
+          });
+        }
+      });
 
-    function applyLanguage(language) {
-      if (!translations[language]) {
-        language = "en";
+    document
+      .getElementById("logoutButton")
+      .addEventListener("click", function () {
+        localStorage.removeItem(STORAGE.session);
+        currentStudent = null;
+
+        dashboardSection.classList.remove("active");
+        authSection.classList.remove("hidden");
+
+        loginForm.reset();
+        registerForm.reset();
+        switchTab(true);
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+    function applyLanguage(selectedLanguage) {
+      if (!translations[selectedLanguage]) {
+        selectedLanguage = "en";
       }
 
-      currentLanguage = language;
+      language = selectedLanguage;
       localStorage.setItem(STORAGE.language, language);
 
       document.documentElement.lang =
@@ -1159,6 +1891,10 @@
             button.dataset.language === language
           );
         });
+
+      if (currentStudent) {
+        renderDashboard();
+      }
     }
 
     document
@@ -1169,19 +1905,27 @@
         });
       });
 
-    document
-      .getElementById("logoutButton")
-      .addEventListener("click", function () {
-        localStorage.removeItem(STORAGE.session);
-        window.location.href = "./student-portal.html";
+    function restoreSession() {
+      const sessionId =
+        localStorage.getItem(STORAGE.session);
+
+      if (!sessionId) {
+        return;
+      }
+
+      const student = getStudents().find(function (item) {
+        return item.id === sessionId;
       });
 
-    findCurrentStudent();
-
-    if (currentStudent) {
-      fillProfile();
-      applyLanguage(currentLanguage);
+      if (student) {
+        openDashboard(student);
+      } else {
+        localStorage.removeItem(STORAGE.session);
+      }
     }
+
+    applyLanguage(language);
+    restoreSession();
   </script>
 </body>
 </html>
