@@ -2,6 +2,11 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31">
 
   <meta
     name="viewport"
@@ -598,8 +603,34 @@
 </head>
 
 <body>
+  <script>
+    (() => {
+      try {
+        const session = JSON.parse(
+          localStorage.getItem("promaxInsuranceAdminSession")
+        );
+
+        const authorized = Boolean(
+          session &&
+          session.authenticated === true &&
+          session.role === "super-admin" &&
+          session.expiresAt > Date.now() &&
+          String(session.email || "").toLowerCase() ===
+            "louismaxauto600@gmail.com"
+        );
+
+        if (!authorized) {
+          localStorage.removeItem("promaxInsuranceAdminSession");
+          window.location.replace("admin-login.html");
+        }
+      } catch (error) {
+        localStorage.removeItem("promaxInsuranceAdminSession");
+        window.location.replace("admin-login.html");
+      }
+    })();
+  </script>
   <header class="site-header">
-    <a href="index.html" class="brand">
+    <a class='brand' href='/'>
       <div class="logo-box">
         <img
           src="insurance-school-logo.png"
@@ -620,7 +651,7 @@
     </a>
 
     <div class="header-actions">
-      <a href="index.html" class="header-link">Homepage</a>
+      <a class='header-link' href='/'>Homepage</a>
 
       <button
         type="button"
@@ -628,6 +659,14 @@
         id="refreshButton"
       >
         Refresh Data
+      </button>
+
+      <button
+        type="button"
+        class="action-button"
+        id="adminLogoutButton"
+      >
+        Log Out
       </button>
     </div>
   </header>
@@ -1402,6 +1441,13 @@
     document.getElementById(
       "currentYear"
     ).textContent = new Date().getFullYear();
+
+    document.getElementById(
+      "adminLogoutButton"
+    ).addEventListener("click", () => {
+      localStorage.removeItem("promaxInsuranceAdminSession");
+      window.location.replace("admin-login.html");
+    });
 
     refreshDashboard();
   </script>
