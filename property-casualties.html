@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#050301">
+  <meta name="google" content="notranslate">
+
+  <meta
+    name="description"
+    content="PRO-MAX Académie Property and Casualty Insurance Course"
+  >
+
+  <title>Property & Casualty | PRO-MAX Académie</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #050301;
+      --black-soft: #0d0602;
+      --orange: #ff6a00;
+      --orange-dark: #d94d00;
+      --apricot: #ffad78;
+      --apricot-dark: #d98658;
+      --border: rgba(255, 106, 0, 0.4);
+      --glow: rgba(255, 106, 0, 0.27);
+      --shadow: 0 22px 55px rgba(0, 0, 0, 0.67);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--apricot);
+      background:
+        radial-gradient(circle at 50% 0%, #421500, transparent 38%),
+        linear-gradient(145deg, #050301, #130601 55%, #030201);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      min-height: 105px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 16px clamp(18px, 5vw, 70px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(4, 2, 1, 0.97);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border: 1px solid var(--orange);
+      box-shadow: 0 0 24px var(--glow);
+    }
+
+    .brand-title {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-subtitle {
+      margin-top: 7px;
+      color: var(--apricot-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .languages {
+      display: flex;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--black-soft);
+    }
+
+    .language-button {
+      min-width: 42px;
+      padding: 9px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--apricot-dark);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .language-button.active {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    .header-button {
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: var(--black-soft);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .header-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    main {
+      width: min(1260px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 58px 0 95px;
+    }
+
+    .course-hero {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      align-items: center;
+      gap: 38px;
+      margin-bottom: 30px;
+      padding: clamp(28px, 5vw, 55px);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 82% 35%, #ff5a0038, transparent 36%),
+        linear-gradient(145deg, #211007, #080301);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow,
+    .panel-label {
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .course-hero h1 {
+      margin-top: 14px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1.05;
+    }
+
+    .course-hero p {
+      max-width: 750px;
+      margin-top: 18px;
+      color: var(--apricot-dark);
+      line-height: 1.75;
+    }
+
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 23px;
+    }
+
+    .course-tag {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      color: var(--apricot-dark);
+      background: var(--black);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .course-price {
+      padding: 32px;
+      border: 2px solid var(--orange);
+      background: var(--black);
+      text-align: center;
+      box-shadow: 0 0 35px var(--glow);
+    }
+
+    .course-price span {
+      color: var(--apricot-dark);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .course-price strong {
+      display: block;
+      margin-top: 12px;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: 49px;
+    }
+
+    .course-price small {
+      color: var(--apricot-dark);
+      font-size: 11px;
+    }
+
+    .progress-card {
+      margin-bottom: 26px;
+      padding: 27px;
+      border: 1px solid var(--border);
+      background: var(--black-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .progress-header strong {
+      color: var(--apricot);
+    }
+
+    .progress-header span {
+      color: var(--orange);
+      font-weight: 800;
+    }
+
+    .progress-track {
+      height: 11px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--black);
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--orange-dark), var(--apricot));
+      box-shadow: 0 0 18px var(--orange);
+      transition: width 0.4s ease;
+    }
+
+    .course-layout {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 25px;
+    }
+
+    .module-navigation,
+    .lesson-panel {
+      border: 1px solid var(--border);
+      background: var(--black-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .module-navigation {
+      height: fit-content;
+      max-height: 850px;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .module-navigation h2,
+    .lesson-panel h2 {
+      margin: 9px 0 22px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 28px;
+    }
+
+    .module-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .module-button {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      align-items: center;
+      gap: 11px;
+      padding: 12px;
+      border: 1px solid rgba(255, 106, 0, 0.24);
+      color: var(--apricot);
+      background: var(--black);
+      text-align: left;
+    }
+
+    .module-button.active {
+      border-color: var(--orange);
+      background: #261006;
+    }
+
+    .module-number {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .module-button.completed .module-number {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .module-name {
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .module-status {
+      color: var(--orange);
+    }
+
+    .lesson-panel {
+      min-height: 680px;
+      padding: clamp(27px, 5vw, 50px);
+    }
+
+    .lesson-description {
+      margin-bottom: 25px;
+      color: var(--apricot-dark);
+      line-height: 1.8;
+    }
+
+    .learning-box,
+    .quiz-box {
+      margin-bottom: 18px;
+      padding: 23px;
+      border-left: 3px solid var(--orange);
+      background: var(--black);
+    }
+
+    .learning-box h3,
+    .quiz-box h3 {
+      margin-bottom: 12px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+    }
+
+    .learning-box li,
+    .quiz-question {
+      color: var(--apricot-dark);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .learning-box ul {
+      padding-left: 20px;
+    }
+
+    .key-concept {
+      margin-top: 20px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: #180803;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+    .quiz-option {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid rgba(255, 106, 0, 0.28);
+      color: var(--apricot);
+      background: var(--black);
+      text-align: left;
+    }
+
+    .quiz-option:hover {
+      border-color: var(--orange);
+    }
+
+    .quiz-option.correct {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .quiz-option.incorrect {
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .quiz-message {
+      min-height: 24px;
+      margin-top: 15px;
+      color: var(--orange);
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .lesson-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .action-button {
+      min-height: 53px;
+      display: grid;
+      place-items: center;
+      padding: 13px;
+      border: 1px solid var(--orange);
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .action-button.secondary {
+      color: var(--apricot);
+      background: transparent;
+    }
+
+    .action-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+
+    .completion-card {
+      margin-top: 27px;
+      padding: 31px;
+      border: 2px solid var(--orange);
+      background: linear-gradient(145deg, #301207, #080301);
+      text-align: center;
+      box-shadow: 0 0 35px var(--glow);
+    }
+
+    .completion-card h2 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 31px;
+    }
+
+    .completion-card p {
+      margin: 12px 0 22px;
+      color: var(--apricot-dark);
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 34px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--apricot-dark);
+      background: #030201;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 1000px) {
+      .course-layout,
+      .course-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .course-price {
+        max-width: 330px;
+      }
+
+      .module-navigation {
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .site-header {
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .brand-logo {
+        width: 62px;
+        height: 62px;
+      }
+
+      .brand-title {
+        font-size: 15px;
+      }
+
+      .brand-subtitle {
+        font-size: 8px;
+        letter-spacing: 3px;
+      }
+
+      .module-navigation,
+      .lesson-panel {
+        padding: 20px;
+      }
+
+      .lesson-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <img
+        class="brand-logo"
+        src="./insurance-school-logo.png"
+        alt="PRO-MAX Académie Insurance School"
+        onerror="this.style.display='none'"
+      >
+
+      <div>
+        <div class="brand-title">
+          PRO-MAX ACADÉMIE
+        </div>
+
+        <div class="brand-subtitle" data-i18n="school">
+          INSURANCE SCHOOL
+        </div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <div class="languages">
+        <button
+          class="language-button active"
+          type="button"
+          data-language="en"
+        >
+          ENG
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="fr"
+        >
+          FRA
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="ht"
+        >
+          KRE
+        </button>
+      </div>
+
+      <a
+        class="header-button"
+        href="./my-courses.html"
+        data-i18n="back"
+      >
+        My Courses
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="course-hero">
+      <div>
+        <div class="eyebrow">
+          FLORIDA 2-20 · GENERAL LINES
+        </div>
+
+        <h1 data-i18n="courseTitle">
+          Property & Casualty
+        </h1>
+
+        <p data-i18n="courseDescription">
+          Study property, casualty, liability, commercial
+          lines, personal lines, claims, underwriting,
+          Florida laws and ethical insurance practices.
+        </p>
+
+        <div class="course-tags">
+          <span class="course-tag">200 HOURS</span>
+          <span class="course-tag">20 MODULES</span>
+          <span class="course-tag">100% ONLINE</span>
+          <span class="course-tag">ENG · FRA · KRE</span>
+        </div>
+      </div>
+
+      <div class="course-price">
+        <span data-i18n="tuition">
+          COURSE TUITION
+        </span>
+
+        <strong>$299</strong>
+        <small>USD</small>
+      </div>
+    </section>
+
+    <section class="progress-card">
+      <div class="progress-header">
+        <strong data-i18n="progress">
+          Course Progress
+        </strong>
+
+        <span id="progressText">
+          0% · 0/20
+        </span>
+      </div>
+
+      <div class="progress-track">
+        <div
+          class="progress-fill"
+          id="progressFill"
+        ></div>
+      </div>
+    </section>
+
+    <section class="course-layout">
+      <aside class="module-navigation">
+        <div class="panel-label">
+          COURSE CONTENT
+        </div>
+
+        <h2 data-i18n="modules">
+          Course Modules
+        </h2>
+
+        <div class="module-list" id="moduleList"></div>
+      </aside>
+
+      <article class="lesson-panel">
+        <div class="panel-label" id="lessonNumber">
+          MODULE 01
+        </div>
+
+        <h2 id="lessonTitle">
+          Property & Casualty Fundamentals
+        </h2>
+
+        <p
+          class="lesson-description"
+          id="lessonDescription"
+        ></p>
+
+        <div id="learningContent"></div>
+
+        <div class="quiz-box">
+          <h3 data-i18n="knowledgeCheck">
+            Knowledge Check
+          </h3>
+
+          <p
+            class="quiz-question"
+            id="quizQuestion"
+          ></p>
+
+          <div
+            class="quiz-options"
+            id="quizOptions"
+          ></div>
+
+          <div
+            class="quiz-message"
+            id="quizMessage"
+            aria-live="polite"
+          ></div>
+        </div>
+
+        <div class="lesson-actions">
+          <button
+            class="action-button secondary"
+            id="previousButton"
+            type="button"
+            data-i18n="previous"
+          >
+            Previous Module
+          </button>
+
+          <button
+            class="action-button"
+            id="nextButton"
+            type="button"
+            data-i18n="next"
+          >
+            Next Module
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section
+      class="completion-card hidden"
+      id="completionCard"
+    >
+      <h2 data-i18n="completedTitle">
+        Course Modules Completed
+      </h2>
+
+      <p data-i18n="completedText">
+        You completed all twenty modules.
+        Your course examination is now available.
+      </p>
+
+      <a
+        class="action-button"
+        href="./student-portal.html#finalExam"
+        data-i18n="exam"
+      >
+        Go to Final Exam
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div>PRO-MAX ACADÉMIE · INSURANCE SCHOOL</div>
+    <div>© 2026 BSS1815 PRO-MAX DMP</div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const STORAGE = {
+      session: "promaxInsuranceSession",
+      language: "promaxInsuranceLanguage",
+      progress: "promaxPropertyCasualty220Progress"
+    };
+
+    const translations = {
+      en: {
+        school: "INSURANCE SCHOOL",
+        back: "My Courses",
+        courseTitle: "Property & Casualty",
+        courseDescription:
+          "Study property, casualty, liability, commercial lines, personal lines, claims, underwriting, Florida laws and ethical insurance practices.",
+        tuition: "COURSE TUITION",
+        progress: "Course Progress",
+        modules: "Course Modules",
+        knowledgeCheck: "Knowledge Check",
+        previous: "Previous Module",
+        next: "Next Module",
+        objectives: "Learning Objectives",
+        keyConcept: "Key Concept",
+        quizPrompt:
+          "Which answer best represents the central concept of this module?",
+        correct: "Correct. This module is now completed.",
+        incorrect:
+          "Not correct. Review the lesson and try again.",
+        completedTitle: "Course Modules Completed",
+        completedText:
+          "You completed all twenty modules. Your course examination is now available.",
+        exam: "Go to Final Exam",
+        distractorOne: "Life insurance beneficiary designation",
+        distractorTwo: "Annuity income settlement"
+      },
+
+      fr: {
+        school: "ÉCOLE D’ASSURANCE",
+        back: "Mes cours",
+        courseTitle: "Biens et responsabilité",
+        courseDescription:
+          "Étudiez les biens, la responsabilité, les lignes commerciales, les réclamations, la souscription et les lois de Florida.",
+        tuition: "FRAIS DU COURS",
+        progress: "Progression du cours",
+        modules: "Modules du cours",
+        knowledgeCheck: "Vérification des connaissances",
+        previous: "Module précédent",
+        next: "Module suivant",
+        objectives: "Objectifs d’apprentissage",
+        keyConcept: "Concept principal",
+        quizPrompt:
+          "Quelle réponse représente le mieux le concept principal de ce module ?",
+        correct:
+          "Bonne réponse. Ce module est maintenant terminé.",
+        incorrect:
+          "Réponse incorrecte. Révisez la leçon et réessayez.",
+        completedTitle: "Modules terminés",
+        completedText:
+          "Vous avez terminé les vingt modules. L’examen est disponible.",
+        exam: "Aller à l’examen final",
+        distractorOne:
+          "Désignation d’un bénéficiaire d’assurance vie",
+        distractorTwo:
+          "Option de revenu d’une rente"
+      },
+
+      ht: {
+        school: "LEKÒL ASIRANS",
+        back: "Kou Mwen",
+        courseTitle: "Property & Casualty",
+        courseDescription:
+          "Etidye pwopriyete, casualty, responsablite, commercial lines, reklamasyon, underwriting ak lwa Florida.",
+        tuition: "PRI KOU A",
+        progress: "Pwogrè Kou",
+        modules: "Modil Kou",
+        knowledgeCheck: "Verifye Konesans",
+        previous: "Modil Anvan",
+        next: "Pwochen Modil",
+        objectives: "Objektif Aprantisaj",
+        keyConcept: "Konsèp Prensipal",
+        quizPrompt:
+          "Ki repons ki pi byen reprezante konsèp prensipal modil sa a?",
+        correct:
+          "Bon repons. Modil sa a fini kounye a.",
+        incorrect:
+          "Repons lan pa kòrèk. Revize leson an epi eseye ankò.",
+        completedTitle: "Tout Modil yo Fini",
+        completedText:
+          "Ou fini tout ven modil yo. Egzamen kou a disponib.",
+        exam: "Ale nan Egzamen Final",
+        distractorOne:
+          "Chwazi benefisyè asirans lavi",
+        distractorTwo:
+          "Opsyon revni annuity"
+      }
+    };
+
+    const modules = [
+      {
+        title: {
+          en: "Property & Casualty Fundamentals",
+          fr: "Principes des biens et responsabilité",
+          ht: "Baz Property & Casualty"
+        },
+        description: {
+          en: "Understand risk, hazards, perils, indemnity, premiums, deductibles and insurance contracts.",
+          fr: "Comprendre le risque, les dangers, l’indemnisation, les primes et les contrats.",
+          ht: "Konprann risk, hazards, perils, indemnity, prim ak kontra."
+        },
+        key: {
+          en: "Risk, hazards, perils and indemnity",
+          fr: "Risque, dangers, périls et indemnisation",
+          ht: "Risk, hazards, perils ak indemnity"
+        }
+      },
+
+      {
+        title: {
+          en: "Property Insurance Principles",
+          fr: "Principes d’assurance de biens",
+          ht: "Prensip Asirans Pwopriyete"
+        },
+        description: {
+          en: "Learn insurable interest, valuation, replacement cost, actual cash value and loss settlement.",
+          fr: "Apprenez l’intérêt assurable, la valeur, le coût de remplacement et le règlement.",
+          ht: "Aprann insurable interest, valuation, replacement cost ak loss settlement."
+        },
+        key: {
+          en: "Property valuation and loss settlement",
+          fr: "Évaluation des biens et règlement",
+          ht: "Valè pwopriyete ak règleman pèt"
+        }
+      },
+
+      {
+        title: {
+          en: "Dwelling Policies",
+          fr: "Polices habitation",
+          ht: "Dwelling Policies"
+        },
+        description: {
+          en: "Compare basic, broad and special dwelling forms, covered property and exclusions.",
+          fr: "Comparez les formes de base, étendues et spéciales ainsi que les exclusions.",
+          ht: "Konpare basic, broad ak special dwelling forms ak esklizyon."
+        },
+        key: {
+          en: "Residential dwelling coverage forms",
+          fr: "Formes de couverture habitation",
+          ht: "Fòm kouvèti dwelling"
+        }
+      },
+
+      {
+        title: {
+          en: "Homeowners Insurance",
+          fr: "Assurance habitation",
+          ht: "Homeowners Insurance"
+        },
+        description: {
+          en: "Review dwelling, structures, personal property, loss of use, liability and medical payments.",
+          fr: "Examinez l’habitation, les biens personnels, la responsabilité et les frais médicaux.",
+          ht: "Revize dwelling, lòt estrikti, byen pèsonèl, liability ak medical payments."
+        },
+        key: {
+          en: "Property and liability protection for homeowners",
+          fr: "Protection des biens et responsabilité",
+          ht: "Pwoteksyon pwopriyete ak responsablite kay"
+        }
+      },
+
+      {
+        title: {
+          en: "Personal Automobile Insurance",
+          fr: "Assurance automobile personnelle",
+          ht: "Asirans Machin Pèsonèl"
+        },
+        description: {
+          en: "Study liability, medical payments, uninsured motorists, collision and comprehensive coverage.",
+          fr: "Étudiez la responsabilité, les frais médicaux, les automobilistes non assurés et les dommages.",
+          ht: "Etidye liability, medical payments, uninsured motorist, collision ak comprehensive."
+        },
+        key: {
+          en: "Personal automobile coverage",
+          fr: "Couverture automobile personnelle",
+          ht: "Kouvèti machin pèsonèl"
+        }
+      },
+
+      {
+        title: {
+          en: "Florida Automobile Law",
+          fr: "Droit automobile de Florida",
+          ht: "Lwa Machin Florida"
+        },
+        description: {
+          en: "Review Florida no-fault, PIP, property damage liability and financial responsibility.",
+          fr: "Examinez le no-fault, PIP, la responsabilité matérielle et financière.",
+          ht: "Revize no-fault, PIP, property damage liability ak financial responsibility."
+        },
+        key: {
+          en: "Florida PIP and financial responsibility",
+          fr: "PIP et responsabilité financière de Florida",
+          ht: "PIP ak financial responsibility Florida"
+        }
+      },
+
+      {
+        title: {
+          en: "Commercial Property",
+          fr: "Biens commerciaux",
+          ht: "Commercial Property"
+        },
+        description: {
+          en: "Understand commercial buildings, business personal property, causes of loss and valuation.",
+          fr: "Comprendre les bâtiments, biens commerciaux, causes de pertes et évaluations.",
+          ht: "Konprann bilding komèsyal, byen biznis, causes of loss ak valuation."
+        },
+        key: {
+          en: "Commercial buildings and business property",
+          fr: "Bâtiments et biens commerciaux",
+          ht: "Bilding ak byen biznis"
+        }
+      },
+
+      {
+        title: {
+          en: "Businessowners Policies",
+          fr: "Polices des propriétaires d’entreprise",
+          ht: "Businessowners Policies"
+        },
+        description: {
+          en: "Review property and liability protection commonly combined within a BOP.",
+          fr: "Examinez la protection des biens et responsabilité dans une BOP.",
+          ht: "Revize pwoteksyon property ak liability ki konbine nan BOP."
+        },
+        key: {
+          en: "Combined business property and liability coverage",
+          fr: "Couverture combinée des biens et responsabilité",
+          ht: "Kouvèti biznis property ak liability ansanm"
+        }
+      },
+
+      {
+        title: {
+          en: "Commercial General Liability",
+          fr: "Responsabilité civile commerciale",
+          ht: "Commercial General Liability"
+        },
+        description: {
+          en: "Study bodily injury, property damage, products, completed operations and legal defense.",
+          fr: "Étudiez les blessures, dommages matériels, produits et défense juridique.",
+          ht: "Etidye bodily injury, property damage, products ak defans legal."
+        },
+        key: {
+          en: "Commercial liability for injury and damage",
+          fr: "Responsabilité commerciale pour blessures et dommages",
+          ht: "Responsablite komèsyal pou blesi ak domaj"
+        }
+      },
+
+      {
+        title: {
+          en: "Commercial Automobile",
+          fr: "Automobile commerciale",
+          ht: "Commercial Automobile"
+        },
+        description: {
+          en: "Review covered autos, liability, physical damage and commercial vehicle classifications.",
+          fr: "Examinez les véhicules couverts, la responsabilité et les dommages.",
+          ht: "Revize covered autos, liability, physical damage ak klasifikasyon machin."
+        },
+        key: {
+          en: "Commercial vehicle liability and physical damage",
+          fr: "Responsabilité et dommages des véhicules commerciaux",
+          ht: "Liability ak physical damage machin komèsyal"
+        }
+      },
+
+      {
+        title: {
+          en: "Workers Compensation",
+          fr: "Indemnisation des travailleurs",
+          ht: "Workers Compensation"
+        },
+        description: {
+          en: "Understand employee injury benefits, employer liability and workplace coverage.",
+          fr: "Comprendre les prestations pour blessures et la responsabilité de l’employeur.",
+          ht: "Konprann avantaj blesi anplwaye ak responsabilite patwon."
+        },
+        key: {
+          en: "Employee workplace injury benefits",
+          fr: "Prestations pour blessures au travail",
+          ht: "Avantaj pou blesi nan travay"
+        }
+      },
+
+      {
+        title: {
+          en: "Crime Insurance",
+          fr: "Assurance contre le crime",
+          ht: "Crime Insurance"
+        },
+        description: {
+          en: "Review employee theft, forgery, robbery, burglary and computer fraud coverage.",
+          fr: "Examinez le vol par employé, la fraude, le cambriolage et la fraude informatique.",
+          ht: "Revize employee theft, forgery, robbery, burglary ak computer fraud."
+        },
+        key: {
+          en: "Protection against covered criminal losses",
+          fr: "Protection contre les pertes criminelles couvertes",
+          ht: "Pwoteksyon kont pèt kriminèl ki kouvri"
+        }
+      },
+
+      {
+        title: {
+          en: "Inland and Ocean Marine",
+          fr: "Assurance maritime",
+          ht: "Inland ak Ocean Marine"
+        },
+        description: {
+          en: "Study movable property, transportation risks, cargo and marine coverage.",
+          fr: "Étudiez les biens mobiles, le transport, les cargaisons et les risques maritimes.",
+          ht: "Etidye byen mobil, risk transpò, cargo ak marine coverage."
+        },
+        key: {
+          en: "Property in transportation and marine risks",
+          fr: "Biens transportés et risques maritimes",
+          ht: "Byen nan transpò ak risk maritim"
+        }
+      },
+
+      {
+        title: {
+          en: "Equipment Breakdown",
+          fr: "Bris d’équipement",
+          ht: "Equipment Breakdown"
+        },
+        description: {
+          en: "Understand mechanical breakdown, electrical failure and covered equipment losses.",
+          fr: "Comprendre les bris mécaniques, électriques et pertes d’équipement.",
+          ht: "Konprann mechanical breakdown, electrical failure ak pèt ekipman."
+        },
+        key: {
+          en: "Mechanical and electrical equipment losses",
+          fr: "Pertes mécaniques et électriques",
+          ht: "Pèt ekipman mekanik ak elektrik"
+        }
+      },
+
+      {
+        title: {
+          en: "Surety and Fidelity Bonds",
+          fr: "Cautionnement et fidélité",
+          ht: "Surety ak Fidelity Bonds"
+        },
+        description: {
+          en: "Review principals, obligees, sureties and guarantees of performance or honesty.",
+          fr: "Examinez les parties et les garanties d’exécution ou d’honnêteté.",
+          ht: "Revize principal, obligee, surety ak garanti travay oswa onètete."
+        },
+        key: {
+          en: "Guarantees of performance and honesty",
+          fr: "Garanties d’exécution et d’honnêteté",
+          ht: "Garanti pèfòmans ak onètete"
+        }
+      },
+
+      {
+        title: {
+          en: "Umbrella and Excess Liability",
+          fr: "Responsabilité parapluie et excédentaire",
+          ht: "Umbrella ak Excess Liability"
+        },
+        description: {
+          en: "Learn how excess coverage applies above underlying liability policies.",
+          fr: "Apprenez comment la couverture excédentaire complète les polices sous-jacentes.",
+          ht: "Aprann kijan excess coverage aplike sou underlying liability policies."
+        },
+        key: {
+          en: "Additional liability above underlying limits",
+          fr: "Responsabilité supplémentaire au-dessus des limites",
+          ht: "Plis liability sou limit prensipal yo"
+        }
+      },
+
+      {
+        title: {
+          en: "Flood and Specialty Insurance",
+          fr: "Inondation et assurances spécialisées",
+          ht: "Flood ak Asirans Espesyal"
+        },
+        description: {
+          en: "Review flood, aviation, watercraft and other specialty risk coverage.",
+          fr: "Examinez l’inondation, l’aviation, les bateaux et autres risques.",
+          ht: "Revize flood, aviation, watercraft ak lòt risk espesyal."
+        },
+        key: {
+          en: "Separate coverage for specialty risks",
+          fr: "Couverture séparée pour risques spécialisés",
+          ht: "Kouvèti separe pou risk espesyal"
+        }
+      },
+
+      {
+        title: {
+          en: "Underwriting and Policy Issuance",
+          fr: "Souscription et émission",
+          ht: "Underwriting ak Emisyon Polis"
+        },
+        description: {
+          en: "Study applications, inspections, risk classification, binders and policy delivery.",
+          fr: "Étudiez les demandes, inspections, risques, notes de couverture et livraison.",
+          ht: "Etidye aplikasyon, enspeksyon, risk classification, binders ak livrezon polis."
+        },
+        key: {
+          en: "Evaluation and acceptance of insurance risk",
+          fr: "Évaluation et acceptation du risque",
+          ht: "Evalyasyon ak akseptasyon risk asirans"
+        }
+      },
+
+      {
+        title: {
+          en: "Claims, Loss Adjustment and Ethics",
+          fr: "Réclamations, règlement et éthique",
+          ht: "Reklamasyon, Ajisteman ak Etik"
+        },
+        description: {
+          en: "Review claim reporting, investigation, settlement, consumer protection and ethical conduct.",
+          fr: "Examinez la déclaration, l’enquête, le règlement et la conduite éthique.",
+          ht: "Revize rapò reklamasyon, ankèt, règleman, pwoteksyon kliyan ak etik."
+        },
+        key: {
+          en: "Fair and ethical claim handling",
+          fr: "Traitement juste et éthique des réclamations",
+          ht: "Jere reklamasyon avèk jistis ak etik"
+        }
+      },
+
+      {
+        title: {
+          en: "Florida Law and Final Review",
+          fr: "Droit de Florida et révision finale",
+          ht: "Lwa Florida ak Revizyon Final"
+        },
+        description: {
+          en: "Review licensing, prohibited practices, Florida requirements and exam preparation.",
+          fr: "Révisez les licences, pratiques interdites, exigences et préparation.",
+          ht: "Revize lisans, pratik entèdi, kondisyon Florida ak preparasyon egzamen."
+        },
+        key: {
+          en: "Florida insurance law, ethics and exam readiness",
+          fr: "Droit, éthique et préparation à l’examen",
+          ht: "Lwa, etik ak preparasyon egzamen Florida"
+        }
+      }
+    ];
+
+    let language =
+      localStorage.getItem(STORAGE.language) || "en";
+
+    let activeModule = 0;
+    let completedModules = [];
+
+    try {
+      completedModules = JSON.parse(
+        localStorage.getItem(STORAGE.progress)
+      ) || [];
+    } catch (error) {
+      completedModules = [];
+    }
+
+    function verifySession() {
+      if (!localStorage.getItem(STORAGE.session)) {
+        window.location.href = "./student-portal.html";
+      }
+    }
+
+    function saveProgress() {
+      localStorage.setItem(
+        STORAGE.progress,
+        JSON.stringify(completedModules)
+      );
+    }
+
+    function renderTranslations() {
+      if (!translations[language]) {
+        language = "en";
+      }
+
+      document.documentElement.lang =
+        language === "ht" ? "ht" : language;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key = element.dataset.i18n;
+
+          if (translations[language][key]) {
+            element.textContent =
+              translations[language][key];
+          }
+        });
+
+      document
+        .querySelectorAll(".language-button")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.dataset.language === language
+          );
+        });
+    }
+
+    function renderModuleList() {
+      document.getElementById("moduleList").innerHTML =
+        modules
+          .map(function (module, index) {
+            const completed =
+              completedModules.includes(index);
+
+            return `
+              <button
+                class="module-button ${
+                  index === activeModule ? "active" : ""
+                } ${
+                  completed ? "completed" : ""
+                }"
+                type="button"
+                data-module="${index}"
+              >
+                <span class="module-number">
+                  ${completed ? "✓" : index + 1}
+                </span>
+
+                <span class="module-name">
+                  ${module.title[language]}
+                </span>
+
+                <span class="module-status">
+                  ${completed ? "✓" : "›"}
+                </span>
+              </button>
+            `;
+          })
+          .join("");
+
+      document
+        .querySelectorAll(".module-button")
+        .forEach(function (button) {
+          button.addEventListener("click", function () {
+            activeModule =
+              Number(button.dataset.module);
+
+            renderCourse();
+          });
+        });
+    }
+
+    function renderLesson() {
+      const module = modules[activeModule];
+      const text = translations[language];
+
+      document.getElementById("lessonNumber").textContent =
+        `MODULE ${String(activeModule + 1).padStart(2, "0")}`;
+
+      document.getElementById("lessonTitle").textContent =
+        module.title[language];
+
+      document.getElementById("lessonDescription").textContent =
+        module.description[language];
+
+      document.getElementById("learningContent").innerHTML = `
+        <div class="learning-box">
+          <h3>${text.objectives}</h3>
+
+          <ul>
+            <li>
+              ${
+                language === "fr"
+                  ? "Comprendre les principaux termes et protections du module."
+                  : language === "ht"
+                    ? "Konprann prensipal tèm ak pwoteksyon modil la."
+                    : "Understand the module’s principal terms and protections."
+              }
+            </li>
+
+            <li>
+              ${
+                language === "fr"
+                  ? "Identifier les risques, couvertures et exclusions."
+                  : language === "ht"
+                    ? "Idantifye risk, kouvèti ak esklizyon."
+                    : "Identify relevant risks, coverages and exclusions."
+              }
+            </li>
+
+            <li>
+              ${
+                language === "fr"
+                  ? "Appliquer le concept aux questions d’examen."
+                  : language === "ht"
+                    ? "Aplike konsèp la nan kestyon egzamen."
+                    : "Apply the concept to exam-style questions."
+              }
+            </li>
+          </ul>
+
+          <div class="key-concept">
+            ${text.keyConcept}: ${module.key[language]}
+          </div>
+        </div>
+      `;
+
+      document.getElementById("quizQuestion").textContent =
+        text.quizPrompt;
+
+      const quizAnswers = [
+        module.key[language],
+        text.distractorOne,
+        text.distractorTwo
+      ];
+
+      document.getElementById("quizOptions").innerHTML =
+        quizAnswers
+          .map(function (answer, index) {
+            return `
+              <button
+                class="quiz-option"
+                type="button"
+                data-answer="${index}"
+              >
+                ${answer}
+              </button>
+            `;
+          })
+          .join("");
+
+      document.getElementById("quizMessage").textContent = "";
+
+      document
+        .querySelectorAll(".quiz-option")
+        .forEach(function (button) {
+          button.addEventListener("click", function () {
+            checkAnswer(
+              Number(button.dataset.answer),
+              button
+            );
+          });
+        });
+
+      document.getElementById("previousButton").disabled =
+        activeModule === 0;
+
+      document.getElementById("nextButton").disabled =
+        activeModule === modules.length - 1;
+    }
+
+    function checkAnswer(answerIndex, selectedButton) {
+      document
+        .querySelectorAll(".quiz-option")
+        .forEach(function (button) {
+          button.classList.remove(
+            "correct",
+            "incorrect"
+          );
+        });
+
+      if (answerIndex === 0) {
+        selectedButton.classList.add("correct");
+
+        document.getElementById("quizMessage").textContent =
+          translations[language].correct;
+
+        if (!completedModules.includes(activeModule)) {
+          completedModules.push(activeModule);
+
+          completedModules.sort(function (a, b) {
+            return a - b;
+          });
+
+          saveProgress();
+        }
+
+        updateProgress();
+        renderModuleList();
+      } else {
+        selectedButton.classList.add("incorrect");
+
+        document.getElementById("quizMessage").textContent =
+          translations[language].incorrect;
+      }
+    }
+
+    function updateProgress() {
+      const percentage = Math.round(
+        (completedModules.length / modules.length) * 100
+      );
+
+      document.getElementById("progressFill").style.width =
+        `${percentage}%`;
+
+      document.getElementById("progressText").textContent =
+        `${percentage}% · ${completedModules.length}/${modules.length}`;
+
+      document
+        .getElementById("completionCard")
+        .classList.toggle(
+          "hidden",
+          completedModules.length !== modules.length
+        );
+    }
+
+    function renderCourse() {
+      renderTranslations();
+      renderModuleList();
+      renderLesson();
+      updateProgress();
+    }
+
+    document
+      .querySelectorAll(".language-button")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          language = button.dataset.language;
+
+          localStorage.setItem(
+            STORAGE.language,
+            language
+          );
+
+          renderCourse();
+        });
+      });
+
+    document
+      .getElementById("previousButton")
+      .addEventListener("click", function () {
+        if (activeModule > 0) {
+          activeModule -= 1;
+          renderCourse();
+        }
+      });
+
+    document
+      .getElementById("nextButton")
+      .addEventListener("click", function () {
+        if (activeModule < modules.length - 1) {
+          activeModule += 1;
+          renderCourse();
+        }
+      });
+
+    verifySession();
+    renderCourse();
+  </script>
+</body>
+</html>
