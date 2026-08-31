@@ -141,6 +141,15 @@
         definitions.forEach((lesson,index)=>{const number=index+1,done=saved.includes(number),item=document.createElement("article");item.className="module";item.innerHTML=`<div class="number">${String(number).padStart(2,"0")}</div><div><h4>${lesson[0]}</h4><p>${lesson[1]}</p></div><button class="complete ${done?"done":""}" ${paid?"":"disabled"}>${done?"Completed":"Mark Complete"}</button>`;const button=item.querySelector("button");button.addEventListener("click",()=>{saved=saved.includes(number)?saved.filter(n=>n!==number):[...saved,number].sort((a,b)=>a-b);button.classList.toggle("done",saved.includes(number));button.textContent=saved.includes(number)?"Completed":"Mark Complete";update()});list.appendChild(item)});update();
       }
     }
+    window.addEventListener("storage",event=>{
+      if(event.key===KEYS.students){location.reload()}
+    });
+    document.addEventListener("visibilitychange",()=>{
+      if(!document.hidden){
+        const latest=findStudent();
+        if(latest&&isPaid(latest)!==isPaid(student)){location.reload()}
+      }
+    });
     document.getElementById("year").textContent=new Date().getFullYear();
   </script>
 </body>
