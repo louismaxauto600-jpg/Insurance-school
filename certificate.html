@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#050301">
+  <meta name="google" content="notranslate">
+
+  <meta
+    name="description"
+    content="PRO-MAX Académie Insurance School Course Certificate"
+  >
+
+  <title>Certificate | PRO-MAX Académie Insurance School</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #050301;
+      --black-soft: #0d0602;
+      --orange: #ff6a00;
+      --orange-dark: #d94d00;
+      --apricot: #ffad78;
+      --apricot-dark: #d98658;
+      --border: rgba(255, 106, 0, 0.48);
+      --glow: rgba(255, 106, 0, 0.3);
+      --shadow: 0 25px 70px rgba(0, 0, 0, 0.72);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--apricot);
+      background:
+        radial-gradient(circle at 50% 0%, #421500, transparent 38%),
+        linear-gradient(145deg, #050301, #130601 55%, #030201);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      min-height: 105px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 16px clamp(18px, 5vw, 70px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(4, 2, 1, 0.97);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border: 1px solid var(--orange);
+      box-shadow: 0 0 24px var(--glow);
+    }
+
+    .brand-title {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-subtitle {
+      margin-top: 7px;
+      color: var(--apricot-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .languages {
+      display: flex;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--black-soft);
+    }
+
+    .language-button {
+      min-width: 42px;
+      padding: 9px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--apricot-dark);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .language-button.active {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+    }
+
+    .header-button {
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: var(--black-soft);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .header-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    main {
+      width: min(1250px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 55px 0 90px;
+    }
+
+    .page-heading {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    .page-heading h1 {
+      margin-top: 13px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(37px, 7vw, 64px);
+      line-height: 1.05;
+    }
+
+    .page-heading p {
+      max-width: 760px;
+      margin: 16px auto 0;
+      color: var(--apricot-dark);
+      line-height: 1.7;
+    }
+
+    .locked-panel {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(28px, 5vw, 50px);
+      border: 1px solid var(--border);
+      background: var(--black-soft);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .locked-icon {
+      display: grid;
+      place-items: center;
+      width: 105px;
+      height: 105px;
+      margin: 0 auto 22px;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      color: var(--orange);
+      background: var(--black);
+      box-shadow: 0 0 30px var(--glow);
+      font-size: 38px;
+    }
+
+    .locked-panel h2 {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(27px, 5vw, 40px);
+    }
+
+    .locked-panel p {
+      margin: 15px 0 25px;
+      color: var(--apricot-dark);
+      line-height: 1.75;
+    }
+
+    .certificate-wrapper {
+      position: relative;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 50% 50%, #541a0559, transparent 48%),
+        var(--black);
+      box-shadow: var(--shadow);
+    }
+
+    .certificate {
+      position: relative;
+      min-height: 790px;
+      overflow: hidden;
+      padding: 55px 65px;
+      border: 4px solid var(--orange);
+      background:
+        linear-gradient(135deg, rgba(255, 106, 0, 0.07), transparent 40%),
+        linear-gradient(315deg, rgba(255, 106, 0, 0.08), transparent 40%),
+        #080301;
+      text-align: center;
+    }
+
+    .certificate::before,
+    .certificate::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 2px solid var(--orange);
+      border-radius: 50%;
+      opacity: 0.18;
+    }
+
+    .certificate::before {
+      top: -135px;
+      left: -135px;
+    }
+
+    .certificate::after {
+      right: -135px;
+      bottom: -135px;
+    }
+
+    .inner-border {
+      position: absolute;
+      inset: 14px;
+      pointer-events: none;
+      border: 1px solid var(--border);
+    }
+
+    .certificate-logo {
+      width: 105px;
+      height: 105px;
+      margin: 0 auto 17px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 20px var(--glow));
+    }
+
+    .certificate-school {
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .certificate h2 {
+      margin: 26px 0 11px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(36px, 7vw, 71px);
+      font-weight: 800;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .certificate-subtitle {
+      color: var(--apricot-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .presented-text {
+      margin-top: 43px;
+      color: var(--apricot-dark);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .recipient-name {
+      max-width: 800px;
+      margin: 20px auto 15px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--orange);
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(32px, 6vw, 59px);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .completion-text {
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--apricot-dark);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .program-name {
+      margin-top: 16px;
+      color: var(--orange);
+      font-family: "Cinzel", serif;
+      font-size: clamp(21px, 4vw, 34px);
+      font-weight: 800;
+    }
+
+    .certificate-details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 860px;
+      margin: 42px auto 0;
+    }
+
+    .certificate-detail {
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .certificate-detail span {
+      display: block;
+      color: var(--apricot-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .certificate-detail strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--apricot);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .certificate-bottom {
+      display: grid;
+      grid-template-columns: 1fr 145px 1fr;
+      align-items: end;
+      gap: 30px;
+      max-width: 850px;
+      margin: 50px auto 0;
+    }
+
+    .signature {
+      padding-top: 13px;
+      border-top: 1px solid var(--orange);
+    }
+
+    .signature strong {
+      display: block;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 14px;
+    }
+
+    .signature span {
+      display: block;
+      margin-top: 7px;
+      color: var(--apricot-dark);
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .certificate-seal {
+      width: 135px;
+      height: 135px;
+      display: grid;
+      place-items: center;
+      border: 4px double var(--orange);
+      border-radius: 50%;
+      color: var(--orange);
+      background: var(--black);
+      box-shadow: 0 0 30px var(--glow);
+      font-family: "Cinzel", serif;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .certificate-notice {
+      max-width: 950px;
+      margin: 30px auto 0;
+      color: var(--apricot-dark);
+      font-size: 10px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .certificate-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      min-height: 53px;
+      display: inline-grid;
+      place-items: center;
+      padding: 14px 23px;
+      border: 1px solid var(--orange);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .primary-button {
+      color: var(--black);
+      background: linear-gradient(135deg, var(--apricot), var(--orange));
+      box-shadow: 0 13px 30px var(--glow);
+    }
+
+    .secondary-button {
+      color: var(--apricot);
+      background: transparent;
+    }
+
+    footer {
+      padding: 34px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--apricot-dark);
+      background: #030201;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 800px) {
+      .certificate {
+        min-height: auto;
+        padding: 45px 28px;
+      }
+
+      .certificate-details {
+        grid-template-columns: 1fr;
+      }
+
+      .certificate-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .certificate-seal {
+        margin: 0 auto;
+        grid-row: 1;
+      }
+
+      .site-header {
+        position: relative;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .brand-logo {
+        width: 62px;
+        height: 62px;
+      }
+
+      .brand-title {
+        font-size: 15px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: landscape;
+        margin: 0;
+      }
+
+      body {
+        background: #050301;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .site-header,
+      .page-heading,
+      .certificate-actions,
+      .certificate-notice,
+      footer {
+        display: none !important;
+      }
+
+      main {
+        width: 100%;
+        padding: 0;
+      }
+
+      .certificate-wrapper {
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .certificate {
+        min-height: 100vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <img
+        class="brand-logo"
+        src="./insurance-school-logo.png"
+        alt="PRO-MAX Académie Insurance School"
+        onerror="this.style.display='none'"
+      >
+
+      <div>
+        <div class="brand-title">
+          PRO-MAX ACADÉMIE
+        </div>
+
+        <div class="brand-subtitle" data-i18n="school">
+          INSURANCE SCHOOL
+        </div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <div class="languages">
+        <button
+          class="language-button active"
+          type="button"
+          data-language="en"
+        >
+          ENG
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="fr"
+        >
+          FRA
+        </button>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language="ht"
+        >
+          KRE
+        </button>
+      </div>
+
+      <a
+        class="header-button"
+        href="./student-portal.html"
+        data-i18n="portal"
+      >
+        Student Portal
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-heading">
+      <div class="eyebrow">
+        BSS1815 PRO-MAX DMP
+      </div>
+
+      <h1 data-i18n="pageTitle">
+        Course Certificate
+      </h1>
+
+      <p data-i18n="pageIntro">
+        Official recognition of course completion
+        through PRO-MAX Académie Insurance School.
+      </p>
+    </div>
+
+    <section class="locked-panel hidden" id="lockedPanel">
+      <div class="locked-icon">🔒</div>
+
+      <h2 data-i18n="lockedTitle">
+        Certificate Locked
+      </h2>
+
+      <p data-i18n="lockedText">
+        You must pass the PRO-MAX course examination
+        before your certificate becomes available.
+      </p>
+
+      <a
+        class="primary-button"
+        href="./final-exam.html"
+        data-i18n="exam"
+      >
+        Go to Final Exam
+      </a>
+    </section>
+
+    <section
+      class="certificate-wrapper hidden"
+      id="certificateWrapper"
+    >
+      <div class="certificate" id="certificate">
+        <div class="inner-border"></div>
+
+        <img
+          class="certificate-logo"
+          src="./insurance-school-logo.png"
+          alt="PRO-MAX Académie Insurance School"
+          onerror="this.style.display='none'"
+        >
+
+        <div class="certificate-school">
+          PRO-MAX ACADÉMIE
+        </div>
+
+        <h2 data-i18n="certificateTitle">
+          Certificate
+        </h2>
+
+        <div class="certificate-subtitle" data-i18n="completion">
+          OF COURSE COMPLETION
+        </div>
+
+        <div class="presented-text" data-i18n="presented">
+          This certificate is presented to
+        </div>
+
+        <div class="recipient-name" id="studentName">
+          Student Name
+        </div>
+
+        <p class="completion-text" data-i18n="completionText">
+          For successfully completing the educational
+          requirements and passing the course assessment for
+        </p>
+
+        <div class="program-name" id="programName">
+          Insurance Program
+        </div>
+
+        <div class="certificate-details">
+          <div class="certificate-detail">
+            <span data-i18n="studentId">
+              Student ID
+            </span>
+
+            <strong id="studentId">
+              PMIS-000000
+            </strong>
+          </div>
+
+          <div class="certificate-detail">
+            <span data-i18n="score">
+              Final Score
+            </span>
+
+            <strong id="examScore">
+              0%
+            </strong>
+          </div>
+
+          <div class="certificate-detail">
+            <span data-i18n="date">
+              Completion Date
+            </span>
+
+            <strong id="completionDate">
+              —
+            </strong>
+          </div>
+        </div>
+
+        <div class="certificate-bottom">
+          <div class="signature">
+            <strong>PRO-MAX ACADÉMIE</strong>
+
+            <span data-i18n="academicDirection">
+              Academic Direction
+            </span>
+          </div>
+
+          <div class="certificate-seal">
+            PM<br>2026
+          </div>
+
+          <div class="signature">
+            <strong>BSS1815 PRO-MAX DMP</strong>
+
+            <span data-i18n="verification">
+              Digital Verification
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p
+      class="certificate-notice hidden"
+      id="certificateNotice"
+      data-i18n="notice"
+    >
+      This certificate recognizes completion of a
+      PRO-MAX Académie educational program. It is not
+      a Florida insurance license, Florida state examination
+      result or Florida DFS-approved pre-licensing certificate.
+    </p>
+
+    <div
+      class="certificate-actions hidden"
+      id="certificateActions"
+    >
+      <button
+        class="primary-button"
+        id="printButton"
+        type="button"
+        data-i18n="print"
+      >
+        Print / Save as PDF
+      </button>
+
+      <a
+        class="secondary-button"
+        href="./student-portal.html"
+        data-i18n="portal"
+      >
+        Student Portal
+      </a>
+
+      <a
+        class="secondary-button"
+        href="./my-courses.html"
+        data-i18n="courses"
+      >
+        My Courses
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div>PRO-MAX ACADÉMIE · INSURANCE SCHOOL</div>
+    <div>© 2026 BSS1815 PRO-MAX DMP</div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const STORAGE = {
+      students: "promaxInsuranceStudents",
+      session: "promaxInsuranceSession",
+      language: "promaxInsuranceLanguage"
+    };
+
+    const translations = {
+      en: {
+        school: "INSURANCE SCHOOL",
+        portal: "Student Portal",
+        courses: "My Courses",
+        pageTitle: "Course Certificate",
+        pageIntro:
+          "Official recognition of course completion through PRO-MAX Académie Insurance School.",
+        lockedTitle: "Certificate Locked",
+        lockedText:
+          "You must pass the PRO-MAX course examination before your certificate becomes available.",
+        exam: "Go to Final Exam",
+        certificateTitle: "Certificate",
+        completion: "OF COURSE COMPLETION",
+        presented: "This certificate is presented to",
+        completionText:
+          "For successfully completing the educational requirements and passing the course assessment for",
+        studentId: "Student ID",
+        score: "Final Score",
+        date: "Completion Date",
+        academicDirection: "Academic Direction",
+        verification: "Digital Verification",
+        print: "Print / Save as PDF",
+        notice:
+          "This certificate recognizes completion of a PRO-MAX Académie educational program. It is not a Florida insurance license, Florida state examination result or Florida DFS-approved pre-licensing certificate."
+      },
+
+      fr: {
+        school: "ÉCOLE D’ASSURANCE",
+        portal: "Portail étudiant",
+        courses: "Mes cours",
+        pageTitle: "Certificat de formation",
+        pageIntro:
+          "Reconnaissance officielle de la formation suivie à PRO-MAX Académie.",
+        lockedTitle: "Certificat verrouillé",
+        lockedText:
+          "Vous devez réussir l’évaluation PRO-MAX avant de recevoir votre certificat.",
+        exam: "Aller à l’examen final",
+        certificateTitle: "Certificat",
+        completion: "DE FIN DE FORMATION",
+        presented: "Ce certificat est décerné à",
+        completionText:
+          "Pour avoir terminé les exigences éducatives et réussi l’évaluation du programme",
+        studentId: "Numéro étudiant",
+        score: "Note finale",
+        date: "Date de réussite",
+        academicDirection: "Direction académique",
+        verification: "Vérification numérique",
+        print: "Imprimer / Enregistrer PDF",
+        notice:
+          "Ce certificat reconnaît la réussite d’un programme éducatif PRO-MAX Académie. Il ne constitue pas une licence d’assurance, un résultat d’examen d’État ou un certificat de pré-licence approuvé par Florida DFS."
+      },
+
+      ht: {
+        school: "LEKÒL ASIRANS",
+        portal: "Pòtal Elèv",
+        courses: "Kou Mwen",
+        pageTitle: "Sètifika Kou",
+        pageIntro:
+          "Rekonesans ofisyèl pou kou elèv la fini nan PRO-MAX Académie.",
+        lockedTitle: "Sètifika Fèmen",
+        lockedText:
+          "Ou dwe pase evalyasyon kou PRO-MAX la anvan sètifika ou disponib.",
+        exam: "Ale nan Egzamen Final",
+        certificateTitle: "Sètifika",
+        completion: "KOU KONPLETE",
+        presented: "Sètifika sa a prezante bay",
+        completionText:
+          "Pou elèv la ki fini kondisyon edikatif yo epi pase evalyasyon pwogram nan",
+        studentId: "Nimewo Elèv",
+        score: "Nòt Final",
+        date: "Dat Kou a Fini",
+        academicDirection: "Direksyon Akademik",
+        verification: "Verifikasyon Dijital",
+        print: "Enprime / Anrejistre PDF",
+        notice:
+          "Sètifika sa a rekonèt yon pwogram edikatif PRO-MAX Académie. Li pa yon lisans asirans Florida, rezilta egzamen leta oswa sètifika pre-licensing Florida DFS."
+      }
+    };
+
+    let language =
+      localStorage.getItem(STORAGE.language) || "en";
+
+    let currentStudent = null;
+
+    const lockedPanel =
+      document.getElementById("lockedPanel");
+
+    const certificateWrapper =
+      document.getElementById("certificateWrapper");
+
+    const certificateActions =
+      document.getElementById("certificateActions");
+
+    const certificateNotice =
+      document.getElementById("certificateNotice");
+
+    function getStudents() {
+      try {
+        return JSON.parse(
+          localStorage.getItem(STORAGE.students)
+        ) || [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function findCurrentStudent() {
+      const sessionId =
+        localStorage.getItem(STORAGE.session);
+
+      if (!sessionId) {
+        window.location.href = "./student-portal.html";
+        return;
+      }
+
+      currentStudent = getStudents().find(function (student) {
+        return student.id === sessionId;
+      });
+
+      if (!currentStudent) {
+        localStorage.removeItem(STORAGE.session);
+        window.location.href = "./student-portal.html";
+      }
+    }
+
+    function formatDate(dateValue) {
+      const date = dateValue
+        ? new Date(dateValue)
+        : new Date();
+
+      const locale =
+        language === "fr"
+          ? "fr-FR"
+          : language === "ht"
+            ? "fr-FR"
+            : "en-US";
+
+      return new Intl.DateTimeFormat(locale, {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }).format(date);
+    }
+
+    function renderCertificate() {
+      if (!currentStudent) {
+        return;
+      }
+
+      const certificateAvailable =
+        currentStudent.examPassed === true;
+
+      lockedPanel.classList.toggle(
+        "hidden",
+        certificateAvailable
+      );
+
+      certificateWrapper.classList.toggle(
+        "hidden",
+        !certificateAvailable
+      );
+
+      certificateActions.classList.toggle(
+        "hidden",
+        !certificateAvailable
+      );
+
+      certificateNotice.classList.toggle(
+        "hidden",
+        !certificateAvailable
+      );
+
+      if (!certificateAvailable) {
+        return;
+      }
+
+      document.getElementById("studentName").textContent =
+        currentStudent.name || "Student";
+
+      document.getElementById("programName").textContent =
+        currentStudent.program || "Insurance Program";
+
+      document.getElementById("studentId").textContent =
+        currentStudent.id || "PMIS-000000";
+
+      document.getElementById("examScore").textContent =
+        `${Number(currentStudent.examScore) || 0}%`;
+
+      document.getElementById("completionDate").textContent =
+        formatDate(currentStudent.examCompletedAt);
+    }
+
+    function applyLanguage() {
+      if (!translations[language]) {
+        language = "en";
+      }
+
+      document.documentElement.lang =
+        language === "ht" ? "ht" : language;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key = element.dataset.i18n;
+
+          if (translations[language][key]) {
+            element.textContent =
+              translations[language][key];
+          }
+        });
+
+      document
+        .querySelectorAll(".language-button")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.dataset.language === language
+          );
+        });
+
+      renderCertificate();
+    }
+
+    document
+      .querySelectorAll(".language-button")
+      .forEach(function (button) {
+        button.addEventListener("click", function () {
+          language = button.dataset.language;
+
+          localStorage.setItem(
+            STORAGE.language,
+            language
+          );
+
+          applyLanguage();
+        });
+      });
+
+    document
+      .getElementById("printButton")
+      .addEventListener("click", function () {
+        window.print();
+      });
+
+    findCurrentStudent();
+
+    if (currentStudent) {
+      applyLanguage();
+    }
+  </script>
+</body>
+</html>
