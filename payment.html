@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#030201">
+  <meta name="google" content="notranslate">
+  <meta name="description" content="PRO-MAX Académie Insurance School Zelle payment submission.">
+  <title>Course Payment | PRO-MAX Insurance School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--black:#030201;--panel:#150903;--orange:#ff681a;--orange-dark:#b83a08;--apricot:#ffad78;--muted:#b97050;--border:rgba(255,104,26,.42);--glow:rgba(255,82,10,.24)}
+    *{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;color:var(--apricot);background:radial-gradient(circle at 50% 8%,rgba(255,86,11,.19),transparent 31%),linear-gradient(145deg,#020100,#120702 48%,#020100);font-family:Montserrat,sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:112px;padding:17px clamp(18px,5vw,70px);border-bottom:1px solid var(--border);background:rgba(3,2,1,.97)}.brand{display:flex;align-items:center;gap:16px}.logo-box{width:78px;height:78px;overflow:hidden;border:1px solid var(--border);box-shadow:0 0 25px var(--glow)}.logo{width:100%;height:100%;object-fit:contain}.fallback{display:none;width:100%;height:100%;place-items:center;border:2px solid var(--orange);font-family:Cinzel,serif;font-size:23px;font-weight:800}.brand-name{font-size:clamp(17px,2.5vw,26px);font-weight:800;letter-spacing:2px}.brand-sub{margin-top:7px;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}.portal-link{padding:13px 17px;border:1px solid var(--border);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase}.portal-link:hover{color:var(--black);background:var(--orange)}
+    main{width:min(1100px,calc(100% - 28px));margin:auto;padding:58px 0 85px}.intro{text-align:center}.eyebrow{color:var(--orange);font-size:11px;font-weight:800;letter-spacing:4px;text-transform:uppercase}.title{max-width:850px;margin:17px auto 0;font-family:Cinzel,serif;font-size:clamp(38px,7vw,68px);line-height:1.06}.intro p{max-width:720px;margin:18px auto 0;color:var(--muted);line-height:1.8}
+    .payment-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;margin-top:45px}.card{padding:clamp(27px,5vw,46px);border:1px solid var(--border);background:linear-gradient(145deg,rgba(37,15,6,.95),rgba(6,3,1,.98));box-shadow:0 25px 60px rgba(0,0,0,.38)}.card-title{font-family:Cinzel,serif;font-size:clamp(27px,4vw,39px)}.label{margin-top:25px;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.value{margin-top:9px;color:var(--apricot);font-size:17px;font-weight:800;line-height:1.6}.price{margin-top:8px;font-family:Cinzel,serif;font-size:clamp(45px,7vw,66px);font-weight:800}.price small{color:var(--orange);font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:2px}.zelle-box{margin-top:26px;padding:22px;border:1px solid var(--orange);background:rgba(255,104,26,.07)}.zelle-email{margin-top:9px;color:var(--apricot);font-size:clamp(16px,3vw,21px);font-weight:800;word-break:break-word}.copy-button{width:100%;min-height:50px;margin-top:15px;border:1px solid var(--orange);color:var(--black);background:linear-gradient(135deg,var(--apricot),var(--orange));cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase}.steps{display:grid;gap:12px;margin-top:25px}.step{display:flex;gap:13px;padding:14px;border:1px solid rgba(255,104,26,.22);color:var(--muted);line-height:1.65}.step-number{display:grid;flex:0 0 30px;width:30px;height:30px;place-items:center;border:1px solid var(--orange);border-radius:50%;color:var(--orange);font-size:11px;font-weight:800}
+    form{display:grid;gap:19px;margin-top:27px}.field{display:grid;gap:9px}.field label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.field input{width:100%;min-height:57px;padding:14px 16px;border:1px solid var(--border);outline:0;color:var(--apricot);background:#070301}.field input:focus{border-color:var(--orange);box-shadow:0 0 17px rgba(255,104,26,.12)}.field input::placeholder{color:#865039}.submit{min-height:62px;border:1px solid var(--orange);color:var(--black);background:linear-gradient(135deg,var(--apricot),var(--orange));box-shadow:0 0 22px var(--glow);cursor:pointer;font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}.submit:disabled{opacity:.65}.message{display:none;padding:17px;border:1px solid var(--border);background:rgba(255,104,26,.07);font-size:12px;font-weight:700;line-height:1.7}.message.on{display:block}.message.error{color:var(--orange)}.warning{margin-top:23px;padding:17px;border-left:3px solid var(--orange);color:var(--muted);background:rgba(255,104,26,.05);font-size:11px;line-height:1.75}.warning strong{color:var(--apricot)}
+    footer{display:grid;grid-template-columns:1fr 1fr 1fr;gap:25px;align-items:center;padding:36px clamp(18px,5vw,70px);border-top:1px solid var(--border);background:#020100}.footer-brand{font-family:Cinzel,serif;font-size:17px;font-weight:800;letter-spacing:2px}.footer-text,.footer-copy{color:var(--muted);font-size:10px;font-weight:700;line-height:1.8}.footer-copy{text-align:right}
+    @media(max-width:850px){.payment-layout{grid-template-columns:1fr}footer{grid-template-columns:1fr;text-align:center}.footer-copy{text-align:center}}@media(max-width:600px){header{flex-direction:column;align-items:stretch}.portal-link{align-self:center}.logo-box{width:68px;height:68px}.brand-name{font-size:17px;letter-spacing:1px}.brand-sub{font-size:9px;letter-spacing:2px}main{padding-top:35px}}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html"><div class="logo-box"><img id="logo" class="logo" src="insurance-school-logo.png" alt="PRO-MAX Insurance School"><span id="fallback" class="fallback">PM</span></div><div><div class="brand-name">PRO-MAX ACADÉMIE</div><div class="brand-sub">Insurance School • Secure Payment</div></div></a>
+    <a class="portal-link" href="student-portal.html">Student Portal</a>
+  </header>
+  <main>
+    <section class="intro"><div class="eyebrow">COURSE TUITION • USD</div><h1 class="title">Submit your Zelle payment</h1><p>Send the exact course amount to the official PRO-MAX Académie Zelle email, then submit your confirmation number for administrator verification.</p></section>
+    <section class="payment-layout">
+      <article class="card">
+        <div class="eyebrow">Payment Summary</div><h2 class="card-title" id="programName">Selected Program</h2>
+        <div class="label">Student</div><div class="value" id="studentName">—</div>
+        <div class="label">Course Tuition</div><div class="price"><span id="coursePrice">$0</span> <small>USD</small></div>
+        <div class="zelle-box"><div class="eyebrow">Official Zelle Recipient</div><div class="zelle-email" id="zelleEmail">louismaxauto600@gmail.com</div><button id="copyButton" class="copy-button" type="button">Copy Zelle Email</button></div>
+        <div class="steps"><div class="step"><span class="step-number">1</span><span>Open Zelle through your bank and use the email shown above.</span></div><div class="step"><span class="step-number">2</span><span>Send the exact tuition amount displayed on this page in USD.</span></div><div class="step"><span class="step-number">3</span><span>Return here and submit the Zelle confirmation number.</span></div></div>
+      </article>
+      <article class="card">
+        <div class="eyebrow">Payment Verification</div><h2 class="card-title">Submit confirmation</h2>
+        <form id="paymentForm">
+          <div class="field"><label for="payerName">Name on Zelle Payment</label><input id="payerName" type="text" autocomplete="name" placeholder="Full name used for payment" required></div>
+          <div class="field"><label for="payerEmail">Student Email</label><input id="payerEmail" type="email" autocomplete="email" placeholder="Student account email" required></div>
+          <div class="field"><label for="confirmationNumber">Zelle Confirmation Number</label><input id="confirmationNumber" type="text" minlength="4" maxlength="80" placeholder="Enter the confirmation/reference number" required></div>
+          <div class="field"><label for="paymentDate">Payment Date</label><input id="paymentDate" type="date" required></div>
+          <button id="submitButton" class="submit" type="submit">Submit Payment for Verification</button>
+          <div id="message" class="message" role="alert"></div>
+        </form>
+        <div class="warning"><strong>Important:</strong> Submitting a confirmation number does not automatically mark the course as paid. A PRO-MAX administrator must verify the Zelle transaction before course access is approved. Never enter bank account numbers, routing numbers, card numbers or passwords on this page.</div>
+      </article>
+    </section>
+  </main>
+  <footer><div class="footer-brand">PRO-MAX ACADÉMIE<br>INSURANCE SCHOOL</div><div class="footer-text">louismaxauto600@gmail.com<br>(407) 640-5166 • (516) 216-8494<br>+509 4343-7488</div><div class="footer-copy">bss1815promaxdmp.com<br>© <span id="year"></span> BSS1815 PRO-MAX DMP</div></footer>
+  <script>
+    "use strict";
+    const KEYS={students:"promaxInsuranceStudents",session:"promaxInsuranceSession"};
+    const PROGRAMS={health:{name:"Health Insurance — Florida 2-40",price:119},life:{name:"Life, Health & Annuities — Florida 2-15",price:149},personal:{name:"Personal Lines Insurance — Florida 20-44",price:149},property:{name:"Property & Casualty — Florida 2-20",price:299},bundle:{name:"Complete Insurance School Bundle",price:599}};
+    const normalize=value=>String(value||"").trim().toLowerCase();
+    function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}}
+    function programType(value){const p=normalize(value);if(p.includes("bundle"))return"bundle";if(p.includes("property")||p.includes("casualty")||p.includes("2-20"))return"property";if(p.includes("personal")||p.includes("auto")||p.includes("20-44"))return"personal";if(p.includes("life")||p.includes("2-15"))return"life";if(p.includes("health")||p.includes("2-40"))return"health";return null}
+    function currentStudent(){const students=read(KEYS.students,[]),session=read(KEYS.session,null);if(!session||!Array.isArray(students))return null;const email=normalize(typeof session==="string"?session:session.email),id=normalize(typeof session==="object"?(session.id||session.studentId):"");return students.find(s=>(email&&normalize(s.email)===email)||(id&&normalize(s.id)===id))||null}
+    const student=currentStudent();
+    if(!student){location.replace("student-profile.html")}else{
+      const queryType=programType(new URLSearchParams(location.search).get("program"));const type=queryType||programType(student.programKey||student.program);const selected=PROGRAMS[type];
+      if(!selected){alert("Select an insurance program in your student profile before submitting payment.");location.replace("student-profile.html")}else{
+        document.getElementById("programName").textContent=selected.name;document.getElementById("studentName").textContent=student.name||student.fullName||"PRO-MAX Student";document.getElementById("coursePrice").textContent=`$${selected.price}`;document.getElementById("payerName").value=student.name||student.fullName||"";document.getElementById("payerEmail").value=student.email||"";document.getElementById("paymentDate").value=new Date().toISOString().split("T")[0];
+        document.getElementById("paymentForm").addEventListener("submit",event=>{event.preventDefault();const payerName=document.getElementById("payerName").value.trim(),payerEmail=normalize(document.getElementById("payerEmail").value),reference=document.getElementById("confirmationNumber").value.trim(),date=document.getElementById("paymentDate").value,message=document.getElementById("message");if(!payerName||!payerEmail||reference.length<4||!date){message.textContent="Complete every required payment field.";message.className="message on error";return}const students=read(KEYS.students,[]),index=students.findIndex(s=>normalize(s.email)===normalize(student.email));if(index<0){message.textContent="Student account could not be found.";message.className="message on error";return}students[index]={...students[index],tuition:selected.price,coursePrice:selected.price,currency:"USD",paymentMethod:"Zelle",paymentStatus:"pending",paid:false,paymentSubmission:{payerName,payerEmail,confirmationNumber:reference,paymentDate:date,amount:selected.price,currency:"USD",recipient:"louismaxauto600@gmail.com",submittedAt:new Date().toISOString()}};localStorage.setItem(KEYS.students,JSON.stringify(students));document.getElementById("submitButton").disabled=true;message.textContent="Payment confirmation submitted. Status: Pending Administrator Verification.";message.className="message on";setTimeout(()=>location.href="student-portal.html",1400)});
+      }
+    }
+    document.getElementById("copyButton").addEventListener("click",async event=>{try{await navigator.clipboard.writeText("louismaxauto600@gmail.com");event.currentTarget.textContent="Zelle Email Copied"}catch{event.currentTarget.textContent="louismaxauto600@gmail.com"}});
+    const logo=document.getElementById("logo");logo.addEventListener("error",()=>{if(logo.getAttribute("src")==="insurance-school-logo.png"){logo.src="logo.png";return}logo.style.display="none";document.getElementById("fallback").style.display="grid"});document.getElementById("year").textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
