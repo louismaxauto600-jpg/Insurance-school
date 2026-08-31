@@ -2,6 +2,11 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31">
 
   <meta
     name="viewport"
@@ -561,7 +566,7 @@
 
 <body>
   <header class="site-header">
-    <a class="brand" href="./index.html">
+    <a class='brand' href='/'>
       <img
         class="brand-logo"
         src="./insurance-school-logo.png"
@@ -607,11 +612,7 @@
         </button>
       </div>
 
-      <a
-        class="header-button"
-        href="./student-portal.html"
-        data-i18n="portal"
-      >
+      <a class='header-button' data-i18n='portal' href='student-portal.html'>
         Student Portal
       </a>
     </div>
@@ -645,11 +646,7 @@
         before your certificate becomes available.
       </p>
 
-      <a
-        class="primary-button"
-        href="./final-exam.html"
-        data-i18n="exam"
-      >
+      <a class='primary-button' data-i18n='exam' href='final-exam.html' id='lockedAction'>
         Go to Final Exam
       </a>
     </section>
@@ -777,19 +774,11 @@
         Print / Save as PDF
       </button>
 
-      <a
-        class="secondary-button"
-        href="./student-portal.html"
-        data-i18n="portal"
-      >
+      <a class='secondary-button' data-i18n='portal' href='student-portal.html'>
         Student Portal
       </a>
 
-      <a
-        class="secondary-button"
-        href="./my-courses.html"
-        data-i18n="courses"
-      >
+      <a class='secondary-button' data-i18n='courses' href='my-courses.html'>
         My Courses
       </a>
     </div>
@@ -916,22 +905,44 @@
       }
     }
 
-    function findCurrentStudent() {
-      const sessionId =
-        localStorage.getItem(STORAGE.session);
+    function readStorage(key, fallback) {
+      try {
+        const value = JSON.parse(localStorage.getItem(key));
+        return value === null ? fallback : value;
+      } catch (error) {
+        return fallback;
+      }
+    }
 
-      if (!sessionId) {
-        window.location.href = "./student-portal.html";
+    function normalize(value) {
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function findCurrentStudent() {
+      const session = readStorage(STORAGE.session, null);
+      const students = getStudents();
+
+      if (!session || !Array.isArray(students)) {
+        window.location.replace("student-profile.html");
         return;
       }
 
-      currentStudent = getStudents().find(function (student) {
-        return student.id === sessionId;
-      });
+      const sessionEmail = normalize(
+        typeof session === "string" ? session : session.email
+      );
+      const sessionId = normalize(
+        typeof session === "object" ? (session.id || session.studentId) : session
+      );
+
+      currentStudent = students.find(function (student) {
+        return (
+          (sessionEmail && normalize(student.email) === sessionEmail) ||
+          (sessionId && normalize(student.id) === sessionId)
+        );
+      }) || null;
 
       if (!currentStudent) {
-        localStorage.removeItem(STORAGE.session);
-        window.location.href = "./student-portal.html";
+        window.location.replace("student-profile.html");
       }
     }
 
@@ -960,7 +971,8 @@
       }
 
       const certificateAvailable =
-        currentStudent.examPassed === true;
+        currentStudent.examPassed === true &&
+        currentStudent.certificateIssued === true;
 
       lockedPanel.classList.toggle(
         "hidden",
@@ -983,11 +995,20 @@
       );
 
       if (!certificateAvailable) {
+        const lockedText = document.querySelector("[data-i18n='lockedText']");
+        const lockedAction = document.getElementById("lockedAction");
+
+        if (currentStudent.examPassed === true) {
+          lockedText.textContent =
+            "You passed the final examination. Your certificate is awaiting administrator approval.";
+          lockedAction.textContent = "RETURN TO STUDENT PORTAL";
+          lockedAction.href = "student-portal.html";
+        }
         return;
       }
 
       document.getElementById("studentName").textContent =
-        currentStudent.name || "Student";
+        currentStudent.fullName || currentStudent.name || "Student";
 
       document.getElementById("programName").textContent =
         currentStudent.program || "Insurance Program";
@@ -999,7 +1020,10 @@
         `${Number(currentStudent.examScore) || 0}%`;
 
       document.getElementById("completionDate").textContent =
-        formatDate(currentStudent.examCompletedAt);
+        formatDate(
+          currentStudent.certificateIssuedAt ||
+          currentStudent.examCompletedAt
+        );
     }
 
     function applyLanguage() {
