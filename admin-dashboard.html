@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot" translate="no">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#030201">
+  <meta name="google" content="notranslate">
+
+  <meta
+    name="description"
+    content="PRO-MAX Académie Insurance School administration dashboard."
+  >
+
+  <title>Admin Dashboard | PRO-MAX Insurance School</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #030201;
+      --black-soft: #0c0502;
+      --panel: #160a04;
+      --orange: #ff681a;
+      --orange-dark: #bd3b08;
+      --apricot: #ffad78;
+      --muted: #bd7552;
+      --border: rgba(255, 104, 26, 0.4);
+      --glow: rgba(255, 82, 10, 0.24);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--apricot);
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(255, 84, 10, 0.16),
+          transparent 31%
+        ),
+        linear-gradient(
+          145deg,
+          #020100,
+          #100602 48%,
+          #020100
+        );
+      font-family: "Montserrat", sans-serif;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 112px;
+      padding: 17px clamp(18px, 4vw, 65px);
+      border-bottom: 1px solid var(--border);
+      background: rgba(3, 2, 1, 0.97);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      min-width: 0;
+    }
+
+    .logo-box {
+      flex: 0 0 auto;
+      width: 78px;
+      height: 78px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--black);
+      box-shadow: 0 0 25px var(--glow);
+    }
+
+    .school-logo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      place-items: center;
+      border: 2px solid var(--orange);
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .brand-name {
+      color: var(--apricot);
+      font-size: clamp(17px, 2.4vw, 26px);
+      font-weight: 800;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .brand-school {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .header-link,
+    .action-button {
+      min-height: 46px;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: transparent;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .header-link:hover,
+    .action-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    main {
+      width: min(1380px, calc(100% - 30px));
+      margin: 0 auto;
+      padding: 55px 0 85px;
+    }
+
+    .dashboard-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: flex-end;
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      margin-top: 15px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(38px, 6vw, 67px);
+      line-height: 1.05;
+    }
+
+    .page-description {
+      max-width: 720px;
+      margin-top: 17px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .last-update {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    .statistics-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      min-height: 155px;
+      padding: 23px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(35, 14, 5, 0.94),
+          rgba(7, 3, 1, 0.98)
+        );
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      margin-top: 18px;
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800;
+    }
+
+    .stat-note {
+      margin-top: 8px;
+      color: var(--orange);
+      font-size: 11px;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr 220px auto auto;
+      gap: 13px;
+      margin-bottom: 20px;
+      padding: 19px;
+      border: 1px solid var(--border);
+      background: rgba(15, 6, 2, 0.92);
+    }
+
+    .search-input,
+    .filter-select {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      outline: none;
+      color: var(--apricot);
+      background: #070301;
+    }
+
+    .search-input::placeholder {
+      color: #875039;
+    }
+
+    .search-input:focus,
+    .filter-select:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 15px rgba(255, 104, 26, 0.1);
+    }
+
+    .filter-select option {
+      color: var(--apricot);
+      background: var(--black-soft);
+    }
+
+    .primary-button {
+      min-height: 50px;
+      padding: 13px 18px;
+      border: 1px solid var(--orange);
+      color: var(--black);
+      background: linear-gradient(
+        135deg,
+        var(--apricot),
+        var(--orange)
+      );
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .primary-button:hover {
+      background: var(--orange);
+    }
+
+    .table-panel {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(10, 4, 2, 0.94);
+    }
+
+    .table-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .table-title {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 25px;
+    }
+
+    .table-count {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1180px;
+      border-collapse: collapse;
+    }
+
+    th {
+      padding: 17px 15px;
+      border-bottom: 1px solid var(--border);
+      color: var(--orange);
+      background: #080301;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 18px 15px;
+      border-bottom: 1px solid rgba(255, 104, 26, 0.17);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      vertical-align: middle;
+    }
+
+    tbody tr:hover {
+      background: rgba(255, 104, 26, 0.05);
+    }
+
+    .student-name {
+      color: var(--apricot);
+      font-weight: 800;
+    }
+
+    .student-email {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .price {
+      color: var(--apricot);
+      font-weight: 800;
+    }
+
+    .status {
+      display: inline-flex;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      color: var(--orange);
+      background: rgba(255, 104, 26, 0.07);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .status.paid,
+    .status.passed,
+    .status.issued {
+      color: var(--black);
+      background: var(--apricot);
+    }
+
+    .progress-track {
+      width: 110px;
+      height: 8px;
+      margin-bottom: 6px;
+      border: 1px solid var(--border);
+      background: #030100;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        var(--orange-dark),
+        var(--apricot)
+      );
+    }
+
+    .row-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .mini-button {
+      padding: 8px 9px;
+      border: 1px solid var(--border);
+      color: var(--apricot);
+      background: transparent;
+      cursor: pointer;
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .mini-button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .mini-button.danger:hover {
+      background: var(--orange-dark);
+    }
+
+    .empty-state {
+      display: none;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .empty-state.visible {
+      display: block;
+    }
+
+    .empty-title {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 30px;
+    }
+
+    .empty-text {
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .security-note {
+      margin-top: 22px;
+      padding: 18px;
+      border-left: 3px solid var(--orange);
+      color: var(--muted);
+      background: rgba(255, 104, 26, 0.05);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .security-note strong {
+      color: var(--apricot);
+    }
+
+    .site-footer {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 37px clamp(18px, 4vw, 65px);
+      border-top: 1px solid var(--border);
+      background: #020100;
+    }
+
+    .footer-brand {
+      color: var(--apricot);
+      font-family: "Cinzel", serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .footer-contact,
+    .footer-copy {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .footer-copy {
+      text-align: right;
+    }
+
+    @media (max-width: 1150px) {
+      .statistics-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr 200px;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .site-header,
+      .dashboard-heading {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .site-header {
+        position: relative;
+        padding: 17px;
+      }
+
+      .header-actions {
+        justify-content: center;
+      }
+
+      .last-update {
+        text-align: left;
+      }
+
+      .statistics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .site-footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-copy {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .statistics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-box {
+        width: 68px;
+        height: 68px;
+      }
+
+      .brand-name {
+        font-size: 17px;
+        letter-spacing: 1px;
+      }
+
+      .brand-school {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <div class="logo-box">
+        <img
+          src="insurance-school-logo.png"
+          alt="PRO-MAX Insurance School"
+          class="school-logo"
+          id="schoolLogo"
+        >
+
+        <span class="logo-fallback" id="logoFallback">PM</span>
+      </div>
+
+      <div>
+        <div class="brand-name">PRO-MAX ACADÉMIE</div>
+        <div class="brand-school">
+          Insurance School • Administration
+        </div>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <a href="index.html" class="header-link">Homepage</a>
+
+      <button
+        type="button"
+        class="action-button"
+        id="refreshButton"
+      >
+        Refresh Data
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="dashboard-heading">
+      <div>
+        <p class="eyebrow">Super Admin Control Panel</p>
+
+        <h1 class="page-title">Admin Dashboard</h1>
+
+        <p class="page-description">
+          Manage students, programs, tuition status, exam results and
+          completion certificates.
+        </p>
+      </div>
+
+      <p class="last-update">
+        LAST UPDATE<br>
+        <strong id="lastUpdate">—</strong>
+      </p>
+    </section>
+
+    <section class="statistics-grid">
+      <article class="stat-card">
+        <p class="stat-label">Total Students</p>
+        <p class="stat-value" id="totalStudents">0</p>
+        <p class="stat-note">Registered accounts</p>
+      </article>
+
+      <article class="stat-card">
+        <p class="stat-label">Paid Students</p>
+        <p class="stat-value" id="paidStudents">0</p>
+        <p class="stat-note">Payment confirmed</p>
+      </article>
+
+      <article class="stat-card">
+        <p class="stat-label">Pending Payments</p>
+        <p class="stat-value" id="pendingPayments">0</p>
+        <p class="stat-note">Awaiting confirmation</p>
+      </article>
+
+      <article class="stat-card">
+        <p class="stat-label">Passed Exams</p>
+        <p class="stat-value" id="passedExams">0</p>
+        <p class="stat-note">Eligible for certificate</p>
+      </article>
+
+      <article class="stat-card">
+        <p class="stat-label">Confirmed Revenue</p>
+        <p class="stat-value" id="confirmedRevenue">$0</p>
+        <p class="stat-note">USD course tuition</p>
+      </article>
+    </section>
+
+    <section class="toolbar">
+      <input
+        type="search"
+        class="search-input"
+        id="studentSearch"
+        placeholder="Search name, email, ID or program..."
+      >
+
+      <select class="filter-select" id="programFilter">
+        <option value="all">All Programs</option>
+        <option value="health">Health 2-40</option>
+        <option value="life">Life & Health 2-15</option>
+        <option value="personal">Personal Lines 20-44</option>
+        <option value="property">Property & Casualty 2-20</option>
+        <option value="bundle">Complete Bundle</option>
+      </select>
+
+      <button
+        type="button"
+        class="primary-button"
+        id="exportButton"
+      >
+        Export CSV
+      </button>
+
+      <button
+        type="button"
+        class="action-button"
+        id="clearSearchButton"
+      >
+        Clear Search
+      </button>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-heading">
+        <h2 class="table-title">Student Registry</h2>
+
+        <p class="table-count">
+          Showing <strong id="visibleStudentCount">0</strong> students
+        </p>
+      </div>
+
+      <div class="table-scroll" id="tableContainer">
+        <table>
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Student ID</th>
+              <th>Program</th>
+              <th>Tuition</th>
+              <th>Payment</th>
+              <th>Progress</th>
+              <th>Exam</th>
+              <th>Certificate</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="studentTableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <h3 class="empty-title">No students found</h3>
+
+        <p class="empty-text">
+          Student accounts created through the registration page will
+          appear here.
+        </p>
+      </div>
+    </section>
+
+    <div class="security-note">
+      <strong>System notice:</strong>
+      This dashboard currently reads student information stored on
+      this device. Before public launch, secure administrator
+      authentication and a protected online database must be
+      connected.
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      PRO-MAX ACADÉMIE<br>
+      INSURANCE SCHOOL
+    </div>
+
+    <div class="footer-contact">
+      louismaxauto600@gmail.com<br>
+      (407) 640-5166 • (516) 216-8494<br>
+      +509 4343-7488
+    </div>
+
+    <div class="footer-copy">
+      bss1815promaxdmp.com<br>
+      © <span id="currentYear"></span> BSS1815 PRO-MAX DMP
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const STORAGE_KEYS = {
+      students: "promaxInsuranceStudents"
+    };
+
+    const PROGRAM_PRICES = {
+      health: 119,
+      life: 149,
+      personal: 149,
+      property: 299,
+      bundle: 599
+    };
+
+    let allStudents = [];
+
+    const studentTableBody =
+      document.getElementById("studentTableBody");
+
+    const studentSearch =
+      document.getElementById("studentSearch");
+
+    const programFilter =
+      document.getElementById("programFilter");
+
+    const tableContainer =
+      document.getElementById("tableContainer");
+
+    const emptyState =
+      document.getElementById("emptyState");
+
+    function readStudents() {
+      try {
+        const storedStudents = JSON.parse(
+          localStorage.getItem(STORAGE_KEYS.students) || "[]"
+        );
+
+        return Array.isArray(storedStudents)
+          ? storedStudents
+          : [];
+      } catch (error) {
+        console.error("Unable to read students:", error);
+        return [];
+      }
+    }
+
+    function saveStudents() {
+      localStorage.setItem(
+        STORAGE_KEYS.students,
+        JSON.stringify(allStudents)
+      );
+    }
+
+    function normalize(value) {
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function getProgramType(student) {
+      const program = normalize(
+        student.programKey || student.program
+      );
+
+      if (program.includes("bundle")) {
+        return "bundle";
+      }
+
+      if (
+        program.includes("property") ||
+        program.includes("casualty") ||
+        program.includes("2-20")
+      ) {
+        return "property";
+      }
+
+      if (
+        program.includes("personal") ||
+        program.includes("auto") ||
+        program.includes("20-44")
+      ) {
+        return "personal";
+      }
+
+      if (
+        program.includes("life") ||
+        program.includes("2-15")
+      ) {
+        return "life";
+      }
+
+      if (
+        program.includes("health") ||
+        program.includes("2-40")
+      ) {
+        return "health";
+      }
+
+      return "unknown";
+    }
+
+    function getProgramName(student) {
+      const type = getProgramType(student);
+
+      const names = {
+        health: "Health Insurance — 2-40",
+        life: "Life, Health & Annuities — 2-15",
+        personal: "Personal Lines — 20-44",
+        property: "Property & Casualty — 2-20",
+        bundle: "Complete Insurance Bundle",
+        unknown: student.program || "Not selected"
+      };
+
+      return names[type];
+    }
+
+    function getTuition(student) {
+      const type = getProgramType(student);
+
+      if (PROGRAM_PRICES[type]) {
+        return PROGRAM_PRICES[type];
+      }
+
+      const storedPrice = Number(
+        student.tuition || student.coursePrice
+      );
+
+      return Number.isFinite(storedPrice) &&
+        storedPrice > 0 &&
+        storedPrice < 1000
+          ? storedPrice
+          : 0;
+    }
+
+    function isPaid(student) {
+      return (
+        student.paymentStatus === "paid" ||
+        student.paymentStatus === true ||
+        student.paid === true ||
+        student.isPaid === true
+      );
+    }
+
+    function getProgress(student) {
+      if (
+        Number.isFinite(Number(student.progress))
+      ) {
+        return Math.max(
+          0,
+          Math.min(100, Number(student.progress))
+        );
+      }
+
+      const completed = Array.isArray(
+        student.completedLessons
+      )
+        ? student.completedLessons.length
+        : 0;
+
+      const total = Number(student.totalModules) || 10;
+
+      return Math.round(
+        Math.min(100, (completed / total) * 100)
+      );
+    }
+
+    function escapeHTML(value) {
+      const element = document.createElement("div");
+      element.textContent = String(value || "");
+      return element.innerHTML;
+    }
+
+    function updateStatistics() {
+      const paid = allStudents.filter(isPaid);
+      const pending = allStudents.length - paid.length;
+
+      const passed = allStudents.filter(
+        student => student.examPassed === true
+      );
+
+      const revenue = paid.reduce(
+        (total, student) => total + getTuition(student),
+        0
+      );
+
+      document.getElementById(
+        "totalStudents"
+      ).textContent = allStudents.length;
+
+      document.getElementById(
+        "paidStudents"
+      ).textContent = paid.length;
+
+      document.getElementById(
+        "pendingPayments"
+      ).textContent = pending;
+
+      document.getElementById(
+        "passedExams"
+      ).textContent = passed.length;
+
+      document.getElementById(
+        "confirmedRevenue"
+      ).textContent = `$${revenue.toLocaleString("en-US")}`;
+    }
+
+    function getFilteredStudents() {
+      const searchTerm = normalize(studentSearch.value);
+      const selectedProgram = programFilter.value;
+
+      return allStudents.filter(student => {
+        const searchableText = normalize(
+          [
+            student.name,
+            student.fullName,
+            student.email,
+            student.id,
+            student.program,
+            student.programKey
+          ].join(" ")
+        );
+
+        const matchesSearch =
+          !searchTerm ||
+          searchableText.includes(searchTerm);
+
+        const programType = getProgramType(student);
+
+        const matchesProgram =
+          selectedProgram === "all" ||
+          selectedProgram === programType;
+
+        return matchesSearch && matchesProgram;
+      });
+    }
+
+    function renderStudents() {
+      const filteredStudents = getFilteredStudents();
+
+      studentTableBody.innerHTML = "";
+
+      document.getElementById(
+        "visibleStudentCount"
+      ).textContent = filteredStudents.length;
+
+      if (filteredStudents.length === 0) {
+        tableContainer.style.display = "none";
+        emptyState.classList.add("visible");
+        return;
+      }
+
+      tableContainer.style.display = "block";
+      emptyState.classList.remove("visible");
+
+      filteredStudents.forEach(student => {
+        const originalIndex = allStudents.findIndex(item => {
+          if (student.id && item.id) {
+            return item.id === student.id;
+          }
+
+          return normalize(item.email) ===
+            normalize(student.email);
+        });
+
+        const studentName =
+          student.name ||
+          student.fullName ||
+          "PRO-MAX Student";
+
+        const tuition = getTuition(student);
+        const paymentPaid = isPaid(student);
+        const progress = getProgress(student);
+
+        const hasExamScore =
+          student.examScore !== null &&
+          student.examScore !== undefined;
+
+        const certificateIssued =
+          student.certificateIssued === true;
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td>
+            <div class="student-name">
+              ${escapeHTML(studentName)}
+            </div>
+
+            <div class="student-email">
+              ${escapeHTML(student.email || "No email")}
+            </div>
+          </td>
+
+          <td>
+            ${escapeHTML(student.id || "Not assigned")}
+          </td>
+
+          <td>
+            ${escapeHTML(getProgramName(student))}
+          </td>
+
+          <td>
+            <span class="price">
+              ${tuition ? `$${tuition} USD` : "Not selected"}
+            </span>
+          </td>
+
+          <td>
+            <span class="status ${paymentPaid ? "paid" : ""}">
+              ${paymentPaid ? "Paid" : "Pending"}
+            </span>
+          </td>
+
+          <td>
+            <div class="progress-track">
+              <div
+                class="progress-bar"
+                style="width: ${progress}%"
+              ></div>
+            </div>
+
+            ${progress}%
+          </td>
+
+          <td>
+            <span class="status ${
+              student.examPassed ? "passed" : ""
+            }">
+              ${
+                student.examPassed
+                  ? `Passed ${hasExamScore ? student.examScore + "%" : ""}`
+                  : hasExamScore
+                    ? `Score ${student.examScore}%`
+                    : "Not completed"
+              }
+            </span>
+          </td>
+
+          <td>
+            <span class="status ${
+              certificateIssued ? "issued" : ""
+            }">
+              ${
+                certificateIssued
+                  ? "Issued"
+                  : student.examPassed
+                    ? "Eligible"
+                    : "Locked"
+              }
+            </span>
+          </td>
+
+          <td>
+            <div class="row-actions">
+              <button
+                type="button"
+                class="mini-button"
+                data-action="payment"
+                data-index="${originalIndex}"
+              >
+                ${paymentPaid ? "Set Pending" : "Confirm Paid"}
+              </button>
+
+              <button
+                type="button"
+                class="mini-button"
+                data-action="certificate"
+                data-index="${originalIndex}"
+              >
+                ${
+                  certificateIssued
+                    ? "Revoke Certificate"
+                    : "Issue Certificate"
+                }
+              </button>
+
+              <button
+                type="button"
+                class="mini-button danger"
+                data-action="delete"
+                data-index="${originalIndex}"
+              >
+                Delete
+              </button>
+            </div>
+          </td>
+        `;
+
+        studentTableBody.appendChild(row);
+      });
+    }
+
+    function refreshDashboard() {
+      allStudents = readStudents();
+      updateStatistics();
+      renderStudents();
+
+      document.getElementById(
+        "lastUpdate"
+      ).textContent = new Date().toLocaleString("en-US");
+    }
+
+    function togglePayment(index) {
+      const student = allStudents[index];
+
+      if (!student) {
+        return;
+      }
+
+      const newPaidStatus = !isPaid(student);
+
+      student.paymentStatus =
+        newPaidStatus ? "paid" : "pending";
+
+      student.paid = newPaidStatus;
+      student.paymentConfirmedAt =
+        newPaidStatus ? new Date().toISOString() : null;
+
+      student.tuition = getTuition(student);
+      student.coursePrice = getTuition(student);
+      student.currency = "USD";
+
+      saveStudents();
+      refreshDashboard();
+    }
+
+    function toggleCertificate(index) {
+      const student = allStudents[index];
+
+      if (!student) {
+        return;
+      }
+
+      if (
+        student.examPassed !== true &&
+        student.certificateIssued !== true
+      ) {
+        alert(
+          "The student must pass the final exam before a certificate can be issued."
+        );
+        return;
+      }
+
+      student.certificateIssued =
+        student.certificateIssued !== true;
+
+      student.certificateIssuedAt =
+        student.certificateIssued
+          ? new Date().toISOString()
+          : null;
+
+      saveStudents();
+      refreshDashboard();
+    }
+
+    function deleteStudent(index) {
+      const student = allStudents[index];
+
+      if (!student) {
+        return;
+      }
+
+      const studentName =
+        student.name ||
+        student.fullName ||
+        "this student";
+
+      const confirmed = window.confirm(
+        `Delete the account for ${studentName}?`
+      );
+
+      if (!confirmed) {
+        return;
+      }
+
+      allStudents.splice(index, 1);
+      saveStudents();
+      refreshDashboard();
+    }
+
+    function exportStudentsCSV() {
+      if (allStudents.length === 0) {
+        alert("There are no students to export.");
+        return;
+      }
+
+      const columns = [
+        "Student ID",
+        "Name",
+        "Email",
+        "Phone",
+        "Program",
+        "Tuition USD",
+        "Payment Status",
+        "Progress",
+        "Exam Score",
+        "Exam Passed",
+        "Certificate Issued",
+        "Created At"
+      ];
+
+      const rows = allStudents.map(student => [
+        student.id || "",
+        student.name || student.fullName || "",
+        student.email || "",
+        student.phone || "",
+        getProgramName(student),
+        getTuition(student),
+        isPaid(student) ? "Paid" : "Pending",
+        `${getProgress(student)}%`,
+        student.examScore ?? "",
+        student.examPassed ? "Yes" : "No",
+        student.certificateIssued ? "Yes" : "No",
+        student.createdAt || ""
+      ]);
+
+      const csvContent = [columns, ...rows]
+        .map(row => {
+          return row
+            .map(value => {
+              return `"${String(value).replace(/"/g, '""')}"`;
+            })
+            .join(",");
+        })
+        .join("\n");
+
+      const blob = new Blob(
+        [csvContent],
+        {
+          type: "text/csv;charset=utf-8;"
+        }
+      );
+
+      const downloadURL = URL.createObjectURL(blob);
+      const downloadLink = document.createElement("a");
+
+      downloadLink.href = downloadURL;
+      downloadLink.download =
+        `promax-insurance-students-${
+          new Date().toISOString().split("T")[0]
+        }.csv`;
+
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+
+      URL.revokeObjectURL(downloadURL);
+    }
+
+    studentTableBody.addEventListener("click", event => {
+      const button = event.target.closest("[data-action]");
+
+      if (!button) {
+        return;
+      }
+
+      const index = Number(button.dataset.index);
+      const action = button.dataset.action;
+
+      if (action === "payment") {
+        togglePayment(index);
+      }
+
+      if (action === "certificate") {
+        toggleCertificate(index);
+      }
+
+      if (action === "delete") {
+        deleteStudent(index);
+      }
+    });
+
+    studentSearch.addEventListener(
+      "input",
+      renderStudents
+    );
+
+    programFilter.addEventListener(
+      "change",
+      renderStudents
+    );
+
+    document.getElementById(
+      "clearSearchButton"
+    ).addEventListener("click", () => {
+      studentSearch.value = "";
+      programFilter.value = "all";
+      renderStudents();
+    });
+
+    document.getElementById(
+      "refreshButton"
+    ).addEventListener("click", refreshDashboard);
+
+    document.getElementById(
+      "exportButton"
+    ).addEventListener("click", exportStudentsCSV);
+
+    const schoolLogo =
+      document.getElementById("schoolLogo");
+
+    const logoFallback =
+      document.getElementById("logoFallback");
+
+    schoolLogo.addEventListener("error", () => {
+      if (
+        schoolLogo.getAttribute("src") ===
+        "insurance-school-logo.png"
+      ) {
+        schoolLogo.src = "logo.png";
+        return;
+      }
+
+      schoolLogo.style.display = "none";
+      logoFallback.style.display = "grid";
+    });
+
+    document.getElementById(
+      "currentYear"
+    ).textContent = new Date().getFullYear();
+
+    refreshDashboard();
+  </script>
+</body>
+</html>
