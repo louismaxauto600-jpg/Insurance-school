@@ -120,8 +120,8 @@
     .brand-logo-wrap {
       position: relative;
       flex: 0 0 auto;
-      width: 82px;
-      height: 82px;
+      width: 62px;
+      height: 62px;
       border: 1px solid var(--border);
       background: var(--black);
       box-shadow:
@@ -252,8 +252,8 @@
       position: relative;
       overflow: hidden;
       padding: clamp(30px, 5vw, 62px);
-      padding-right: clamp(270px, 34vw, 430px);
-      min-height: 390px;
+      padding-right: clamp(180px, 23vw, 235px);
+      min-height: 310px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -274,8 +274,8 @@
       position: absolute;
       z-index: 1;
       top: 50%;
-      right: clamp(24px, 4vw, 58px);
-      width: clamp(210px, 28vw, 350px);
+      right: clamp(28px, 4vw, 54px);
+      width: 120px;
       transform: translateY(-50%);
       filter: drop-shadow(0 0 28px rgba(255, 104, 26, 0.34));
       animation: welcomeLogoFloat 5s ease-in-out infinite;
@@ -284,7 +284,7 @@
     .welcome-logo {
       display: block;
       width: 100%;
-      max-height: 350px;
+      max-height: 120px;
       object-fit: contain;
     }
 
@@ -726,8 +726,8 @@
         position: relative;
         top: auto;
         right: auto;
-        width: min(310px, 78%);
-        margin: 0 auto 30px;
+        width: 110px;
+        margin: 0 auto 22px;
         transform: none;
         animation: none;
       }
@@ -753,8 +753,8 @@
       }
 
       .brand-logo-wrap {
-        width: 70px;
-        height: 70px;
+        width: 58px;
+        height: 58px;
       }
 
       .brand-title {
@@ -896,7 +896,7 @@
         <article class="welcome-card">
           <div class="welcome-logo-wrap">
             <img
-              src="insurance-school-logo.png"
+              src="insurance-school-logo.png?v=20260831-2"
               alt="PRO-MAX Académie Insurance School"
               class="welcome-logo"
               id="welcomeLogo"
@@ -1869,8 +1869,8 @@
     welcomeLogo.addEventListener("error", function handleWelcomeLogoError() {
       const currentSource = welcomeLogo.getAttribute("src");
 
-      if (currentSource === "insurance-school-logo.png") {
-        welcomeLogo.src = "logo.png";
+      if (currentSource.startsWith("insurance-school-logo.png")) {
+        welcomeLogo.src = "logo.png?v=20260831-2";
         return;
       }
 
