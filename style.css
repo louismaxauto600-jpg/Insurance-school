@@ -1,745 +1,131 @@
-:root {
-  --black: #000000;
-  --black2: #0b0300;
-  --apricot: #ffad70;
-  --orange: #ff7418;
-  --burnt: #e94b00;
-  --line: #c74610;
-  --muted: #e2773f;
-}
+/* ========================================
+   PRO-MAX INSURANCE PROFESSOR VIDEO
+======================================== */
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--black);
-  color: var(--apricot);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-}
-
-/* HEADER */
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-
-  min-height: 104px;
-  padding: 12px 5vw;
-
-  display: flex;
-  align-items: center;
-  gap: 30px;
-
-  background: rgba(0, 0, 0, 0.95);
-  border-bottom: 1px solid rgba(255, 116, 24, 0.3);
-  backdrop-filter: blur(15px);
-}
-
-.brand {
-  min-width: 0;
-  margin-right: auto;
-
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.brand-logo {
-  flex: 0 0 78px;
-
-  width: 78px;
-  height: 78px;
-
-  display: block;
-  object-fit: contain;
-
-  filter:
-    drop-shadow(0 0 18px rgba(255, 90, 0, 0.4));
-}
-
-.brand span {
-  min-width: 0;
-}
-
-.brand strong,
-.brand small {
-  display: block;
-}
-
-.brand strong {
-  color: var(--apricot);
-  font-size: 20px;
-  line-height: 1.1;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-}
-
-.brand small {
-  margin-top: 7px;
-
-  color: var(--orange);
-  font-size: 11px;
-  line-height: 1.2;
-  letter-spacing: 0.28em;
-  white-space: nowrap;
-}
-
-/* NAVIGATION */
-
-nav {
-  display: flex;
-  gap: 24px;
-}
-
-nav a {
-  color: #d77b47;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-nav a:hover {
-  color: #ff9a57;
-}
-
-/* LANGUAGES */
-
-.langs {
-  padding: 3px;
-
-  display: flex;
-
-  border: 1px solid #a54119;
-  border-radius: 30px;
-}
-
-.langs button {
-  padding: 7px;
-
-  border: 0;
-  border-radius: 20px;
-  background: transparent;
-
-  color: #c45d2c;
-  font-size: 10px;
-  font-weight: 900;
-
-  cursor: pointer;
-}
-
-.langs button.active {
-  background: var(--orange);
-  color: #000000;
-}
-
-/* HERO */
-
-.hero {
-  min-height: 660px;
-  padding: 75px 8vw;
-
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
-  gap: 55px;
-
-  background:
-    radial-gradient(
-      circle at 82% 40%,
-      rgba(255, 90, 0, 0.24),
-      transparent 34%
-    ),
-    linear-gradient(
-      135deg,
-      #000000,
-      #100400 60%,
-      #000000
-    );
-}
-
-.kicker {
-  color: var(--orange);
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.25em;
-}
-
-.hero h1 {
-  margin: 18px 0 25px;
-
-  color: var(--apricot);
-  font-family: Georgia, serif;
-  font-size: clamp(50px, 7vw, 94px);
-  line-height: 0.98;
-  letter-spacing: -0.04em;
-}
-
-.hero h1 b {
-  display: block;
-}
-
-.hero h1 span {
-  display: block;
-
-  color: var(--orange);
-
-  text-shadow:
-    0 0 28px rgba(233, 84, 23, 0.3);
-}
-
-.intro,
-.section-lead,
-.card p,
-.step p,
-.cta > p {
-  max-width: 720px;
-
-  color: var(--muted);
-  line-height: 1.75;
-}
-
-/* BUTTONS */
-
-.actions {
-  margin-top: 32px;
-
-  display: flex;
-  gap: 14px;
-}
-
-.primary,
-.secondary {
-  padding: 14px 23px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 4px;
-
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.primary {
-  background:
-    linear-gradient(
-      135deg,
-      #ffa05c,
-      var(--burnt)
-    );
-
-  color: #120502;
-
-  box-shadow:
-    0 12px 38px rgba(217, 77, 20, 0.22);
-}
-
-.secondary {
-  border: 1px solid #bd4d1c;
-}
-
-/* MAIN LOGO */
-
-.official-logo-wrap {
-  width: min(530px, 88vw);
-
+.professor-video-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.official-logo {
   width: 100%;
-  height: auto;
-
-  display: block;
-  object-fit: contain;
-
-  filter:
-    drop-shadow(0 20px 45px rgba(255, 90, 0, 0.31));
 }
 
-/* SECTIONS */
-
-section {
-  scroll-margin-top: 105px;
-}
-
-.section,
-.cta {
-  padding: 95px 8vw;
-}
-
-.section h2,
-.cta h2 {
-  margin: 12px 0;
-
-  color: #ef8d50;
-  font-family: Georgia, serif;
-  font-size: clamp(36px, 5vw, 62px);
-  font-weight: 700;
-  line-height: 1.05;
-}
-
-.grid,
-.steps {
-  margin-top: 42px;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}
-
-/* PROGRAM CARDS */
-
-.card {
+.professor-video-card {
   position: relative;
-
-  min-height: 280px;
-  padding: 25px;
-
-  border: 1px solid #7f3013;
-
-  background:
-    linear-gradient(
-      155deg,
-      #211008,
-      #080302
-    );
-
-  transition: 0.25s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: var(--orange);
-}
-
-.card .number {
-  position: absolute;
-  top: 16px;
-  right: 18px;
-
-  color: #713019;
-  font-size: 11px;
-}
-
-.card .icon {
-  margin: 40px 0 22px;
-
-  display: block;
-
-  color: var(--orange);
-  font-size: 32px;
-}
-
-.card h3,
-.step h3 {
-  color: var(--apricot);
-  font-family: Georgia, serif;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.dark {
-  background: #100603;
-}
-
-/* ROADMAP */
-
-.steps {
-  gap: 0;
-  border-top: 1px solid #7f3013;
-}
-
-.step {
-  padding: 28px 24px;
-  border-left: 1px solid #55200d;
-}
-
-.step > b {
-  color: var(--orange);
-  font-size: 11px;
-}
-
-/* PAYMENT */
-
-.payment {
-  display: grid;
-  grid-template-columns: 1fr 430px;
-  align-items: center;
-  gap: 75px;
-}
-
-.payment-copy p {
-  margin-bottom: 30px;
-
-  color: var(--muted);
-  line-height: 1.75;
-}
-
-.payment-card {
-  padding: 38px;
-
-  border: 1px solid #a83f16;
-
+  width: min(100%, 470px);
+  padding: 12px;
+  overflow: hidden;
+  border: 1px solid #ff7518;
+  border-radius: 28px;
   background:
     linear-gradient(
       145deg,
-      #251006,
-      #080301
+      rgba(255, 117, 24, 0.22),
+      rgba(0, 0, 0, 0.98) 48%,
+      rgba(255, 166, 77, 0.16)
     );
-
-  box-shadow: 0 25px 80px #000000;
+  box-shadow:
+    0 0 0 4px rgba(255, 117, 24, 0.08),
+    0 25px 70px rgba(0, 0, 0, 0.75),
+    0 0 38px rgba(255, 117, 24, 0.28);
 }
 
-.payment-card > span {
+.professor-video-card::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  z-index: 0;
+  background:
+    conic-gradient(
+      transparent,
+      rgba(255, 166, 77, 0.28),
+      transparent 30%
+    );
+  animation: professorGlow 8s linear infinite;
+}
+
+.video-label,
+.professor-video,
+.open-professor-video {
+  position: relative;
+  z-index: 1;
+}
+
+.video-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 8px 14px;
+  color: #ffa64d;
+  letter-spacing: 1px;
+}
+
+.video-label span {
   font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.payment-card > strong {
-  margin: 14px 0;
-
-  display: block;
-
-  font-family: Georgia, serif;
-  font-size: 54px;
   font-weight: 700;
 }
 
-.payment-card > strong small {
-  font-size: 15px;
+.video-label strong {
+  font-size: 11px;
+  color: #ff7518;
 }
 
-.progress {
-  height: 7px;
-  background: #361208;
-}
-
-.progress i {
-  width: 0;
-  height: 100%;
-
+.professor-video {
   display: block;
-
-  background:
-    linear-gradient(
-      90deg,
-      #e05a14,
-      #ff9e59
-    );
-
-  transition: 0.5s;
-}
-
-.pay-dots {
-  margin-top: 14px;
-
-  display: flex;
-  justify-content: space-between;
-}
-
-.pay-dots b {
-  width: 25px;
-  height: 25px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid #9f3e18;
-  border-radius: 50%;
-
-  font-size: 10px;
-}
-
-.pay-controls {
-  margin-top: 25px;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-}
-
-.pay-controls button {
-  padding: 9px 12px;
-
-  border: 1px solid #9f3e18;
-  background: #130603;
-
-  color: #e27940;
-  cursor: pointer;
-}
-
-.pay-controls button:hover {
-  background: #e46b21;
-  color: #000000;
-}
-
-.status {
-  margin-top: 16px;
-
-  color: #ed8343;
-  font-size: 12px;
-}
-
-/* FINAL CTA */
-
-.cta {
-  text-align: center;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(100, 28, 7, 0.33),
-      transparent 55%
-    );
-}
-
-.cta h2 {
-  max-width: 900px;
-  margin: 14px auto;
-}
-
-.cta > p {
-  margin: 0 auto 30px;
-}
-
-/* FOOTER */
-
-footer {
   width: 100%;
-  padding: 38px 5vw;
-
-  display: grid;
-  grid-template-columns:
-    minmax(300px, 1.4fr)
-    minmax(150px, 0.7fr)
-    minmax(190px, 0.8fr);
-
-  align-items: center;
-  gap: 35px;
-
-  border-top: 1px solid var(--line);
+  height: 610px;
+  border: 0;
+  border-radius: 20px;
   background: #000000;
 }
 
-footer .brand {
-  width: 100%;
-  margin: 0;
-
+.open-professor-video {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  min-height: 54px;
+  margin-top: 12px;
+  border: 1px solid #ff7518;
+  border-radius: 16px;
+  color: #000000;
+  background:
+    linear-gradient(
+      135deg,
+      #ffa64d,
+      #ff7518
+    );
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-footer .brand-logo {
-  flex: 0 0 76px;
-
-  width: 76px;
-  height: 76px;
-
-  display: block;
-  object-fit: contain;
+.open-professor-video:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 117, 24, 0.35);
 }
 
-footer .brand strong {
-  font-size: 17px;
-  line-height: 1.15;
-  letter-spacing: 0.06em;
+@keyframes professorGlow {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-footer .brand small {
-  margin-top: 6px;
-
-  font-size: 9px;
-  letter-spacing: 0.18em;
-}
-
-footer > p {
-  margin: 0;
-
-  color: var(--apricot);
-  font-size: 10px;
-  line-height: 1.4;
-  letter-spacing: 0.18em;
-  text-align: center;
-}
-
-footer > small {
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.5;
-  text-align: right;
-}
-
-/* TABLETS */
-
-@media (max-width: 900px) {
-  nav {
-    display: none;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-copy {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .official-logo-wrap {
-    order: -1;
-
-    width: min(500px, 92vw);
-    margin: auto;
-  }
-
-  .grid,
-  .steps {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .payment {
-    grid-template-columns: 1fr;
-  }
-
-  footer {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 25px;
-    text-align: center;
-  }
-
-  footer .brand {
-    width: auto;
-    justify-content: center;
-  }
-
-  footer > p,
-  footer > small {
+@media (max-width: 700px) {
+  .professor-video-card {
     width: 100%;
-    margin: 0;
-    text-align: center;
-  }
-}
-
-/* PHONES */
-
-@media (max-width: 560px) {
-  .topbar {
-    min-height: 92px;
-    padding: 10px 14px;
-    gap: 10px;
+    border-radius: 22px;
   }
 
-  .brand {
-    gap: 8px;
+  .professor-video {
+    height: 520px;
   }
 
-  .brand-logo {
-    flex-basis: 60px;
-
-    width: 60px;
-    height: 60px;
-  }
-
-  .brand strong {
-    font-size: 14px;
-    letter-spacing: 0.04em;
-  }
-
-  .brand small {
-    margin-top: 5px;
-
-    font-size: 8px;
-    letter-spacing: 0.14em;
-  }
-
-  .langs button {
-    padding: 6px 5px;
-    font-size: 9px;
-  }
-
-  .hero {
-    min-height: auto;
-    padding: 55px 20px;
-  }
-
-  .hero h1 {
-    font-size: 45px;
-  }
-
-  .actions {
-    width: 100%;
+  .video-label {
     flex-direction: column;
-  }
-
-  .actions a {
-    justify-content: center;
-  }
-
-  .section,
-  .cta {
-    padding: 68px 20px;
-  }
-
-  .grid,
-  .steps {
-    grid-template-columns: 1fr;
-  }
-
-  .payment-card {
-    padding: 24px;
-  }
-
-  .payment-card > strong {
-    font-size: 42px;
-  }
-
-  footer {
-    padding: 32px 18px;
-  }
-
-  footer .brand {
-    flex-direction: column;
-  }
-
-  footer .brand-logo {
-    flex-basis: 90px;
-
-    width: 90px;
-    height: 90px;
-  }
-
-  footer .brand strong {
-    font-size: 16px;
-  }
-
-  footer .brand small {
-    font-size: 9px;
+    align-items: flex-start;
   }
 }
