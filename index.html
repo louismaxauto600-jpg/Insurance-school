@@ -151,7 +151,7 @@
     .professor-video {
       display: block;
       width: 100%;
-      aspect-ratio: 9 / 16;
+      aspect-ratio: 720 / 890;
       max-height: 680px;
       border: 1px solid rgba(255, 116, 24, 0.55);
       border-radius: 20px;
@@ -159,19 +159,6 @@
       background: #000000;
       box-shadow:
         0 18px 45px rgba(0, 0, 0, 0.5);
-    }
-
-    .video-fallback {
-      padding: 18px 10px 8px;
-      color: #e2773f;
-      font-size: 11px;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .video-fallback a {
-      color: #ff7418;
-      font-weight: 900;
     }
 
     @media (max-width: 900px) {
@@ -221,7 +208,7 @@
       <span>
         <strong>PRO-MAX ACADÉMIE</strong>
 
-        <small data-t="schoolName">
+        <small data-i18n="schoolName">
           INSURANCE SCHOOL
         </small>
       </span>
@@ -229,27 +216,27 @@
 
     <nav aria-label="Main navigation">
 
-      <a href="#home" data-t="navHome">
+      <a href="#home" data-i18n="navHome">
         Home
       </a>
 
-      <a href="#professor">
+      <a href="#professor" data-i18n="navProfessor">
         Professor
       </a>
 
-      <a href="#programs" data-t="navPrograms">
+      <a href="#programs" data-i18n="navPrograms">
         Programs
       </a>
 
-      <a href="#roadmap" data-t="navRoadmap">
+      <a href="#roadmap" data-i18n="navRoadmap">
         Roadmap
       </a>
 
-      <a href="./student-profile.html">
+      <a href="./student-profile.html" data-i18n="navCreate">
         Create Account
       </a>
 
-      <a href="./student-portal.html" data-t="navPortal">
+      <a href="./student-portal.html" data-i18n="navPortal">
         Student Portal
       </a>
 
@@ -286,32 +273,30 @@
 
   <main>
 
-    <!-- =====================================
-         HERO — OFFICIAL SCHOOL SYMBOL
-    ====================================== -->
+    <!-- OFFICIAL SCHOOL HERO -->
 
     <section class="hero" id="home">
 
       <div class="hero-copy">
 
-        <p class="kicker" data-t="eyebrow">
+        <p class="kicker" data-i18n="eyebrow">
           PRO-MAX ACADÉMIE • INSURANCE SCHOOL
         </p>
 
         <h1>
-          <b data-t="titleA">
+          <b data-i18n="titleA">
             Build the knowledge.
           </b>
 
-          <span data-t="titleB">
+          <span data-i18n="titleB">
             Earn the confidence.
           </span>
         </h1>
 
-        <p class="intro" data-t="intro">
+        <p class="intro" data-i18n="intro">
           A focused, multilingual learning path for future
-          insurance professionals. Study the fundamentals,
-          track your progress, prepare for the final exam
+          insurance professionals. Study insurance fundamentals,
+          track your progress, prepare for your final examination
           and move forward with purpose.
         </p>
 
@@ -320,7 +305,7 @@
           <a
             class="primary"
             href="#programs"
-            data-t="explore"
+            data-i18n="explore"
           >
             Explore Programs
           </a>
@@ -328,6 +313,7 @@
           <a
             class="secondary"
             href="./student-profile.html"
+            data-i18n="createAccount"
           >
             Create Account
           </a>
@@ -335,7 +321,7 @@
           <a
             class="secondary"
             href="./student-portal.html"
-            data-t="portal"
+            data-i18n="portal"
           >
             Student Portal
           </a>
@@ -356,9 +342,7 @@
 
     </section>
 
-    <!-- =====================================
-         PROFESSOR — SEPARATE SECTION
-    ====================================== -->
+    <!-- INSURANCE PROFESSOR -->
 
     <section
       class="professor-section"
@@ -371,11 +355,11 @@
           PRO-MAX ACADÉMIE
         </p>
 
-        <h2>
+        <h2 data-i18n="professorTitle">
           Meet Your Insurance Professor
         </h2>
 
-        <p>
+        <p data-i18n="professorText">
           Professional guidance, clear instruction and
           practical insurance education through the
           PRO-MAX Académie learning experience.
@@ -393,7 +377,7 @@
               PRO-MAX ACADÉMIE
             </span>
 
-            <strong>
+            <strong data-i18n="professorLabel">
               INSURANCE PROFESSOR
             </strong>
 
@@ -402,20 +386,15 @@
           <video
             class="professor-video"
             controls
-            autoplay
-            muted
-            loop
             playsinline
-            preload="auto"
+            preload="metadata"
           >
             <source
-              src="./promax-insurance-professor-15s.mp4"
+              src="./promax-insurance-professor-web.mp4"
               type="video/mp4"
             >
 
-            <div class="video-fallback">
-              Your browser does not support this video.
-            </div>
+            Your browser does not support HTML5 video.
           </video>
 
         </div>
@@ -424,9 +403,7 @@
 
     </section>
 
-    <!-- =====================================
-         PROGRAMS
-    ====================================== -->
+    <!-- PROGRAMS -->
 
     <section
       class="section"
@@ -437,43 +414,39 @@
         01 — PROGRAMS
       </p>
 
-      <h2 data-t="programTitle">
+      <h2 data-i18n="programTitle">
         Core study programs
       </h2>
 
-      <p
-        class="section-lead"
-        data-t="programSub"
-      >
-        Choose your professional learning track and
-        build strong insurance foundations.
+      <p class="section-lead" data-i18n="programSub">
+        Choose your professional learning track and build
+        strong insurance foundations through PRO-MAX Académie.
       </p>
 
       <div class="grid">
 
         <article class="card">
 
-          <span class="number">
-            01
-          </span>
+          <span class="number">01</span>
 
           <i
             class="icon fa-solid fa-heart-pulse"
             aria-hidden="true"
           ></i>
 
-          <h3>
+          <h3 data-i18n="lifeTitle">
             Life Insurance
           </h3>
 
-          <p>
-            Coverage, beneficiaries, policies,
-            client needs and responsible guidance.
+          <p data-i18n="lifeText">
+            Learn coverage, beneficiaries, policy structures,
+            client needs and responsible professional guidance.
           </p>
 
           <a
             class="secondary"
             href="./life-insurance.html"
+            data-i18n="openCourse"
           >
             Open Course
           </a>
@@ -482,27 +455,26 @@
 
         <article class="card">
 
-          <span class="number">
-            02
-          </span>
+          <span class="number">02</span>
 
           <i
             class="icon fa-solid fa-notes-medical"
             aria-hidden="true"
           ></i>
 
-          <h3>
+          <h3 data-i18n="healthTitle">
             Health Insurance
           </h3>
 
-          <p>
-            Health plans, essential terminology,
+          <p data-i18n="healthText">
+            Study health plans, essential terminology,
             policy provisions and Florida 2-40 fundamentals.
           </p>
 
           <a
             class="secondary"
             href="./health-insurance.html"
+            data-i18n="openCourse"
           >
             Open Course
           </a>
@@ -511,27 +483,26 @@
 
         <article class="card">
 
-          <span class="number">
-            03
-          </span>
+          <span class="number">03</span>
 
           <i
             class="icon fa-solid fa-car-side"
             aria-hidden="true"
           ></i>
 
-          <h3>
+          <h3 data-i18n="autoTitle">
             Auto Insurance
           </h3>
 
-          <p>
-            Liability, protection, claims,
+          <p data-i18n="autoText">
+            Understand liability, protection, claims,
             policy structure and responsible client service.
           </p>
 
           <a
             class="secondary"
             href="./auto-insurance.html"
+            data-i18n="openCourse"
           >
             Open Course
           </a>
@@ -540,27 +511,26 @@
 
         <article class="card">
 
-          <span class="number">
-            04
-          </span>
+          <span class="number">04</span>
 
           <i
             class="icon fa-solid fa-house-shield"
             aria-hidden="true"
           ></i>
 
-          <h3>
+          <h3 data-i18n="propertyTitle">
             Property &amp; Casualty
           </h3>
 
-          <p>
-            Property risks, casualty protection,
-            coverage and Florida insurance concepts.
+          <p data-i18n="propertyText">
+            Build knowledge of property risks, casualty
+            protection, coverage and Florida insurance concepts.
           </p>
 
           <a
             class="secondary"
             href="./property-casualty.html"
+            data-i18n="openCourse"
           >
             Open Course
           </a>
@@ -571,9 +541,7 @@
 
     </section>
 
-    <!-- =====================================
-         ROADMAP
-    ====================================== -->
+    <!-- ROADMAP -->
 
     <section
       class="section dark"
@@ -584,9 +552,14 @@
         02 — ROADMAP
       </p>
 
-      <h2 data-t="journey">
+      <h2 data-i18n="roadmapTitle">
         Your path to completion
       </h2>
+
+      <p class="section-lead" data-i18n="roadmapIntro">
+        Follow a clear professional learning pathway from
+        enrollment to certificate completion.
+      </p>
 
       <div class="steps">
 
@@ -594,13 +567,13 @@
 
           <b>01</b>
 
-          <h3>
+          <h3 data-i18n="enrollTitle">
             Enroll
           </h3>
 
-          <p>
-            Create your student profile and
-            select your insurance program.
+          <p data-i18n="enrollText">
+            Create your student profile and select your
+            professional insurance program.
           </p>
 
         </article>
@@ -609,13 +582,13 @@
 
           <b>02</b>
 
-          <h3>
+          <h3 data-i18n="learnTitle">
             Learn
           </h3>
 
-          <p>
-            Complete lessons, modules,
-            quizzes and practical reviews.
+          <p data-i18n="learnText">
+            Complete lessons, learning modules,
+            quizzes and practical course reviews.
           </p>
 
         </article>
@@ -624,11 +597,11 @@
 
           <b>03</b>
 
-          <h3>
+          <h3 data-i18n="examTitle">
             Final Exam
           </h3>
 
-          <p>
+          <p data-i18n="examText">
             Complete the PRO-MAX course examination
             through BSS1815 PRO-MAX DMP.
           </p>
@@ -639,11 +612,11 @@
 
           <b>04</b>
 
-          <h3>
+          <h3 data-i18n="certificateTitle">
             Certificate
           </h3>
 
-          <p>
+          <p data-i18n="certificateText">
             Verify your result and receive your
             PRO-MAX Académie course certificate.
           </p>
@@ -654,13 +627,11 @@
 
     </section>
 
-    <!-- =====================================
-         STUDENT CENTER
-    ====================================== -->
+    <!-- STUDENT CENTER -->
 
     <section
       class="section payment"
-      id="portal"
+      id="student-center"
     >
 
       <div class="payment-copy">
@@ -669,14 +640,14 @@
           03 — STUDENT ACCOUNT
         </p>
 
-        <h2>
+        <h2 data-i18n="studentTitle">
           Your professional learning center
         </h2>
 
-        <p>
-          Access your selected courses, track your progress,
-          prepare for your final examination and verify
-          your certificate.
+        <p data-i18n="studentText">
+          Access your selected courses, track your learning
+          progress, review your enrollment status, prepare for
+          your final examination and verify your certificate.
         </p>
 
         <div class="actions">
@@ -684,6 +655,7 @@
           <a
             class="primary"
             href="./student-profile.html"
+            data-i18n="createAccount"
           >
             Create Account
           </a>
@@ -691,6 +663,7 @@
           <a
             class="secondary"
             href="./student-portal.html"
+            data-i18n="portal"
           >
             Student Portal
           </a>
@@ -701,20 +674,20 @@
 
       <aside class="payment-card">
 
-        <span>
-          STUDENT ACCOUNT
+        <span data-i18n="accountFeatures">
+          Student account features
         </span>
 
         <strong>
           100%
-          <small>
+          <small data-i18n="online">
             ONLINE
           </small>
         </strong>
 
-        <p>
-          One secure location for enrollment,
-          courses, progress, examinations and certificates.
+        <p data-i18n="accountText">
+          One secure location for enrollment, courses,
+          progress, examinations and certificates.
         </p>
 
         <div class="pay-dots">
@@ -725,7 +698,7 @@
           <b>5</b>
         </div>
 
-        <div class="status">
+        <div class="status" data-i18n="currencyNotice">
           All course payments are displayed in USD.
         </div>
 
@@ -733,9 +706,7 @@
 
     </section>
 
-    <!-- =====================================
-         FINAL CTA
-    ====================================== -->
+    <!-- FINAL CALL TO ACTION -->
 
     <section class="cta">
 
@@ -743,14 +714,13 @@
         BSS1815 PRO-MAX DMP
       </p>
 
-      <h2>
-        Learn with direction.
-        Progress with discipline.
+      <h2 data-i18n="promise">
+        Learn with direction. Progress with discipline.
       </h2>
 
-      <p>
-        Education, technology and opportunity
-        inside one professional digital ecosystem.
+      <p data-i18n="promiseSub">
+        Education, technology and opportunity inside one
+        professional digital ecosystem.
       </p>
 
       <div class="actions">
@@ -758,6 +728,7 @@
         <a
           class="primary"
           href="./student-profile.html"
+          data-i18n="startNow"
         >
           Start Now
         </a>
@@ -765,6 +736,7 @@
         <a
           class="secondary"
           href="#programs"
+          data-i18n="explore"
         >
           Explore Programs
         </a>
@@ -786,18 +758,16 @@
       >
 
       <span>
-        <strong>
-          PRO-MAX ACADÉMIE
-        </strong>
+        <strong>PRO-MAX ACADÉMIE</strong>
 
-        <small>
+        <small data-i18n="schoolName">
           INSURANCE SCHOOL
         </small>
       </span>
 
     </div>
 
-    <p>
+    <p data-i18n="footer">
       LEARN. EVOLVE. SUCCEED.
     </p>
 
@@ -808,10 +778,282 @@
 
   </footer>
 
-  <script src="./javascript.js"></script>
-
   <script>
     "use strict";
+
+    const translations = {
+      en: {
+        schoolName: "INSURANCE SCHOOL",
+        navHome: "Home",
+        navProfessor: "Professor",
+        navPrograms: "Programs",
+        navRoadmap: "Roadmap",
+        navCreate: "Create Account",
+        navPortal: "Student Portal",
+        eyebrow: "PRO-MAX ACADÉMIE • INSURANCE SCHOOL",
+        titleA: "Build the knowledge.",
+        titleB: "Earn the confidence.",
+        intro:
+          "A focused, multilingual learning path for future insurance professionals. Study insurance fundamentals, track your progress, prepare for your final examination and move forward with purpose.",
+        explore: "Explore Programs",
+        createAccount: "Create Account",
+        portal: "Student Portal",
+        professorTitle: "Meet Your Insurance Professor",
+        professorText:
+          "Professional guidance, clear instruction and practical insurance education through the PRO-MAX Académie learning experience.",
+        professorLabel: "INSURANCE PROFESSOR",
+        programTitle: "Core study programs",
+        programSub:
+          "Choose your professional learning track and build strong insurance foundations through PRO-MAX Académie.",
+        lifeTitle: "Life Insurance",
+        lifeText:
+          "Learn coverage, beneficiaries, policy structures, client needs and responsible professional guidance.",
+        healthTitle: "Health Insurance",
+        healthText:
+          "Study health plans, essential terminology, policy provisions and Florida 2-40 fundamentals.",
+        autoTitle: "Auto Insurance",
+        autoText:
+          "Understand liability, protection, claims, policy structure and responsible client service.",
+        propertyTitle: "Property & Casualty",
+        propertyText:
+          "Build knowledge of property risks, casualty protection, coverage and Florida insurance concepts.",
+        openCourse: "Open Course",
+        roadmapTitle: "Your path to completion",
+        roadmapIntro:
+          "Follow a clear professional learning pathway from enrollment to certificate completion.",
+        enrollTitle: "Enroll",
+        enrollText:
+          "Create your student profile and select your professional insurance program.",
+        learnTitle: "Learn",
+        learnText:
+          "Complete lessons, learning modules, quizzes and practical course reviews.",
+        examTitle: "Final Exam",
+        examText:
+          "Complete the PRO-MAX course examination through BSS1815 PRO-MAX DMP.",
+        certificateTitle: "Certificate",
+        certificateText:
+          "Verify your result and receive your PRO-MAX Académie course certificate.",
+        studentTitle: "Your professional learning center",
+        studentText:
+          "Access your selected courses, track your learning progress, review your enrollment status, prepare for your final examination and verify your certificate.",
+        accountFeatures: "Student account features",
+        online: "ONLINE",
+        accountText:
+          "One secure location for enrollment, courses, progress, examinations and certificates.",
+        currencyNotice:
+          "All course payments are displayed in USD.",
+        promise:
+          "Learn with direction. Progress with discipline.",
+        promiseSub:
+          "Education, technology and opportunity inside one professional digital ecosystem.",
+        startNow: "Start Now",
+        footer: "LEARN. EVOLVE. SUCCEED."
+      },
+
+      fr: {
+        schoolName: "ÉCOLE D’ASSURANCE",
+        navHome: "Accueil",
+        navProfessor: "Professeur",
+        navPrograms: "Programmes",
+        navRoadmap: "Parcours",
+        navCreate: "Créer un compte",
+        navPortal: "Portail étudiant",
+        eyebrow:
+          "PRO-MAX ACADÉMIE • ÉCOLE D’ASSURANCE",
+        titleA: "Développez vos connaissances.",
+        titleB: "Gagnez en confiance.",
+        intro:
+          "Un parcours multilingue destiné aux futurs professionnels de l’assurance. Étudiez les principes fondamentaux, suivez votre progression et préparez votre examen final.",
+        explore: "Voir les programmes",
+        createAccount: "Créer un compte",
+        portal: "Portail étudiant",
+        professorTitle:
+          "Découvrez votre professeur d’assurance",
+        professorText:
+          "Des conseils professionnels et une formation pratique dans l’expérience PRO-MAX Académie.",
+        professorLabel:
+          "PROFESSEUR D’ASSURANCE",
+        programTitle:
+          "Programmes fondamentaux",
+        programSub:
+          "Choisissez votre parcours professionnel et développez de solides connaissances en assurance.",
+        lifeTitle: "Assurance vie",
+        lifeText:
+          "Étudiez les garanties, bénéficiaires, contrats et besoins des clients.",
+        healthTitle: "Assurance santé",
+        healthText:
+          "Étudiez les régimes, la terminologie et les principes Florida 2-40.",
+        autoTitle: "Assurance automobile",
+        autoText:
+          "Comprenez la responsabilité, la protection, les réclamations et les contrats.",
+        propertyTitle:
+          "Biens et risques divers",
+        propertyText:
+          "Développez vos connaissances des risques, protections et garanties.",
+        openCourse: "Ouvrir le cours",
+        roadmapTitle:
+          "Votre parcours vers la réussite",
+        roadmapIntro:
+          "Suivez un parcours clair de l’inscription à l’obtention du certificat.",
+        enrollTitle: "Inscription",
+        enrollText:
+          "Créez votre profil étudiant et sélectionnez votre programme.",
+        learnTitle: "Formation",
+        learnText:
+          "Terminez les leçons, modules, quiz et révisions pratiques.",
+        examTitle: "Examen final",
+        examText:
+          "Passez l’examen PRO-MAX via BSS1815 PRO-MAX DMP.",
+        certificateTitle: "Certificat",
+        certificateText:
+          "Vérifiez votre résultat et recevez votre certificat PRO-MAX Académie.",
+        studentTitle:
+          "Votre centre d’apprentissage",
+        studentText:
+          "Accédez à vos cours, suivez votre progression et préparez votre examen final.",
+        accountFeatures:
+          "Fonctions du compte étudiant",
+        online: "EN LIGNE",
+        accountText:
+          "Un espace sécurisé pour les cours, les examens et les certificats.",
+        currencyNotice:
+          "Tous les paiements des cours sont affichés en USD.",
+        promise:
+          "Apprenez avec méthode. Progressez avec discipline.",
+        promiseSub:
+          "Éducation, technologie et opportunité dans un écosystème professionnel.",
+        startNow: "Commencer",
+        footer:
+          "APPRENDRE. ÉVOLUER. RÉUSSIR."
+      },
+
+      ht: {
+        schoolName: "LEKÒL ASIRANS",
+        navHome: "Akèy",
+        navProfessor: "Pwofesè",
+        navPrograms: "Pwogram",
+        navRoadmap: "Chemen",
+        navCreate: "Kreye kont",
+        navPortal: "Pòtal elèv",
+        eyebrow:
+          "PRO-MAX ACADÉMIE • LEKÒL ASIRANS",
+        titleA: "Devlope konesans.",
+        titleB: "Pran konfyans.",
+        intro:
+          "Yon chemen aprantisaj nan plizyè lang pou pwochen pwofesyonèl asirans yo. Etidye prensip asirans yo, swiv pwogrè ou epi prepare egzamen final ou.",
+        explore: "Gade pwogram yo",
+        createAccount: "Kreye kont",
+        portal: "Pòtal elèv",
+        professorTitle:
+          "Rankontre pwofesè asirans ou",
+        professorText:
+          "Bon jan direksyon pwofesyonèl ak fòmasyon pratik atravè eksperyans PRO-MAX Académie.",
+        professorLabel:
+          "PWOFESÈ ASIRANS",
+        programTitle:
+          "Pwogram prensipal yo",
+        programSub:
+          "Chwazi pwogram pwofesyonèl ou epi devlope bon konesans nan asirans.",
+        lifeTitle: "Asirans vi",
+        lifeText:
+          "Aprann sou pwoteksyon, benefisyè, kontra ak bezwen kliyan yo.",
+        healthTitle: "Asirans sante",
+        healthText:
+          "Etidye plan sante, tèm enpòtan ak prensip Florida 2-40.",
+        autoTitle: "Asirans machin",
+        autoText:
+          "Konprann responsablite, pwoteksyon, reklamasyon ak kontra yo.",
+        propertyTitle:
+          "Pwopriyete ak responsablite",
+        propertyText:
+          "Devlope konesans sou risk, pwoteksyon ak garanti asirans.",
+        openCourse: "Ouvri kou a",
+        roadmapTitle:
+          "Chemen ou pou fini",
+        roadmapIntro:
+          "Swiv yon chemen klè depi enskripsyon rive nan sètifika.",
+        enrollTitle: "Enskri",
+        enrollText:
+          "Kreye pwofil elèv ou epi chwazi pwogram asirans ou.",
+        learnTitle: "Aprann",
+        learnText:
+          "Fini leson, modil, egzamen pratik ak revizyon yo.",
+        examTitle: "Egzamen final",
+        examText:
+          "Pase egzamen PRO-MAX la atravè BSS1815 PRO-MAX DMP.",
+        certificateTitle: "Sètifika",
+        certificateText:
+          "Verifye rezilta ou epi resevwa sètifika PRO-MAX Académie ou.",
+        studentTitle:
+          "Sant aprantisaj pwofesyonèl ou",
+        studentText:
+          "Antre nan kou ou yo, swiv pwogrè ou epi prepare egzamen final ou.",
+        accountFeatures:
+          "Fonksyon kont elèv la",
+        online: "SOU ENTÈNÈT",
+        accountText:
+          "Yon espas sekirize pou kou, egzamen ak sètifika.",
+        currencyNotice:
+          "Tout peman kou yo afiche an USD.",
+        promise:
+          "Aprann avèk direksyon. Avanse avèk disiplin.",
+        promiseSub:
+          "Edikasyon, teknoloji ak opòtinite nan yon ekosistèm pwofesyonèl.",
+        startNow: "Kòmanse",
+        footer:
+          "APRANN. EVOLYE. REYISI."
+      }
+    };
+
+    function changeLanguage(language) {
+      const selected =
+        translations[language] || translations.en;
+
+      document.documentElement.lang =
+        language === "ht" ? "ht" : language;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key = element.dataset.i18n;
+
+          if (selected[key]) {
+            element.textContent = selected[key];
+          }
+        });
+
+      document
+        .querySelectorAll("[data-lang]")
+        .forEach(function (button) {
+          button.classList.toggle(
+            "active",
+            button.dataset.lang === language
+          );
+        });
+
+      localStorage.setItem(
+        "promaxInsuranceLanguage",
+        language
+      );
+    }
+
+    document
+      .querySelectorAll("[data-lang]")
+      .forEach(function (button) {
+        button.addEventListener(
+          "click",
+          function () {
+            changeLanguage(button.dataset.lang);
+          }
+        );
+      });
+
+    const savedLanguage =
+      localStorage.getItem(
+        "promaxInsuranceLanguage"
+      ) || "en";
+
+    changeLanguage(savedLanguage);
 
     const yearElement =
       document.getElementById("year");
