@@ -2,32 +2,26 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
-<!-- This site is hosted on Netlify. Anyone can build and deploy a site
-     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31
-     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
-<meta name="hosting-provider" content="Netlify">
-<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta name="theme-color" content="#050301">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
   <meta name="google" content="notranslate">
 
   <meta
     name="description"
-    content="PRO-MAX Académie Insurance School — professional Florida insurance exam-preparation education."
+    content="PRO-MAX Académie Insurance School — professional multilingual insurance education based in Orlando, Florida and available 100% online."
   >
 
   <title>PRO-MAX Académie | Insurance School</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   >
 
@@ -36,1732 +30,1013 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   >
 
+  <link rel="stylesheet" href="./style.css">
+
   <style>
-    :root {
-      --black: #030201;
-      --black-soft: #0c0502;
-      --panel: #170a04;
-      --orange: #ff681a;
-      --orange-dark: #b93807;
-      --apricot: #ffad78;
-      --apricot-dark: #d27c52;
-      --muted: #b96f4d;
-      --border: rgba(255, 104, 26, 0.4);
-      --glow: rgba(255, 82, 10, 0.24);
+    .official-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: min(530px, 88vw);
+      margin: 0 auto;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
-      color: var(--apricot);
-      background:
-        radial-gradient(
-          circle at 50% 10%,
-          rgba(255, 82, 10, 0.18),
-          transparent 32%
-        ),
-        linear-gradient(
-          145deg,
-          #020100 0%,
-          #120702 48%,
-          #020100 100%
-        );
-      font-family: "Montserrat", sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    img {
+    .official-logo {
       display: block;
-      max-width: 100%;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      min-height: 118px;
-      padding: 17px clamp(18px, 4vw, 65px);
-      border-bottom: 1px solid var(--border);
-      background: rgba(3, 2, 1, 0.97);
-      backdrop-filter: blur(18px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 17px;
-      min-width: 0;
-    }
-
-    .logo-box {
-      flex: 0 0 auto;
-      width: 82px;
-      height: 82px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--black);
-      box-shadow: 0 0 27px var(--glow);
-    }
-
-    .logo-image {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: contain;
-    }
-
-    .logo-fallback {
-      display: none;
-      width: 100%;
-      height: 100%;
-      place-items: center;
-      border: 2px solid var(--orange);
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: 24px;
-      font-weight: 800;
-    }
-
-    .brand-name {
-      color: var(--apricot);
-      font-size: clamp(18px, 2.4vw, 27px);
-      font-weight: 800;
-      letter-spacing: 2px;
-      line-height: 1.15;
-      text-transform: uppercase;
-    }
-
-    .brand-school {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .admin-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 16px;
-      border: 1px solid var(--orange);
-      color: var(--apricot);
-      background: rgba(255, 104, 26, 0.07);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .admin-button:hover {
-      color: var(--black);
-      background: var(--orange);
-    }
-
-    .language-switcher {
-      display: flex;
-      padding: 4px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: #080301;
-    }
-
-    .language-button {
-      min-width: 47px;
-      padding: 11px 10px;
-      border: 0;
-      border-radius: 999px;
-      color: var(--muted);
-      background: transparent;
-      cursor: pointer;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .language-button.active {
-      color: var(--black);
-      background: linear-gradient(
-        135deg,
-        var(--apricot),
-        var(--orange)
+      filter: drop-shadow(
+        0 20px 45px rgba(255, 90, 0, 0.31)
       );
-      box-shadow: 0 0 18px var(--glow);
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 75px 20px 105px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 40px;
-      right: -180px;
-      width: 630px;
-      height: 630px;
-      border: 45px solid rgba(255, 104, 26, 0.07);
-      border-radius: 50%;
-      box-shadow: 0 0 90px rgba(255, 82, 10, 0.16);
-      animation: pulseRing 4s ease-in-out infinite;
-    }
-
-    .hero-layout {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 0.9fr;
-      gap: 55px;
-      align-items: center;
-      width: min(1180px, 100%);
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      color: var(--orange);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    .hero-title {
-      margin-top: 22px;
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: clamp(48px, 7vw, 83px);
-      line-height: 1.03;
-    }
-
-    .hero-title span {
-      color: var(--orange);
-    }
-
-    .hero-description {
-      max-width: 680px;
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: clamp(15px, 2vw, 18px);
-      line-height: 1.85;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 58px;
-      padding: 15px 25px;
-      border: 1px solid var(--orange);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-    }
-
-    .button-primary {
-      color: var(--black);
-      background: linear-gradient(
-        135deg,
-        var(--apricot),
-        var(--orange)
-      );
-      box-shadow: 0 0 24px var(--glow);
-    }
-
-    .button-secondary {
-      color: var(--apricot);
-      background: rgba(255, 104, 26, 0.05);
-    }
-
-    .hero-logo-wrap {
-      animation: logoFloat 5s ease-in-out infinite;
-      filter: drop-shadow(0 28px 34px rgba(255, 80, 5, 0.25));
-    }
-
-    .hero-logo-wrap img {
-      width: 100%;
-      max-height: 620px;
-      object-fit: contain;
-    }
-
-    .section {
-      padding: 95px 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-container {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-    }
-
-    .section-heading {
-      max-width: 830px;
-      margin-bottom: 48px;
-    }
-
-    .section-title {
-      margin-top: 16px;
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: clamp(36px, 6vw, 62px);
-      line-height: 1.08;
-    }
-
-    .section-description {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .program-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-height: 390px;
-      padding: clamp(27px, 4vw, 42px);
-      border: 1px solid var(--border);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(40, 16, 6, 0.94),
-          rgba(6, 3, 1, 0.98)
-        );
-      transition:
-        transform 0.25s ease,
-        border-color 0.25s ease;
-    }
-
-    .program-card:hover {
-      transform: translateY(-7px);
-      border-color: var(--orange);
-    }
-
-    .program-number {
-      position: absolute;
-      top: 25px;
-      right: 27px;
-      color: rgba(255, 104, 26, 0.48);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .program-license {
-      align-self: flex-start;
-      padding: 9px 12px;
-      border: 1px solid var(--border);
-      color: var(--orange);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .program-title {
-      margin-top: 31px;
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: clamp(27px, 4vw, 39px);
-      line-height: 1.2;
-    }
-
-    .program-description {
-      margin-top: 17px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .program-details {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 22px;
-    }
-
-    .program-details span {
-      padding: 8px 10px;
-      border: 1px solid var(--border);
-      color: var(--apricot-dark);
-      background: #090301;
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .program-footer {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-top: auto;
-      padding-top: 26px;
-    }
-
-    .price-label {
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .program-price {
-      margin-top: 7px;
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: 37px;
-      font-weight: 800;
-    }
-
-    .program-price small {
-      color: var(--orange);
-      font-family: "Montserrat", sans-serif;
-      font-size: 10px;
-    }
-
-    .course-link {
-      padding: 12px 14px;
-      border: 1px solid var(--orange);
-      color: var(--orange);
-      font-size: 10px;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .course-link:hover {
-      color: var(--black);
-      background: var(--orange);
-    }
-
-    .bundle {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 30px;
-      align-items: center;
-      margin-top: 22px;
-      padding: clamp(30px, 5vw, 50px);
-      border: 1px solid var(--orange);
-      background:
-        radial-gradient(
-          circle at 85% 50%,
-          rgba(255, 104, 26, 0.2),
-          transparent 33%
-        ),
-        #0a0402;
-    }
-
-    .bundle-title {
-      margin-top: 13px;
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: clamp(29px, 5vw, 47px);
-    }
-
-    .bundle-description {
-      max-width: 720px;
-      margin-top: 14px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .bundle-price {
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: clamp(45px, 7vw, 68px);
-      font-weight: 800;
-      text-align: right;
-    }
-
-    .bundle-price small {
-      display: block;
-      color: var(--orange);
-      font-family: "Montserrat", sans-serif;
-      font-size: 11px;
-      letter-spacing: 2px;
-    }
-
-    .path-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border: 1px solid var(--border);
-    }
-
-    .path-card {
-      min-height: 270px;
-      padding: 30px;
-      background: rgba(11, 4, 2, 0.88);
-    }
-
-    .path-card + .path-card {
-      border-left: 1px solid var(--border);
-    }
-
-    .path-number {
-      color: var(--orange);
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .path-title {
-      margin-top: 31px;
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: 27px;
-    }
-
-    .path-text {
-      margin-top: 16px;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .student-panel {
-      width: min(930px, 100%);
-      margin: 0 auto;
-      padding: clamp(38px, 7vw, 72px);
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(
-          circle,
-          rgba(255, 104, 26, 0.14),
-          transparent 48%
-        ),
-        #080301;
-      text-align: center;
-    }
-
-    .student-panel .section-title {
-      margin-top: 17px;
-    }
-
-    .student-panel .section-description {
-      max-width: 680px;
-      margin-right: auto;
-      margin-left: auto;
-    }
-
-    .student-panel .hero-actions {
-      justify-content: center;
-    }
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 25px;
-    }
-
-    .contact-card,
-    .social-card {
-      padding: clamp(28px, 5vw, 48px);
-      border: 1px solid var(--border);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(35, 14, 5, 0.94),
-          rgba(6, 3, 1, 0.98)
-        );
-    }
-
-    .contact-title {
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: clamp(27px, 4vw, 40px);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 15px;
-      border: 1px solid rgba(255, 104, 26, 0.22);
-      color: var(--apricot);
-      background: rgba(255, 104, 26, 0.04);
-      line-height: 1.6;
-      word-break: break-word;
-    }
-
-    .contact-item i {
-      width: 22px;
-      margin-top: 3px;
-      color: var(--orange);
-      text-align: center;
-    }
-
-    .contact-item:hover {
-      border-color: var(--orange);
-      background: rgba(255, 104, 26, 0.09);
-    }
-
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      min-height: 58px;
-      padding: 13px 15px;
-      border: 1px solid var(--border);
-      color: var(--apricot);
-      background: rgba(255, 104, 26, 0.04);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .social-link i {
-      width: 23px;
-      color: var(--orange);
-      font-size: 21px;
-      text-align: center;
-    }
-
-    .social-link:hover {
-      color: var(--black);
-      background: var(--orange);
-    }
-
-    .social-link:hover i {
-      color: var(--black);
-    }
-
-    .legal-note {
-      max-width: 1000px;
-      margin: 28px auto 0;
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.8;
-      text-align: center;
-    }
-
-    .site-footer {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr 1fr;
-      gap: 30px;
-      align-items: center;
-      padding: 38px clamp(18px, 4vw, 65px);
-      background: #020100;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .footer-logo {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-    }
-
-    .footer-name {
-      color: var(--apricot);
-      font-family: "Cinzel", serif;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .footer-contact,
-    .footer-copy {
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 700;
-      line-height: 1.9;
-    }
-
-    .footer-copy {
-      text-align: right;
-    }
-
-    @keyframes logoFloat {
-      0%,
-      100% {
-        transform: translateY(0) scale(1);
-      }
-
-      50% {
-        transform: translateY(-12px) scale(1.015);
-      }
-    }
-
-    @keyframes pulseRing {
-      0%,
-      100% {
-        opacity: 0.5;
-        transform: scale(0.96);
-      }
-
-      50% {
-        opacity: 0.9;
-        transform: scale(1.04);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    @media (max-width: 1000px) {
-      .hero-layout,
-      .contact-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        text-align: center;
-      }
-
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .hero-logo-wrap {
-        width: min(620px, 100%);
-        margin: 0 auto;
-      }
-
-      .path-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .path-card:nth-child(3) {
-        border-top: 1px solid var(--border);
-        border-left: 0;
-      }
-
-      .path-card:nth-child(4) {
-        border-top: 1px solid var(--border);
-      }
-
-      .site-footer {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .footer-brand {
-        justify-content: center;
-      }
-
-      .footer-copy {
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 780px) {
-      .site-header {
-        position: relative;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 17px;
-      }
-
-      .header-actions {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .program-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .bundle {
-        grid-template-columns: 1fr;
-      }
-
-      .bundle-price {
-        text-align: left;
-      }
-
-      .hero {
-        padding-top: 55px;
-      }
-
-      .section {
-        padding: 70px 15px;
-      }
     }
 
     .professor-section {
-      padding: 85px 15px;
-      border-top: 1px solid var(--border);
+      position: relative;
+      padding: 95px 8vw;
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 116, 24, 0.28);
+      border-bottom: 1px solid rgba(255, 116, 24, 0.28);
       background:
-        radial-gradient(circle at 50% 15%, rgba(255, 121, 0, 0.14), transparent 45%),
-        var(--black);
+        radial-gradient(
+          circle at 50% 45%,
+          rgba(255, 116, 24, 0.15),
+          transparent 42%
+        ),
+        linear-gradient(
+          145deg,
+          #100603,
+          #000000 60%,
+          #120500
+        );
     }
 
-    .professor-container {
-      width: min(1050px, 100%);
-      margin: 0 auto;
+    .professor-heading {
+      max-width: 850px;
+      margin: 0 auto 45px;
       text-align: center;
     }
 
-    .professor-video-frame {
-      margin-top: 32px;
-      padding: 10px;
-      border: 1px solid var(--orange);
-      border-radius: 20px;
-      background: #000;
-      box-shadow: 0 0 35px rgba(255, 121, 0, 0.22);
+    .professor-heading h2 {
+      margin: 14px 0;
+      color: #ffad70;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.05;
+    }
+
+    .professor-heading p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #e2773f;
+      line-height: 1.75;
+    }
+
+    .professor-video-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .professor-video-card {
+      position: relative;
+      width: min(100%, 500px);
+      padding: 12px;
+      overflow: hidden;
+      border: 1px solid #ff7418;
+      border-radius: 28px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 116, 24, 0.20),
+          rgba(0, 0, 0, 0.98) 48%,
+          rgba(255, 173, 112, 0.14)
+        );
+      box-shadow:
+        0 0 0 4px rgba(255, 116, 24, 0.07),
+        0 25px 70px rgba(0, 0, 0, 0.75),
+        0 0 38px rgba(255, 116, 24, 0.27);
+    }
+
+    .video-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 8px 14px;
+      gap: 12px;
+      letter-spacing: 1px;
+    }
+
+    .video-label span {
+      color: #ffad70;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .video-label strong {
+      color: #ff7418;
+      font-size: 11px;
+      font-weight: 900;
     }
 
     .professor-video {
       display: block;
       width: 100%;
-      max-height: 680px;
-      border-radius: 13px;
-      background: #000;
+      aspect-ratio: 9 / 16;
+      border: 1px solid rgba(255, 116, 24, 0.55);
+      border-radius: 20px;
+      background: #000000;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.50);
     }
 
-    .video-error-box {
-      display: none;
-      margin-top: 14px;
-      padding: 13px;
-      border: 1px solid var(--orange);
-      border-radius: 10px;
-      background: #000;
-      color: var(--apricot);
-      font-size: 12px;
-      line-height: 1.6;
-      overflow-wrap: anywhere;
+    @media (max-width: 900px) {
+      .official-logo-wrap {
+        order: -1;
+        width: min(500px, 92vw);
+      }
     }
 
-    @media (max-width: 540px) {
-      .logo-box {
-        width: 70px;
-        height: 70px;
+    @media (max-width: 560px) {
+      .professor-section {
+        padding: 68px 18px;
       }
 
-      .brand-name {
-        font-size: 17px;
-        letter-spacing: 1px;
+      .professor-video-card {
+        padding: 9px;
+        border-radius: 22px;
       }
 
-      .brand-school {
-        font-size: 9px;
-        letter-spacing: 2px;
+      .professor-video {
+        border-radius: 16px;
       }
 
-      .admin-button {
-        width: 100%;
-      }
-
-      .path-grid,
-      .social-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .path-card + .path-card {
-        border-top: 1px solid var(--border);
-        border-left: 0;
-      }
-
-      .program-footer {
-        align-items: flex-start;
+      .video-label {
         flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <a class='brand' href='/'>
-      <div class="logo-box">
-        <img
-          src="insurance-school-logo.png"
-          alt="PRO-MAX Académie Insurance School"
-          class="logo-image school-logo"
-        >
 
-        <span class="logo-fallback">PM</span>
-      </div>
+  <header class="topbar">
 
-      <div>
-        <div class="brand-name">PRO-MAX ACADÉMIE</div>
-        <div class="brand-school">Insurance School</div>
-      </div>
+    <a
+      class="brand"
+      href="#home"
+      aria-label="PRO-MAX Académie Insurance School"
+    >
+      <img
+        class="brand-mark"
+        src="./insurance-school-logo.png"
+        alt="PRO-MAX Académie Insurance School"
+      >
+
+      <span>
+        <strong>PRO-MAX ACADÉMIE</strong>
+
+        <small data-i18n="schoolName">
+          INSURANCE SCHOOL
+        </small>
+      </span>
     </a>
 
-    <div class="header-actions">
-      <a class='admin-button' data-en='Admin Login' data-fr='Connexion Admin' data-ht='Koneksyon Admin' href='admin-login.html'>
-        Admin Login
+    <nav aria-label="Main navigation">
+      <a href="#home" data-i18n="navHome">Home</a>
+
+      <a href="#professor" data-i18n="navProfessor">
+        Professor
       </a>
 
-      <div class="language-switcher">
-        <button
-          type="button"
-          class="language-button active"
-          data-language="en"
-        >
-          ENG
-        </button>
+      <a href="#programs" data-i18n="navPrograms">
+        Programs
+      </a>
 
-        <button
-          type="button"
-          class="language-button"
-          data-language="fr"
-        >
-          FRA
-        </button>
+      <a href="#roadmap" data-i18n="navRoadmap">
+        Roadmap
+      </a>
 
-        <button
-          type="button"
-          class="language-button"
-          data-language="ht"
-        >
-          KRE
-        </button>
-      </div>
+      <a
+        href="./student-profile.html"
+        data-i18n="navCreate"
+      >
+        Create Account
+      </a>
+
+      <a
+        href="./student-portal.html"
+        data-i18n="navPortal"
+      >
+        Student Portal
+      </a>
+    </nav>
+
+    <div class="langs" aria-label="Language selector">
+      <button
+        type="button"
+        class="active"
+        data-lang="en"
+      >
+        ENG
+      </button>
+
+      <button type="button" data-lang="fr">
+        FRA
+      </button>
+
+      <button type="button" data-lang="ht">
+        KRE
+      </button>
     </div>
+
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-layout">
-        <div class="hero-copy">
-          <p
-            class="eyebrow"
-            data-en="ORLANDO, FLORIDA • 100% ONLINE"
-            data-fr="ORLANDO, FLORIDE • 100 % EN LIGNE"
-            data-ht="ORLANDO, FLORIDA • 100% SOU ENTÈNÈT"
-          >
-            ORLANDO, FLORIDA • 100% ONLINE
-          </p>
 
-          <h1 class="hero-title">
-            <span
-              data-en="Build knowledge."
-              data-fr="Développez vos connaissances."
-              data-ht="Devlope konesans."
-            >
-              Build knowledge.
-            </span>
+    <!-- HERO -->
 
-            <br>
+    <section class="hero" id="home">
 
-            <span
-              data-en="Earn confidence."
-              data-fr="Gagnez en confiance."
-              data-ht="Pran konfyans."
-            >
-              Earn confidence.
-            </span>
-          </h1>
+      <div class="hero-copy">
 
-          <p
-            class="hero-description"
-            data-en="Professional insurance education with a clear multilingual learning path for future Florida insurance professionals."
-            data-fr="Une formation professionnelle en assurance avec un parcours multilingue destiné aux futurs professionnels de Floride."
-            data-ht="Fòmasyon pwofesyonèl nan asirans avèk yon chemen aprantisaj nan plizyè lang pou pwochen pwofesyonèl Florida yo."
-          >
-            Professional insurance education with a clear
-            multilingual learning path for future Florida insurance
-            professionals.
-          </p>
-
-          <div class="hero-actions">
-            <a
-              href="#programs"
-              class="button button-primary"
-              data-en="Explore Programs"
-              data-fr="Voir les programmes"
-              data-ht="Gade pwogram yo"
-            >
-              Explore Programs
-            </a>
-
-            <a class='button button-secondary' data-en='Create Account' data-fr='Créer un compte' data-ht='Kreye kont' href='/student-profile'>
-              Create Account
-            </a>
-
-            <a class='button button-secondary' data-en='Student Portal' data-fr='Portail étudiant' data-ht='Pòtal elèv' href='/student-portal'>
-              Student Portal
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-logo-wrap">
-          <img
-            src="insurance-school-logo.png"
-            alt="PRO-MAX Académie Insurance School Orlando Florida"
-            class="main-logo"
-          >
-        </div>
-      </div>
-    </section>
-
-    <section class="professor-section" id="insurance-professor">
-      <div class="professor-container">
-        <p
-          class="eyebrow"
-          data-en="PRO-MAX INSURANCE PROFESSOR"
-          data-fr="PROFESSEUR D’ASSURANCE PRO-MAX"
-          data-ht="PWOFESÈ ASIRANS PRO-MAX"
-        >
-          PRO-MAX INSURANCE PROFESSOR
+        <p class="kicker" data-i18n="eyebrow">
+          PRO-MAX ACADÉMIE • INSURANCE SCHOOL
         </p>
 
-        <h2
-          class="section-title"
-          data-en="Meet your Insurance Professor"
-          data-fr="Découvrez votre professeur d’assurance"
-          data-ht="Rankontre pwofesè asirans ou"
-        >
-          Meet your Insurance Professor
-        </h2>
+        <h1>
+          <b data-i18n="titleA">
+            Build the knowledge.
+          </b>
 
-        <p
-          class="section-lead"
-          data-en="Watch the official introduction to PRO-MAX Académie Insurance School."
-          data-fr="Regardez la présentation officielle de PRO-MAX Académie Insurance School."
-          data-ht="Gade prezantasyon ofisyèl PRO-MAX Académie Insurance School la."
-        >
-          Watch the official introduction to PRO-MAX Académie Insurance School.
+          <span data-i18n="titleB">
+            Earn the confidence.
+          </span>
+        </h1>
+
+        <p class="intro" data-i18n="intro">
+          A focused, multilingual learning path for future
+          insurance professionals. Study insurance fundamentals,
+          track your progress, prepare for your final examination
+          and move forward with purpose.
         </p>
 
-        <div class="professor-video-frame">
-          <video
-            id="insuranceProfessorVideo"
-            class="professor-video"
-            controls
-            playsinline
-            preload="metadata"
-            poster="./insurance-school-logo.png"
+        <div class="actions">
+
+          <a
+            class="primary"
+            href="#programs"
+            data-i18n="explore"
           >
-            <source
-              src="https://tonsit.com/promax-insurance-professor-2min-final.mp4"
-              type="video/mp4"
-            >
-            Your browser does not support HTML5 video.
-          </video>
-        </div>
-
-        <div
-          id="videoErrorBox"
-          class="video-error-box"
-          role="alert"
-        ></div>
-      </div>
-    </section>
-
-    <section class="section" id="programs">
-      <div class="section-container">
-        <div class="section-heading">
-          <p
-            class="eyebrow"
-            data-en="01 — PROGRAMS"
-            data-fr="01 — PROGRAMMES"
-            data-ht="01 — PWOGRAM YO"
-          >
-            01 — PROGRAMS
-          </p>
-
-          <h2
-            class="section-title"
-            data-en="Florida insurance exam-preparation programs"
-            data-fr="Programmes de préparation aux examens d’assurance de Floride"
-            data-ht="Pwogram preparasyon egzamen asirans Florida"
-          >
-            Florida insurance exam-preparation programs
-          </h2>
-
-          <p
-            class="section-description"
-            data-en="Choose the program that matches your professional insurance goal."
-            data-fr="Choisissez le programme correspondant à votre objectif professionnel."
-            data-ht="Chwazi pwogram ki mache ak objektif pwofesyonèl ou nan asirans."
-          >
-            Choose the program that matches your professional
-            insurance goal.
-          </p>
-        </div>
-
-        <div class="program-grid">
-          <article class="program-card">
-            <span class="program-number">01</span>
-            <span class="program-license">FLORIDA 2-40</span>
-
-            <h3 class="program-title">Health Insurance</h3>
-
-            <p class="program-description">
-              Health insurance fundamentals, terminology, policies,
-              responsible guidance and Florida exam preparation.
-            </p>
-
-            <div class="program-details">
-              <span>40 HOURS</span>
-              <span>8 MODULES</span>
-              <span>ONLINE</span>
-            </div>
-
-            <div class="program-footer">
-              <div>
-                <p class="price-label">Course Tuition</p>
-
-                <p class="program-price">
-                  $119 <small>USD</small>
-                </p>
-              </div>
-
-              <a class='course-link' href='/health-insurance'>
-                View Course
-              </a>
-            </div>
-          </article>
-
-          <article class="program-card">
-            <span class="program-number">02</span>
-            <span class="program-license">FLORIDA 2-15</span>
-
-            <h3 class="program-title">
-              Life, Health &amp; Annuities
-            </h3>
-
-            <p class="program-description">
-              Life and health insurance, annuity contracts, policy
-              provisions, ethics and Florida exam preparation.
-            </p>
-
-            <div class="program-details">
-              <span>60 HOURS</span>
-              <span>12 MODULES</span>
-              <span>ONLINE</span>
-            </div>
-
-            <div class="program-footer">
-              <div>
-                <p class="price-label">Course Tuition</p>
-
-                <p class="program-price">
-                  $149 <small>USD</small>
-                </p>
-              </div>
-
-              <a class='course-link' href='/life-health-annuities'>
-                View Course
-              </a>
-            </div>
-          </article>
-
-          <article class="program-card">
-            <span class="program-number">03</span>
-            <span class="program-license">FLORIDA 20-44</span>
-
-            <h3 class="program-title">Personal Lines</h3>
-
-            <p class="program-description">
-              Personal automobile, residential property, liability,
-              coverage basics and Florida exam preparation.
-            </p>
-
-            <div class="program-details">
-              <span>60 HOURS</span>
-              <span>10 MODULES</span>
-              <span>ONLINE</span>
-            </div>
-
-            <div class="program-footer">
-              <div>
-                <p class="price-label">Course Tuition</p>
-
-                <p class="program-price">
-                  $149 <small>USD</small>
-                </p>
-              </div>
-
-              <a class='course-link' href='/personal-lines'>
-                View Course
-              </a>
-            </div>
-          </article>
-
-          <article class="program-card">
-            <span class="program-number">04</span>
-            <span class="program-license">FLORIDA 2-20</span>
-
-            <h3 class="program-title">
-              Property &amp; Casualty
-            </h3>
-
-            <p class="program-description">
-              Property risks, casualty protection, commercial
-              coverage, policy structure and Florida exam preparation.
-            </p>
-
-            <div class="program-details">
-              <span>200 HOURS</span>
-              <span>20 MODULES</span>
-              <span>ONLINE</span>
-            </div>
-
-            <div class="program-footer">
-              <div>
-                <p class="price-label">Course Tuition</p>
-
-                <p class="program-price">
-                  $299 <small>USD</small>
-                </p>
-              </div>
-
-              <a
-                href="property-casualty.html"
-                class="course-link"
-              >
-                View Course
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <article class="bundle">
-          <div>
-            <p class="eyebrow">COMPLETE LEARNING PACKAGE</p>
-
-            <h3 class="bundle-title">
-              Complete Insurance School Bundle
-            </h3>
-
-            <p class="bundle-description">
-              Access all four PRO-MAX insurance exam-preparation
-              programs through one complete learning package.
-            </p>
-          </div>
-
-          <div class="bundle-price">
-            $599
-            <small>USD</small>
-          </div>
-        </article>
-
-        <p class="legal-note">
-          Course tuition does not include Florida application, state
-          examination, licensing or fingerprint fees. Programs are
-          presented as exam-preparation education.
-        </p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-container">
-        <div class="section-heading">
-          <p
-            class="eyebrow"
-            data-en="02 — STUDENT PATH"
-            data-fr="02 — PARCOURS ÉTUDIANT"
-            data-ht="02 — CHEMEN ELÈV"
-          >
-            02 — STUDENT PATH
-          </p>
-
-          <h2
-            class="section-title"
-            data-en="Your path to completion"
-            data-fr="Votre parcours vers la réussite"
-            data-ht="Chemen ou pou rive fini"
-          >
-            Your path to completion
-          </h2>
-        </div>
-
-        <div class="path-grid">
-          <article class="path-card">
-            <span class="path-number">01</span>
-            <h3 class="path-title">Enroll</h3>
-            <p class="path-text">
-              Create your student profile and select a program.
-            </p>
-          </article>
-
-          <article class="path-card">
-            <span class="path-number">02</span>
-            <h3 class="path-title">Learn</h3>
-            <p class="path-text">
-              Complete lessons, reviews and practice quizzes.
-            </p>
-          </article>
-
-          <article class="path-card">
-            <span class="path-number">03</span>
-            <h3 class="path-title">Final Exam</h3>
-            <p class="path-text">
-              Complete the PRO-MAX final assessment.
-            </p>
-          </article>
-
-          <article class="path-card">
-            <span class="path-number">04</span>
-            <h3 class="path-title">Certificate</h3>
-            <p class="path-text">
-              Pass the assessment and receive your certificate.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="student-panel">
-        <p
-          class="eyebrow"
-          data-en="03 — STUDENT ACCOUNT"
-          data-fr="03 — COMPTE ÉTUDIANT"
-          data-ht="03 — KONT ELÈV"
-        >
-          03 — STUDENT ACCOUNT
-        </p>
-
-        <h2
-          class="section-title"
-          data-en="Continue your learning journey"
-          data-fr="Continuez votre parcours"
-          data-ht="Kontinye chemen aprantisaj ou"
-        >
-          Continue your learning journey
-        </h2>
-
-        <p
-          class="section-description"
-          data-en="Create your profile or sign in to access your courses, progress, final exam and certificate."
-          data-fr="Créez votre profil ou connectez-vous pour accéder à vos cours, votre progression, votre examen et votre certificat."
-          data-ht="Kreye pwofil ou oswa konekte pou jwenn kou, pwogrè, egzamen final ak sètifika ou."
-        >
-          Create your profile or sign in to access your courses,
-          progress, final exam and certificate.
-        </p>
-
-        <div class="hero-actions">
-          <a class='button button-primary' href='/student-profile'>
-            Create Account / Sign In
+            Explore Programs
           </a>
 
-          <a class='button button-secondary' href='/student-portal'>
+          <a
+            class="secondary"
+            href="./student-profile.html"
+            data-i18n="createAccount"
+          >
+            Create Account
+          </a>
+
+          <a
+            class="secondary"
+            href="./student-portal.html"
+            data-i18n="portal"
+          >
             Student Portal
           </a>
 
-          <a class='button button-secondary' href='admin-login.html'>
-            Admin Login
-          </a>
         </div>
+
       </div>
+
+      <div class="official-logo-wrap">
+
+        <img
+          class="official-logo"
+          src="./insurance-school-logo.png"
+          alt="PRO-MAX Académie Insurance School — Orlando, Florida — 100% Online"
+        >
+
+      </div>
+
     </section>
 
-    <section class="section" id="contact">
-      <div class="section-container">
-        <div class="section-heading">
-          <p
-            class="eyebrow"
-            data-en="04 — CONTACT & SOCIAL NETWORKS"
-            data-fr="04 — CONTACT ET RÉSEAUX SOCIAUX"
-            data-ht="04 — KONTAK AK REZO SOSYAL"
-          >
-            04 — CONTACT &amp; SOCIAL NETWORKS
+    <!-- INSURANCE PROFESSOR — YOUTUBE VIDEO -->
+
+    <section
+      class="professor-section"
+      id="professor"
+    >
+
+      <div class="professor-heading">
+
+        <p class="kicker">
+          PRO-MAX ACADÉMIE
+        </p>
+
+        <h2 data-i18n="professorTitle">
+          Meet Your Insurance Professor
+        </h2>
+
+        <p data-i18n="professorText">
+          Professional guidance, clear instruction and
+          practical insurance education through the
+          PRO-MAX Académie learning experience.
+        </p>
+
+      </div>
+
+      <div class="professor-video-wrap">
+
+        <div class="professor-video-card">
+
+          <div class="video-label">
+
+            <span>
+              PRO-MAX ACADÉMIE
+            </span>
+
+            <strong data-i18n="professorLabel">
+              INSURANCE PROFESSOR
+            </strong>
+
+          </div>
+
+          <iframe
+            id="insuranceProfessorVideo"
+            class="professor-video"
+            src="https://www.youtube.com/embed/uPXnSzZdTn0?rel=0"
+            title="PRO-MAX Académie Insurance Professor"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PROGRAMS -->
+
+    <section class="section" id="programs">
+
+      <p class="kicker">
+        01 — PROGRAMS
+      </p>
+
+      <h2 data-i18n="programTitle">
+        Core study programs
+      </h2>
+
+      <p class="section-lead" data-i18n="programSub">
+        Choose your professional learning track and build
+        strong insurance foundations through PRO-MAX Académie.
+      </p>
+
+      <div class="grid">
+
+        <article class="card">
+
+          <span class="number">01</span>
+
+          <i
+            class="icon fa-solid fa-heart-pulse"
+            aria-hidden="true"
+          ></i>
+
+          <h3 data-i18n="lifeTitle">
+            Life Insurance
+          </h3>
+
+          <p data-i18n="lifeText">
+            Learn coverage, beneficiaries, policy structures,
+            client needs and responsible professional guidance.
           </p>
 
-          <h2
-            class="section-title"
-            data-en="Connect with PRO-MAX Académie"
-            data-fr="Contactez PRO-MAX Académie"
-            data-ht="Konekte ak PRO-MAX Académie"
+          <a
+            class="secondary"
+            href="./life-insurance.html"
+            data-i18n="openCourse"
           >
-            Connect with PRO-MAX Académie
-          </h2>
-        </div>
+            Open Course
+          </a>
 
-        <div class="contact-layout">
-          <article class="contact-card">
-            <h3
-              class="contact-title"
-              data-en="Official Contact"
-              data-fr="Contact officiel"
-              data-ht="Kontak ofisyèl"
-            >
-              Official Contact
-            </h3>
+        </article>
 
-            <div class="contact-list">
-              <a
-                href="mailto:louismaxauto600@gmail.com"
-                class="contact-item"
-              >
-                <i class="fa-solid fa-envelope"></i>
-                <span>louismaxauto600@gmail.com</span>
-              </a>
+        <article class="card">
 
-              <a
-                href="https://bss1815promaxdmp.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-item"
-              >
-                <i class="fa-solid fa-globe"></i>
-                <span>bss1815promaxdmp.com</span>
-              </a>
+          <span class="number">02</span>
 
-              <a
-                href="tel:+14076405166"
-                class="contact-item"
-              >
-                <i class="fa-solid fa-phone"></i>
-                <span>(407) 640-5166</span>
-              </a>
+          <i
+            class="icon fa-solid fa-notes-medical"
+            aria-hidden="true"
+          ></i>
 
-              <a
-                href="https://wa.me/15162168494"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-item"
-              >
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>(516) 216-8494 — WhatsApp</span>
-              </a>
+          <h3 data-i18n="healthTitle">
+            Health Insurance
+          </h3>
 
-              <a
-                href="tel:+50943437488"
-                class="contact-item"
-              >
-                <i class="fa-solid fa-phone-volume"></i>
-                <span>+509 4343-7488</span>
-              </a>
-            </div>
-          </article>
+          <p data-i18n="healthText">
+            Study health plans, essential terminology,
+            policy provisions and Florida 2-40 fundamentals.
+          </p>
 
-          <article class="social-card">
-            <h3
-              class="contact-title"
-              data-en="Social Networks"
-              data-fr="Réseaux sociaux"
-              data-ht="Rezo sosyal"
-            >
-              Social Networks
-            </h3>
+          <a
+            class="secondary"
+            href="./health-insurance.html"
+            data-i18n="openCourse"
+          >
+            Open Course
+          </a>
 
-            <div class="social-grid">
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-brands fa-facebook-f"></i>
-                <span>Facebook</span>
-              </a>
+        </article>
 
-              <a
-                href="https://wa.me/15162168494"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>WhatsApp</span>
-              </a>
+        <article class="card">
 
-              <a
-                href="https://www.tiktok.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-brands fa-tiktok"></i>
-                <span>TikTok</span>
-              </a>
+          <span class="number">03</span>
 
-              <a
-                href="https://www.youtube.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-brands fa-youtube"></i>
-                <span>YouTube</span>
-              </a>
+          <i
+            class="icon fa-solid fa-car-side"
+            aria-hidden="true"
+          ></i>
 
-              <a
-                href="https://open.spotify.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-brands fa-spotify"></i>
-                <span>Spotify</span>
-              </a>
+          <h3 data-i18n="autoTitle">
+            Auto Insurance
+          </h3>
 
-              <a
-                href="https://telegram.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-brands fa-telegram"></i>
-                <span>Telegram</span>
-              </a>
+          <p data-i18n="autoText">
+            Understand liability, protection, claims,
+            policy structure and responsible client service.
+          </p>
 
-              <a
-                href="https://x.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-brands fa-x-twitter"></i>
-                <span>X / Twitter</span>
-              </a>
+          <a
+            class="secondary"
+            href="./auto-insurance.html"
+            data-i18n="openCourse"
+          >
+            Open Course
+          </a>
 
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-brands fa-instagram"></i>
-                <span>Instagram</span>
-              </a>
+        </article>
 
-              <a
-                href="https://truthsocial.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-solid fa-t"></i>
-                <span>Truth Social</span>
-              </a>
+        <article class="card">
 
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-              >
-                <i class="fa-brands fa-linkedin-in"></i>
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </article>
-        </div>
+          <span class="number">04</span>
+
+          <i
+            class="icon fa-solid fa-house-shield"
+            aria-hidden="true"
+          ></i>
+
+          <h3 data-i18n="propertyTitle">
+            Property &amp; Casualty
+          </h3>
+
+          <p data-i18n="propertyText">
+            Build knowledge of property risks, casualty
+            protection, coverage and Florida insurance concepts.
+          </p>
+
+          <a
+            class="secondary"
+            href="./property-casualty.html"
+            data-i18n="openCourse"
+          >
+            Open Course
+          </a>
+
+        </article>
+
       </div>
+
     </section>
+
+    <!-- ROADMAP -->
+
+    <section class="section dark" id="roadmap">
+
+      <p class="kicker">
+        02 — ROADMAP
+      </p>
+
+      <h2 data-i18n="roadmapTitle">
+        Your path to completion
+      </h2>
+
+      <p class="section-lead" data-i18n="roadmapIntro">
+        Follow a clear professional learning pathway from
+        enrollment to certificate completion.
+      </p>
+
+      <div class="steps">
+
+        <article class="step">
+
+          <b>01</b>
+
+          <h3 data-i18n="enrollTitle">
+            Enroll
+          </h3>
+
+          <p data-i18n="enrollText">
+            Create your student profile and select your
+            professional insurance program.
+          </p>
+
+        </article>
+
+        <article class="step">
+
+          <b>02</b>
+
+          <h3 data-i18n="learnTitle">
+            Learn
+          </h3>
+
+          <p data-i18n="learnText">
+            Complete lessons, learning modules,
+            quizzes and practical course reviews.
+          </p>
+
+        </article>
+
+        <article class="step">
+
+          <b>03</b>
+
+          <h3 data-i18n="examTitle">
+            Final Exam
+          </h3>
+
+          <p data-i18n="examText">
+            Complete the PRO-MAX course examination
+            through BSS1815 PRO-MAX DMP.
+          </p>
+
+        </article>
+
+        <article class="step">
+
+          <b>04</b>
+
+          <h3 data-i18n="certificateTitle">
+            Certificate
+          </h3>
+
+          <p data-i18n="certificateText">
+            Verify your result and receive your
+            PRO-MAX Académie course certificate.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- STUDENT CENTER -->
+
+    <section
+      class="section payment"
+      id="student-center"
+    >
+
+      <div class="payment-copy">
+
+        <p class="kicker">
+          03 — STUDENT ACCOUNT
+        </p>
+
+        <h2 data-i18n="studentTitle">
+          Your professional learning center
+        </h2>
+
+        <p data-i18n="studentText">
+          Access your selected courses, track your learning
+          progress, review your enrollment status, prepare for
+          your final examination and verify your certificate.
+        </p>
+
+        <div class="actions">
+
+          <a
+            class="primary"
+            href="./student-profile.html"
+            data-i18n="createAccount"
+          >
+            Create Account
+          </a>
+
+          <a
+            class="secondary"
+            href="./student-portal.html"
+            data-i18n="portal"
+          >
+            Student Portal
+          </a>
+
+        </div>
+
+      </div>
+
+      <aside class="payment-card">
+
+        <span data-i18n="accountFeatures">
+          Student account features
+        </span>
+
+        <strong>
+          100%
+
+          <small data-i18n="online">
+            ONLINE
+          </small>
+        </strong>
+
+        <p data-i18n="accountText">
+          One secure location for enrollment, courses,
+          progress, examinations and certificates.
+        </p>
+
+        <div class="pay-dots">
+          <b>1</b>
+          <b>2</b>
+          <b>3</b>
+          <b>4</b>
+          <b>5</b>
+        </div>
+
+        <div class="status" data-i18n="currencyNotice">
+          All course payments are displayed in USD.
+        </div>
+
+      </aside>
+
+    </section>
+
+    <!-- FINAL CTA -->
+
+    <section class="cta">
+
+      <p class="kicker">
+        BSS1815 PRO-MAX DMP
+      </p>
+
+      <h2 data-i18n="promise">
+        Learn with direction. Progress with discipline.
+      </h2>
+
+      <p data-i18n="promiseSub">
+        Education, technology and opportunity inside one
+        professional digital ecosystem.
+      </p>
+
+      <div class="actions">
+
+        <a
+          class="primary"
+          href="./student-profile.html"
+          data-i18n="startNow"
+        >
+          Start Now
+        </a>
+
+        <a
+          class="secondary"
+          href="#programs"
+          data-i18n="explore"
+        >
+          Explore Programs
+        </a>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-brand">
+  <footer>
+
+    <div class="brand">
+
       <img
-        src="insurance-school-logo.png"
-        alt="PRO-MAX Insurance School"
-        class="footer-logo"
+        class="brand-mark"
+        src="./insurance-school-logo.png"
+        alt="PRO-MAX Académie Insurance School"
       >
 
-      <div class="footer-name">
-        PRO-MAX ACADÉMIE<br>
-        INSURANCE SCHOOL
-      </div>
+      <span>
+        <strong>PRO-MAX ACADÉMIE</strong>
+
+        <small data-i18n="schoolName">
+          INSURANCE SCHOOL
+        </small>
+      </span>
+
     </div>
 
-    <div class="footer-contact">
-      louismaxauto600@gmail.com<br>
-      (407) 640-5166 • (516) 216-8494<br>
-      +509 4343-7488
-    </div>
+    <p data-i18n="footer">
+      LEARN. EVOLVE. SUCCEED.
+    </p>
 
-    <div class="footer-copy">
-      bss1815promaxdmp.com<br>
-      © <span id="currentYear"></span>
+    <small>
+      © <span id="year">2026</span>
       BSS1815 PRO-MAX DMP
-    </div>
+    </small>
+
   </footer>
 
   <script>
     "use strict";
 
-    const LANGUAGE_KEY = "promaxInsuranceLanguage";
+    const translations = {
+      en: {
+        schoolName: "INSURANCE SCHOOL",
+        navHome: "Home",
+        navProfessor: "Professor",
+        navPrograms: "Programs",
+        navRoadmap: "Roadmap",
+        navCreate: "Create Account",
+        navPortal: "Student Portal",
+        eyebrow: "PRO-MAX ACADÉMIE • INSURANCE SCHOOL",
+        titleA: "Build the knowledge.",
+        titleB: "Earn the confidence.",
+        intro:
+          "A focused, multilingual learning path for future insurance professionals. Study insurance fundamentals, track your progress, prepare for your final examination and move forward with purpose.",
+        explore: "Explore Programs",
+        createAccount: "Create Account",
+        portal: "Student Portal",
+        professorTitle: "Meet Your Insurance Professor",
+        professorText:
+          "Professional guidance, clear instruction and practical insurance education through the PRO-MAX Académie learning experience.",
+        professorLabel: "INSURANCE PROFESSOR",
+        programTitle: "Core study programs",
+        programSub:
+          "Choose your professional learning track and build strong insurance foundations through PRO-MAX Académie.",
+        lifeTitle: "Life Insurance",
+        lifeText:
+          "Learn coverage, beneficiaries, policy structures, client needs and responsible professional guidance.",
+        healthTitle: "Health Insurance",
+        healthText:
+          "Study health plans, essential terminology, policy provisions and Florida 2-40 fundamentals.",
+        autoTitle: "Auto Insurance",
+        autoText:
+          "Understand liability, protection, claims, policy structure and responsible client service.",
+        propertyTitle: "Property & Casualty",
+        propertyText:
+          "Build knowledge of property risks, casualty protection, coverage and Florida insurance concepts.",
+        openCourse: "Open Course",
+        roadmapTitle: "Your path to completion",
+        roadmapIntro:
+          "Follow a clear professional learning pathway from enrollment to certificate completion.",
+        enrollTitle: "Enroll",
+        enrollText:
+          "Create your student profile and select your professional insurance program.",
+        learnTitle: "Learn",
+        learnText:
+          "Complete lessons, learning modules, quizzes and practical course reviews.",
+        examTitle: "Final Exam",
+        examText:
+          "Complete the PRO-MAX course examination through BSS1815 PRO-MAX DMP.",
+        certificateTitle: "Certificate",
+        certificateText:
+          "Verify your result and receive your PRO-MAX Académie course certificate.",
+        studentTitle: "Your professional learning center",
+        studentText:
+          "Access your selected courses, track your learning progress, review your enrollment status, prepare for your final examination and verify your certificate.",
+        accountFeatures: "Student account features",
+        online: "ONLINE",
+        accountText:
+          "One secure location for enrollment, courses, progress, examinations and certificates.",
+        currencyNotice:
+          "All course payments are displayed in USD.",
+        promise:
+          "Learn with direction. Progress with discipline.",
+        promiseSub:
+          "Education, technology and opportunity inside one professional digital ecosystem.",
+        startNow: "Start Now",
+        footer: "LEARN. EVOLVE. SUCCEED."
+      },
 
-    let currentLanguage =
-      localStorage.getItem(LANGUAGE_KEY) || "en";
+      fr: {
+        schoolName: "ÉCOLE D’ASSURANCE",
+        navHome: "Accueil",
+        navProfessor: "Professeur",
+        navPrograms: "Programmes",
+        navRoadmap: "Parcours",
+        navCreate: "Créer un compte",
+        navPortal: "Portail étudiant",
+        eyebrow:
+          "PRO-MAX ACADÉMIE • ÉCOLE D’ASSURANCE",
+        titleA: "Développez vos connaissances.",
+        titleB: "Gagnez en confiance.",
+        intro:
+          "Un parcours multilingue destiné aux futurs professionnels de l’assurance. Étudiez les principes fondamentaux, suivez votre progression et préparez votre examen final.",
+        explore: "Voir les programmes",
+        createAccount: "Créer un compte",
+        portal: "Portail étudiant",
+        professorTitle:
+          "Découvrez votre professeur d’assurance",
+        professorText:
+          "Des conseils professionnels et une formation pratique dans l’expérience PRO-MAX Académie.",
+        professorLabel:
+          "PROFESSEUR D’ASSURANCE",
+        programTitle:
+          "Programmes fondamentaux",
+        programSub:
+          "Choisissez votre parcours professionnel et développez de solides connaissances en assurance.",
+        lifeTitle: "Assurance vie",
+        lifeText:
+          "Étudiez les garanties, bénéficiaires, contrats et besoins des clients.",
+        healthTitle: "Assurance santé",
+        healthText:
+          "Étudiez les régimes, la terminologie et les principes Florida 2-40.",
+        autoTitle: "Assurance automobile",
+        autoText:
+          "Comprenez la responsabilité, la protection, les réclamations et les contrats.",
+        propertyTitle:
+          "Biens et risques divers",
+        propertyText:
+          "Développez vos connaissances des risques, protections et garanties.",
+        openCourse: "Ouvrir le cours",
+        roadmapTitle:
+          "Votre parcours vers la réussite",
+        roadmapIntro:
+          "Suivez un parcours clair de l’inscription à l’obtention du certificat.",
+        enrollTitle: "Inscription",
+        enrollText:
+          "Créez votre profil étudiant et sélectionnez votre programme.",
+        learnTitle: "Formation",
+        learnText:
+          "Terminez les leçons, modules, quiz et révisions pratiques.",
+        examTitle: "Examen final",
+        examText:
+          "Passez l’examen PRO-MAX via BSS1815 PRO-MAX DMP.",
+        certificateTitle: "Certificat",
+        certificateText:
+          "Vérifiez votre résultat et recevez votre certificat PRO-MAX Académie.",
+        studentTitle:
+          "Votre centre d’apprentissage",
+        studentText:
+          "Accédez à vos cours, suivez votre progression et préparez votre examen final.",
+        accountFeatures:
+          "Fonctions du compte étudiant",
+        online: "EN LIGNE",
+        accountText:
+          "Un espace sécurisé pour les cours, les examens et les certificats.",
+        currencyNotice:
+          "Tous les paiements des cours sont affichés en USD.",
+        promise:
+          "Apprenez avec méthode. Progressez avec discipline.",
+        promiseSub:
+          "Éducation, technologie et opportunité dans un écosystème professionnel.",
+        startNow: "Commencer",
+        footer:
+          "APPRENDRE. ÉVOLUER. RÉUSSIR."
+      },
 
-    function applyLanguage(language) {
-      const supportedLanguages = ["en", "fr", "ht"];
+      ht: {
+        schoolName: "LEKÒL ASIRANS",
+        navHome: "Akèy",
+        navProfessor: "Pwofesè",
+        navPrograms: "Pwogram",
+        navRoadmap: "Chemen",
+        navCreate: "Kreye kont",
+        navPortal: "Pòtal elèv",
+        eyebrow:
+          "PRO-MAX ACADÉMIE • LEKÒL ASIRANS",
+        titleA: "Devlope konesans.",
+        titleB: "Pran konfyans.",
+        intro:
+          "Yon chemen aprantisaj nan plizyè lang pou pwochen pwofesyonèl asirans yo. Etidye prensip asirans yo, swiv pwogrè ou epi prepare egzamen final ou.",
+        explore: "Gade pwogram yo",
+        createAccount: "Kreye kont",
+        portal: "Pòtal elèv",
+        professorTitle:
+          "Rankontre pwofesè asirans ou",
+        professorText:
+          "Bon jan direksyon pwofesyonèl ak fòmasyon pratik atravè eksperyans PRO-MAX Académie.",
+        professorLabel:
+          "PWOFESÈ ASIRANS",
+        programTitle:
+          "Pwogram prensipal yo",
+        programSub:
+          "Chwazi pwogram pwofesyonèl ou epi devlope bon konesans nan asirans.",
+        lifeTitle: "Asirans vi",
+        lifeText:
+          "Aprann sou pwoteksyon, benefisyè, kontra ak bezwen kliyan yo.",
+        healthTitle: "Asirans sante",
+        healthText:
+          "Etidye plan sante, tèm enpòtan ak prensip Florida 2-40.",
+        autoTitle: "Asirans machin",
+        autoText:
+          "Konprann responsablite, pwoteksyon, reklamasyon ak kontra yo.",
+        propertyTitle:
+          "Pwopriyete ak responsablite",
+        propertyText:
+          "Devlope konesans sou risk, pwoteksyon ak garanti asirans.",
+        openCourse: "Ouvri kou a",
+        roadmapTitle:
+          "Chemen ou pou fini",
+        roadmapIntro:
+          "Swiv yon chemen klè depi enskripsyon rive nan sètifika.",
+        enrollTitle: "Enskri",
+        enrollText:
+          "Kreye pwofil elèv ou epi chwazi pwogram asirans ou.",
+        learnTitle: "Aprann",
+        learnText:
+          "Fini leson, modil, egzamen pratik ak revizyon yo.",
+        examTitle: "Egzamen final",
+        examText:
+          "Pase egzamen PRO-MAX la atravè BSS1815 PRO-MAX DMP.",
+        certificateTitle: "Sètifika",
+        certificateText:
+          "Verifye rezilta ou epi resevwa sètifika PRO-MAX Académie ou.",
+        studentTitle:
+          "Sant aprantisaj pwofesyonèl ou",
+        studentText:
+          "Antre nan kou ou yo, swiv pwogrè ou epi prepare egzamen final ou.",
+        accountFeatures:
+          "Fonksyon kont elèv la",
+        online: "SOU ENTÈNÈT",
+        accountText:
+          "Yon espas sekirize pou kou, egzamen ak sètifika.",
+        currencyNotice:
+          "Tout peman kou yo afiche an USD.",
+        promise:
+          "Aprann avèk direksyon. Avanse avèk disiplin.",
+        promiseSub:
+          "Edikasyon, teknoloji ak opòtinite nan yon ekosistèm pwofesyonèl.",
+        startNow: "Kòmanse",
+        footer:
+          "APRANN. EVOLYE. REYISI."
+      }
+    };
 
-      currentLanguage = supportedLanguages.includes(language)
-        ? language
-        : "en";
-
-      localStorage.setItem(
-        LANGUAGE_KEY,
-        currentLanguage
-      );
+    function changeLanguage(language) {
+      const selected =
+        translations[language] || translations.en;
 
       document.documentElement.lang =
-        currentLanguage === "ht"
-          ? "ht"
-          : currentLanguage;
+        language === "ht" ? "ht" : language;
 
       document
-        .querySelectorAll("[data-en][data-fr][data-ht]")
-        .forEach(element => {
-          const translatedText =
-            element.dataset[currentLanguage];
+        .querySelectorAll("[data-i18n]")
+        .forEach(function (element) {
+          const key = element.dataset.i18n;
 
-          if (translatedText) {
-            element.textContent = translatedText;
+          if (selected[key]) {
+            element.textContent = selected[key];
           }
         });
 
       document
-        .querySelectorAll(".language-button")
-        .forEach(button => {
+        .querySelectorAll("[data-lang]")
+        .forEach(function (button) {
           button.classList.toggle(
             "active",
-            button.dataset.language === currentLanguage
+            button.dataset.lang === language
           );
         });
-    }
 
-    document
-      .querySelectorAll(".language-button")
-      .forEach(button => {
-        button.addEventListener("click", () => {
-          applyLanguage(button.dataset.language);
-        });
-      });
-
-    document
-      .querySelectorAll(".logo-image")
-      .forEach(image => {
-        image.addEventListener("error", () => {
-          if (
-            image.getAttribute("src") ===
-            "insurance-school-logo.png"
-          ) {
-            image.src = "logo.png";
-            return;
-          }
-
-          image.style.display = "none";
-
-          const fallback =
-            image.parentElement.querySelector(
-              ".logo-fallback"
-            );
-
-          if (fallback) {
-            fallback.style.display = "grid";
-          }
-        });
-      });
-
-    const mainLogo = document.querySelector(".main-logo");
-
-    if (mainLogo) {
-      mainLogo.addEventListener("error", () => {
-        if (
-          mainLogo.getAttribute("src") ===
-          "insurance-school-logo.png"
-        ) {
-          mainLogo.src = "logo.png";
-        }
-      });
-    }
-
-    const professorVideo = document.getElementById(
-      "insuranceProfessorVideo"
-    );
-
-    const videoErrorBox = document.getElementById(
-      "videoErrorBox"
-    );
-
-    if (professorVideo && videoErrorBox) {
-      professorVideo.addEventListener(
-        "loadedmetadata",
-        () => {
-          videoErrorBox.style.display = "none";
-          videoErrorBox.textContent = "";
-        }
+      localStorage.setItem(
+        "promaxInsuranceLanguage",
+        language
       );
-
-      professorVideo.addEventListener("error", () => {
-        videoErrorBox.style.display = "block";
-        videoErrorBox.textContent =
-          "The Insurance Professor video could not be loaded. Video address: " +
-          professorVideo.currentSrc;
-      });
     }
 
-    document.getElementById(
-      "currentYear"
-    ).textContent = new Date().getFullYear();
+    document
+      .querySelectorAll("[data-lang]")
+      .forEach(function (button) {
+        button.addEventListener(
+          "click",
+          function () {
+            changeLanguage(button.dataset.lang);
+          }
+        );
+      });
 
-    applyLanguage(currentLanguage);
+    const savedLanguage =
+      localStorage.getItem(
+        "promaxInsuranceLanguage"
+      ) || "en";
+
+    changeLanguage(savedLanguage);
+
+    const yearElement =
+      document.getElementById("year");
+
+    if (yearElement) {
+      yearElement.textContent =
+        new Date().getFullYear();
+    }
   </script>
+
 </body>
 </html>
-<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="80d0ce3a-e2e1-44bf-9041-9d98e3f6bb31" data-app-host="app.netlify.com"></script>
