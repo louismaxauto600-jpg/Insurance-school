@@ -2,7 +2,12 @@
 <html lang="en" id="htmlRoot" translate="no">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <meta name="theme-color" content="#000000">
   <meta name="google" content="notranslate">
 
@@ -14,6 +19,7 @@
   <title>PRO-MAX Académie | Insurance School</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
@@ -46,9 +52,10 @@
       width: 100%;
       height: auto;
       object-fit: contain;
-      filter: drop-shadow(
-        0 20px 45px rgba(255, 90, 0, 0.31)
-      );
+      filter:
+        drop-shadow(
+          0 20px 45px rgba(255, 90, 0, 0.31)
+        );
     }
 
     .professor-section {
@@ -146,8 +153,10 @@
       aspect-ratio: 9 / 16;
       border: 1px solid rgba(255, 116, 24, 0.55);
       border-radius: 20px;
+      object-fit: contain;
       background: #000000;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.50);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.50);
     }
 
     @media (max-width: 900px) {
@@ -204,7 +213,10 @@
     </a>
 
     <nav aria-label="Main navigation">
-      <a href="#home" data-i18n="navHome">Home</a>
+
+      <a href="#home" data-i18n="navHome">
+        Home
+      </a>
 
       <a href="#professor" data-i18n="navProfessor">
         Professor
@@ -231,9 +243,13 @@
       >
         Student Portal
       </a>
+
     </nav>
 
-    <div class="langs" aria-label="Language selector">
+    <div
+      class="langs"
+      aria-label="Language selector"
+    >
       <button
         type="button"
         class="active"
@@ -254,8 +270,6 @@
   </header>
 
   <main>
-
-    <!-- HERO -->
 
     <section class="hero" id="home">
 
@@ -324,8 +338,6 @@
 
     </section>
 
-    <!-- INSURANCE PROFESSOR — YOUTUBE VIDEO -->
-
     <section
       class="professor-section"
       id="professor"
@@ -365,16 +377,20 @@
 
           </div>
 
-          <iframe
+          <video
             id="insuranceProfessorVideo"
             class="professor-video"
-            src="https://www.youtube.com/embed/uPXnSzZdTn0?rel=0"
-            title="PRO-MAX Académie Insurance Professor"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+            controls
+            playsinline
+            preload="metadata"
+          >
+            <source
+              src="./promax-insurance-professor-clean-final.mp4"
+              type="video/mp4"
+            >
+
+            Your browser does not support HTML5 video.
+          </video>
 
         </div>
 
@@ -382,9 +398,10 @@
 
     </section>
 
-    <!-- PROGRAMS -->
-
-    <section class="section" id="programs">
+    <section
+      class="section"
+      id="programs"
+    >
 
       <p class="kicker">
         01 — PROGRAMS
@@ -517,9 +534,10 @@
 
     </section>
 
-    <!-- ROADMAP -->
-
-    <section class="section dark" id="roadmap">
+    <section
+      class="section dark"
+      id="roadmap"
+    >
 
       <p class="kicker">
         02 — ROADMAP
@@ -600,8 +618,6 @@
 
     </section>
 
-    <!-- STUDENT CENTER -->
-
     <section
       class="section payment"
       id="student-center"
@@ -679,8 +695,6 @@
       </aside>
 
     </section>
-
-    <!-- FINAL CTA -->
 
     <section class="cta">
 
